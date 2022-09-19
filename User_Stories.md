@@ -1,4 +1,4 @@
-As a **user of the website**, I want to **search and query NASA's exoplanet database** so that I can **gather the planetary data I need**.
+As a **user of the website**, I want to **input a search query** so that I can **gather planetary data from NASA's Exoplanet Archive**.
 
 As a **novice astronomer**, I want to **learn what each piece of data means/represents** so I can **better understand the data**.
 
