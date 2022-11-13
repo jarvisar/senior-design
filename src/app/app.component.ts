@@ -1,5 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import {MatSelectModule} from '@angular/material/select';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,10 @@ import {MatSelectModule} from '@angular/material/select';
 export class AppComponent implements OnInit {
   title = 'senior-design';
   
+  hostData: any[] = [];
+
+  constructor(private data: DataService){}
+
   public selectedHost!: string;
 
   private _selectedIndex!: number;
@@ -28,8 +32,22 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.getHostList();
     this.selectedIndex = 0;
+    console.log("test1");
   }
+
+  public getHostList() {
+    this.data.getHostList().subscribe(data => {
+      data.split('\n').forEach(e => {
+        e.replace('O', '')
+        this.hostData.push(e);
+      })
+        
+    })
+    console.log("test2");
+  }
+  
 }
 
 
