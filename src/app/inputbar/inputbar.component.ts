@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
+import { Papa } from 'ngx-papaparse';
 
 @Component({
   selector: 'app-inputbar',
@@ -10,10 +12,15 @@ export class InputbarComponent implements OnInit {
 
   hostData: any[] = ["Hostname", ];
   methodData: any[] = ["Discovery Method", ];
+  yearData: any[] = ["Discovery Year", ];
+  facilityData: any[] = ["Discovery Facility", ];
   
-  constructor(private data: DataService) { }
-
   public selectedHost!: string;
+  public selectedMethod!: string;
+  public selectedYear!: string;
+  public selectedFacility!: string;
+
+  constructor(private papa: Papa, private data: DataService, private http: HttpClient) { }
 
   private _selectedIndex!: number;
 
@@ -49,4 +56,12 @@ export class InputbarComponent implements OnInit {
     console.log("test2");
   }
 
+  public getFacilityList() {
+    this.http.get('../assets/disc_facility.csv', {responseType: 'text'}).subscribe(data => {
+      data.split('\n').forEach(e => {
+        e = e.replace(/['"]+/g, '');
+        this.facilityData.push(e);
+      })
+    })
+  }
 }

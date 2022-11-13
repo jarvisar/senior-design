@@ -14,13 +14,13 @@
 
     <select class="year_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
       <option *ngFor="let _ of methodData; index as i" [value]="i">
-        {{methodData[i]}}
+        {{yearData[i]}}
       </option>
     </select>
 
     <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
       <option *ngFor="let _ of methodData; index as i" [value]="i">
-        {{methodData[i]}}
+        {{facilityData[i]}}
       </option>
     </select>
     
