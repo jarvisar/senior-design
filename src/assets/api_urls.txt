@@ -1,0 +1,7 @@
+Hostname: https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname+from+pscomppars&format=csv
+
+Discovery Method: https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+discoverymethod+from+pscomppars&format=csv
+
+Discovery Year: https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+disc_year+from+pscomppars+order+by+disc_year+desc&format=csv
+
+Discovery Facility: https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+disc_facility+from+pscomppars&format=csv
