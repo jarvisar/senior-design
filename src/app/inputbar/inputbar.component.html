@@ -1,0 +1,27 @@
+<span class="inputbar" id="inputbar" style="float: left;">
+    <select class="hostname_select" id="hostname_select" style="display: inline; float: left;" [(ngModel)]="selectedIndex">
+      <option *ngFor="let _ of hostData; index as i" [value]="i">
+        {{hostData[i]}}
+      </option>
+    </select>
+    
+    
+    <select class="method_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
+      <option *ngFor="let _ of methodData; index as i" [value]="i">
+        {{methodData[i]}}
+      </option>
+    </select>
+
+    <select class="year_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
+      <option *ngFor="let _ of methodData; index as i" [value]="i">
+        {{methodData[i]}}
+      </option>
+    </select>
+
+    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
+      <option *ngFor="let _ of methodData; index as i" [value]="i">
+        {{methodData[i]}}
+      </option>
+    </select>
+    
+  </span>
