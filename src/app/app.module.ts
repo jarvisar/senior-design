@@ -11,13 +11,13 @@ import { PageComponent } from './page/page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { InputComponent } from './input/inputbar.component';
+import { InputbarComponent } from './inputbar/inputbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
-    InputComponent
+    InputbarComponent
   ],
   imports: [
     BrowserModule,
