@@ -1,0 +1,32 @@
+p {
+    font-family: Lato;
+  }
+
+  #input {
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 100%;
+  } 
+
+  .hostname_select {
+    width: 250px;
+    height:60px;
+    font-size:16px;
+    text-align:left;
+    padding-left: 10px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+
+  .method_select {
+    width: 250px;
+    height:60px;
+    font-size:16px;
+    text-align:left;
+    padding-left: 10px;
+    letter-spacing: 0.5px;
+    display: inline-block;
+  }
+
+
+  

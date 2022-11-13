@@ -9,7 +9,8 @@ import { DataService } from './data.service';
 export class AppComponent implements OnInit {
   title = 'senior-design';
   
-  hostData: any[] = [];
+  hostData: any[] = ["Hostname", ];
+  methodData: any[] = ["Discovery Method", ];
 
   constructor(private data: DataService){}
 
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
     // using the provided index and the array I gues, where your names,
     // addresses and social numbers are stored
     // e.g.: this.selectedName = this.names[index];
-    this.selectedHost = `Name ${++index}; Address ${index}; Social-SSN ${index}`;
+    this.selectedHost = this.hostData[index];
+    console.log(this.selectedHost);
   }
 
   public ngOnInit(): void {

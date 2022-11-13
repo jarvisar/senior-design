@@ -321,13 +321,22 @@
 
 <div class="content" role="main">
 
-  <!-- Highlight Card -->
-  <select name="hostName" [(ngModel)]="selectedIndex">
-    <option *ngFor="let _ of hostData; index as i" [value]="i">
-      {{hostData[i]}}
-    </option>
-  </select>
-  <br />
+  <span class="input" id="input" style="white-space: nowrap;">
+    <select class="hostname_select" id="hostname_select" style="display: inline-block;" [(ngModel)]="selectedIndex">
+      <option *ngFor="let _ of hostData; index as i" [value]="i">
+        {{hostData[i]}}
+      </option>
+    </select>
+    <br />
+  
+    <select class="method_select" id="method_select" style="display: inline-block;" [(ngModel)]="selectedIndex">
+      <option *ngFor="let _ of methodData; index as i" [value]="i">
+        {{methodData[i]}}
+      </option>
+    </select>
+    <br />
+  </span>
+  
 
   <!-- Resources -->
   <h2>Resources</h2>
