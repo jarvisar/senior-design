@@ -1,5 +1,5 @@
 <span class="inputbar" id="inputbar" style="float: left;">
-    <select class="hostname_select" id="hostname_select" style="display: inline; float: left;" [(ngModel)]="selectedHost">
+    <select class="hostname_select" id="hostname_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedHost">
       <option *ngFor="let _ of hostData; index as i" [value]="i">
         {{hostData[i]}}
       </option>
@@ -18,10 +18,10 @@
       </option>
     </select>
 
-    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedFacility">
+    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px; margin-right: 15px" [(ngModel)]="selectedFacility">
       <option *ngFor="let _ of facilityData; index as i" [value]="i">
         {{facilityData[i]}}
       </option>
     </select>
     
-  </span>
+</span>
