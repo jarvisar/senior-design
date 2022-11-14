@@ -1,25 +1,25 @@
 <span class="inputbar" id="inputbar" style="float: left;">
-    <select class="hostname_select" id="hostname_select" style="display: inline; float: left;" [(ngModel)]="selectedIndex">
+    <select class="hostname_select" id="hostname_select" style="display: inline; float: left;" [(ngModel)]="selectedHost">
       <option *ngFor="let _ of hostData; index as i" [value]="i">
         {{hostData[i]}}
       </option>
     </select>
     
     
-    <select class="method_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
+    <select class="method_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedMethod">
       <option *ngFor="let _ of methodData; index as i" [value]="i">
         {{methodData[i]}}
       </option>
     </select>
 
-    <select class="year_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
-      <option *ngFor="let _ of methodData; index as i" [value]="i">
+    <select class="year_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedYear">
+      <option *ngFor="let _ of yearData; index as i" [value]="i">
         {{yearData[i]}}
       </option>
     </select>
 
-    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedIndex">
-      <option *ngFor="let _ of methodData; index as i" [value]="i">
+    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedFacility">
+      <option *ngFor="let _ of facilityData; index as i" [value]="i">
         {{facilityData[i]}}
       </option>
     </select>
