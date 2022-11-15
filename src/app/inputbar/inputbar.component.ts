@@ -18,6 +18,7 @@ export class InputbarComponent implements OnInit {
   public selectedMethodValue!: string;
   public selectedYearValue!: string;
   public selectedFacilityValue!: string;
+  public apiQuery!: string;
 
   constructor(private data: DataService, private http: HttpClient) { }
 
@@ -33,7 +34,7 @@ export class InputbarComponent implements OnInit {
     this.selectedHostValue = this.hostData[index];
     
     console.log(this.selectedHostValue);
-
+    this.buildQuery()
   }
 
   // initiate discovery method select box
@@ -129,5 +130,12 @@ export class InputbarComponent implements OnInit {
         console.log("test!")
       })
     })
+  }
+
+  public buildQuery(){
+    
+    this.apiQuery = 'select+*+from+pscomppars'
+    {{this.selectedHostValue != "Hostname" ? this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'' : this.apiQuery = this.apiQuery}}
+    console.log(this.apiQuery);
   }
 }

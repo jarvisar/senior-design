@@ -13,13 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputbarComponent } from './inputbar/inputbar.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { ExoplanetComponent } from './exoplanet/exoplanet.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
-    InputbarComponent
+    InputbarComponent,
+    ExoplanetComponent
   ],
   imports: [
     BrowserModule,
