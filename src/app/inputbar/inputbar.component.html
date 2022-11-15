@@ -18,10 +18,12 @@
       </option>
     </select>
 
-    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px; margin-right: 15px" [(ngModel)]="selectedFacility">
+    <select class="facility_select" id="method_select" style="display: inline; float: left; margin-left: 15px;" [(ngModel)]="selectedFacility">
       <option *ngFor="let _ of facilityData; index as i" [value]="i">
         {{facilityData[i]}}
       </option>
     </select>
+
+    <button mat-raised-button class="search_button" id="search_button" color="primary" style="display: inline; float: left; margin-left: 15px; margin-right: 15px;">Search</button>
     
 </span>

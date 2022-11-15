@@ -17,7 +17,15 @@ p {
     padding-left: 10px;
     letter-spacing: 0.1px;
     display: inline;
-    padding-left: 
+    padding-left: 5px;
+  }
+
+  .search_button {
+    background-color: #0b3d91;
+    width: 130px;
+    height: 60px;
+    font-size:16px;
+    letter-spacing: 0.1px;
   }
 
   
