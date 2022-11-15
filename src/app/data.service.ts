@@ -5,9 +5,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  hostUrl = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname+from+pscomppars+order+by+hostname&format=csv'
+  hostUrl = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query='
   constructor(private http: HttpClient) {}
   getHostList(){
-    return this.http.get(this.hostUrl, {responseType: 'text'});
+    return this.http.get(this.hostUrl + 'select+distinct+hostname+from+pscomppars+order+by+hostname&format=csv', {responseType: 'text'});
   }
+
+  
+
 }
