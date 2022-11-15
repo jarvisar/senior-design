@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { DataService } from './data.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
