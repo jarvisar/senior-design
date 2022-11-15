@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
-import { Papa } from 'ngx-papaparse';
 
 @Component({
   selector: 'app-inputbar',
@@ -20,7 +19,7 @@ export class InputbarComponent implements OnInit {
   public selectedYearValue!: string;
   public selectedFacilityValue!: string;
 
-  constructor(private papa: Papa, private data: DataService, private http: HttpClient) { }
+  constructor(private data: DataService, private http: HttpClient) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
