@@ -162,39 +162,6 @@
     color: #125699;
   }
 
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
   .circle-link {
     height: 40px;
     width: 40px;
@@ -225,31 +192,6 @@
   footer a {
     display: flex;
     align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
   }
 
   svg#clouds {
@@ -310,15 +252,7 @@
 
 <div class="content" role="main">
 
-  
   <app-inputbar></app-inputbar>
-  
-  
-  
-
-
-  <!-- Footer -->
-  
 
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
     <title>Gray Clouds Background</title>
@@ -328,11 +262,9 @@
 </div>
 
 <div class="footer" id="footer" style="margin: 0 auto; text-align: center;">
-  All data is sourced directly from NASA Exoplanet Archive operated by the California Institute of Technology.&nbsp;
-  <br>
-
-
+  All data is sourced directly from the 
   <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener"> NASA Exoplanet Archive </a>
+  operated by the California Institute of Technology.&nbsp;
 </div>
 
 <router-outlet></router-outlet>
