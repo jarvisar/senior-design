@@ -33,7 +33,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #0b3d91;
+    background-image: url("./assets/starfield.jpg");
     color: white;
     font-weight: 600;
   }
@@ -45,13 +45,6 @@
   .toolbar #github-logo {
     height: 40px;
     margin: 0 8px;
-  }
-
-
-
-  .toolbar #twitter-logo:hover
-  {
-    opacity: 0.8;
   }
 
   .content {
@@ -224,6 +217,10 @@
     }
   }
 
+  .footer{
+    background-image: url("./assets/starfield.jpg");
+  }
+
   @media screen and (max-width: 575px) {
     svg#rocket-smoke {
       display: none;
@@ -233,7 +230,7 @@
 </style>
 
 <!-- Toolbar -->
-<div class="toolbar" role="banner">
+<div class="toolbar" role="banner" >
   <img
     width="40"
     alt="Project Logo"
@@ -261,9 +258,9 @@
 
 </div>
 
-<div class="footer" id="footer" style="margin: 0 auto; text-align: center;">
-  All data is sourced directly from the 
-  <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener"> NASA Exoplanet Archive </a>
+<div class="footer" id="footer" style="margin: 0 auto; text-align: center; color: white; font-family: Roboto, Helvetica Neue, sans-serif;">
+  All data is sourced directly from the
+  <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener" style="font-family: Roboto, Helvetica Neue, sans-serif;"> NASA Exoplanet Archive </a>
   operated by the California Institute of Technology.&nbsp;
 </div>
 
