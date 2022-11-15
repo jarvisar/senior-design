@@ -102,11 +102,12 @@ export class InputbarComponent implements OnInit {
   }
 
   public getMethodList() {
+    console.log("test!!")
     this.http.get('../assets/discoverymethod.txt', {responseType: 'text'}).subscribe(data => {
       data.split('\n').forEach(e => {
         e = e.replace(/['"]+/g, '');
         this.methodData.push(e);
-        console.log("test!")
+        console.log("test!!")
       })
     })
   }
