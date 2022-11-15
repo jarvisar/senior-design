@@ -91,7 +91,7 @@ export class InputbarComponent implements OnInit {
   }
 
   public getHostList() {
-    this.http.get('../assets/hostnames.csv', {responseType: 'text'}).subscribe(data => {
+    this.http.get('./assets/hostnames.csv', {responseType: 'text'}).subscribe(data => {
       data.split('\n').forEach(e => {
         e = e.replace(/['"]+/g, '');
         this.hostData.push(e);
@@ -103,7 +103,7 @@ export class InputbarComponent implements OnInit {
 
   public getMethodList() {
     console.log("test!!")
-    this.http.get('../assets/discoverymethod.txt', {responseType: 'text'}).subscribe(data => {
+    this.http.get('./senior-design/assets/discoverymethod.csv', {responseType: 'text'}).subscribe(data => {
       data.split('\n').forEach(e => {
         e = e.replace(/['"]+/g, '');
         this.methodData.push(e);
@@ -113,7 +113,7 @@ export class InputbarComponent implements OnInit {
   }
 
   public getYearList() {
-    this.http.get('../assets/disc_year.csv', {responseType: 'text'}).subscribe(data => {
+    this.http.get('./assets/disc_year.csv', {responseType: 'text'}).subscribe(data => {
       data.split('\n').forEach(e => {
         e = e.replace(/['"]+/g, '');
         this.yearData.push(e);
@@ -123,7 +123,7 @@ export class InputbarComponent implements OnInit {
   }
 
   public getFacilityList() {
-    this.http.get('../assets/disc_facility.csv', {responseType: 'text'}).subscribe(data => {
+    this.http.get('./assets/disc_facility.csv', {responseType: 'text'}).subscribe(data => {
       data.split('\n').forEach(e => {
         e = e.replace(/['"]+/g, '');
         this.facilityData.push(e);
