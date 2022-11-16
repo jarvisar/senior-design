@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
+import { HelpboxComponent } from '../helpbox/helpbox.component';
 
 @Component({
   selector: 'app-inputbar',
@@ -20,7 +21,7 @@ export class InputbarComponent implements OnInit {
   public selectedFacilityValue!: string;
   public apiQuery!: string;
 
-  constructor(private data: DataService, private http: HttpClient) { }
+  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
@@ -82,6 +83,7 @@ export class InputbarComponent implements OnInit {
 
   searchclick(event: Event) {
     this.buildQuery();
+    this.data.getExoPlanetData(this.apiQuery);
   }
 
   ngOnInit(): void {
@@ -111,10 +113,10 @@ export class InputbarComponent implements OnInit {
   public buildQuery(){
     var firstConditional: boolean = true;
     this.apiQuery = 'select+*+from+pscomppars';
-    (this.selectedHostValue != "Hostname" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
-    (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'') : this.apiQuery = this.apiQuery);
-    (this.selectedYearValue != "Hostname" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'') : this.apiQuery = this.apiQuery);
-    (this.selectedFacilityValue != "Hostname" ? (firstConditional == true ? this.apiQuery += '+where+disc_facility+=+\'' : this.apiQuery += '+and+disc_facility+=+\'') : this.apiQuery = this.apiQuery);
+    (this.selectedHostValue != "Hostnames" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
+    (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedYearValue != "Discovery Year" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'': this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
     console.log(this.apiQuery);
   }
 }

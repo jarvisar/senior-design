@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <span class="inputbar" id="inputbar" style="float: left;">
   
   <select class="hostname_select" id="hostname_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedHost">
@@ -5,7 +6,6 @@
         {{hostData[i]}}
       </option>
     </select>
-    
     
     <select class="method_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedMethod">
       <option *ngFor="let _ of methodData; index as i" [value]="i">
@@ -26,5 +26,7 @@
     </select>
 
     <button mat-raised-button class="search_button" id="search_button" color="primary" style="display: inline; float: left; margin-left: 15px; margin-right: 15px;" (click)="searchclick($event)">Search</button>
-    
+    <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline">
+      <mat-icon>help</mat-icon>
+    </button>
 </span>

@@ -12,8 +12,10 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputbarComponent } from './inputbar/inputbar.component';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { ExoplanetComponent } from './exoplanet/exoplanet.component';
+import { HelpboxComponent } from './helpbox/helpbox.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ExoplanetComponent } from './exoplanet/exoplanet.component';
     AppComponent,
     PageComponent,
     InputbarComponent,
-    ExoplanetComponent
+    ExoplanetComponent,
+    HelpboxComponent
   ],
   imports: [
     BrowserModule,
@@ -33,14 +36,15 @@ import { ExoplanetComponent } from './exoplanet/exoplanet.component';
     MatSelectModule,
     FormsModule,
     HttpClientModule,
-    NgxPageScrollCoreModule
+    MatDialogModule,
+    MatIconModule
   ],
-  providers: [],
+  providers: [HelpboxComponent, MatDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
 
-  constructor(){console.log("test3")}
+  constructor(){console.log("test!!!")}
   
 }
 

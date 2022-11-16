@@ -11,6 +11,7 @@ export class DataService {
     return this.http.get(this.hostUrl + 'select+distinct+hostname+from+pscomppars+order+by+hostname&format=csv', {responseType: 'text'});
   }
 
-  
-
+  getExoPlanetData(query: string){
+    return this.http.get(this.hostUrl + query, {responseType: 'text'});
+  }
 }
