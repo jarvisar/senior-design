@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
+import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 
 @Component({
   selector: 'app-inputbar',
@@ -21,7 +22,7 @@ export class InputbarComponent implements OnInit {
   public selectedFacilityValue!: string;
   public apiQuery!: string;
 
-  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient) { }
+  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
@@ -82,7 +83,7 @@ export class InputbarComponent implements OnInit {
 
   searchclick(event: Event) {
     this.buildQuery();
-    this.data.getExoPlanetData(this.apiQuery);
+    this.exoplanet.getExoplanetData(this.apiQuery);
   }
 
   clearclick(event: Event) {
@@ -127,6 +128,5 @@ export class InputbarComponent implements OnInit {
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'': this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
-    console.log(this.apiQuery);
   }
 }

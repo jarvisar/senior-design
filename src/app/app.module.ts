@@ -39,7 +39,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatIconModule
   ],
-  providers: [HelpboxComponent, MatDialog],
+  providers: [HelpboxComponent, MatDialog, ExoplanetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
