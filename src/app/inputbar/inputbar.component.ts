@@ -50,7 +50,6 @@ export class InputbarComponent implements OnInit {
     this.selectedMethodValue = this.methodData[index];
     
     console.log(this.selectedMethodValue);
-    
   }
 
   // initiate discovery year select box
@@ -84,6 +83,17 @@ export class InputbarComponent implements OnInit {
   searchclick(event: Event) {
     this.buildQuery();
     this.data.getExoPlanetData(this.apiQuery);
+  }
+
+  clearclick(event: Event) {
+    this._selectedHost = 0;
+    this._selectedMethod = 0;
+    this._selectedYear = 0;
+    this._selectedFacility = 0;
+    this.selectedHostValue = this.hostData[0];
+    this.selectedMethodValue = this.methodData[0];
+    this.selectedYearValue = this.yearData[0];
+    this.selectedFacilityValue = this.facilityData[0];
   }
 
   ngOnInit(): void {

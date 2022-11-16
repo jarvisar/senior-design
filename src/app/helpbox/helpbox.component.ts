@@ -15,10 +15,12 @@ export class HelpboxComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   public openDialog() {
-
+    const dialogRef = this.dialog.open(HelpboxComponent);
   }
 
   ngOnInit(): void {
   }
 
 }
+
+

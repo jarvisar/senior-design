@@ -25,7 +25,8 @@
       </option>
     </select>
 
-    <button mat-raised-button class="search_button" id="search_button" color="primary" style="display: inline; float: left; margin-left: 15px; margin-right: 15px;" (click)="searchclick($event)">Search</button>
+    <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center; display: inline; float: left; margin-left: 15px;" (click)="searchclick($event)">Search</button>
+    <button mat-raised-button class="clear_button" id="clear_button" color="primary" style="display: inline; float: left; margin-left: 15px; margin-right: 10px;" (click)="clearclick($event)">Clear</button>
     <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline">
       <mat-icon>help</mat-icon>
     </button>
