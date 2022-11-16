@@ -66,9 +66,6 @@ MIT
 @angular/router
 MIT
 
-ngx-page-scroll-core
-MIT
-
 rxjs
 Apache-2.0
                                Apache License
