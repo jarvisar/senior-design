@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class InputbarComponent implements OnInit {
 
-  hostData: any[] = ["Hostname", ];
+  hostData: any[] = [];
   methodData: any[] = ["Discovery Method", ];
   yearData: any[] = ["Discovery Year", ];
   facilityData: any[] = ["Discovery Facility", ];
@@ -34,7 +34,7 @@ export class InputbarComponent implements OnInit {
     this.selectedHostValue = this.hostData[index];
     
     console.log(this.selectedHostValue);
-    this.buildQuery()
+    
   }
 
   // initiate discovery method select box
@@ -49,6 +49,7 @@ export class InputbarComponent implements OnInit {
     this.selectedMethodValue = this.methodData[index];
     
     console.log(this.selectedMethodValue);
+    
   }
 
   // initiate discovery year select box
@@ -79,63 +80,41 @@ export class InputbarComponent implements OnInit {
     console.log(this.selectedFacilityValue);
   }
 
+  searchclick(event: Event) {
+    this.buildQuery();
+  }
+
   ngOnInit(): void {
-    this.getHostList();
-    this.getMethodList();
-    this.getYearList();
-    this.getFacilityList(); 
+    this.hostData = this.csvToArray('./assets/hostnames.csv', 'Hostnames');
+    this.methodData = this.csvToArray('./assets/discoverymethod.csv', 'Discovery Method')
+    this.yearData = this.csvToArray('./assets/disc_year.csv', 'Discovery Year')
+    this.facilityData = this.csvToArray('./assets/disc_facility.csv', 'Discovery Facility')
+
     this.selectedHost = 0;
     this.selectedMethod = 0;
     this.selectedYear = 0;
     this.selectedFacility = 0;
   }
 
-  public getHostList() {
-    this.http.get('./assets/hostnames.csv', {responseType: 'text'}).subscribe(data => {
+  csvToArray(filePath: string, firstElement: string){
+    var list: any[]=[firstElement];
+    this.http.get(filePath, {responseType: 'text'}).subscribe(data => {
       data.split('\n').forEach(e => {
         e = e.replace(/['"]+/g, '');
-        this.hostData.push(e);
+        list.push(e);
       })
         
     })
-    console.log("test2");
-  }
-
-  public getMethodList() {
-    console.log("test!!")
-    this.http.get('./assets/discoverymethod.csv', {responseType: 'text'}).subscribe(data => {
-      data.split('\n').forEach(e => {
-        e = e.replace(/['"]+/g, '');
-        this.methodData.push(e);
-        console.log("test!!")
-      })
-    })
-  }
-
-  public getYearList() {
-    this.http.get('./assets/disc_year.csv', {responseType: 'text'}).subscribe(data => {
-      data.split('\n').forEach(e => {
-        e = e.replace(/['"]+/g, '');
-        this.yearData.push(e);
-        console.log("test!")
-      })
-    })
-  }
-
-  public getFacilityList() {
-    this.http.get('./assets/disc_facility.csv', {responseType: 'text'}).subscribe(data => {
-      data.split('\n').forEach(e => {
-        e = e.replace(/['"]+/g, '');
-        this.facilityData.push(e);
-        console.log("test!")
-      })
-    })
+    return list;
   }
 
   public buildQuery(){
-    
-    this.apiQuery = 'select+*+from+pscomppars'
-    {{this.selectedHostValue != "Hostname" ? this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'' : this.apiQuery = this.apiQuery}}
+    var firstConditional: boolean = true;
+    this.apiQuery = 'select+*+from+pscomppars';
+    (this.selectedHostValue != "Hostname" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
+    (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'') : this.apiQuery = this.apiQuery);
+    (this.selectedYearValue != "Hostname" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'') : this.apiQuery = this.apiQuery);
+    (this.selectedFacilityValue != "Hostname" ? (firstConditional == true ? this.apiQuery += '+where+disc_facility+=+\'' : this.apiQuery += '+and+disc_facility+=+\'') : this.apiQuery = this.apiQuery);
     console.log(this.apiQuery);
   }
 }
