@@ -14,9 +14,13 @@ export class ExoplanetComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  public apiQuery!: string;
   
-  getExoplanetData(apiQuery: string){
-    this.data.getExoPlanetData(apiQuery).subscribe(data => {
+  getExoplanetData(input: string){
+    this.apiQuery = input;
+    console.log(this.apiQuery);
+    this.data.getExoPlanetData(input).subscribe(data => {
       console.log(data);
     })
   }
