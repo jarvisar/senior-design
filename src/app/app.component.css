@@ -8,5 +8,7 @@
     text-align: center; 
     color: white; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    display: table-cell;
+    vertical-align: middle;
   }
 

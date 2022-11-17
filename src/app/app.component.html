@@ -83,7 +83,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 2.5%;
+    vertical-align: middle;
   }
 
   .footer {
@@ -136,7 +136,7 @@
     src="favicon.ico"
     loading="lazy"
   />
-  <span style="font-size:18.0pt; font-family: Roboto, Helvetica Neue, sans-serif; font-weight: 450; margin-left: 5px;">NASA Exoplanet Archive Search</span>
+  <span style="font-size:18.0pt; font-family: Roboto, Helvetica Neue, sans-serif; font-weight: 400; margin-left: 5px;">NASA Exoplanet Archive Search</span>
     <div class="spacer"></div>
     <a aria-label="Source Code" target="_blank" rel="noopener" href="https://github.com/jarvisar/senior-design/" title="Project Source Code">
       <img
@@ -172,10 +172,10 @@
 
 
 <!-- Footer -->
-<div class="footer" id="footer">
-  All data is sourced directly from the
-  <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener" style="font-family: Roboto, Helvetica Neue, sans-serif;"> NASA Exoplanet Archive </a>
+<span class="footer" id="footer">
+  <p style="display: inline; vertical-align: middle;">All data is sourced directly from the </p>
+  <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener" style="vertical-align: middle; font-family: Roboto, Helvetica Neue, sans-serif;">NASA Exoplanet Archive</a>
   operated by the California Institute of Technology.&nbsp;
-</div>
+</span>
 
 <router-outlet></router-outlet>
