@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { Exoplanet } from './exoplanet/exoplanet'
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,6 @@ export class DataService {
   }
 
   getExoPlanetData(query: string){
-    return this.http.get(this.hostUrl + query + '&format=json', {responseType: 'text'});
+    return this.http.get<Exoplanet>(this.hostUrl + query + '&format=json');
   }
 }
