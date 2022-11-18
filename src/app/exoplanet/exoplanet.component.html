@@ -1,13 +1,13 @@
 
 
-  <ng-container *ngIf="loadingService.isLoading$ | async" >
+  <ng-container *ngIf="loadingService.isLoading$ | async" style="">
     <div class="spinner-border" role="status" style="position: absolute; top: 40%;">
         <p id="loadingtext" >Loading</p>
         <span class="sr-only" id="loadingcircle"></span>
     </div>
   </ng-container>
 
-  <table class="table  table-sm table-bordered">
+  <table style="opacity: 0;" class="table  table-sm table-bordered">
     <thead>
     <tr>
       <th>Planet name</th>
