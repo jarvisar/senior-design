@@ -82,22 +82,20 @@ export class InputbarComponent implements OnInit {
   }
 
   searchclick(event: Event) {
-    this.buildQuery();
+    //if all four select boxes are set to , buildQuery() returns true
+    var emptySearch: boolean = this.buildQuery();
     this.exoplanet.getExoplanetData(this.apiQuery);
   }
 
   clearclick(event: Event) {
-    this._selectedHost = 0;
-    this._selectedMethod = 0;
-    this._selectedYear = 0;
-    this._selectedFacility = 0;
-    this.selectedHostValue = this.hostData[0];
-    this.selectedMethodValue = this.methodData[0];
-    this.selectedYearValue = this.yearData[0];
-    this.selectedFacilityValue = this.facilityData[0];
+    this.selectedHost = 0;
+    this.selectedMethod = 0;
+    this.selectedYear = 0;
+    this.selectedFacility = 0;
   }
 
   ngOnInit(): void {
+    //
     this.hostData = this.csvToArray('./assets/hostnames.csv', 'Hostnames');
     this.methodData = this.csvToArray('./assets/discoverymethod.csv', 'Discovery Method')
     this.yearData = this.csvToArray('./assets/disc_year.csv', 'Discovery Year')
@@ -124,9 +122,12 @@ export class InputbarComponent implements OnInit {
   public buildQuery(){
     var firstConditional: boolean = true;
     this.apiQuery = 'select+*+from+pscomppars';
+    //first check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHostValue != "Hostnames" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'': this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
+    //returns true if input is empty
+    return firstConditional;
   }
 }
