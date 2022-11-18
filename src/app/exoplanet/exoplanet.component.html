@@ -1,1 +1,10 @@
-<p>{{apiQuery}}</p>
+
+
+  <ng-container *ngIf="loadingService.isLoading$ | async">
+    <div class="spinner-border" role="status">
+        <span class="sr-only" id="loadingtext" style="text-align: center">Loading</span>
+        <span class="sr-only" id="loadingcircle"></span>
+    </div>
+  </ng-container>
+
+  <router-outlet></router-outlet>

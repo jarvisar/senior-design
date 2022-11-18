@@ -16,6 +16,8 @@ import { ExoplanetComponent } from './exoplanet/exoplanet.component';
 import { HelpboxComponent } from './helpbox/helpbox.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { LoadingInterceptor } from './loading-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatIconModule
   ],
-  providers: [HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
