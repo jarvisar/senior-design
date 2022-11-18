@@ -13,22 +13,29 @@ import { Exoplanet } from './exoplanet'
 })
 export class ExoplanetComponent implements OnInit {
   
-  public exoplanetData!: Exoplanet[];
+  public exoplanetData: Exoplanet[] = [{pl_name: 'test', hostname: 'test', discoverymethod: 'test', disc_year: 'test', disc_facility: 'test'}];
   
   constructor(private data: DataService, private http: HttpClient, public loadingService: LoadingService) { }
-
+  
   ngOnInit(): void {
+    
   }
 
   public apiQuery!: string;
   
   getExoplanetData(input: string){
+    
+    
+    
     this.apiQuery = input;
     console.log(this.apiQuery);
-    this.data.getExoPlanetData(input).subscribe((response: Exoplanet) => {
-      
+    this.data.getExoPlanetData(input).subscribe((response: any[]) => {
+      response.forEach((e: Exoplanet) => {
+        this.exoplanetData.push(e);
+      })
     })
-
+    
+    console.log(this.exoplanetData);
     
   }
 

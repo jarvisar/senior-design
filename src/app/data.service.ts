@@ -16,6 +16,6 @@ export class DataService {
   }
 
   getExoPlanetData(query: string){
-    return this.http.get<Exoplanet>(this.hostUrl + query + '&format=json');
+    return this.http.get<any[]>(this.hostUrl + query + '&format=json');
   }
 }

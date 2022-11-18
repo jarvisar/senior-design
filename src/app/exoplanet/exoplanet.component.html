@@ -1,12 +1,26 @@
 
 
-  <ng-container *ngIf="loadingService.isLoading$ | async" style="">
+  <ng-container *ngIf="loadingService.isLoading$ | async" >
     <div class="spinner-border" role="status" style="position: absolute; top: 40%;">
         <p id="loadingtext" >Loading</p>
         <span class="sr-only" id="loadingcircle"></span>
     </div>
   </ng-container>
 
-  
+  <table class="table">
+    <tr>
+        <th>Hostname</th>
+        <th>Discovery Method</th>
+        <th>Discovery Year</th>
+        <th>Discovery Facility</th>
+    </tr>
+    <tr *ngFor="let exoplanet of exoplanetData">
+      <td>{{exoplanet.pl_name}}</td>
+      <td>{{exoplanet.hostname}}</td>
+      <td>{{exoplanet.discoverymethod}}</td>
+      <td>{{exoplanet.disc_year}}</td>
+      <td>{{exoplanet.disc_facility}}</td>
+  </tr>
+</table>
 
   <router-outlet></router-outlet>
