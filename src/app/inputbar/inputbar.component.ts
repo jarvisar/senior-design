@@ -12,6 +12,7 @@ import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 export class InputbarComponent implements OnInit {
   
   public exoplanetData: Array<any> = [];
+  public numResults: number = 0;
   public showTable: boolean = false;
   
   hostData: any[] = [];
@@ -89,8 +90,11 @@ export class InputbarComponent implements OnInit {
     
     this.showTable = true;
     var emptySearch: boolean = this.buildQuery();
-    console.log('right here');
+    
     this.exoplanetData = this.exoplanet.getExoplanetData(this.apiQuery);
+    console.log(this.exoplanetData);
+    console.log(this.exoplanetData.length);
+    this.numResults = this.exoplanetData.length;
   }
 
   clearclick(event: Event) {
