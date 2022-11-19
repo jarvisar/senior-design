@@ -20,7 +20,8 @@ import { LoadingInterceptor } from './loading-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TableComponent } from './table/table.component'; 
-
+import { MatTableModule } from '@angular/material/table';
+import { CdkColumnDef } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -43,11 +44,12 @@ import { TableComponent } from './table/table.component';
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, CdkColumnDef],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

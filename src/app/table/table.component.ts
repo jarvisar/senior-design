@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
+import { Exoplanet } from '../exoplanet/exoplanet';
 import { DataService } from '../data.service';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-table',
@@ -9,11 +10,12 @@ import { DataService } from '../data.service';
 })
 export class TableComponent implements OnInit {
   @Input() exoplanetData!: Array<any>;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   
 
+  headers = ['Planet Name', 'Host Name', 'Discovery method', 'Dikscovery Year', 'Dikscovery Facility'];
+
+  constructor() { }
+  
+  ngOnInit(): void {
+  }
 }
