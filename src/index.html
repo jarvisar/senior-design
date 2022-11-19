@@ -9,6 +9,26 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+  <div id="loader">
+    <style>
+      .application-loading-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .application-loading-box {
+        width: 300px;
+        margin: 5px;
+        text-align: center;
+      }
+    </style>
+    <div class="application-loading-container">
+      <div class="application-loading-box"></div>
+    </div>
+  </div>
   <app-root></app-root>
 </body>
 </html>

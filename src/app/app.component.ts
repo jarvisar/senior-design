@@ -1,9 +1,10 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, AfterViewInit, NgModule } from '@angular/core';
 import { DataService } from './data.service';
 import { InputbarComponent } from './inputbar/inputbar.component';
 import { LoadingService } from './loading.service';
 import { trigger,transition,style,animate } from '@angular/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import { Renderer2 } from '@angular/core';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   trigger(name, [
@@ -21,14 +22,15 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
     fadeInOut('fadeinandout', 0.3),
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit  {
   title = 'senior-design';
 
   public testArray: Array<any> = [];
-  constructor(private data: DataService, public inputbar: InputbarComponent, public loadingService: LoadingService){}
+  constructor(private data: DataService, public inputbar: InputbarComponent, public loadingService: LoadingService, private renderer: Renderer2){}
 
-  public ngOnInit(): void {
-    console.log("test");
+  public ngAfterViewInit(): void {
+    let loader = this.renderer.selectRootElement('#loader');
+    this.renderer.setStyle(loader, 'display', 'none');
   }
   
   
