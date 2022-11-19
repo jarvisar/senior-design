@@ -18,6 +18,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadingInterceptor } from './loading-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TableComponent } from './table/table.component'; 
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     PageComponent,
     InputbarComponent,
     ExoplanetComponent,
-    HelpboxComponent
+    HelpboxComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

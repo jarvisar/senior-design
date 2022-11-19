@@ -153,8 +153,8 @@
 <div class="content" role="main">
   
   <app-inputbar class="input_bar" id="input_bar"></app-inputbar>
-  <app-exoplanet></app-exoplanet>
-
+  
+  <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: 40%; left: 50%; stroke: #0b3d91;" [@fadeinandout]></mat-spinner>  
   <div class="background">
     <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="3611.084" height="485.677" viewBox="0 0 511.084 685.677">
       <title>Gray Clouds Background</title>

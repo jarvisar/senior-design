@@ -30,4 +30,6 @@
     <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline">
       <mat-icon>help</mat-icon>
     </button>
+
+    <app-table *ngIf="showTable" [exoplanetData]="exoplanetData"></app-table>
 </span>

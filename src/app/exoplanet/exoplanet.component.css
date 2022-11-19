@@ -12,14 +12,14 @@
     border-top: 16px solid #0b3d91;
     width: 120px;
     height: 120px;
-    animation: popin 300ms linear, spin 2s infinite;
+    animation: fade 2s linear, spin 2s infinite;
     
     }
     
 #loadingtext{
     text-align: center;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    animation: popin 300ms linear;
+    animation: fade 2s linear;
 }  
 
 @keyframes spin {
@@ -27,7 +27,8 @@
     100% { transform: rotate(360deg); }
 }
 
-@keyframes popin {
-    0% {opacity: 0; transition: 'opacity 500s linear;*'}
+@keyframes fade {
+    0%,100% { opacity: 0 }
+    50% { opacity: 1 }
 }
 

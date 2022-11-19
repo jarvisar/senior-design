@@ -19,17 +19,8 @@ export class DataService {
   getExoPlanetData(query: string){
     var testArray: Array<Exoplanet> = [];
     console.log(query);
-    this.http.get<any[]>(this.hostUrl + query + '&format=json').subscribe((response: any[]) => {
-      response.forEach((e: Exoplanet) => {
-        
-        testArray.push(e);
-        
-      })
-    });
-    
-    this.exoplanetData = testArray;
-    console.log(this.exoplanetData);
-    return this.exoplanetData;
+    //return this.http.get<any[]>(this.hostUrl + query + '&format=json');
+    return this.http.get<any[]>(this.hostUrl + query + '&format=json');
   }
 
 }

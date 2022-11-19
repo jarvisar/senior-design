@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { ChangeDetectionStrategy, ChangeDetectorRef  } from '@angular/core';
-import { LoadingService } from '../loading.service';
+
 import { Exoplanet } from './exoplanet'
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
+
+import { BehaviorSubject } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-exoplanet',
   templateUrl: './exoplanet.component.html',
   styleUrls: ['./exoplanet.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ExoplanetComponent implements OnInit {
+export class ExoplanetComponent implements OnInit { 
+  public exoplanetData!: Array<any>;
   
-  public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
-  
-  constructor(private data: DataService, private http: HttpClient, public loadingService: LoadingService, private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
+  constructor(private data: DataService, private http: HttpClient, private cdr: ChangeDetectorRef) { }
   
   ngOnInit(): void {
     
@@ -27,16 +30,21 @@ export class ExoplanetComponent implements OnInit {
   getExoplanetData(input: string){
     var testArray: Array<Exoplanet> = [];
     this.apiQuery = input;
-    testArray = this.data.getExoPlanetData(input);
-    console.log('why no work');
+    this.data.getExoPlanetData(this.apiQuery).subscribe((response: any[]) => {
+      response.forEach((e: Exoplanet) => {
+        
+        testArray.push(e)
+        
+      })
+    });
     console.log(this.exoplanetData);
     this.exoplanetData = testArray;
     console.log(this.exoplanetData);
-    
+    return this.exoplanetData;
   }
 
-  public trackData (index: number, exoplanet: Exoplanet) {
-    return exoplanet;
+  public trackData (index: number) {
+    return this.exoplanetData ? this.exoplanetData : undefined;
   }
 
 }

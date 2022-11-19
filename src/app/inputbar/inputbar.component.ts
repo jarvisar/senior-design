@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
@@ -10,7 +10,10 @@ import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
   styleUrls: ['./inputbar.component.css']
 })
 export class InputbarComponent implements OnInit {
-
+  
+  public exoplanetData: Array<any> = [];
+  public showTable: boolean = false;
+  
   hostData: any[] = [];
   methodData: any[] = ["Discovery Method", ];
   yearData: any[] = ["Discovery Year", ];
@@ -83,12 +86,15 @@ export class InputbarComponent implements OnInit {
 
   searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
+    
+    this.showTable = true;
     var emptySearch: boolean = this.buildQuery();
     console.log('right here');
-    this.exoplanet.getExoplanetData(this.apiQuery);
+    this.exoplanetData = this.exoplanet.getExoplanetData(this.apiQuery);
   }
 
   clearclick(event: Event) {
+    this.showTable = false;
     this.selectedHost = 0;
     this.selectedMethod = 0;
     this.selectedYear = 0;
@@ -131,4 +137,6 @@ export class InputbarComponent implements OnInit {
     //returns true if input is empty
     return firstConditional;
   }
+
+  
 }
