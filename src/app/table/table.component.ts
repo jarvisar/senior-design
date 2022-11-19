@@ -12,10 +12,17 @@ export class TableComponent implements OnInit {
   @Input() exoplanetData!: Array<any>;
   
 
-  headers = ['Planet Name', 'Host Name', 'Discovery method', 'Dikscovery Year', 'Dikscovery Facility'];
+  headers = ['Planet Name', 'Host Name', 'Discovery method', 'Discovery Year', 'Discovery Facility'];
 
   constructor() { }
   
   ngOnInit(): void {
+  }
+
+  nasaEyes(exoplanet: any){
+    console.log("test");
+    var formattedName = exoplanet.pl_name.replace(" ", "_");
+    
+    window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }
 }

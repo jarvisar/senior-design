@@ -1,22 +1,19 @@
-<div mdbScrollbar>
-     <table mdbTable mdbTableSort="mdbTableSort" class="styled-table">
+<div mdbScrollbar class="table-body">
+     <table mdbTable mdbTableSort="mdbTableSort" class="styled-table" >
         <thead>
             <tr>
-                <th *ngFor="let header of headers" >{{header | titlecase}}</th>
+                <th *ngFor="let header of headers" >{{header}}</th>
             </tr>
         </thead>
         <tbody>
-            
-                <tr *ngFor="let exoplanet of exoplanetData;">
-                    <td>{{exoplanet.pl_name}}</td>
-                    <td>{{exoplanet.hostname}}</td>
-                    <td>{{exoplanet.discoverymethod}}</td>
-                    <td>{{exoplanet.disc_year}}</td>
-                    <td>{{exoplanet.disc_facility}}</td>
-                </tr>
-
-        </tbody>
-        
+            <tr *ngFor="let exoplanet of exoplanetData;" (click)="nasaEyes(exoplanet)">
+                <td>{{exoplanet.pl_name}}</td>
+                <td>{{exoplanet.hostname}}</td>
+                <td>{{exoplanet.discoverymethod}}</td>
+                <td>{{exoplanet.disc_year}}</td>
+                <td>{{exoplanet.disc_facility}}</td>
+            </tr>
+        </tbody>        
     </table>
     </div>
 
