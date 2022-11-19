@@ -53,6 +53,6 @@
 
 .table-body{
     overflow-y: auto;
-    max-height: 700px;
+    max-height: 500px;
     display: block;
 }
