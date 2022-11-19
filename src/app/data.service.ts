@@ -28,6 +28,7 @@ export class DataService {
   }
 
   getExoPlanetData(query: string){
+    console.log(this.hostUrl);
     var testArray: Array<Exoplanet> = [];
     console.log(query);
     //return this.http.get<any[]>(this.hostUrl + query + '&format=json');

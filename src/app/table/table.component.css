@@ -33,6 +33,7 @@
 
 .styled-table tbody tr:hover{
     background-color: #eaeaea;
+    cursor: pointer;
 }
 
 .styled-table tbody tr {
