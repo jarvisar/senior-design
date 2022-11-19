@@ -3,6 +3,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 import { DataService } from '../data.service';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -10,11 +11,11 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 })
 export class TableComponent implements OnInit {
   @Input() exoplanetData!: Array<any>;
+  @Input() numResults!: number;
   
-
   headers = ['Planet Name', 'Host Name', 'Discovery method', 'Discovery Year', 'Discovery Facility'];
 
-  constructor() { }
+  constructor() {}
   
   ngOnInit(): void {
   }

@@ -32,7 +32,7 @@
 }
 
 .styled-table tbody tr:hover{
-    background-color: #eeeeee;
+    background-color: #eaeaea;
 }
 
 .styled-table tbody tr {
@@ -52,6 +52,6 @@
 
 .table-body{
     overflow-y: auto;
-    max-height: 1000px;
+    max-height: 700px;
     display: block;
 }
