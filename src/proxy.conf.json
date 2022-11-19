@@ -1,7 +1,11 @@
 {
-    "/api/*": {
-        "target": "http://localhost:4200",
-        "secure": false,
-        "logLevel": "debug"
+    "/TAP": {
+        "target": "https://exoplanetarchive.ipac.caltech.edu",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": ""
+          }
     }
 }
