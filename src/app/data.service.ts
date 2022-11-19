@@ -15,9 +15,9 @@ const httpOptions = {
 
 
 export class DataService {
-  //hostUrl = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query='
+  hostUrl = 'https://proxy.cors.sh/https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query='
   //hostUrl = 'http://localhost:4200/api'
-  hostUrl = 'TAP/sync?query='
+  //hostUrl = 'TAP/sync?query='
   public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
   
   
