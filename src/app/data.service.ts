@@ -4,7 +4,8 @@ import { Exoplanet } from './exoplanet/exoplanet'
 
 const httpOptions = {
   headers: new HttpHeaders({ 
-    'Access-Control-Allow-Origin':'*'
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Credentials': 'true'
   })
 };
 
