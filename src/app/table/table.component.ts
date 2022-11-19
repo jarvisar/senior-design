@@ -21,7 +21,7 @@ export class TableComponent implements OnInit {
 
   nasaEyes(exoplanet: any){
     console.log("test");
-    var formattedName = exoplanet.pl_name.replace(" ", "_");
+    var formattedName = exoplanet.pl_name.replace(/ /g, "_");
     
     window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }

@@ -1,5 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<span class="inputbar" id="inputbar" style="float: left;">
+<span class="inputbar" id="inputbar" style="float: left; display: absolute">
   
   <select class="hostname_select" id="hostname_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedHost">
       <option *ngFor="let _ of hostData; index as i" [value]="i">
