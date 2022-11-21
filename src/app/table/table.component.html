@@ -1,9 +1,13 @@
 
-<table mdbTableSort="mdbTableSort" class="styled-table" >
+<table class="styled-table" >
     <span class="table-body">
         <thead>
             <tr>
-                <th *ngFor="let header of headers" >{{header}}</th>
+                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="pl_name">Planet Name</th>
+                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="hostname">Host Name</th>
+                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="discoverymethod">Discovery Method</th>
+                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_year">Discovery Year</th>
+                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_facility">Discovery Facility</th>
             </tr>
         </thead>
         <tbody>

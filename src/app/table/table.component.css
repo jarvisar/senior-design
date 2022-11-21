@@ -5,11 +5,12 @@
 }
 
 .styled-table {
+    width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 1.2em;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    min-width: 600px;
+    
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     position: relative;
     background-color: white;
@@ -29,6 +30,11 @@
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
+}
+
+.styled-table thead th:hover{
+    background-color: #0c3e92;
+    cursor: pointer;
 }
 
 .styled-table tbody tr:hover{
