@@ -1,3 +1,7 @@
+[<- Back](./README.md)
+
+# Project Tasks
+
 1. Adam: Research front-end programming languages (ASP.NET or Angular) and determine viability for project
 2. Adam: Test NASA Exoplanet Archive data retrieval and URL construction with Postman
 3. Adam: Begin creating front-end UI using feedback from designers (search button, query input, data explanation, etc.)
