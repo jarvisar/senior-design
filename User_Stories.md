@@ -1,3 +1,7 @@
+[<- Back](./README.md)
+
+# User Stories
+
 As a **user of the website**, I want to **input a search query** so that I can **view planetary data from NASA's Exoplanet Archive**.
 
 As a **novice astronomer**, I want to **learn what each piece of data means/represents** so I can **better understand the data**.
