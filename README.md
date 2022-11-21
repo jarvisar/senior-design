@@ -1,6 +1,14 @@
-# NASA Exoplanet Search Project
-The main branch contains all the necessary documentation for CS5001.
+# NASA Exoplanet Archive Search
 
-The master branch contains source code for the Angular site.
+The goal of 
 
-The asp.net branch contains source code for the ASP.NET site.
+## Table of Contents
+1. [Team Members](./project-description.md) & [Project Abstract](./project-description.md#abstract)
+2. [Project Description](./project-description.md)
+3. [User Stories](./User_Stories.md) & [Design Diagrams](./design-diagrams)
+4. [Project Tasks](./Tasklist.md) & [Timeline](./Timeline.md)
+5. [Project Constraints](./Project_Constraints.md)
+6. [Fall Presentation](./essays/Presentation.ppx)
+7. Self-Assessment Essays for [Adam Jarvis](./essays/JarvisIndividualAssessment.docs)
+8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
+9. [Budget](./essays/budget.md)
