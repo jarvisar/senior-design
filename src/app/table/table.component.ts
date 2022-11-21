@@ -12,12 +12,17 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 export class TableComponent implements OnInit {
   @Input() exoplanetData!: Array<any>;
   @Input() numResults!: number;
+
+  public showRows: boolean = false;
   
   headers = ['Planet Name', 'Host Name', 'Discovery method', 'Discovery Year', 'Discovery Facility'];
-
+  
   constructor() {}
   
   ngOnInit(): void {
+    if (this.exoplanetData.length != 0){
+      this.showRows = true;
+    }
   }
 
   nasaEyes(exoplanet: any){

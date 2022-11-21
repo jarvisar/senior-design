@@ -21,7 +21,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TableComponent } from './table/table.component'; 
 import { MatTableModule } from '@angular/material/table';
-import { CdkColumnDef } from '@angular/cdk/table';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -45,11 +45,12 @@ import { CdkColumnDef } from '@angular/cdk/table';
     MatDialogModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    NgxDatatableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, CdkColumnDef],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

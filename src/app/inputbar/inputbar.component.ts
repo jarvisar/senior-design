@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
+import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: 'app-inputbar',
@@ -103,6 +104,7 @@ export class InputbarComponent implements OnInit {
     this.selectedMethod = 0;
     this.selectedYear = 0;
     this.selectedFacility = 0;
+    
   }
 
   ngOnInit(): void {
@@ -141,6 +143,5 @@ export class InputbarComponent implements OnInit {
     //returns true if input is empty
     return firstConditional;
   }
-
   
 }
