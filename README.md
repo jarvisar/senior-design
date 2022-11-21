@@ -1,3 +1,7 @@
+<p align="center">
+	<img src="https://github.com/jarvisar/senior-design/blob/master/src/favicon.ico" width="200px"/>
+</p>
+
 # NASA Exoplanet Archive Search
 
 The main objective of this project is to develop and build a website capable of querying data from NASA's Exoplanetary Archive using user input. After entering a valid query, the website will build an API URL using the user's input to call NASA's archive and return the requested data. 
