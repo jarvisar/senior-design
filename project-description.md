@@ -1,6 +1,6 @@
 [<- Back](./README.md)
 
-# NASA Exoplanet Archive Search
+## NASA Exoplanet Archive Search
 
 ### Team Members
  
