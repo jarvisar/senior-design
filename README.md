@@ -18,3 +18,4 @@ After returning the data, the website will then format the data into a readable 
 7. Self-Assessment Essays for [Adam Jarvis](./essays/JarvisIndividualAssessment.docx)
 8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
 9. [Budget](./essays/budget.md)
+10. [Appendix](./appendix.md)
