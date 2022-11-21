@@ -10,7 +10,7 @@ After returning the data, the website will then format the data into a readable 
 3. [User Stories](./User_Stories.md) & [Design Diagrams](./design-diagrams)
 4. [Project Tasks](./Tasklist.md) & [Timeline](./Timeline.md)
 5. [Project Constraints](./Project_Constraints.md)
-6. [Fall Presentation](./essays/Presentation.ppx)
+6. [Fall Presentation](./essays/Presentation.pptx)
 7. Self-Assessment Essays for [Adam Jarvis](./essays/JarvisIndividualAssessment.docx)
 8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
 9. [Budget](./essays/budget.md)
