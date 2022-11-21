@@ -5,7 +5,7 @@ The main objective of this project is to develop and build a website capable of 
 After returning the data, the website will then format the data into a readable form and will give the user the option to export the formatted data to the user's local disk. We will use Angular TypeScript to build the site and utilize HTTP requests and Table Access Protocol (TAP) to call NASA's Archive. 
 
 ## Table of Contents
-1. [Team Members](./essays/project-description.md) & [Project Abstract](./project-description.md#abstract)
+1. [Team Members](./project-description.md) & [Project Abstract](./project-description.md#abstract)
 2. [Project Description](./project-description.md)
 3. [User Stories](./User_Stories.md) & [Design Diagrams](./design-diagrams)
 4. [Project Tasks](./Tasklist.md) & [Timeline](./Timeline.md)
