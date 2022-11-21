@@ -1,4 +1,4 @@
-(<- Back)[../readme.md]
+[<- Back](./ReadMe.md)
 
 # NASA Exoplanet Archive Search
 
