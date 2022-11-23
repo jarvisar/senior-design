@@ -3,7 +3,6 @@ import { DataService } from './data.service';
 import { InputbarComponent } from './inputbar/inputbar.component';
 import { LoadingService } from './loading.service';
 import { trigger,transition,style,animate } from '@angular/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import { Renderer2 } from '@angular/core';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
