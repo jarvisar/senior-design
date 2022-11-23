@@ -12,6 +12,7 @@ export class SortDirective {
 
   @HostListener("click")
 
+  // Sorts table data based on which header was clicked
   sortData() {
     
     const sort = new Sort();

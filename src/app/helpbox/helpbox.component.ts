@@ -14,6 +14,7 @@ export class HelpboxComponent implements OnInit {
   
   constructor(public dialog: MatDialog) { }
 
+  // Opens help box window
   public openDialog() {
     const dialogRef = this.dialog.open(HelpboxComponent);
   }

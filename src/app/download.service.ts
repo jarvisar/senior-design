@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DownloadService {
 
+  // Download search results as CSV file
   downloadFile(data, filename='data') {
     let csvData = this.ConvertToCSV(data, ['pl_name','hostname', 'discoverymethod', 'disc_year', 'disc_facility']);
     console.log(csvData)
@@ -23,6 +24,7 @@ export class DownloadService {
     document.body.removeChild(dwldLink);
   }
 
+  // Converts JSON to CSV
   ConvertToCSV(objArray, headerList) {
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
