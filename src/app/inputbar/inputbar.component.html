@@ -30,6 +30,9 @@
     <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" >
       <mat-icon>help</mat-icon>
     </button>
+    <button mat-button-icon *ngIf="exoplanetData.length > 0" (click)="download()" >
+      <mat-icon>download</mat-icon>
+    </button>
 
   </div>
   <!-- Data Table -->

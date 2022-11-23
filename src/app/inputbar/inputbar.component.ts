@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
+import { DownloadService } from '../download.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class InputbarComponent implements OnInit {
   public selectedFacilityValue!: string;
   public apiQuery!: string;
 
-  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent) { }
+  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
@@ -142,6 +143,10 @@ export class InputbarComponent implements OnInit {
     (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
     //returns true if input is empty
     return firstConditional;
+  }
+
+  download(){
+    this.downloadService.downloadFile(this.exoplanetData, 'exoplanet_data');
   }
   
 }

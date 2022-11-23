@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Exoplanet } from '../exoplanet/exoplanet';
-import { DataService } from '../data.service';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { trigger,transition,style,animate,state } from '@angular/animations';
 
@@ -51,4 +49,6 @@ export class TableComponent implements OnInit {
     
     window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }
+
+  
 }
