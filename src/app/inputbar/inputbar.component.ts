@@ -13,6 +13,7 @@ import { DownloadService } from '../download.service';
 })
 export class InputbarComponent implements OnInit {
   
+  selected = 'option2';
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
   public showTable: boolean = false;
