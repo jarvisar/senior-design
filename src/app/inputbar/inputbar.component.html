@@ -1,38 +1,39 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<span class="inputbar" id="inputbar" style="float: left; display: absolute">
+<div class="inputbar" id="inputbar" >
   
-  <select class="hostname_select" id="hostname_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedHost">
+  <select class="hostname_select" id="hostname_select" [(ngModel)]="selectedHost">
       <option *ngFor="let _ of hostData; index as i" [value]="i">
         {{hostData[i]}}
       </option>
     </select>
     
-    <select class="method_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedMethod">
+    <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod">
       <option *ngFor="let _ of methodData; index as i" [value]="i">
         {{methodData[i]}}
       </option>
     </select>
 
-    <select class="year_select" id="method_select" style="display: inline; float: left; margin-left: 15px" [(ngModel)]="selectedYear">
+    <select class="year_select" id="method_select"  [(ngModel)]="selectedYear">
       <option *ngFor="let _ of yearData; index as i" [value]="i">
         {{yearData[i]}}
       </option>
     </select>
 
-    <select class="facility_select" id="facility_select" style="display: inline; float: left; margin-left: 15px;" [(ngModel)]="selectedFacility">
+    <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility">
       <option *ngFor="let _ of facilityData; index as i" [value]="i">
         {{facilityData[i]}}
       </option>
     </select>
 
-    <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center; display: inline; float: left; margin-left: 15px;" (click)="searchclick($event)">Search</button>
-    <button mat-raised-button class="clear_button" id="clear_button" color="primary" style="display: inline; float: left; margin-left: 15px; margin-right: 10px;" (click)="clearclick($event)">Clear</button>
-    <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline">
+    <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)">Search</button>
+    <button mat-raised-button class="clear_button" id="clear_button" color="primary"  (click)="clearclick($event)">Clear</button>
+    <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" >
       <mat-icon>help</mat-icon>
     </button>
 
 
-    <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" style="display: flex; justify-content:center; align-items:center;"></app-table>
     
     
-</span>
+    
+  </div>
+<app-table [exoplanetData]="exoplanetData" [numResults]="numResults" style=" justify-content:center; align-items:center;"></app-table>
