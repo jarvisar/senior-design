@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Exoplanet } from '../exoplanet/exoplanet';
 import { DataService } from '../data.service';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
-import { trigger,transition,style,animate } from '@angular/animations';
+import { trigger,transition,style,animate,state } from '@angular/animations';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   trigger(name, [
@@ -18,11 +18,20 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   styleUrls: ['./table.component.css'],
   animations: [
     fadeInOut('fadeinandout', 0.1),
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
   ]
 })
 export class TableComponent implements OnInit {
   @Input() exoplanetData!: Array<any>;
   @Input() numResults!: number;
+
+  dataSource = this.exoplanetData;
+  
+  displayedColumns = ['pl_name'];
 
   public showRows: boolean = false;
   

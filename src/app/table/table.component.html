@@ -1,21 +1,37 @@
 
+
 <table *ngIf="exoplanetData.length > 0" class="styled-table" [@fadeinandout]>
-        <thead >
-            <tr>
-                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="pl_name">Planet Name</th>
-                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="hostname">Host Name</th>
-                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="discoverymethod">Discovery Method</th>
-                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_year">Discovery Year</th>
-                <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_facility">Discovery Facility</th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr  *ngFor="let exoplanet of exoplanetData; count as i" (click)="nasaEyes(exoplanet)">
-                <td>{{exoplanet.pl_name}}</td>
-                <td>{{exoplanet.hostname}}</td>
-                <td>{{exoplanet.discoverymethod}}</td>
-                <td>{{exoplanet.disc_year}}</td>
-                <td>{{exoplanet.disc_facility}}</td>
-            </tr>
-        </tbody>    
+    <thead >
+        <tr>
+            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="pl_name">Planet Name</th>
+            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="hostname">Host Name</th>
+            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="discoverymethod">Discovery Method</th>
+            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_year">Discovery Year</th>
+            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_facility">Discovery Facility</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr  *ngFor="let exoplanet of exoplanetData; count as i" (click)="nasaEyes(exoplanet)">
+            <td>{{exoplanet.pl_name}}</td>
+            <td>{{exoplanet.hostname}}</td>
+            <td>{{exoplanet.discoverymethod}}</td>
+            <td>{{exoplanet.disc_year}}</td>
+            <td>{{exoplanet.disc_facility}}</td>
+        </tr>
+    </tbody>    
 </table>
+<!-- <table mat-table [dataSource]="exoplanetData"  class="styled_table" *ngIf="exoplanetData.length > 0">
+
+    <ng-container matColumnDef="pl_name">
+        <th mat-header-cell *matHeaderCellDef> Planet Name </th>
+        <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.pl_name}} </td>
+      </ng-container>
+
+      <thead>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      </thead>
+      <tbody>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </tbody>
+  
+</table> -->
