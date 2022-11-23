@@ -1,5 +1,7 @@
 export class Sort{
 
+    // Used to sort table data
+
     private sortOrder = 1;
     private collator = new Intl.Collator(undefined, {
         numeric: true,

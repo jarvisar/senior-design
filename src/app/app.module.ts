@@ -21,7 +21,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TableComponent } from './table/table.component'; 
 import { MatTableModule } from '@angular/material/table';
-import { CdkColumnDef } from '@angular/cdk/table';
 import { SortDirective } from './directive/sort.directive';
 
 @NgModule({
@@ -55,8 +54,5 @@ import { SortDirective } from './directive/sort.directive';
   bootstrap: [AppComponent]
 })
 export class AppModule { 
-
-  constructor(){console.log("test!!!")}
-  
 }
 

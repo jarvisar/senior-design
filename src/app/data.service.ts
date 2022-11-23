@@ -4,7 +4,7 @@ import { Exoplanet } from './exoplanet/exoplanet'
 
 const httpOptions = {
   headers: new HttpHeaders({ 
-    
+    //can put HTTP headers here
   })
 };
 
@@ -12,14 +12,12 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-
-
 export class DataService {
+  //As of right now API uses CORS.SH proxy to prevent CORS errors when returning data
+  //Currently investigating better solutions such as running a NODE JS proxy server myself
   hostUrl = 'https://proxy.cors.sh/https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query='
-  //hostUrl = 'http://localhost:4200/api'
-  //hostUrl = 'TAP/sync?query='
+
   public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
-  
   
   constructor(private http: HttpClient) {}
   

@@ -109,7 +109,7 @@ export class InputbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //
+    // Load select boxes' options
     this.hostData = this.csvToArray('./assets/hostnames.csv', 'Hostnames');
     this.methodData = this.csvToArray('./assets/discoverymethod.csv', 'Discovery Method')
     this.yearData = this.csvToArray('./assets/disc_year.csv', 'Discovery Year')

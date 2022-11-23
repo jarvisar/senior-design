@@ -31,9 +31,6 @@ export class AppComponent implements AfterViewInit  {
     let loader = this.renderer.selectRootElement('#loader');
     this.renderer.setStyle(loader, 'display', 'none');
   }
-  
-  
-  
 }
 
 

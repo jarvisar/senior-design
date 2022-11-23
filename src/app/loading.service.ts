@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class LoadingService {
   private isLoading$$ = new BehaviorSubject<boolean>(false);
   isLoading$ = this.isLoading$$.asObservable();
-  
+  // Loading spinner
   setLoading(isLoading: boolean) {
     this.isLoading$$.next(isLoading);
   }
