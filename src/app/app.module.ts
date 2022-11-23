@@ -47,8 +47,7 @@ import { SortDirective } from './directive/sort.directive';
     MatDialogModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatTableModule,
-    NgxDatatableModule
+    MatTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

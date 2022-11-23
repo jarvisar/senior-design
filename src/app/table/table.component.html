@@ -1,13 +1,4 @@
 
-<<<<<<< HEAD
-
-
-<table mdbTableSort="mdbTableSort" class="sortable" class="styled-table" >
-    <span class="table-body">
-        <thead>
-            <tr>
-                <th *ngFor="let header of headers">{{header}}</th>
-=======
 <table class="styled-table" >
     <span class="table-body">
         <thead>
@@ -17,7 +8,6 @@
                 <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="discoverymethod">Discovery Method</th>
                 <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_year">Discovery Year</th>
                 <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_facility">Discovery Facility</th>
->>>>>>> d52a029b8c04e60a09559c2feb6f22c51f0a73bd
             </tr>
         </thead>
         <tbody *ngIf="exoplanetData.length > 0">
