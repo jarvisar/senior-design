@@ -64,3 +64,17 @@
     cursor: pointer;
 }
 
+.test-table {
+    width: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+}
+
+.mat-header-cell {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-cell {
+    color: white;
+}
