@@ -5,8 +5,7 @@
     font-size: 1.2em;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    background-color: white;
-    display: table;
+    background-color: white;   
 }
 
 .styled-table thead, .styled-table tbody {
@@ -50,7 +49,9 @@
 }
 
 .styled-table tbody {
-    height: 100px;
+    display: block;
+    height: 75vh;
+    overflow: auto;
 }
 
 .styled-table thead th:hover{
@@ -62,3 +63,4 @@
     background-color: #eaeaea;
     cursor: pointer;
 }
+
