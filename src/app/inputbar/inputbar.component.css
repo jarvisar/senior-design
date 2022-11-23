@@ -2,12 +2,10 @@ p {
     font-family: Lato;
   }
 
-  
   .inputbar {
     white-space: nowrap;
     overflow-x: auto;
     width: 100%;
-    float: left;
   } 
 
   .hostname_select, .method_select, .year_select, .facility_select  {
@@ -29,11 +27,6 @@ p {
     height: 40px;
     font-size:16px;
     letter-spacing: 0.1px;
-  }
-
-  .dataTable {
-    width: 100%;
-    float: left;
   }
 
   

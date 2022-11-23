@@ -152,7 +152,10 @@
 <!-- Main -->
 <div class="content" role="main">
   
-  <app-inputbar class="input_bar" id="input_bar"></app-inputbar>
+  <span style="width: 100%; margin: 0 auto;">
+    <app-inputbar class="input_bar" id="input_bar" ></app-inputbar>
+  </span>
+  
   
   <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: 40%; left: 50%; stroke: #0b3d91;" [@fadeinandout]></mat-spinner>  
   <div class="background">

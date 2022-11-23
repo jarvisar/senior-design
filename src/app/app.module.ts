@@ -21,7 +21,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TableComponent } from './table/table.component'; 
 import { MatTableModule } from '@angular/material/table';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { CdkColumnDef } from '@angular/cdk/table';
+import { SortDirective } from './directive/sort.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     InputbarComponent,
     ExoplanetComponent,
     HelpboxComponent,
-    TableComponent
+    TableComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,
