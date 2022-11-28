@@ -21,6 +21,16 @@
 | Research and Initial Testing | 12 |
 | Functional Prototype Development | 20 |
 | Prototype Deployment and Debugging | 5 |
+| Final Report Organization | 3 |
+
+##### Will Leithauser
+| Work Description | Hours Spent |
+|-|-|
+| CS5001 Course Assignments | 10 |
+| HTTP Research and Testing | 12 |
+| Functional Prototype Development | 20 |
+| Prototype Deployment and Debugging | 5 |
+| Final Report Organization | 3 |
 
 ### Final [GitHub Pages](http://jarvisar.github.io/senior-design) Site
 
