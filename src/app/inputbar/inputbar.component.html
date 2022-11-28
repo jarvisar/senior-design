@@ -31,7 +31,7 @@
       <mat-icon>help</mat-icon>
     </button>
     <!-- Show download button if table has results -->
-    <button mat-icon-button *ngIf="exoplanetData.length > 0" (click)="download()" >
+    <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" >
       <mat-icon>download</mat-icon>
     </button>
 
