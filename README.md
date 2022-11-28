@@ -8,7 +8,7 @@ The main objective of this project is to develop and build a website capable of 
 
 After returning the data, the website will then format the data into a readable form and will give the user the option to export the formatted data to the user's local disk. We will use Angular TypeScript to build the site and utilize HTTP requests and Table Access Protocol (TAP) to call NASA's Archive. 
 
-Currently, the source code can be found in the [master branch](https://github.com/jarvisar/senior-design/tree/master) of the repository. To access the current deployment, visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site.
+Currently, the source code can be found in the [master branch](https://github.com/jarvisar/senior-design/tree/master) of the repository. To access the latest deployment, visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site.
 
 ## Table of Contents
 1. [Team Members](./project-description.md) & [Project Abstract](./project-description.md#abstract)
