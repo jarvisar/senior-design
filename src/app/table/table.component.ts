@@ -27,14 +27,12 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
 })
 export class TableComponent implements OnInit {
   
-  displayedColumns = ['pl_name', 'discoverymethod'];
+  displayedColumns = ['pl_name', 'hostname', 'discoverymethod', 'disc_year', 'disc_facility'];
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource: MatTableDataSource<Exoplanet>;
 
   @Input() set exoplanetData(data: Exoplanet[]) {
-    console.log(data.length);
     this.setTableDataSource(data);
-    console.log(Object.keys(data).length);
   }
   
   @Input() numResults!: number;
@@ -54,14 +52,11 @@ export class TableComponent implements OnInit {
 
   public showRows: boolean = false;
   
-  headers = ['Planet Name', 'Host Name', 'Discovery method', 'Discovery Year', 'Discovery Facility'];
-  
   constructor() {
     this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
   }
 
   ngOnInit(): void {
-    
   }
 
   sortData(sort: Sort){
