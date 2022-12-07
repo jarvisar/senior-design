@@ -4,12 +4,28 @@ import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
+import { trigger,transition,style,animate,state } from '@angular/animations';
 
-
+export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
+  trigger(name, [
+    transition(':enter', [
+      style({ opacity: 0 }),
+      animate(`${duration}s ease-in-out`)
+    ]),
+    transition(':leave', [animate(`${duration}s ease-in-out`, style({ opacity: 0 }))])
+  ])
 @Component({
   selector: 'app-inputbar',
   templateUrl: './inputbar.component.html',
-  styleUrls: ['./inputbar.component.css']
+  styleUrls: ['./inputbar.component.css'],
+  animations: [
+    fadeInOut('fadeinandout', 0.1),
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class InputbarComponent implements OnInit {
   
@@ -91,13 +107,13 @@ export class InputbarComponent implements OnInit {
   searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
     
-    this.showTable = true;
     var emptySearch: boolean = this.buildQuery();
     
     this.exoplanetData = this.exoplanet.getExoplanetData(this.apiQuery);
     console.log(this.exoplanetData);
-    console.log(this.exoplanetData.length);
+    console.log(Object.keys(this.exoplanetData).length);
     this.numResults = this.exoplanetData.length;
+    this.showTable = true;
   }
 
   clearclick(event: Event) {

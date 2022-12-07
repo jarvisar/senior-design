@@ -64,7 +64,15 @@
     cursor: pointer;
 }
 
+.table-container {
+    margin: 25px 0;
+    display: block;
+    height: 70vh;
+    overflow: auto;
+}
+
 .test-table {
+    
     width: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -72,9 +80,25 @@
 }
 
 .mat-header-cell {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 1.1em;
+    background-color: #0c3e92;
+    color: white;
 }
 
 .mat-cell {
-    color: white;
+    color: black;
+    text-align: left;
 }
+
+.mat-row:nth-child(even){
+    background-color: white;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: #f3f3f3;
+}
+
+.mat-row:hover {
+    background-color: #eaeaea;
+  }
+  

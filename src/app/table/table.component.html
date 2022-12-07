@@ -1,6 +1,6 @@
 
 
- <table *ngIf="exoplanetData.length > 0" class="styled-table" [@fadeinandout]>
+ <!-- <table *ngIf="exoplanetData.length > 0" class="styled-table" [@fadeinandout]>
     <thead >
         <tr>
             <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="pl_name">Planet Name</th>
@@ -19,20 +19,26 @@
             <td>{{exoplanet.disc_facility}}</td>
         </tr>
     </tbody>    
-</table> 
-
-<!-- <table mat-table [dataSource]="exoplanetData"  class="test-table" *ngIf="exoplanetData.length > 0">
-
-    <ng-container matColumnDef="pl_name">
-        <th mat-header-cell *matHeaderCellDef> Planet Name </th>
-        <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.pl_name}} </td>
-      </ng-container>
-
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      
-      <tbody>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </tbody>
-  
 </table> -->
+
+<div class="table-container" [@fadeinandout]>
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" class="test-table" [@fadeinandout]>
+
+        <ng-container matColumnDef="pl_name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Planet Name </th>
+            <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.pl_name}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="discoverymethod">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Discovery Method </th>
+            <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.discoverymethod}} </td>
+        </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          
+          <tbody>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </tbody>
+      
+    </table> 
+</div>
