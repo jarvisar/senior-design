@@ -9,6 +9,7 @@ import { Exoplanet } from './exoplanet'
 })
 export class ExoplanetComponent implements OnInit { 
   public exoplanetData!: Array<any>;
+  public resultsReturned: Boolean = false;
 
   constructor(private data: DataService) { }
   
@@ -18,6 +19,7 @@ export class ExoplanetComponent implements OnInit {
   getExoplanetData(input: string){
     //Create blank array for new search
     var newArray: Array<Exoplanet> = [];
+    
 
     this.data.getExoPlanetData(input).subscribe((response: any[]) => {
       response.forEach((e: Exoplanet) => {

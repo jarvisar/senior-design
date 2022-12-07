@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, Input, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { MatTableModule, MatTableDataSource, MatTable } from '@angular/material/table';
 import { trigger,transition,style,animate,state } from '@angular/animations';
+import {MatSort, Sort } from '@angular/material/sort';
+import { Exoplanet } from '../exoplanet/exoplanet';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   trigger(name, [
@@ -24,31 +26,45 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   ]
 })
 export class TableComponent implements OnInit {
-  @Input() exoplanetData!: Array<any>;
-  @Input() numResults!: number;
-
-  dataSource = this.exoplanetData;
   
-  displayedColumns = ['pl_name'];
+  displayedColumns = ['pl_name', 'discoverymethod'];
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  dataSource: MatTableDataSource<Exoplanet>;
+
+  @Input() set exoplanetData(data: Exoplanet[]) {
+    console.log(data.length);
+    this.setTableDataSource(data);
+    console.log(Object.keys(data).length);
+  }
+  
+  @Input() numResults!: number;
+  
+  setTableDataSource(data: Exoplanet[]) {
+      this.dataSource = new MatTableDataSource<Exoplanet>(data);
+      this.dataSource.sort = this.sort;
+      this.sort.active = 'pl_name';
+      this.sort.direction = 'desc';
+      this.dataSource.sortingDataAccessor = ( exoplanet, property) => {
+      switch ( property ) {
+        case 'exoplanet.pl_name': return exoplanet.pl_name;
+        default: return exoplanet[property];
+      }
+    };
+  }
 
   public showRows: boolean = false;
   
   headers = ['Planet Name', 'Host Name', 'Discovery method', 'Discovery Year', 'Discovery Facility'];
   
-  constructor() {}
-  
+  constructor() {
+    this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
+  }
+
   ngOnInit(): void {
-    if (this.exoplanetData.length != 0){
-      this.showRows = true;
-    }
-  }
-
-  nasaEyes(exoplanet: any){
-    console.log("test");
-    var formattedName = exoplanet.pl_name.replace(/ /g, "_");
     
-    window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }
 
-  
+  sortData(sort: Sort){
+    this.dataSource.sort = this.sort;
+  }
 }
