@@ -23,7 +23,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
-    
+
   ]
 })
 export class TableComponent implements OnInit {
@@ -65,4 +65,12 @@ export class TableComponent implements OnInit {
   sortData(sort: Sort){
     this.dataSource.sort = this.sort;
   }
+
+
+  // BIG TODOS
+  // 1. Sorting a table while a row expanded expands all rows
+  // 2. Have to click clear search BEFORE doing another search (or else data will not appear)
+  // 3. Fix column names
+  // 4. Add actual info to expanded exoplanet row
+
 }
