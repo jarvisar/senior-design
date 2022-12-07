@@ -23,6 +23,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
+    
   ]
 })
 export class TableComponent implements OnInit {
@@ -36,6 +37,8 @@ export class TableComponent implements OnInit {
   }
   
   @Input() numResults!: number;
+
+  expandedExoplanet: Exoplanet;
   
   setTableDataSource(data: Exoplanet[]) {
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
