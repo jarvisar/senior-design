@@ -5,8 +5,9 @@ import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
-export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
+export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   trigger(name, [
     transition(':enter', [
       style({ opacity: 0 }),
@@ -33,6 +34,7 @@ export class InputbarComponent implements OnInit {
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
   public showTable: boolean = false;
+  public firstSearch : boolean = true;
   
   hostData: any[] = [];
   methodData: any[] = ["Discovery Method", ];
@@ -106,7 +108,6 @@ export class InputbarComponent implements OnInit {
 
   searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
-    
     var emptySearch: boolean = this.buildQuery();
     
     this.exoplanetData = this.exoplanet.getExoplanetData(this.apiQuery);
@@ -114,6 +115,7 @@ export class InputbarComponent implements OnInit {
     console.log(Object.keys(this.exoplanetData).length);
     this.numResults = this.exoplanetData.length;
     this.showTable = true;
+    this.firstSearch = false;
   }
 
   clearclick(event: Event) {
@@ -123,6 +125,7 @@ export class InputbarComponent implements OnInit {
     this.selectedYear = 0;
     this.selectedFacility = 0;
     this.exoplanetData = [];
+    this.firstSearch = true;
   }
 
   ngOnInit(): void {

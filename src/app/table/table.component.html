@@ -21,8 +21,8 @@
     </tbody>    
 </table> -->
 
-<div class="table-container" [@fadeinandout]>
-    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table" [@fadeinandout]>
+<div class="table-container" >
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table" >
         
         <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>

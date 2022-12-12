@@ -30,8 +30,8 @@ p {
 
   #downloadButton {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 50px;
+    right: 30px;
   }
   
   .table{
