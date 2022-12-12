@@ -69,9 +69,8 @@ export class TableComponent implements OnInit {
 
 
   // BIG TODOS
-  // 1. Sorting a table while a row expanded expands all rows
-  // 2. Have to click clear search BEFORE doing another search (or else data will not appear)
-  // 3. Fix column names
-  // 4. Add actual info to expanded exoplanet row
+  // 1. Add exoplanet detail component? Can pass in exoplanet name as a parameter to pull data
+  //    a. Load component if a row is expanded using *ngIf
+  // 2. Fix table animations
 
 }
