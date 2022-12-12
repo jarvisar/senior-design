@@ -23,11 +23,11 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
-
   ]
 })
 export class TableComponent implements OnInit {
   
+  tableDef = [{column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, {column: 'disc_year', title: 'Discovery Year'}, {column: 'disc_facility', title: 'Discovery Facility'}];
   displayedColumns = ['pl_name', 'hostname', 'discoverymethod', 'disc_year', 'disc_facility'];
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource: MatTableDataSource<Exoplanet>;

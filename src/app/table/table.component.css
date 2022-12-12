@@ -67,7 +67,8 @@
 .table-container {
     margin: 25px 0;
     display: block;
-    height: 70vh;
+    
+    max-height: calc(100% - 200px);
     overflow: auto;
 }
 

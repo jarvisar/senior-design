@@ -24,9 +24,9 @@
 <div class="table-container" [@fadeinandout]>
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table" [@fadeinandout]>
         
-        <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column}} </th>
-            <td mat-cell *matCellDef="let exoplanet"> {{exoplanet[column]}} </td>
+        <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
+            <td mat-cell *matCellDef="let exoplanet"> {{exoplanet[def.column]}} </td>
         </ng-container>
         <ng-container matColumnDef="expandedDetail">
             <td mat-cell *matCellDef="let exoplanet" [attr.colspan]="displayedColumns.length">

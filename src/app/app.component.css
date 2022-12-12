@@ -9,10 +9,21 @@
     color: white; 
     display: table-cell;
     vertical-align: middle;
+    height: 25px;
   }
+
+  html, body {
+    height: 100%;
+ }
 
 .footer_text{
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content {
+  height: 10%;
+  position: absolute;
+  display: table-cell;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
