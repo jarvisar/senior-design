@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { SortDirective } from './directive/sort.directive';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ExodetailComponent } from './exodetail/exodetail.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     ExoplanetComponent,
     HelpboxComponent,
     TableComponent,
-    SortDirective
+    SortDirective,
+    ExodetailComponent
   ],
   imports: [
     BrowserModule,

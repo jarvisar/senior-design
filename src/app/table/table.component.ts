@@ -34,7 +34,7 @@ export class TableComponent implements OnInit {
   dataSource: MatTableDataSource<Exoplanet>;
 
   @Input() set exoplanetData(data: Exoplanet[]) {
-    this.setTableDataSource(data);
+    //this.setTableDataSource(data);
   }
   
   @Input() numResults!: number;
@@ -58,6 +58,7 @@ export class TableComponent implements OnInit {
   
   constructor() {
     this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
+    //this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 
   ngOnInit(): void {
