@@ -57,8 +57,8 @@ export class TableComponent implements OnInit {
   public showRows: boolean = false;
   
   constructor() {
-    this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
-    //this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
+    //this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
+    this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 
   ngOnInit(): void {
@@ -67,7 +67,6 @@ export class TableComponent implements OnInit {
   sortData(sort: Sort){
     this.dataSource.sort = this.sort;
   }
-
 
   // BIG TODOS
   // 1. Add exoplanet detail component? Can pass in exoplanet name as a parameter to pull data
