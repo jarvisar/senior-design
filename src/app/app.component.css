@@ -15,7 +15,7 @@
   html, body {
     height: 100%;
     width: 100%;
-    overflow: none;
+    overflow: hidden;
  }
 
 .footer_text{
@@ -23,10 +23,10 @@
 }
 
 .content {
-  
-  position: absolute;
+  overflow: hidden;
+  position: fixed;
   display: table-cell;
-  
+  width: 100%
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

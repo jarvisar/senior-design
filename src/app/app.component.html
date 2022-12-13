@@ -14,7 +14,7 @@
   h4,
   h5,
   h6 {
-    margin: 8px 0;
+    margin: 0px 0;
   }
 
   a:link {
@@ -37,7 +37,7 @@
   }
 
   .toolbar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -56,12 +56,14 @@
 
   .content {
     display: block;
-    height: calc(100% - 167px);
+    height: 50%;
     width: 99%;
     margin: 82px auto 82px;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    overflow: hidden;
+    left: 0;
   }
 
   svg.material-icons {
@@ -70,7 +72,7 @@
   }
 
   svg.material-icons:not(:last-child) {
-    margin-right: 8px;
+    margin-right: 0px;
   }
 
   .card svg.material-icons path {
@@ -117,8 +119,8 @@
   }
 
   svg#rocket-smoke {
-    height: 100vh;
-    position: absolute;
+    height: 100%;
+    position: fixed;
     top: 10px;
     right: 180px;
     z-index: -10;
@@ -157,19 +159,19 @@
 
 
 <!-- Main -->
-<div class="content" role="main" style=" height: 100%;">
+<div class="content" role="main" style=" height: 100%; width: 100%; overflow: none;">
   
   <!-- Input Bar + Data Table -->
-  <div class="input_bar" id="input_bar" style=" height: 100%;">
-    <app-inputbar style=" height: 100%;"></app-inputbar>
+  <div class="input_bar" id="input_bar" style=" height: 100%; width: 100%; overflow: hidden;">
+    <app-inputbar style=" height: 100%; width: 100%; overflow: hidden;"></app-inputbar>
   </div>
   
   <!-- Loading Spinner -->
-  <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: 40%; left: 50%; stroke: #0b3d91;" [@fadeinandout]></mat-spinner>  
+  <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: calc(50% - 100px); left: calc(50% - 35px); stroke: #0b3d91;" [@fadeinandout]></mat-spinner>  
 </div>
 
 
-<div class="background" >
+<div class="background" style="overflow: hidden;">
   
   <!-- Background Clouds -->
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="3611.084" height="485.677" viewBox="0 0 511.084 685.677">

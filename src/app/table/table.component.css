@@ -67,12 +67,15 @@
 .table-container {
     margin: 25px 0;
     display: block;
-    
+    scrollbar-width: 30px;
     max-height: calc(100% - 200px);
-    overflow: auto;
-    border: 1px solid white;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    box-shadow: 0 0 0.55em 0.3em rgba(0, 0, 0, 0.15);
+    width: 98%;
+    margin-left: 1%;
 }
 
 .test-table {
