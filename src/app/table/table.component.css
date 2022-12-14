@@ -128,5 +128,9 @@
     border-bottom-width: 0;
   }
 
-
+.facility-image {
+    
+    
+    object-fit: contain;
+}
  
