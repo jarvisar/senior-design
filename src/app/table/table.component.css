@@ -68,7 +68,7 @@
     margin: 25px 0;
     display: block;
     scrollbar-width: 30px;
-    max-height: calc(100% - 200px);
+    height: calc(100% - 200px);
     overflow-x: hidden;
     overflow-y: auto;
     border: 1px solid lightgray;
@@ -76,6 +76,7 @@
     box-shadow: 0 0 0.55em 0.3em rgba(0, 0, 0, 0.15);
     width: 98%;
     margin-left: 1%;
+    background-color: white;
 }
 
 .test-table {
@@ -122,13 +123,4 @@
   }
 
 
-
-
-  .exoplanet-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-  }
+ 

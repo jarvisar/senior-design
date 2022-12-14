@@ -35,8 +35,11 @@
                        [@detailExpand]="exoplanet == expandedExoplanet ? 'expanded' : 'collapsed'">
                     
                     <div class="exoplanet-description">
-                        
-                        
+                        <div class="facility-image-container">
+                            <img id="facility-image" src="https://exoplanets.nasa.gov/assets/eox/observatories/image_{{exoplanet.disc_facility}}" alt="Discovery Facility">
+                            
+                        </div>
+                        <p class="image-text">{{exoplanet.disc_facility}}</p>
                     </div>
                   </div>
                 </td>

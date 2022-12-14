@@ -8,7 +8,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 })
 export class ExodetailComponent implements OnInit {
 
-  @Input() exoplanet!: Exoplanet;
+  @Input() exoplanet!: any;
 
   pl_name = this.exoplanet.pl_name;
   hostname = this.exoplanet.hostname;
