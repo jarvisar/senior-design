@@ -25,7 +25,7 @@ import { SortDirective } from './directive/sort.directive';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ExodetailComponent } from './exodetail/exodetail.component';
-
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -53,7 +53,8 @@ import { ExodetailComponent } from './exodetail/exodetail.component';
     MatProgressSpinnerModule,
     MatTableModule,
     MatSortModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

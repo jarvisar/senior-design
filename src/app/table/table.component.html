@@ -35,11 +35,38 @@
                        [@detailExpand]="exoplanet == expandedExoplanet ? 'expanded' : 'collapsed'">
                     
                     <div class="exoplanet-description">
-                        <div class="facility-image-container">
-                            <img id="facility-image" src="https://exoplanets.nasa.gov/assets/eox/observatories/image_{{exoplanet.disc_facility}}" alt="Discovery Facility">
-                            
-                        </div>
-                        <p class="image-text">{{exoplanet.disc_facility}}</p>
+                        <div fxLayout="row"  fxLayoutGap="12px"  [style.margin-bottom]="'12px'">
+                            <mat-card>
+                              <div class="mat-body-2">{{exoplanet.disc_facility}}</div>
+                              <div class="mat-body-1"><img id="facility-image" src="https://exoplanets.nasa.gov/assets/eox/observatories/image_{{exoplanet.disc_facility}}" alt="Italian Trulli">
+                              </div>
+                            </mat-card>
+                            <mat-card>
+                              <div class="mat-body-2">Impératif</div>
+                              <div class="mat-body-1">Se rapproche des langages de type impératif, tels que le Java : utilisation de classes, interfaces, héritage ...</div>
+                            </mat-card>
+                            <mat-card>
+                              <div class="mat-body-2">Ressources</div>
+                              <mat-list>
+                                <mat-list-item>
+                                  <div matLine>
+                                    Sandbox TypeScript :
+                                    <button mat-button
+                                      (click)="playground.click()">Playground</button>
+                                    <a #playground href="http://www.typescriptlang.org/play/" target="_blank" [style.display]="'none'">TS Playground</a>
+                                  </div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <div matLine>
+                                    Documentation : 
+                                    <button mat-button
+                                      (click)="documentation.click()">TS Doc</button>
+                                    <a #documentation href="http://www.typescriptlang.org/docs/home.html" target="_blank" [style.display]="'none'">TS Doc</a>
+                                  </div>
+                                </mat-list-item>
+                              </mat-list>
+                            </mat-card>
+                          </div>
                     </div>
                   </div>
                 </td>
