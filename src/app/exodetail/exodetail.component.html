@@ -1,25 +1,27 @@
-<mat-card>
-    <div class="mat-body-2">Discovered by {{exoplanet.disc_facility}}</div>
-    <img id="facility-image" src="https://exoplanets.nasa.gov/assets/eox/observatories/image_{{exoplanet.disc_facility}}" alt="Italian Trulli">
+<div class="expanded-row">
+    <mat-card>
+        <div class="mat-body-2">Observed by {{exoplanet.disc_facility}}</div>
+        <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities' && exoplanet.disc_facility != 'Atacama Large Millimeter Array (ALMA)' && exoplanet.disc_facility != 'CHaracterising ExOPlanets Satellite (CHEOPS)' && exoplanet.disc_facility != 'NASA Infrared Telescope Facility (IRTF)'" 
+        src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}">
+      </mat-card>
+      <mat-card>
+        <div class="mat-body-2">Discovered with {{exoplanet.disc_method}}</div>
+        <div class="mat-body-1">Probably add an array with a description of all discovery methods.</div>
+      </mat-card>
+      <mat-card>
+        <div class="mat-body-2">Additional Resources</div>
+        <mat-list>
+          <mat-list-item>
+            <div matLine>
+              NASA Eyes:
+              <button mat-raised-button
+                (click)="nasaEyes()" class="eyes-button">Launch</button>
+              
+            </div>
+          </mat-list-item>
+          <mat-list-item>
     
-  </mat-card>
-  <mat-card>
-    <div class="mat-body-2">Discovered using {{exoplanet.disc_method}}</div>
-    <div class="mat-body-1">Probably add an array with a description of all discovery methods.</div>
-  </mat-card>
-  <mat-card>
-    <div class="mat-body-2">Additional Resources</div>
-    <mat-list>
-      <mat-list-item>
-        <div matLine>
-          NASA Eyes for {{exoplanet.pl_name}} :
-          <button mat-raised-button
-            (click)="nasaEyes()" class="eyes-button">Launch</button>
-          
-        </div>
-      </mat-list-item>
-      <mat-list-item>
-
-      </mat-list-item>
-    </mat-list>
-  </mat-card>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+</div>
