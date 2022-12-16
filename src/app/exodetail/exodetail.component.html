@@ -1,3 +1,25 @@
+<mat-card>
+    <div class="mat-body-2">Discovered by {{exoplanet.disc_facility}}</div>
+    <img id="facility-image" src="https://exoplanets.nasa.gov/assets/eox/observatories/image_{{exoplanet.disc_facility}}" alt="Italian Trulli">
+    
+  </mat-card>
+  <mat-card>
+    <div class="mat-body-2">Discovered using {{exoplanet.disc_method}}</div>
+    <div class="mat-body-1">Probably add an array with a description of all discovery methods.</div>
+  </mat-card>
+  <mat-card>
+    <div class="mat-body-2">Additional Resources</div>
+    <mat-list>
+      <mat-list-item>
+        <div matLine>
+          NASA Eyes for {{exoplanet.pl_name}} :
+          <button mat-raised-button
+            (click)="nasaEyes()" class="eyes-button">Launch</button>
+          
+        </div>
+      </mat-list-item>
+      <mat-list-item>
 
-
-Test!
+      </mat-list-item>
+    </mat-list>
+  </mat-card>

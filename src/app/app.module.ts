@@ -26,6 +26,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ExodetailComponent } from './exodetail/exodetail.component';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {MatListModule} from '@angular/material/list';
     MatTableModule,
     MatSortModule,
     MatTooltipModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

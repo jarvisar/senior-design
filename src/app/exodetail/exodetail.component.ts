@@ -10,18 +10,25 @@ export class ExodetailComponent implements OnInit {
 
   @Input() exoplanet!: any;
 
-  pl_name = this.exoplanet.pl_name;
-  hostname = this.exoplanet.hostname;
-  discoverymethod = this.exoplanet.discoverymethod;
-  disc_facility = this.exoplanet.disc_facility;
+  public pl_name; 
+  public hostname; 
+  public discoverymethod; 
+  public disc_facility; 
  
   public formattedDiscFacility;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.formattedDiscFacility = this.disc_facility?.replace(/ /g, "_");
+    this.pl_name = this.exoplanet.pl_name;
     
+  }
+
+  nasaEyes(){
+    console.log("test");
+    var formattedName = this.exoplanet.pl_name.replace(/ /g, "_");
+    
+    window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }
 
 }
