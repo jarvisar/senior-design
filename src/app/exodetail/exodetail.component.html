@@ -1,5 +1,5 @@
 <div class="expanded-row">
-    <mat-card>
+    <mat-card class="discovery-facility-card">
         <div class="mat-body-2">Observed by {{exoplanet.disc_facility}}</div>
         <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities' && exoplanet.disc_facility != 'Atacama Large Millimeter Array (ALMA)' && exoplanet.disc_facility != 'CHaracterising ExOPlanets Satellite (CHEOPS)' && exoplanet.disc_facility != 'NASA Infrared Telescope Facility (IRTF)'" 
         src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}">
@@ -16,11 +16,7 @@
               NASA Eyes:
               <button mat-raised-button
                 (click)="nasaEyes()" class="eyes-button">Launch</button>
-              
             </div>
-          </mat-list-item>
-          <mat-list-item>
-    
           </mat-list-item>
         </mat-list>
       </mat-card>
