@@ -3,6 +3,8 @@ import { MatTableModule, MatTableDataSource, MatTable } from '@angular/material/
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import {MatSort, Sort } from '@angular/material/sort';
 import { Exoplanet } from '../exoplanet/exoplanet';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ExodetailComponent } from '../exodetail/exodetail.component';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   trigger(name, [

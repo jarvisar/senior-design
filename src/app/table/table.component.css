@@ -79,12 +79,6 @@
     background-color: white;
 }
 
-.mat-card {
-    display: inline-block;
-    width: 30%;
-    
-  }
-
 .test-table {
     width: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
