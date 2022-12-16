@@ -108,6 +108,7 @@
   .exoplanet-detail {
     overflow: hidden;
     display: flex;
+    height: 100%;
   }
 
   .exoplanet-description {
@@ -122,9 +123,4 @@
     border-bottom-width: 0;
   }
 
-.facility-image {
-    
-    
-    object-fit: contain;
-}
  

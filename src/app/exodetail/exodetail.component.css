@@ -1,7 +1,5 @@
 .mat-card {
     display: inline-block;
-    width: 30%;
-    padding: 5px;
   }
 
 .eyes-button {
@@ -13,7 +11,19 @@
     color: white;
 }
 
-.expanded-row{
-    display: inline-block;
-    margin: 0 auto;
+
+.facility-image{
+    border: 1px solid white;
+    border-radius: 5%;
 }
+
+.discovery-facility-card {
+    max-height: 650px;
+    max-width: 325px;
+}
+
+mat-card img{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 80%;
+  }
