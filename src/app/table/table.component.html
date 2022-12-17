@@ -34,7 +34,7 @@
                 <td mat-cell *matCellDef="let exoplanet" [attr.colspan]="displayedColumns.length">
                   <div class="exoplanet-detail"
                        [@detailExpand]="exoplanet == expandedExoplanet ? 'expanded' : 'collapsed'">
-                        <app-exodetail [exoplanet]="exoplanet" style="padding: 30px;"></app-exodetail>
+                        <app-exodetail *ngIf="expandedExoplanet == exoplanet" [exoplanet]="exoplanet" style="padding: 30px;"></app-exodetail>
                   </div>
                 </td>
               </ng-container>
