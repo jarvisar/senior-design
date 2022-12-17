@@ -20,8 +20,7 @@ export class ExodetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.formatDiscFacility();
-    
+    this.formatDiscFacility(); 
   }
 
   formatDiscFacility() {
