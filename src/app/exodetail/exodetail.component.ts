@@ -9,11 +9,6 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 export class ExodetailComponent implements OnInit {
 
   @Input() exoplanet!: any;
-
-  public pl_name; 
-  public hostname; 
-  public discoverymethod; 
-  public disc_facility; 
  
   public formattedDiscFacility;
 
@@ -21,6 +16,11 @@ export class ExodetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.formatDiscFacility(); 
+  }
+
+  nasaEyes(){
+    var formattedName = this.exoplanet.pl_name.replace(/ /g, "_");
+    window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }
 
   formatDiscFacility() {
@@ -42,17 +42,18 @@ export class ExodetailComponent implements OnInit {
     else if (this.exoplanet.disc_facility == "Transiting Exoplanet Survey Satellite (TESS)"){
       this.formattedDiscFacility = "image_TESS_TransitingExoplanetSurveySatellite";
     }
+    else if (this.exoplanet.disc_facility == "KOINet") {
+      this.formattedDiscFacility = "KOINet600x307";
+    }
+    else if (this.exoplanet.disc_facility == "Acton Sky Portal Observatory") {
+      this.formattedDiscFacility = "Acton_generic600x307";
+    }
+    else if (this.exoplanet.disc_facility == "Mauna Kea Observatory") {
+      this.formattedDiscFacility = "ukirt_600x307";
+    }
     else{
       this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
     }
     
   }
-
-  nasaEyes(){
-    console.log("test");
-    var formattedName = this.exoplanet.pl_name.replace(/ /g, "_");
-    
-    window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
-  }
-
 }
