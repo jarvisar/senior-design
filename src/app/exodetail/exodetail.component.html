@@ -1,24 +1,19 @@
-<div class="expanded-row">
-    <mat-card class="discovery-facility-card">
+<div class="card-container">
+    <mat-card class="mat-card">
         <div class="mat-body-2">Observed by {{exoplanet.disc_facility}}</div>
         <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities' && exoplanet.disc_facility != 'Atacama Large Millimeter Array (ALMA)' && exoplanet.disc_facility != 'CHaracterising ExOPlanets Satellite (CHEOPS)' 
         && exoplanet.disc_facility != 'NASA Infrared Telescope Facility (IRTF)' && exoplanet.disc_facility != 'Winer Observatory' && exoplanet.disc_facility != 'European Space Agency (ESA) Gaia Satellite' && exoplanet.disc_facility != 'Wide-field Infrared Survey Explorer (WISE) Satellite Mission' && exoplanet.disc_facility !=  'SPECULOOS Southern Observatory'" 
         src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}">
       </mat-card>
-      <mat-card>
-        <div class="mat-body-2">Discovered with {{exoplanet.disc_method}}</div>
+      <mat-card class="mat-card">
+        <div class="mat-body-2">Discovered by {{exoplanet.discoverymethod}}</div>
         <div class="mat-body-1">Probably add an array with a description of all discovery methods.</div>
       </mat-card>
-      <mat-card>
+      <mat-card class="mat-card">
         <div class="mat-body-2">Additional Resources</div>
-        <mat-list>
-          <mat-list-item>
-            <div matLine>
-              NASA Eyes:
-              <button mat-raised-button
-                (click)="nasaEyes()" class="eyes-button">Launch</button>
-            </div>
-          </mat-list-item>
-        </mat-list>
+          <div matLine>
+            <button mat-raised-button (click)="nasaEyes()" class="eyes-button">NASA Eyes</button>
+          </div>
       </mat-card>
+      
 </div>

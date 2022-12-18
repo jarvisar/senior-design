@@ -1,29 +1,28 @@
-.mat-card {
-    display: inline-block;
-  }
+
 
 .eyes-button {
     background-color: #fc3d21;
-    width: 80px;
+    
     height: 40px;
     font-size:16px;
     letter-spacing: 0.1px;
     color: white;
 }
 
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
 
-.facility-image{
-    border: 1px solid white;
-    border-radius: 5%;
-}
-
-.discovery-facility-card {
-    max-height: 650px;
-    max-width: 325px;
-}
+  .mat-card {
+    width: 30%;
+  }
 
 mat-card img{
     object-fit: cover; /*this makes the image in src fit to the size specified below*/
-    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-    height: 80%;
+    width: 99%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    height: 90%;
+    border: 1px solid white;
+    border-radius: 5%;
   }
