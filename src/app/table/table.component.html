@@ -29,6 +29,8 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
                 <td mat-cell *matCellDef="let exoplanet"> {{exoplanet[def.column]}} </td>
             </ng-container>
+
+
             <ng-container matColumnDef="expandedDetail">
                 <td mat-cell *matCellDef="let exoplanet" [attr.colspan]="displayedColumns.length">
                   <div class="exoplanet-detail"
@@ -36,15 +38,19 @@
                         <app-exodetail *ngIf="expandedExoplanet == exoplanet" [exoplanet]="exoplanet" style="padding: 30px;"></app-exodetail>
                   </div>
                 </td>
-              </ng-container>
+            </ng-container>
+
               
-              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-              <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+
+            <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
                 class="exoplanet-row"
                 [class.exoplanet-expanded-row]="expandedExoplanet === exoplanet"
                 (click)="expandedExoplanet = expandedExoplanet === exoplanet ? null : exoplanet">
             </tr>
+
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
+
              <!--
             <ng-container matColumnDef="pl_name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Planet Name </th>
