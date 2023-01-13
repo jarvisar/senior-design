@@ -8,13 +8,27 @@ import { trigger,transition,style,animate,state } from '@angular/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
-  trigger(name, [
-    transition(':enter', [
-      style({ opacity: 0 }),
-      animate(`${duration}s ease-in-out`)
-    ]),
-    transition(':leave', [animate(`${duration}s ease-in-out`, style({ opacity: 0 }))])
-  ])
+  trigger(
+      'inOutAnimation', 
+      [
+        transition(
+          ':enter', 
+          [
+            style({ opacity: 0 }),
+            animate('.2s ease-out', 
+                    style({  opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave', 
+          [
+            style({  opacity: 1 }),
+            animate('.2s ease-in', 
+                    style({  opacity: 0 }))
+          ]
+        )
+      ]
+    )
 @Component({
   selector: 'app-inputbar',
   templateUrl: './inputbar.component.html',

@@ -19,7 +19,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
   animations: [
-    fadeInOut('fadeinandout', 0.1),
+    fadeInOut('fadeinandout'),
     trigger('detailExpand', [
       state('collapsed, void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
       state('expanded', style({ height: '*', visibility: 'visible' })),

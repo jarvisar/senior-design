@@ -44,7 +44,7 @@
   </div>
 
   <!-- Data Table -->
-  <div  class="table" >
-    <app-table [exoplanetData]="exoplanetData" [numResults]="numResults"  *ngIf="showTable" [@fadeinandout]></app-table>
+  <div  class="table">
+    <app-table [exoplanetData]="exoplanetData" [numResults]="numResults"  *ngIf="showTable" @inOutAnimation></app-table>
     <!-- <p *ngIf="!showTable" class="placeholder-text">Find your new favorite exoplanet!</p> -->
   </div>
