@@ -123,13 +123,13 @@ export class InputbarComponent implements OnInit {
   searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
     var emptySearch: boolean = this.buildQuery();
-    
+    this.firstSearch = false;
     this.exoplanetData = this.exoplanet.getExoplanetData(this.apiQuery);
     console.log(this.exoplanetData);
     console.log(Object.keys(this.exoplanetData).length);
     this.numResults = this.exoplanetData.length;
     this.showTable = true;
-    this.firstSearch = false;
+    
   }
 
   clearclick(event: Event) {

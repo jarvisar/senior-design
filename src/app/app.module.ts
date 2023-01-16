@@ -27,6 +27,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { ExodetailComponent } from './exodetail/exodetail.component';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     HelpboxComponent,
     TableComponent,
     SortDirective,
-    ExodetailComponent
+    ExodetailComponent,
+    SecretComponent
   ],
   imports: [
     BrowserModule,
