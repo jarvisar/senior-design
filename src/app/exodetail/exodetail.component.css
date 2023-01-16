@@ -1,5 +1,3 @@
-
-
 .eyes-button {
     background-color: #fc3d21;
     
@@ -21,9 +19,9 @@
   }
 
 mat-card img{
-    object-fit: cover; /*this makes the image in src fit to the size specified below*/
-    width: 99%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+    object-fit: cover;
+    width: 99%; 
     height: 90%;
     border: 1px solid white;
     border-radius: 5%;
-  }
+}

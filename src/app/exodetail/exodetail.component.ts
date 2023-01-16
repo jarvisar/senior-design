@@ -23,6 +23,7 @@ export class ExodetailComponent implements OnInit {
     window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
   }
 
+  // Ensures discovery facility image is loaded correctly
   formatDiscFacility() {
     if (this.exoplanet.disc_facility == "KELT-North"){
       this.formattedDiscFacility = "KELT-North600x307";
@@ -53,7 +54,6 @@ export class ExodetailComponent implements OnInit {
     }
     else{
       this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
-    }
-    
+    } 
   }
 }

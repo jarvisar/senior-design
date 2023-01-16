@@ -84,7 +84,6 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
 .mat-header-cell {
     font-size: 1.2em;
     background-color: #0c3e92;
@@ -100,27 +99,26 @@
     background-color: white;
 }
         
-
 .mat-row:hover {
     background-color: #eaeaea;
-  }
+}
   
-  .exoplanet-detail {
-    overflow: hidden;
-    display: flex;
-    height: 100%;
-  }
+.exoplanet-detail {
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+}
 
-  .exoplanet-description {
-    padding: 16px;
-  }
+.exoplanet-description {
+  padding: 16px;
+}
 
-  tr.exoplanet-detail-row {
-    height: 0;
-  }
+tr.exoplanet-detail-row {
+   height: 0;
+}
 
-  .exoplanet-row td {
-    border-bottom-width: 0;
-  }
+.exoplanet-row td {
+   border-bottom-width: 0;
+}
 
  
