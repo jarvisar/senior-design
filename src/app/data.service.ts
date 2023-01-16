@@ -20,10 +20,6 @@ export class DataService {
   public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
   
   constructor(private http: HttpClient) {}
-  
-  getHostList(){
-    return this.http.get(this.hostUrl + 'select+distinct+hostname+from+pscomppars+order+by+hostname&format=csv', httpOptions);
-  }
 
   getExoPlanetData(query: string){
     

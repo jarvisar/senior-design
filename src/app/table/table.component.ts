@@ -29,9 +29,9 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   ]
 })
 export class TableComponent implements OnInit {
-  
   tableDef = [{column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, {column: 'disc_year', title: 'Discovery Year'}, {column: 'disc_facility', title: 'Discovery Facility'}];
   displayedColumns = ['pl_name', 'hostname', 'discoverymethod', 'disc_year', 'disc_facility'];
+  
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   dataSource: MatTableDataSource<Exoplanet>;
 
@@ -69,10 +69,4 @@ export class TableComponent implements OnInit {
   sortData(sort: Sort){
     this.dataSource.sort = this.sort;
   }
-
-  // BIG TODOS
-  // 1. Add exoplanet detail component? Can pass in exoplanet name as a parameter to pull data
-  //    a. Load component if a row is expanded using *ngIf
-  // 2. Fix table animations
-
 }

@@ -16,7 +16,5 @@ export class SecretComponent implements OnInit {
     const dialogRef = this.dialog.open(SecretComponent);
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

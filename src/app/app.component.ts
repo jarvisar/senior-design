@@ -28,9 +28,7 @@ export class AppComponent implements AfterViewInit  {
   title = 'senior-design';
   public konamiCode;
   public currentInput;
-  public showSecret: boolean = false;
 
-  public testArray: Array<any> = [];
   constructor(private data: DataService, public inputbar: InputbarComponent, public loadingService: LoadingService, private renderer: Renderer2, private router: Router, private secret: SecretComponent){
     this.konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     this.currentInput = []
@@ -41,10 +39,13 @@ export class AppComponent implements AfterViewInit  {
     this.renderer.setStyle(loader, 'display', 'none');
   }
 
+  //Listen for Konami Code
   @HostListener('document:keyup', ['$event'])
-  onKey(event: any) {
+  onKeydown(event: any) {
+    // prevents duplicate triggers
+    event.stopImmediatePropagation()
     this.currentInput.push(event.key);
-    console.log(this.currentInput);
+    console.log(event.key);
     if (this.currentInput.length > this.konamiCode.length) {
       this.currentInput.shift();
     }

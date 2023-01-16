@@ -22,6 +22,7 @@ export class ExoplanetComponent implements OnInit {
     
 
     this.data.getExoPlanetData(input).subscribe((response: any[]) => {
+      console.log("TEST!!!");
       response.forEach((e: Exoplanet) => {
         //Add each exoplanet to array
         newArray.push(e)
