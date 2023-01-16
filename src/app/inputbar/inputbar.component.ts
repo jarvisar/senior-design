@@ -5,7 +5,6 @@ import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   trigger(
