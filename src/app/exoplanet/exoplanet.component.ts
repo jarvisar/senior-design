@@ -20,9 +20,7 @@ export class ExoplanetComponent implements OnInit {
     //Create blank array for new search
     var newArray: Array<Exoplanet> = [];
     
-
     this.data.getExoPlanetData(input).subscribe((response: any[]) => {
-      console.log("TEST!!!");
       response.forEach((e: Exoplanet) => {
         //Add each exoplanet to array
         newArray.push(e)

@@ -22,12 +22,10 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getExoPlanetData(query: string){
-    
     console.log(this.hostUrl);
     var testArray: Array<Exoplanet> = [];
     console.log(query);
     //return this.http.get<any[]>(this.hostUrl + query + '&format=json');
     return this.http.get<any[]>(this.hostUrl + query + '&format=json', httpOptions);
   }
-
 }

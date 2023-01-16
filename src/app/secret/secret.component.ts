@@ -12,6 +12,7 @@ export class SecretComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
+  // open secret da]ialog box
   public openDialog() {
     const dialogRef = this.dialog.open(SecretComponent);
   }
