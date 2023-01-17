@@ -23,7 +23,7 @@
 
 <div class="table-container" >
     <div >
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table" [@fadeInOut]>
+        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table">
         
             <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
