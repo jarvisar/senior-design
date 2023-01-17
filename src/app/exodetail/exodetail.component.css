@@ -20,6 +20,7 @@
 
   .mat-card {
     width: 30%;
+    margin: 0 10px;
   }
 
 mat-card img{
