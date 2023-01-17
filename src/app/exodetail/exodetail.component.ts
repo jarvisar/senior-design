@@ -12,7 +12,8 @@ export class ExodetailComponent implements OnInit {
  
   public formattedDiscFacility;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
     this.formatDiscFacility(); 
@@ -56,4 +57,18 @@ export class ExodetailComponent implements OnInit {
       this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
     } 
   }
+
+  public methodDict = {
+    'Transit Timing Variations': 'value1',
+    'Radial Velocity': 'value2',
+    'Transit': 'value2',
+    'Orbital Brightness Modulation': 'value2',
+    'Disk Kinematics': 'value2',
+    'Eclipse Timing Variations': 'value2',
+    'Pulsation Timing Variations': 'value2',
+    'Astrometry': 'value2',
+    'Imaging': 'value2',
+    'Microlensing': 'value2',
+    'Pulsar Timing': 'value2'
+  };
 }

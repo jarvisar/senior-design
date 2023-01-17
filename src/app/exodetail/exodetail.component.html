@@ -6,11 +6,12 @@
         src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}">
       </mat-card>
       <mat-card class="mat-card">
-        <div class="mat-body-2">Discovered with {{exoplanet.discoverymethod}}</div>
-        <div class="mat-body-1">Probably add an array with a description of all discovery methods.</div>
+        <div class="mat-body-2">Detection Method: {{exoplanet.discoverymethod}}</div>
+        <div class="mat-body-1">{{methodDict['key1']}}</div>
       </mat-card>
       <mat-card class="mat-card">
         <div class="mat-body-2">Additional Resources</div>
+        <br>
           <div matLine>
             <button mat-raised-button (click)="nasaEyes()" class="eyes-button">NASA Eyes</button>
           </div>
