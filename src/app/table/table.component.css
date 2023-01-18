@@ -121,4 +121,8 @@ tr.exoplanet-detail-row {
    border-bottom-width: 0;
 }
 
+.detail-container{
+    background: linear-gradient(to bottom, #ffffff, #eeeeee);
+}
+
  

@@ -14,8 +14,20 @@ export class SecretComponent implements OnInit {
 
   // open secret da]ialog box
   public openDialog() {
-    const dialogRef = this.dialog.open(SecretComponent);
+    const dialogRef = this.dialog.open(SecretComponent, {
+      panelClass: 'mat-dialog-container',
+    });
   }
 
+  locations = ["tatooine","hoth","jakku","geonosis","bespin","naboo","crait","coruscant","alderaan"];
+  displayInfo = false;
+  planetImageUrl = 'https://starloggers.files.wordpress.com/2020/01/';
+
+  color(){
+    return "hsl("+Math.floor(Math.random()*360)+"deg,100%,40%)"
+  }
+  
   ngOnInit(): void {}
+
+  
 }
