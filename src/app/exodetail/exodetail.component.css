@@ -1,10 +1,19 @@
 .eyes-button {
     background-color: #fc3d21;
-    
     height: 40px;
+    width: 150px;
     font-size:16px;
     letter-spacing: 0.1px;
     color: white;
+}
+
+.ref-button {
+  background-color: #0b3d91;
+  height: 40px;
+  width: 150px;
+  font-size:16px;
+  letter-spacing: 0.1px;
+  color: white;
 }
 
 .mat-body-2{

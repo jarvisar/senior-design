@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Exoplanet } from '../exoplanet/exoplanet';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-exodetail',
@@ -7,21 +6,31 @@ import { Exoplanet } from '../exoplanet/exoplanet';
   styleUrls: ['./exodetail.component.css']
 })
 export class ExodetailComponent implements OnInit {
+  @ViewChild('refContainer', { static: true, read: ElementRef }) anchorContainer: ElementRef;
 
   @Input() exoplanet!: any;
  
   public formattedDiscFacility;
+  public href;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit(): void {
     this.formatDiscFacility(); 
+    // Pull link/href from disc_refname anchor element
+    this.anchorContainer.nativeElement.innerHTML = this.exoplanet.disc_refname;
+    var anchor = this.anchorContainer.nativeElement.querySelector('a');
+    this.href = anchor.getAttribute('href');
   }
 
   nasaEyes(){
     var formattedName = this.exoplanet.pl_name.replace(/ /g, "_");
     window.open('https://exoplanets.nasa.gov/eyes-on-exoplanets/#/planet/' + formattedName +  '/', '_blank');
+  }
+
+  openRef(){
+    window.open(this.href);
   }
 
   // Ensures discovery facility image is loaded correctly

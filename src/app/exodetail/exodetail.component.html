@@ -14,6 +14,9 @@
         <br>
           <div matLine>
             <button mat-raised-button (click)="nasaEyes()" class="eyes-button">NASA Eyes</button>
+            <br>
+            <br>
+            <button mat-raised-button (click)="openRef()" class="ref-button">Reference<div class="ref-link" #refContainer [innerHTML]="exoplanet.disc_refname" style="display: none;"></div></button>
           </div>
       </mat-card>  
 </div>
