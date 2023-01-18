@@ -4,4 +4,5 @@ export interface Exoplanet{
     discoverymethod?: string;
     disc_year?: number;
     disc_facility?: string;
+    disc_refname?: HTMLElement;
 }
