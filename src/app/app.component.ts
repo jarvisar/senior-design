@@ -37,6 +37,8 @@ export class AppComponent implements AfterViewInit  {
   public ngAfterViewInit(): void {
     let loader = this.renderer.selectRootElement('#loader');
     this.renderer.setStyle(loader, 'display', 'none');
+    let toolbar = <HTMLElement>document.querySelector('.toolbar');
+    toolbar.style.display = 'flex';
   }
 
   //Listen for Konami Code

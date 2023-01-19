@@ -28,6 +28,7 @@ import { ExodetailComponent } from './exodetail/exodetail.component';
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SecretComponent } from './secret/secret.component';
+import { MaterialElevationDirective } from './material-elevation.directive';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SecretComponent } from './secret/secret.component';
     TableComponent,
     SortDirective,
     ExodetailComponent,
-    SecretComponent
+    SecretComponent,
+    MaterialElevationDirective
   ],
   imports: [
     BrowserModule,
