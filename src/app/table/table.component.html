@@ -22,7 +22,7 @@
 </table> -->
 
 <div class="table-container" >
-    <div >
+    <div class="table-scroll-container">
         <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table">
         
             <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
