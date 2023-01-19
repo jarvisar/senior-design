@@ -29,6 +29,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SecretComponent } from './secret/secret.component';
 import { MaterialElevationDirective } from './material-elevation.directive';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
@@ -60,11 +62,13 @@ import { MaterialElevationDirective } from './material-elevation.directive';
     MatSortModule,
     MatTooltipModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatPaginatorModule,
+    CdkTableModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

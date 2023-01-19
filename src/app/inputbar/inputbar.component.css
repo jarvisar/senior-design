@@ -37,7 +37,7 @@ p {
   .table {
     margin: 25px 0;
     display: block;
-    
+    -ms-overflow-style: none;
     height: calc(100% - 200px);
     width: 98%;
     overflow-x: hidden;
@@ -48,6 +48,11 @@ p {
     
     margin-left: 1%;
     background-color: white;
+}
+
+.table::-webkit-scrollbar { 
+  width: 0.2em;
+  background-color: #F5F5F5; 
 }
 
   

@@ -3,6 +3,7 @@ import { MatTableModule, MatTableDataSource, MatTable } from '@angular/material/
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import {MatSort, Sort } from '@angular/material/sort';
 import { Exoplanet } from '../exoplanet/exoplanet';
+import {MatPaginator} from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ExodetailComponent } from '../exodetail/exodetail.component';
 
@@ -28,7 +29,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
     ]),
   ]
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, AfterViewInit {
   tableDef = [{column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, {column: 'disc_year', title: 'Discovery Year'}, {column: 'disc_facility', title: 'Discovery Facility'}];
   displayedColumns = ['pl_name', 'hostname', 'discoverymethod', 'disc_year', 'disc_facility'];
   
@@ -48,23 +49,29 @@ export class TableComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.sort.active = 'pl_name';
       this.sort.direction = 'desc';
+      this.dataSource.paginator = this.paginator;
       this.dataSource.sortingDataAccessor = ( exoplanet, property) => {
       switch ( property ) {
         case 'exoplanet.pl_name': return exoplanet.pl_name;
         default: return exoplanet[property];
       }
+      
     };
   }
 
   public showRows: boolean = false;
   
-  constructor() {
+  constructor(private paginator: MatPaginator) {
     this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
     // test data for debugging
     //this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    
   }
 
   sortData(sort: Sort){
