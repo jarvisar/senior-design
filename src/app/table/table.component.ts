@@ -6,7 +6,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ExodetailComponent } from '../exodetail/exodetail.component';
 
-export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
+export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   trigger(name, [
     transition(':enter', [
       style({ opacity: 0 }),

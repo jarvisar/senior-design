@@ -44,6 +44,7 @@
     height: 60px;
     display: flex;
     align-items: center;
+    background-color: #010621;
     background-image: url("./assets/starfield.jpg");
     color: white;
     font-weight: 600;
@@ -58,7 +59,7 @@
     display: block;
     height: 50%;
     width: 99%;
-    margin: 82px auto 82px;
+    margin: 52px auto 82px;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -92,6 +93,7 @@
 
   .footer {
     background-image: url("./assets/starfield.jpg");
+    background-color: #010621;
   }
 
   svg#clouds {
@@ -160,13 +162,13 @@
 <div class="content" role="main" style=" height: 100%; width: 100%; overflow: hidden;">
   
   <!-- Input Bar + Data Table -->
-  <div class="input_bar" id="input_bar" style=" height: 100%; width: 100%; overflow-y: hidden; overflow-x: auto;">
+  <div class="input_bar" id="input_bar" style=" height: 100%; width: 100%; overflow-y: hidden; overflow-x: auto; margin-top: 26px;">
     <app-inputbar style=" height: 100%; width: 100%; overflow: auto;"></app-inputbar>
   </div>
   
   <!-- Loading Spinner -->
   <!-- <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: calc(50% - 100px); left: calc(50% - 35px); stroke: #0b3d91;" [@fadeinandout]></mat-spinner> -->
-  <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 175px); left: calc(50% - 100px);" [@fadeinandout]>
+  <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 150px); left: calc(50% - 100px);" [@fadeinandout]>
     <div class="solar-system">
       <div class="earth-orbit orbit">
         <div class="planet earth"></div>

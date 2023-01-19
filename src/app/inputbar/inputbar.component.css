@@ -33,11 +33,22 @@ p {
     bottom: 50px;
     right: 30px;
   }
-  
-  .table{
-    height: 100%;
-    width: 100%;
-  }
+
+  .table {
+    margin: 25px 0;
+    display: block;
+    
+    height: calc(100% - 200px);
+    width: 98%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    box-shadow: 0 0 0.55em 0.3em rgba(0, 0, 0, 0.15);
+    
+    margin-left: 1%;
+    background-color: white;
+}
 
   
   
