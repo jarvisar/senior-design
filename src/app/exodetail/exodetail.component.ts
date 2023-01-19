@@ -44,7 +44,7 @@ export class ExodetailComponent implements OnInit {
     else if (this.exoplanet.disc_facility == "KELT-South"){
       this.formattedDiscFacility = "KELT-South600x307";
     }
-    else if (this.exoplanet.disc_facility == "SuperWASP-South"){
+    else if (this.exoplanet.disc_facility == "WASP-South"){
       this.formattedDiscFacility = "image_SuperWASP";
     }
     else if (this.exoplanet.disc_facility == "Calar Alto Observatory"){
