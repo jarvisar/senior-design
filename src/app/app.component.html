@@ -147,31 +147,49 @@
 </div>
 
 <!-- Main -->
-<div class="content" role="main" style=" height: 100%; width: 100%; overflow: hidden;">
+<div class="container">
+  <div class="content content-waves" role="main" style=" height: 100%; width: 100%; overflow: hidden;">
   
-  <!-- Input Bar + Data Table -->
-  <div class="input_bar" id="input_bar" style=" height: 100%; width: 100%; overflow-y: hidden; overflow-x: auto; margin-top: 26px;">
-    <app-inputbar style=" height: 100%; width: 100%; overflow: auto;"></app-inputbar>
-  </div>
-  
-  <!-- Loading Spinner -->
-  <!-- <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: calc(50% - 100px); left: calc(50% - 35px); stroke: #0b3d91;" [@fadeinandout]></mat-spinner> -->
-  <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 150px); left: calc(50% - 100px);" [@fadeinandout]>
-    <div class="solar-system">
-      <div class="earth-orbit orbit">
-        <div class="planet earth"></div>
-        <div class="venus-orbit orbit">
-          <div class="planet venus"></div>
-          <div class="mercury-orbit orbit">
-            <div class="planet mercury"></div>
-            <div class="sun"></div>
+    <!-- Input Bar + Data Table -->
+    <div class="input_bar" id="input_bar" style=" height: 100%; width: 100%; overflow-y: hidden; overflow-x: auto; margin-top: 26px;">
+      <app-inputbar style=" height: 100%; width: 100%; overflow: auto;"></app-inputbar>
+    </div>
+    
+    <!-- Loading Spinner -->
+    <!-- <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: calc(50% - 100px); left: calc(50% - 35px); stroke: #0b3d91;" [@fadeinandout]></mat-spinner> -->
+    <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 150px); left: calc(50% - 100px);" [@fadeinandout]>
+      <div class="solar-system">
+        <div class="earth-orbit orbit">
+          <div class="planet earth"></div>
+          <div class="venus-orbit orbit">
+            <div class="planet venus"></div>
+            <div class="mercury-orbit orbit">
+              <div class="planet mercury"></div>
+              <div class="sun"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    Loading
-    </div>
+      Loading
+      </div>
+
+      <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+  </div>
 </div>
+
 
 <div class="background" style="overflow: hidden;">
   
