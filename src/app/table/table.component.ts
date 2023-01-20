@@ -49,19 +49,17 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.dataSource.sort = this.sort;
       this.sort.active = 'pl_name';
       this.sort.direction = 'desc';
-      this.dataSource.paginator = this.paginator;
       this.dataSource.sortingDataAccessor = ( exoplanet, property) => {
       switch ( property ) {
         case 'exoplanet.pl_name': return exoplanet.pl_name;
         default: return exoplanet[property];
       }
-      
     };
   }
 
   public showRows: boolean = false;
   
-  constructor(private paginator: MatPaginator) {
+  constructor() {
     this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
     // test data for debugging
     //this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );

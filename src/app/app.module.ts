@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { fromEventPattern } from 'rxjs';
 import { PageComponent } from './page/page.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +30,7 @@ import { SecretComponent } from './secret/secret.component';
 import { MaterialElevationDirective } from './material-elevation.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CdkTableModule } from '@angular/cdk/table';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatListModule,
     MatExpansionModule,
     MatPaginatorModule,
-    CdkTableModule
+    CdkTableModule,
+    ScrollingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
