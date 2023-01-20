@@ -16,18 +16,18 @@ export class ExoplanetComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getExoplanetData(input: string){
-    //Create blank array for new search
-    var newArray: Array<Exoplanet> = [];
+  // getExoplanetData(input: string){
+  //   //Create blank array for new search
+  //   var newArray: Array<Exoplanet> = [];
     
-    this.data.getExoPlanetData(input).subscribe((response: any[]) => {
-      response.forEach((e: Exoplanet) => {
-        //Add each exoplanet to array
-        newArray.push(e)
-      })
-    });
+  //   this.data.getExoPlanetData(input).subscribe((response: any[]) => {
+  //     response.forEach((e: Exoplanet) => {
+  //       //Add each exoplanet to array
+  //       newArray.push(e)
+  //     })
+  //   });
 
-    this.exoplanetData = newArray;
-    return this.exoplanetData;
-  }
+  //   this.exoplanetData = newArray;
+  //   return this.exoplanetData;
+  // }
 }

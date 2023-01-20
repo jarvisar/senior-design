@@ -21,11 +21,9 @@
     </tbody>    
 </table> -->
 
-<div class="table-container" >
-    <div class="table-scroll-container">
-        
-            <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table">
-        
+<div class="table-container" >    
+   
+            <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table custom-table">
                 <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
                     <td mat-cell *matCellDef="let exoplanet"> {{exoplanet[def.column]}} </td>
@@ -41,22 +39,15 @@
                 </ng-container>
     
                 <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-                
-                
+
                     <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
                         class="exoplanet-row"
                         [class.exoplanet-expanded-row]="expandedExoplanet === exoplanet"
                         (click)="expandedExoplanet = expandedExoplanet === exoplanet ? null : exoplanet">
-                    </tr>
-                
-                
+                </tr>
                 <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
-              
             </table> 
-        
-        
-
-    </div>
+           
 </div>
 
 <!--

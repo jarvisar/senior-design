@@ -61,6 +61,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   
   constructor() {
     this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
+    this.sort = new MatSort;
     // test data for debugging
     //this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
