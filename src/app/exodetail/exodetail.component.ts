@@ -62,6 +62,9 @@ export class ExodetailComponent implements OnInit {
     else if (this.exoplanet.disc_facility == "Mauna Kea Observatory") {
       this.formattedDiscFacility = "ukirt_600x307";
     }
+    else if (this.exoplanet.disc_facility == "Large Binocular Telescope Observatory") {
+      this.formattedDiscFacility = "lbt600x307";
+    }
     else{
       this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
     } 
