@@ -47,6 +47,9 @@ export class ExodetailComponent implements OnInit {
     else if (this.exoplanet.disc_facility == "WASP-South"){
       this.formattedDiscFacility = "image_SuperWASP";
     }
+    else if (this.exoplanet.disc_facility == "SuperWASP-South"){
+      this.formattedDiscFacility = "image_SuperWASP";
+    }
     else if (this.exoplanet.disc_facility == "Calar Alto Observatory"){
       this.formattedDiscFacility = "Calar_alto_600x307";
     }
@@ -67,6 +70,9 @@ export class ExodetailComponent implements OnInit {
     }
     else if (this.exoplanet.disc_facility == "KMTNet") {
       this.formattedDiscFacility = "KMTNet600x307";
+    }
+    else if (this.exoplanet.disc_facility == "Apache Point Observatory") {
+      this.formattedDiscFacility = "Apache_point600x307";
     }
     else{
       this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
