@@ -5,6 +5,7 @@ import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
+import { Exoplanet } from '../exoplanet/exoplanet';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   trigger(
@@ -119,17 +120,26 @@ export class InputbarComponent implements OnInit {
     console.log(this.selectedFacilityValue);
   }
 
-  searchclick(event: Event) {
+  async searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
     var emptySearch: boolean = this.buildQuery();
+  
     this.firstSearch = false;
-    this.exoplanetData = this.exoplanet.getExoplanetData(this.apiQuery);
+    var newArray: Array<Exoplanet> = [];
+    let response = await this.data.getExoPlanetData(this.apiQuery);
+    response.forEach((e: Exoplanet) => {
+      //Add each exoplanet to array
+      newArray.push(e)
+    });
+  
+    this.exoplanetData = newArray;
+  
     console.log(this.exoplanetData);
     console.log(Object.keys(this.exoplanetData).length);
     this.numResults = this.exoplanetData.length;
     this.showTable = true;
-    
   }
+
 
   clearclick(event: Event) {
     this.showTable = false;
