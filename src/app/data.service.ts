@@ -22,8 +22,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getExoPlanetData(query: string): Promise<any> {
-    console.log(this.hostUrl);
-    console.log(query);
+    console.log(this.hostUrl + query);
     return this.http.get<any[]>(this.hostUrl + query + '&format=json', httpOptions).toPromise();
-}
+  }
 }
