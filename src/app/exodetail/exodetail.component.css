@@ -25,6 +25,11 @@
   color: white;
 }
 
+.resources-container {
+  display: grid;
+  place-items: center;
+}
+
 .mat-body-2{
   font-size: 16px;
 }
@@ -43,6 +48,10 @@
 
   .resources-card{
     width: 180px;
+  }
+
+  #facility-image {
+    margin-bottom: 10px;
   }
 
 mat-card img{
@@ -67,4 +76,8 @@ mat-card img{
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: #333333;
   margin-left: 5px;
+}
+
+mat-card {
+  margin-bottom: 10px;
 }
