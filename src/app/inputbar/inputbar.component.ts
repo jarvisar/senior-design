@@ -60,7 +60,7 @@ export class InputbarComponent implements OnInit {
   public selectedMethodValue!: string;
   public selectedYearValue!: string;
   public selectedFacilityValue!: string;
-  public apiQuery!: string;
+  public apiQuery: string = '';
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, public loadingService: LoadingService) { }
 
@@ -178,9 +178,6 @@ export class InputbarComponent implements OnInit {
 
   public buildQuery(){
     var firstConditional: boolean = true;
-    // Can add additional fields here
-    this.apiQuery = '';
-    //this.apiQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag+from+pscomppars';
     //first check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHostValue != "Hostnames" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
