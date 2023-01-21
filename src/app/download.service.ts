@@ -7,7 +7,8 @@ export class DownloadService {
 
   // Download search results as CSV file
   downloadFile(data, filename='data') {
-    let csvData = this.ConvertToCSV(data, ['pl_name','hostname', 'discoverymethod', 'disc_year', 'disc_facility', 'disc_refname']);
+    // List which columns to export
+    let csvData = this.ConvertToCSV(data, ['pl_name','hostname', 'discoverymethod', 'disc_year', 'disc_facility', 'disc_refname', 'pl_controv_flag']);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
     let dwldLink = document.createElement("a");
