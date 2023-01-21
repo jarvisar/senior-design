@@ -1,5 +1,36 @@
 
+.table-container {
+    margin: 25px 0;
+    display: block;
+    -ms-overflow-style: none;
+    height: calc(100% - 200px);
+    width: 98%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 1px solid lightgray;
+    border-radius: 25px;
+    box-shadow: 0 0 0.55em 0.3em rgba(0, 0, 0, 0.15);
+    
+    margin-left: 1%;
+    background-color: white;
+}
 
+.table-container::-webkit-scrollbar {
+    display: none;
+}
+
+mat-paginator {
+    position: sticky;
+    bottom: 0;
+    background-color: #0c3e92;
+    color: white;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 0.8em;
+}
+
+.test-table th:first-child {
+    width: 55px;
+}
 
 .test-table {
     width: 100%;
@@ -45,4 +76,8 @@ tr.exoplanet-detail-row {
 
 .detail-container{
     background: linear-gradient(to bottom, #ffffff, #eeeeee);
+}
+
+.mat-select-value-text {
+    color: white;
 }

@@ -40,7 +40,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
       state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
+    ])
   ]
 })
 export class InputbarComponent implements OnInit {
@@ -60,7 +60,7 @@ export class InputbarComponent implements OnInit {
   public selectedMethodValue!: string;
   public selectedYearValue!: string;
   public selectedFacilityValue!: string;
-  public apiQuery: string = '';
+  public apiQuery!: string;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, public loadingService: LoadingService) { }
 
@@ -140,7 +140,6 @@ export class InputbarComponent implements OnInit {
     this.showTable = true;
   }
 
-
   clearclick(event: Event) {
     this.showTable = false;
     this.selectedHost = 0;
@@ -178,6 +177,7 @@ export class InputbarComponent implements OnInit {
 
   public buildQuery(){
     var firstConditional: boolean = true;
+    this.apiQuery = '';
     //first check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHostValue != "Hostnames" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
