@@ -11,10 +11,18 @@
         <br>
         <div class="mat-body-1">{{methodDict[exoplanet.discoverymethod]}}</div>
       </mat-card>
-      <mat-card class="mat-card" appMaterialElevation>
+      <mat-card class="mat-card" appMaterialElevation >
+        <div class="mat-body-2">Host Star: {{exoplanet.hostname}}</div>
+        <br>
+        
+      </mat-card>
+      <mat-card class="resources-card " appMaterialElevation>
         <div class="mat-body-2">Additional Resources</div>
         <br>
           <div matLine>
+            <button mat-raised-button (click)="openOverview()" class="overview-button">Overview</button>
+            <br>
+            <br>
             <button mat-raised-button (click)="nasaEyes()" class="eyes-button">NASA Eyes</button>
             <br>
             <br>

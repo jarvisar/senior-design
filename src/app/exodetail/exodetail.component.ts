@@ -33,6 +33,10 @@ export class ExodetailComponent implements OnInit {
     window.open(this.href);
   }
 
+  openOverview(){
+    window.open("https://exoplanetarchive.ipac.caltech.edu/overview/" + this.exoplanet.pl_name);
+  }
+
   // Ensures discovery facility image is loaded correctly
   formatDiscFacility() {
     if (this.exoplanet.disc_facility == "KELT-North"){
