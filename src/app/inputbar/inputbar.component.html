@@ -25,7 +25,7 @@
       </option>
     </select>
 
-    <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="!firstSearch">
+    <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="loadingService.isLoading$ | async">
       <div matToolTip="test" >
         Search
       </div>

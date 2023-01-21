@@ -6,6 +6,7 @@ import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import { Exoplanet } from '../exoplanet/exoplanet';
+import { LoadingService } from '../loading.service'
 
 export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   trigger(
@@ -61,7 +62,7 @@ export class InputbarComponent implements OnInit {
   public selectedFacilityValue!: string;
   public apiQuery!: string;
 
-  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService) { }
+  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, public loadingService: LoadingService) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
@@ -123,7 +124,6 @@ export class InputbarComponent implements OnInit {
   async searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
     var emptySearch: boolean = this.buildQuery();
-  
     this.firstSearch = false;
     var newArray: Array<Exoplanet> = [];
     let response = await this.data.getExoPlanetData(this.apiQuery);
