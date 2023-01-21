@@ -35,8 +35,8 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
       state('unblurred', style({
         filter: 'none'
       })),
-      transition('blurred => unblurred', animate('400ms ease-out')),
-      transition('unblurred => blurred', animate('300ms ease-out'))
+      transition('blurred => unblurred', animate('300ms ease-out')),
+      transition('unblurred => blurred', animate('200ms ease-out'))
     ])
   ]
 })
