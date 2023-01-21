@@ -8,7 +8,7 @@
 .eyes-button {
     background-color: #fc3d21;
     height: 40px;
-    width: 150px;
+    width: 155px;
     font-size:16px;
     letter-spacing: 0.1px;
     color: white;
@@ -17,16 +17,15 @@
 .ref-button {
   background-color: #0b3d91;
   height: 40px;
-  width: 150px;
+  width: 155px;
   font-size:16px;
   letter-spacing: 0.1px;
   color: white;
-  margin: 0 auto;
 }
 .overview-button {
   background-color: #999999;
   height: 40px;
-  width: 150px;
+  width: 155px;
   font-size:16px;
   letter-spacing: 0.1px;
   color: white;
@@ -42,7 +41,7 @@
   }
 
   .resources-card{
-    width: 180px;
+    width: 155px;
   }
 
   #facility-image {

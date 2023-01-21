@@ -54,11 +54,12 @@ export class TableComponent implements OnInit {
   
   @Input() numResults!: number;
 
-  expandedExoplanet: Exoplanet;
+  expandedExoplanet: Exoplanet | null;
   
   setTableDataSource(data: Exoplanet[]) {
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
       this.updateData();
+      this.expandedExoplanet = null;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.sort.active = 'pl_name';
