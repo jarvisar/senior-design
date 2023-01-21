@@ -2,7 +2,8 @@
     <mat-card class="mat-card" appMaterialElevation>
         <div class="mat-body-2">Observed by {{exoplanet.disc_facility}}</div>
         <br>
-        <img id="facility-image" src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError">
+        <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
+        src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError">
       </mat-card>
       <mat-card class="mat-card" appMaterialElevation >
         <div class="mat-body-2">Detection Method: {{exoplanet.discoverymethod}}</div>
