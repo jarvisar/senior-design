@@ -9,14 +9,19 @@
     overflow-y: auto;
     border: 1px solid lightgray;
     border-radius: 25px;
-    box-shadow: 0 0 0.55em 0.3em rgba(0, 0, 0, 0.15);
-    
+    box-shadow: 0 0 0.6em 0.3em rgba(0, 0, 0, 0.15);
     margin-left: 1%;
     background-color: white;
 }
 
 .table-container::-webkit-scrollbar {
     display: none;
+}
+
+.table-paginator-container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 mat-paginator {
@@ -26,6 +31,7 @@ mat-paginator {
     color: white;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 0.8em;
+    height: auto;
 }
 
 .test-table th:first-child {
@@ -34,7 +40,9 @@ mat-paginator {
 
 .test-table {
     width: 100%;
+    height: calc(100% - 56px);
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    
 }
 
 .mat-header-cell {

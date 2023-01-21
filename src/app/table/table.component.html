@@ -23,6 +23,7 @@
 
 
 <div class="table-container" [@blur]="blurState">  
+    
         <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table custom-table" >
             <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
@@ -50,7 +51,7 @@
                 
             <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
         </table>
-        <mat-paginator [length]="dataSource.data.length" [pageSize]="50" [pageSizeOptions]="[50, 100, 250, 500]"></mat-paginator>
+        <mat-paginator [length]="dataSource.data.length" [pageSize]="50" [pageSizeOptions]="[50, 100, 250, 500]"></mat-paginator> 
 </div>
 
 <!--
