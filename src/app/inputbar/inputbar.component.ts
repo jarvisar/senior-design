@@ -150,12 +150,17 @@ export class InputbarComponent implements OnInit {
     this.firstSearch = true;
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     // Load select boxes' options
     this.hostData = this.csvToArray('./assets/hostnames.csv', 'Hostnames');
     this.methodData = this.csvToArray('./assets/discoverymethod.csv', 'Discovery Method')
     this.yearData = this.csvToArray('./assets/disc_year.csv', 'Discovery Year')
-    this.facilityData = this.csvToArray('./assets/disc_facility.csv', 'Discovery Facility')
+    //this.facilityData = this.csvToArray('./assets/disc_facility.csv', 'Discovery Facility')
+     let response = await this.data.getDiscFacilityData();
+    response.forEach((e: any) => {
+      //Add each exoplanet to array
+      this.facilityData.push(e.disc_facility)
+    });
 
     this.selectedHost = 0;
     this.selectedMethod = 0;

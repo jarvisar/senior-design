@@ -16,13 +16,18 @@ const httpOptions = {
 
 export class DataService {
   // Use the CORS proxy to set CORS headers
-  hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag+from+pscomppars'
+  hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=';
+  defaultQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag+from+pscomppars'
   public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
   
   constructor(private http: HttpClient) {}
 
+  getDiscFacilityData(): Promise<any>{
+    return this.http.get<any[]>(this.hostUrl + 'select+distinct+disc_facility+from+pscomppars&format=json', httpOptions).toPromise();
+  }
+
   getExoPlanetData(query: string): Promise<any> {
     console.log(this.hostUrl + query);
-    return this.http.get<any[]>(this.hostUrl + query + '&format=json', httpOptions).toPromise();
+    return this.http.get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', httpOptions).toPromise();
   }
 }
