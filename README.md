@@ -10,7 +10,7 @@ After returning the data, the website will then format the data into a readable 
 
 Currently, the source code can be found in the [master branch](https://github.com/jarvisar/senior-design/tree/master) of the repository. To access the latest deployment, visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site.
 
-This project is also using a CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
+This project is also utilizing my CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
 
 ## Table of Contents
 1. [Team Members](./project-description.md) & [Project Abstract](./project-description.md#abstract)
