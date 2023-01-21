@@ -24,6 +24,9 @@
     width: 100%;
 }
 
+.mat-option.mat-selected{
+    color: white;
+}
 mat-paginator {
     position: sticky;
     bottom: 0;
@@ -35,14 +38,13 @@ mat-paginator {
 }
 
 .test-table th:first-child {
-    width: 55px;
+    width: 60px;
 }
 
 .test-table {
     width: 100%;
     height: calc(100% - 56px);
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    
 }
 
 .mat-header-cell {
