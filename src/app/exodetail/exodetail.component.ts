@@ -10,6 +10,7 @@ export class ExodetailComponent implements OnInit {
 
   @Input() exoplanet!: any;
  
+  public imgError: boolean = false;
   public formattedDiscFacility;
   public href;
 
