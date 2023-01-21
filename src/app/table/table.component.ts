@@ -3,10 +3,9 @@ import { MatTableModule, MatTableDataSource, MatTable } from '@angular/material/
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import {MatSort, Sort } from '@angular/material/sort';
 import { Exoplanet } from '../exoplanet/exoplanet';
-import {MatPaginator} from '@angular/material/paginator';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { LoadingService } from '../loading.service';
 import { ExodetailComponent } from '../exodetail/exodetail.component';
-import { CdkVirtualForOf } from '@angular/cdk/scrolling';
+
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   trigger(name, [
@@ -27,9 +26,9 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
       state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-      transition('expanded <=> void', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-      transition('collapsed <=> expanded', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+      transition('expanded <=> void', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
     ]),
+    
   ]
 })
 export class TableComponent implements OnInit, AfterViewInit {
@@ -49,6 +48,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   
   setTableDataSource(data: Exoplanet[]) {
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
+      this.updateData();
       this.dataSource.sort = this.sort;
       this.sort.active = 'pl_name';
       this.sort.direction = 'desc';
@@ -62,7 +62,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   public showRows: boolean = false;
   
-  constructor() {
+  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef) {
     //this.dataSource = new MatTableDataSource<Exoplanet>( this.exoplanetData );
     this.sort = new MatSort;
     // test data for debugging
@@ -73,7 +73,15 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    
+  }
+
+  blurState = 'unblurred';
+
+  updateData() {
+    this.changeDetectorRef.detectChanges();
+    this.loadingService.isLoading$.subscribe(isLoading => {
+        this.blurState = isLoading ? 'blurred' : 'unblurred';
+    });
   }
 
   test() {
