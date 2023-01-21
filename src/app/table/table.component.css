@@ -44,7 +44,10 @@ tr.exoplanet-detail-row {
 }
 
 .detail-container{
-    background: linear-gradient(to bottom, #ffffff, #eeeeee);
+    background: linear-gradient(to top, #ffffff, #eeeeee);
 }
 
+tr.exoplanet-expanded-row {
+    background-color: #eeeeee;
+}
  
