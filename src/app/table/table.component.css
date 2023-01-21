@@ -3,7 +3,7 @@
     margin: 15px 0;
     display: block;
     -ms-overflow-style: none;
-    height: calc(100% - 185px);
+    max-height: calc(100% - 185px);
     width: 98%;
     overflow-x: hidden;
     overflow-y: scroll;
