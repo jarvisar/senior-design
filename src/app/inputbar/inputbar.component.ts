@@ -178,7 +178,8 @@ export class InputbarComponent implements OnInit {
 
   public buildQuery(){
     var firstConditional: boolean = true;
-    this.apiQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname+from+pscomppars';
+    // Can add additional fields here
+    this.apiQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag+from+pscomppars';
     //first check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHostValue != "Hostnames" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);

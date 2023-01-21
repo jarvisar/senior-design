@@ -39,3 +39,19 @@ mat-card img{
     border: 1px solid white;
     border-radius: 5%;
 }
+
+.mat-icon-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  flex-wrap: nowrap;
+}
+
+.controversial-flag {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #333333;
+  margin-left: 5px;
+}
