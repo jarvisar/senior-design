@@ -19,6 +19,10 @@
             <br>
             <br>
             <button mat-raised-button (click)="openRef()" class="ref-button">Reference<div class="ref-link" #refContainer [innerHTML]="exoplanet.disc_refname" style="display: none;"></div></button>
+            <span class="mat-icon-bottom" *ngIf="exoplanet.pl_controv_flag == 1">
+              <mat-icon >error_outline</mat-icon>
+              <p class="controversial-flag">Controversial</p>
+            </span>
           </div>
       </mat-card>  
 </div>
