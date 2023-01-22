@@ -74,7 +74,6 @@ export class SecretComponent implements OnInit {
     }
   };
 
-
   ngOnInit() {
     this.http.get('https://swapi.dev/api/planets/')
       .subscribe((response: any) => {
