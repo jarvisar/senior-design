@@ -46,7 +46,6 @@ export class TableComponent implements OnInit {
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  dataSource: MatTableDataSource<Exoplanet>;
 
   @Input() set exoplanetData(data: Exoplanet[]) {
     this.setTableDataSource(data);
@@ -54,6 +53,7 @@ export class TableComponent implements OnInit {
   
   @Input() numResults!: number;
 
+  dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
   
   setTableDataSource(data: Exoplanet[]) {
@@ -71,8 +71,6 @@ export class TableComponent implements OnInit {
       }
     };
   }
-
-  public showRows: boolean = false;
   
   constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef) {
     // test data for debugging
