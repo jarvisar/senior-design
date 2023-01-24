@@ -75,49 +75,50 @@ export class ExodetailComponent implements OnInit {
 
   // Ensures discovery facility image is loaded correctly
   formatDiscFacility() {
-    if (this.exoplanet.disc_facility == "KELT-North"){
-      this.formattedDiscFacility = "KELT-North600x307";
-    }
-    else if (this.exoplanet.disc_facility == "SuperWASP-North"){
-      this.formattedDiscFacility = "super-wasp-n600x307";
-    }
-    else if (this.exoplanet.disc_facility == "KELT-South"){
-      this.formattedDiscFacility = "KELT-South600x307";
-    }
-    else if (this.exoplanet.disc_facility == "WASP-South"){
-      this.formattedDiscFacility = "image_SuperWASP";
-    }
-    else if (this.exoplanet.disc_facility == "SuperWASP-South"){
-      this.formattedDiscFacility = "image_SuperWASP";
-    }
-    else if (this.exoplanet.disc_facility == "Calar Alto Observatory"){
-      this.formattedDiscFacility = "Calar_alto_600x307";
-    }
-    else if (this.exoplanet.disc_facility == "Transiting Exoplanet Survey Satellite (TESS)"){
-      this.formattedDiscFacility = "image_TESS_TransitingExoplanetSurveySatellite";
-    }
-    else if (this.exoplanet.disc_facility == "KOINet") {
-      this.formattedDiscFacility = "KOINet600x307";
-    }
-    else if (this.exoplanet.disc_facility == "Acton Sky Portal Observatory") {
-      this.formattedDiscFacility = "Acton_generic600x307";
-    }
-    else if (this.exoplanet.disc_facility == "Mauna Kea Observatory") {
-      this.formattedDiscFacility = "ukirt_600x307";
-    }
-    else if (this.exoplanet.disc_facility == "Large Binocular Telescope Observatory") {
-      this.formattedDiscFacility = "lbt600x307";
-    }
-    else if (this.exoplanet.disc_facility == "KMTNet") {
-      this.formattedDiscFacility = "KMTNet600x307";
-    }
-    else if (this.exoplanet.disc_facility == "Apache Point Observatory") {
-      this.formattedDiscFacility = "Apache_point600x307";
-    }
-    else{
-      this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
+    switch (this.exoplanet.disc_facility) {
+      case "KELT-North":
+          this.formattedDiscFacility = "KELT-North600x307";
+          break;
+      case "SuperWASP-North":
+          this.formattedDiscFacility = "super-wasp-n600x307";
+          break;
+      case "KELT-South":
+          this.formattedDiscFacility = "KELT-South600x307";
+          break;
+      case "WASP-South":
+          this.formattedDiscFacility = "image_SuperWASP";
+          break;
+      case "SuperWASP-South":
+          this.formattedDiscFacility = "image_SuperWASP";
+          break;
+      case "Calar Alto Observatory":
+          this.formattedDiscFacility = "Calar_alto_600x307";
+          break;
+      case "Transiting Exoplanet Survey Satellite (TESS)":
+          this.formattedDiscFacility = "image_TESS_TransitingExoplanetSurveySatellite";
+          break;
+      case "KOINet":
+          this.formattedDiscFacility = "KOINet600x307";
+          break;
+      case "Acton Sky Portal Observatory":
+          this.formattedDiscFacility = "Acton_generic600x307";
+          break;
+      case "Mauna Kea Observatory":
+          this.formattedDiscFacility = "ukirt_600x307";
+          break;
+      case "Large Binocular Telescope Observatory":
+          this.formattedDiscFacility = "lbt600x307";
+          break;
+      case "KMTNet":
+          this.formattedDiscFacility = "KMTNet600x307";
+          break;
+      case "Apache Point Observatory":
+          this.formattedDiscFacility = "Apache_point600x307";
+          break;
+      default:
+          this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
     } 
-  }
+}
 
   public methodDict = {
     'Transit Timing Variations': 'This method searches for regular modulations of the brightness of a star due to distortions in its shape from a massive exoplanet on a close-in orbit. Such planets can cause slight tidal distortions to their host stars, giving them as slightly ellipsoidal (stretched) shape and causing changes in apparent brightness, depending on whether the wider or narrower face of the star is oriented toward the observer.',
