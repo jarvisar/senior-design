@@ -131,7 +131,7 @@ export class InputbarComponent implements OnInit {
       //Add each exoplanet to array
       newArray.push(e)
     });
-  
+    console.log(this.facilityData.length);
     this.exoplanetData = newArray;
   
     console.log(this.exoplanetData);

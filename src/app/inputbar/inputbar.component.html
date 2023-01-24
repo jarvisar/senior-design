@@ -1,5 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="inputbar" id="inputbar" >
+<div class="inputbar" id="inputbar" *ngIf="facilityData.length > 1" [@inOutAnimation]>
   
   <select class="hostname_select" id="hostname_select" [(ngModel)]="selectedHost">
       <option *ngFor="let _ of hostData; index as i" [value]="i">
