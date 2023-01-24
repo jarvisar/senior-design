@@ -4,8 +4,9 @@ import { trigger,transition,style,animate,state } from '@angular/animations';
 import { MatSort, Sort } from '@angular/material/sort';
 import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ExodetailComponent } from '../exodetail/exodetail.component';
+import { InputbarComponent } from '../inputbar/inputbar.component';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   trigger(name, [
@@ -55,6 +56,7 @@ export class TableComponent implements OnInit {
 
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
+  pageEvent: PageEvent;
   
   setTableDataSource(data: Exoplanet[]) {
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
@@ -71,8 +73,13 @@ export class TableComponent implements OnInit {
       }
     };
   }
+
+nextPage(event:PageEvent){
+  let limit = (event.pageIndex * event.pageSize) + event.pageSize;
+  let offset = (event.pageIndex * event.pageSize);
+}
   
-  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent) {
     // test data for debugging
     // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
