@@ -51,6 +51,7 @@ export class InputbarComponent implements OnInit {
   public showTable: boolean = false;
   public firstSearch : boolean = true;
   
+  // Initialize data to prevent undefined errors
   hostData: any[] = [];
   methodData: any[] = [];
   yearData: any[] = [];

@@ -14,12 +14,21 @@ export class ExodetailComponent implements OnInit {
   public imgError: boolean = false;
   public formattedDiscFacility;
   public href;
-
+  public rastr_h;
+  public rastr_m;
+  public rastr_s;
+  public decstr_d;
+  public decstr_m;
+  public decstr_s;
+  
   constructor(public inputbar: InputbarComponent) {
   }
 
   ngOnInit(): void {
     this.formatDiscFacility(); 
+    [this.decstr_d, this.decstr_m, this.decstr_s] = this.exoplanet.decstr.split(/[dms]/).map(x => Number(x));
+    [this.rastr_h, this.rastr_m, this.rastr_s] = this.exoplanet.rastr.split(/[hms]/).map(x => Number(x));
+    console.log(this.rastr_h);
     // Pull link/href from disc_refname anchor element
     this.anchorContainer.nativeElement.innerHTML = this.exoplanet.disc_refname;
     var anchor = this.anchorContainer.nativeElement.querySelector('a');

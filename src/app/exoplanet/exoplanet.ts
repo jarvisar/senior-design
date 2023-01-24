@@ -10,4 +10,6 @@ export interface Exoplanet{
     sy_pnum?: number; // Number of planets in system
     sy_mnum?: number; // Number of moons in system
     cb_flag?: number; // Indicates if exoplanet orbits binary system: 1 = yes, 0 = no
+    rastr?: number; // Right Ascension of the planetary system in sexagesimal format
+    decstr?: number; // Declination of the planetary system in sexagesimal format
 }
