@@ -16,7 +16,7 @@
         <p>Stars: {{exoplanet.sy_snum}}</p>
         <p>Planets: {{exoplanet.sy_pnum}}</p>
         <p>Moons: {{exoplanet.sy_mnum}}</p>
-        Binary? <p *ngIf="exoplanet.cb_flag == 1">Yes</p><p *ngIf="exoplanet.cb_flag == 0">No</p> 
+        <p>Binary? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p>
       
       </mat-card>
       <mat-card class="resources-card " appMaterialElevation>
