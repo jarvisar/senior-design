@@ -7,6 +7,7 @@ import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
+import { SelectService } from '../select.service';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   trigger(
@@ -45,16 +46,15 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
 })
 export class InputbarComponent implements OnInit {
   
-  selected = 'option2';
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
   public showTable: boolean = false;
   public firstSearch : boolean = true;
   
   hostData: any[] = [];
-  methodData: any[] = ["Discovery Method", ];
-  yearData: any[] = ["Discovery Year", ];
-  facilityData: any[] = ["Discovery Facility", ];
+  methodData: any[] = [];
+  yearData: any[] = [];
+  facilityData: any[] = [];
   
   public selectedHostValue!: string;
   public selectedMethodValue!: string;
@@ -62,7 +62,8 @@ export class InputbarComponent implements OnInit {
   public selectedFacilityValue!: string;
   public apiQuery!: string;
 
-  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, public loadingService: LoadingService) { }
+  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
+    public loadingService: LoadingService, public selectService: SelectService) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
@@ -74,9 +75,6 @@ export class InputbarComponent implements OnInit {
   public set selectedHost(index: number) {
     this._selectedHost = index;
     this.selectedHostValue = this.hostData[index];
-    
-    console.log(this.selectedHostValue);
-    
   }
 
   // initiate discovery method select box
@@ -89,8 +87,6 @@ export class InputbarComponent implements OnInit {
   public set selectedMethod(index: number) {
     this._selectedMethod = index;
     this.selectedMethodValue = this.methodData[index];
-    
-    console.log(this.selectedMethodValue);
   }
 
   // initiate discovery year select box
@@ -103,8 +99,6 @@ export class InputbarComponent implements OnInit {
   public set selectedYear(index: number) {
     this._selectedYear = index;
     this.selectedYearValue = this.yearData[index];
-    
-    console.log(this.selectedYearValue);
   }
 
   // initiate discovery facility select box
@@ -117,75 +111,48 @@ export class InputbarComponent implements OnInit {
   public set selectedFacility(index: number) {
     this._selectedFacility = index;
     this.selectedFacilityValue = this.facilityData[index];
-    
-    console.log(this.selectedFacilityValue);
   }
 
   async searchclick(event: Event) {
     //if all four select boxes are set to , buildQuery() returns true
-    var emptySearch: boolean = this.buildQuery();
+    let emptySearch: boolean = this.buildQuery();
     this.firstSearch = false;
-    var newArray: Array<Exoplanet> = [];
+    let newArray: Array<Exoplanet> = [];
     let response = await this.data.getExoPlanetData(this.apiQuery);
     response.forEach((e: Exoplanet) => {
       //Add each exoplanet to array
       newArray.push(e)
     });
-    console.log(this.facilityData.length);
     this.exoplanetData = newArray;
-  
     console.log(this.exoplanetData);
-    console.log(Object.keys(this.exoplanetData).length);
     this.numResults = this.exoplanetData.length;
     this.showTable = true;
   }
 
-  clearclick(event: Event) {
-    this.showTable = false;
+  clearSelect() {
     this.selectedHost = 0;
     this.selectedMethod = 0;
     this.selectedYear = 0;
     this.selectedFacility = 0;
+  }
+
+  clearclick(event: Event) {
+    this.showTable = false;
+    this.clearSelect();
     this.exoplanetData = [];
     this.firstSearch = true;
   }
 
   async ngOnInit() {
-    // Load select boxes' options
-    this.hostData = this.csvToArray('./assets/hostnames.csv', 'Host Names');
-    let response = await this.data.getDiscMethodData();
-    response.forEach((e: any) => {
-      //Add each exoplanet to array
-      this.methodData.push(e.discoverymethod)
-    });
-    this.yearData = this.csvToArray('./assets/disc_year.csv', 'Discovery Year')
-    //this.facilityData = this.csvToArray('./assets/disc_facility.csv', 'Discovery Facility')
-    let response1 = await this.data.getDiscFacilityData();
-    response1.forEach((e: any) => {
-      //Add each exoplanet to array
-      this.facilityData.push(e.disc_facility)
-    });
-
-    this.selectedHost = 0;
-    this.selectedMethod = 0;
-    this.selectedYear = 0;
-    this.selectedFacility = 0;
-  }
-
-  csvToArray(filePath: string, firstElement: string){
-    var list: any[]=[firstElement];
-    this.http.get(filePath, {responseType: 'text'}).subscribe(data => {
-      data.split('\n').forEach(e => {
-        e = e.replace(/['"]+/g, '');
-        list.push(e);
-      })
-        
-    })
-    return list;
+    this.hostData = await this.selectService.getHostData();
+    this.methodData = await this.selectService.getMethodData();
+    this.yearData = await this.selectService.getYearData();
+    this.facilityData = await this.selectService.getFacilityData();
+    this.clearSelect();
   }
 
   public buildQuery(){
-    var firstConditional: boolean = true;
+    let firstConditional: boolean = true;
     this.apiQuery = '';
     //first check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHostValue != "Host Names" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
@@ -199,5 +166,4 @@ export class InputbarComponent implements OnInit {
   download(){
     this.downloadService.downloadFile(this.exoplanetData, 'exoplanet_data');
   }
-  
 }
