@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { InputbarComponent } from '../inputbar/inputbar.component';
 
 @Component({
   selector: 'app-exodetail',
@@ -14,7 +15,7 @@ export class ExodetailComponent implements OnInit {
   public formattedDiscFacility;
   public href;
 
-  constructor() {
+  constructor(public inputbar: InputbarComponent) {
   }
 
   ngOnInit(): void {
@@ -36,6 +37,40 @@ export class ExodetailComponent implements OnInit {
 
   openOverview(){
     window.open("https://exoplanetarchive.ipac.caltech.edu/overview/" + this.exoplanet.pl_name);
+  }
+
+  async searchHost(event: Event){
+    this.setValues(this.inputbar.hostData.findIndex(host => host === this.exoplanet.hostname),0,0,0);
+    this.inputbar.selectedHostValue = this.exoplanet.hostname;
+    this.inputbar.searchclick(event);
+  }
+
+  async searchMethod(event: Event){
+    this.setValues(0,this.inputbar.methodData.findIndex(method => method === this.exoplanet.discoverymethod),0,0);
+    console.log(this.exoplanet.discoverymethod);
+    this.inputbar.selectedMethodValue = this.exoplanet.discoverymethod;
+    this.inputbar.searchclick(event);
+  }
+
+  async searchYear(event: Event){
+    this.setValues(0,0,this.inputbar.yearData.findIndex(year => year === this.exoplanet.disc_year),0);
+    this.inputbar.selectedYearValue = this.exoplanet.disc_year;
+    this.inputbar.searchclick(event);
+  }
+
+  async searchFacility(event: Event){
+    this.setValues(0,0,0,this.inputbar.facilityData.findIndex(facility => facility === this.exoplanet.disc_facility));
+    this.inputbar.selectedFacilityValue = this.exoplanet.disc_facility;
+    this.inputbar.searchclick(event);
+  }
+
+  setValues(host = 0, method = 0, year = 0, facility = 0){
+    this.inputbar.selectedHost = host;
+    this.inputbar.selectedMethod = method;
+    this.inputbar.selectedYear = year;
+    this.inputbar.selectedFacility = facility;
+    this.inputbar.exoplanetData = [];
+    this.inputbar.firstSearch = true;
   }
 
   // Ensures discovery facility image is loaded correctly

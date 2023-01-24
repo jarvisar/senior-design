@@ -26,6 +26,10 @@ export class DataService {
     return this.http.get<any[]>(this.hostUrl + 'select+distinct+disc_facility+from+pscomppars&format=json', httpOptions).toPromise();
   }
 
+  getDiscMethodData(): Promise<any>{
+    return this.http.get<any[]>(this.hostUrl + 'select+distinct+discoverymethod+from+pscomppars&format=json', httpOptions).toPromise();
+  }
+
   getExoPlanetData(query: string): Promise<any> {
     console.log(this.hostUrl + query);
     return this.http.get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', httpOptions).toPromise();

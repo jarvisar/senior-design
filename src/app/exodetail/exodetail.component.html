@@ -1,22 +1,22 @@
 <div class="card-container">
-    <mat-card class="mat-card" appMaterialElevation>
-        <div class="mat-body-2">Observed by {{exoplanet.disc_facility}}</div>
-        <br>
+    <mat-card class="mat-card mat-card-pointer" appMaterialElevation (click)="searchFacility($event)">
+        <div class="mat-body-2" style="margin-bottom: 10px">Observed by {{exoplanet.disc_facility}}</div>
+        
         <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
         src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError">
       </mat-card>
-      <mat-card class="mat-card" appMaterialElevation >
+      <mat-card class="mat-card mat-card-pointer" appMaterialElevation (click)="searchMethod($event)">
         <div class="mat-body-2">Detection Method: {{exoplanet.discoverymethod}}</div>
         <br>
         <div class="mat-body-1">{{methodDict[exoplanet.discoverymethod]}}</div>
       </mat-card>
-      <mat-card class="mat-card" appMaterialElevation >
+      <mat-card class="mat-card mat-card-pointer" appMaterialElevation (click)="searchHost($event)">
         <div class="mat-body-2">Host Star: {{exoplanet.hostname}}</div>
         <br>
         <p>Stars: {{exoplanet.sy_snum}}</p>
         <p>Planets: {{exoplanet.sy_pnum}}</p>
         <p>Moons: {{exoplanet.sy_mnum}}</p>
-        <p>Binary? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p>
+        <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p>
       
       </mat-card>
       <mat-card class="resources-card " appMaterialElevation>

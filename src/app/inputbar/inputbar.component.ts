@@ -152,12 +152,16 @@ export class InputbarComponent implements OnInit {
 
   async ngOnInit() {
     // Load select boxes' options
-    this.hostData = this.csvToArray('./assets/hostnames.csv', 'Hostnames');
-    this.methodData = this.csvToArray('./assets/discoverymethod.csv', 'Discovery Method')
+    this.hostData = this.csvToArray('./assets/hostnames.csv', 'Host Names');
+    let response = await this.data.getDiscMethodData();
+    response.forEach((e: any) => {
+      //Add each exoplanet to array
+      this.methodData.push(e.discoverymethod)
+    });
     this.yearData = this.csvToArray('./assets/disc_year.csv', 'Discovery Year')
     //this.facilityData = this.csvToArray('./assets/disc_facility.csv', 'Discovery Facility')
-    let response = await this.data.getDiscFacilityData();
-    response.forEach((e: any) => {
+    let response1 = await this.data.getDiscFacilityData();
+    response1.forEach((e: any) => {
       //Add each exoplanet to array
       this.facilityData.push(e.disc_facility)
     });
@@ -184,7 +188,7 @@ export class InputbarComponent implements OnInit {
     var firstConditional: boolean = true;
     this.apiQuery = '';
     //first check if select box has valid value then check if any other conditional has been applied 
-    (this.selectedHostValue != "Hostnames" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
+    (this.selectedHostValue != "Host Names" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
