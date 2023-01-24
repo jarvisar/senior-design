@@ -11,13 +11,12 @@
         <div class="mat-body-1">{{methodDict[exoplanet.discoverymethod]}}</div>
       </mat-card>
       <mat-card class="mat-card mat-card-pointer" appMaterialElevation (click)="searchHost($event)">
-        <div class="mat-body-2">Host Star: {{exoplanet.hostname}}</div>
-        <br>
-        <p>Stars: {{exoplanet.sy_snum}}</p>
-        <p>Planets: {{exoplanet.sy_pnum}}</p>
-        <p>Moons: {{exoplanet.sy_mnum}}</p>
-        <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p>
-      
+        <div class="mat-body-2">Host Star System: {{exoplanet.hostname}}</div>
+        
+        <p>This system consists of {{exoplanet.sy_snum}} star(s), {{exoplanet.sy_pnum}} planet(s), and {{exoplanet.sy_mnum}} moon(s)</p>
+        <!-- <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p> -->
+        <IFRAME SRC="http://server1.sky-map.org/skywindow?object=M100&zoom=8&img_source=SDSS" style="width: 100%; height: 75%;">
+        </IFRAME>
       </mat-card>
       <mat-card class="resources-card " appMaterialElevation>
         <div class="mat-body-2">Additional Resources</div>
@@ -31,6 +30,7 @@
             <br>
             <button mat-raised-button (click)="openRef()" class="ref-button">Reference<div class="ref-link" #refContainer style="display: none;"></div></button>
             <span class="mat-icon-bottom" *ngIf="exoplanet.pl_controv_flag == 1" matTooltip="Confirmation status of this planet has been questioned in the published literature" matTooltipPosition="above">
+              {{}}
               <mat-icon >error_outline</mat-icon>
               <p class="controversial-flag">Controversial</p>
             </span>
