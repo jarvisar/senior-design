@@ -1,0 +1,38 @@
+
+
+
+    <!-- Aladin Lite CSS style file -->
+    <link rel="stylesheet" href="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+
+    <!-- Aladin Lite has a dependency on the jQuery library -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
+
+
+    <!-- Aladin Lite container at requested dimensions -->
+    <div id="aladin-lite-div" style="height: 100%; width: 100%;"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        console.log(params.get('ra'));
+    </script>
+
+    <!-- Aladin Lite JS code -->
+    <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+
+    <!-- Creation of Aladin Lite instance with initial parameters -->
+    <script type="text/javascript">
+        var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", showLayersControl: false, showFullscreenControl: false, fullScreen: true, showGotoControl: false, fov:1.5, target: params.get('ra') + ", " + params.get('dec')});
+
+        $('input[name=survey]').change(function() {
+            aladin.setImageSurvey($(this).val());
+        });
+
+        var marker1 = A.marker(params.get('ra'), params.get('dec'), {popupTitle: params.get('name'), popupDesc: (params.get('st_spectype') != 'null' ? 'Object type: ' + params.get('st_spectype')  + " star" : 'Star type not available')});
+        var marker2 = A.marker(270.63206, -22.905550, {popupTitle: 'HD 164514', popupDesc: 'Object type: Star in cluster'});
+        var marker3 = A.marker(270.598121, -23.030819, {popupTitle: 'HD 164492', popupDesc: 'Object type: Double star'});
+        var markerLayer = A.catalog({color: '#ff0000'});
+        aladin.addCatalog(markerLayer);
+        markerLayer.addSources([marker1, marker2, marker3]);
+    </script>
+
+    
