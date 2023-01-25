@@ -21,18 +21,19 @@
 
     <!-- Creation of Aladin Lite instance with initial parameters -->
     <script type="text/javascript">
-        var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", showLayersControl: false, showFullscreenControl: false, fullScreen: true, showGotoControl: false, fov:1.5, target: params.get('ra') + ", " + params.get('dec')});
+        var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", showLayersControl: false, showFullscreenControl: false, fullScreen: true, showGotoControl: false, fov:0.3, target: params.get('ra') + ", " + params.get('dec')});
 
         $('input[name=survey]').change(function() {
             aladin.setImageSurvey($(this).val());
         });
 
         var marker1 = A.marker(params.get('ra'), params.get('dec'), {popupTitle: params.get('name'), popupDesc: (params.get('st_spectype') != 'null' ? 'Object type: ' + params.get('st_spectype')  + " star" : 'Star type not available')});
-        var marker2 = A.marker(270.63206, -22.905550, {popupTitle: 'HD 164514', popupDesc: 'Object type: Star in cluster'});
-        var marker3 = A.marker(270.598121, -23.030819, {popupTitle: 'HD 164492', popupDesc: 'Object type: Double star'});
+        var M1 = A.marker('83.633333', '22.013333', {popupTitle: 'M1 (Crab Nebula)', popupDesc: 'Other Names: NGC 1952'});
+        var M16 = A.marker('274.687917', '-12.208056', {popupTitle: 'M16 (Eagle Nebula)', popupDesc: 'Other Names: NGC 6611'});
+        
         var markerLayer = A.catalog({color: '#ff0000'});
         aladin.addCatalog(markerLayer);
-        markerLayer.addSources([marker1, marker2, marker3]);
+        markerLayer.addSources([marker1, M1, M16]);
     </script>
 
     
