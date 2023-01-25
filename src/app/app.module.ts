@@ -31,6 +31,7 @@ import { MaterialElevationDirective } from './material-elevation.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CdkTableModule } from '@angular/cdk/table';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     SortDirective,
     ExodetailComponent,
     SecretComponent,
-    MaterialElevationDirective
+    MaterialElevationDirective,
+    SafePipe
   ],
   imports: [
     BrowserModule,

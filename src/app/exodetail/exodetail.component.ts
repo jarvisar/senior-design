@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { InputbarComponent } from '../inputbar/inputbar.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-exodetail',
@@ -22,7 +23,7 @@ export class ExodetailComponent implements OnInit {
   public decstr_s: Number;
   public iframeSrc;
   
-  constructor(public inputbar: InputbarComponent) {
+  constructor(public inputbar: InputbarComponent, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
@@ -34,7 +35,8 @@ export class ExodetailComponent implements OnInit {
     this.anchorContainer.nativeElement.innerHTML = this.exoplanet.disc_refname;
     var anchor = this.anchorContainer.nativeElement.querySelector('a');
     this.href = anchor.getAttribute('href');
-    this.iframeSrc = "http://server1.sky-map.org/skywindow?ra={{rastr_h}} {{rastr_m}} {{rastr_s}}&de={{decstr_d}} {{decstr_m}} {{decstr_s}}&zoom=4&show_grid=1&img_source=DSS2"
+    this.iframeSrc = `http://server1.sky-map.org/skywindow?ra=${this.rastr_h} ${this.rastr_m} ${this.rastr_s}&de=${this.decstr_d} ${this.decstr_m} ${this.decstr_s}&show_grid=1&img_source=DSS2&show_box=1&zoom=8&box_color=white&box_width=30&box_height=30&show_stars=1`;
+    console.log(this.iframeSrc);
   }
 
   nasaEyes(){
