@@ -42,20 +42,17 @@ mat-card.mat-card-pointer:hover {
   .mat-card {
     width: calc(30% - 60px);
     margin: 0 10px;
+    
   }
 
   .resources-card{
     width: 155px;
   }
 
-  #facility-image {
-    margin-bottom: 10px;
-  }
-
 mat-card img{
     object-fit: cover;
-    width: 99%; 
-    height: 90%;
+    max-width: 99%; 
+    max-height: 100%;
     border: 1px solid white;
     border-radius: 5%;
 }
@@ -78,4 +75,5 @@ mat-card img{
 
 mat-card {
   margin-bottom: 10px;
+  overflow: hidden; 
 }
