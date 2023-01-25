@@ -17,7 +17,7 @@ const httpOptions = {
 export class DataService {
   // Use the CORS proxy to set CORS headers
   hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=';
-  defaultQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr+from+pscomppars'
+  defaultQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype+from+pscomppars'
   public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
   
   constructor(private http: HttpClient) {}
