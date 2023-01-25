@@ -3,6 +3,7 @@
   justify-content: space-between;
   margin: 0 auto;
   height: 100%;
+  position: relative;
 }
 
 .eyes-button {
@@ -35,6 +36,16 @@ mat-card.mat-card-pointer:hover {
   color: white;
 }
 
+iframe {
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 95px);
+  
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+
 .mat-body-2{
   font-size: 16px;
 }
@@ -42,7 +53,6 @@ mat-card.mat-card-pointer:hover {
   .mat-card {
     width: calc(30% - 60px);
     margin: 0 10px;
-    
   }
 
   .resources-card{
@@ -76,4 +86,6 @@ mat-card img{
 mat-card {
   margin-bottom: 10px;
   overflow: hidden; 
+  position: relative;
+  height: 95%;
 }

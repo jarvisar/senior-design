@@ -15,13 +15,13 @@ export class ExodetailComponent implements OnInit {
   public imgError: boolean = false;
   public formattedDiscFacility;
   public href;
+  public iframeSrc;
   public rastr_h: Number;
   public rastr_m: Number;
   public rastr_s: Number;
   public decstr_d: Number;
   public decstr_m: Number;
   public decstr_s: Number;
-  public iframeSrc;
   
   constructor(public inputbar: InputbarComponent, private sanitizer: DomSanitizer) {
   }
@@ -56,7 +56,6 @@ export class ExodetailComponent implements OnInit {
     this.setValues(this.inputbar.hostData.findIndex(host => host === this.exoplanet.hostname),0,0,0);
     this.inputbar.selectedHostValue = this.exoplanet.hostname;
     this.inputbar.searchclick(event);
-    
   }
 
   async searchMethod(event: Event){
@@ -64,21 +63,18 @@ export class ExodetailComponent implements OnInit {
     console.log(this.exoplanet.discoverymethod);
     this.inputbar.selectedMethodValue = this.exoplanet.discoverymethod;
     this.inputbar.searchclick(event);
-    
   }
 
   async searchYear(event: Event){
     this.setValues(0,0,this.inputbar.yearData.findIndex(year => year === this.exoplanet.disc_year),0);
     this.inputbar.selectedYearValue = this.exoplanet.disc_year;
     this.inputbar.searchclick(event);
-    
   }
 
   async searchFacility(event: Event){
     this.setValues(0,0,0,this.inputbar.facilityData.findIndex(facility => facility === this.exoplanet.disc_facility));
     this.inputbar.selectedFacilityValue = this.exoplanet.disc_facility;
     this.inputbar.searchclick(event);
-    
   }
 
   setValues(host = 0, method = 0, year = 0, facility = 0){
