@@ -13,4 +13,6 @@ export interface Exoplanet{
     cb_flag?: number; // Indicates if exoplanet orbits binary system: 1 = yes, 0 = no
     rastr?: number; // Right Ascension of the planetary system in sexagesimal format
     decstr?: number; // Declination of the planetary system in sexagesimal format
+    ra?: number;
+    dec?: number;
 }
