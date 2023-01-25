@@ -40,7 +40,7 @@ iframe {
   position: absolute;
   width: calc(100% - 20px);
   height: calc(100% - 95px);
-  
+  overflow: hidden;
   bottom: 10px;
   left: 10px;
   right: 10px;
