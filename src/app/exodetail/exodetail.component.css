@@ -6,7 +6,7 @@
   position: relative;
 }
 
-mat-card.mat-card-pointer:hover {
+a:hover {
   cursor: pointer;
 }
 
