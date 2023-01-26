@@ -18,4 +18,5 @@ export interface Exoplanet{
     pl_orbper?: number; // Orbital period in days
     pl_rade?: number; // Planet radius in units of radius of the Earth
     pl_bmasse?: number; // Planet's Mass measured in units of masses of the Earth
+    sy_dist?: number; // Distance from Earth in parsecs
 }
