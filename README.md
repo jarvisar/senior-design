@@ -9,7 +9,7 @@ The [main branch](https://github.com/jarvisar/senior-design) contains all the re
 
 To visit the latest deployment, visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site.
 
-#### What is an Exoplanet?
+### What is an Exoplanet?
 
 An exoplanet, also known as an extrasolar planet, is a planet that orbits a star (or stars) outside of our solar system. 
       These planets are detected using a variety of methods, such as radial velocity, transit, and direct imaging. 
