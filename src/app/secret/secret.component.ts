@@ -33,6 +33,10 @@ export class SecretComponent implements OnInit {
     const dialogRef = this.dialog.open(SecretComponent, dialogConfig);
   }
 
+  goToWiki(planet: Planet) {
+    window.open('https://starwars.fandom.com/wiki/' + planet.name);
+  }
+
   planets: Planet[] = [];
   displayedColumns: string[] = ['name', 'rotation_period', 'orbital_period', 'diameter', 'climate', 'gravity', 'terrain', 'surface_water', 'population'];
   tableDef: any = {
