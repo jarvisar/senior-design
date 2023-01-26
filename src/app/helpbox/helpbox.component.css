@@ -1,12 +1,30 @@
 .small-text {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
     font-size: 12px;
     color: gray;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin-right: 10px;
+}
+
+mat-dialog-content {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 mat-dialog-content{
     position: relative;
 }
+
+mat-card {
+    flex-basis: 100%;
+    width: 92%;
+    min-width: 280px;
+}
+
+mat-dialog-content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    grid-gap: 50px;
+    margin-bottom: 20px
+  }
+  
