@@ -2,24 +2,11 @@
 	<img src="https://github.com/jarvisar/senior-design/blob/master/src/favicon.ico" width="200px"/>
 </p>
 
-## NASA Exoplanet Archive Search
-
-This branch of the repository contains the source code for the site built with Angular. 
-The [main branch](https://github.com/jarvisar/senior-design) contains all the required documentation.
-
-To visit the latest deployment, visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site.
-
-### What is an Exoplanet?
-
-An exoplanet, also known as an extrasolar planet, is a planet that orbits a star (or stars) outside of our solar system. 
-      These planets are detected using a variety of methods, such as radial velocity, transit, and direct imaging. 
-      The study of exoplanets is a rapidly growing field in astronomy and has led to the discovery of thousands of planets 
-      orbiting stars in our galaxy. The discovery of exoplanets has also led to the possibility of finding potentially 
-      habitable planets and the search for extraterrestrial life. [NASA](https://exoplanets.nasa.gov/what-is-an-exoplanet/overview/)
+# Exoplanet Archive Search
       
  ### Initiating a Search
  
- To search NASA's exoplanet archive, select a valid query using one of the four available drop-down boxes. 
+ To search NASA's exoplanet database, select a valid query using one of the four available drop-down boxes. 
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
       method used, and the discovery year and facility. To learn more about each option, refer to the input help section. 
       Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
@@ -37,14 +24,14 @@ An exoplanet, also known as an extrasolar planet, is a planet that orbits a star
 
 ### Receiving Results
 
-All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the California Institute of Technology. After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear allowing the results to be exported in CSV format on the local disk. 
+All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the California Institute of Technology. After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear, allowing the results to be exported to a CSV file on the local disk. 
         To sort the data, click on a column header to toggle between descending and ascending order. 
         By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
         in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
         
 ### Understanding the Results
 
-The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery details, and academic reference.
+The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery method, discovery year, discovery facility, and academic reference.
 
 * The orbital period column is the time (in days) for exoplanet to orbit host star
 * The radius column is measured in units of radius of the Earth (ER)
@@ -57,3 +44,11 @@ For example, an exoplanet with a radius of 0.5 ER has half the radius of the Ear
 
 This web application was developed using Angular for a senior design project. 
 ###### Hint: entering the Konami code will show secret exoplanets!
+
+## FAQ
+
+#### What is an exoplanet?
+
+Exoplanets, or extrasolar planets, are planets that orbit stars outside of our solar system.
+
+#### How often is data updated?
