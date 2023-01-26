@@ -39,11 +39,6 @@ The results returned from the search will include columns with information such 
 
 For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km and 
       it's mass is 5.972 x 10<sup>24</sup> kg.
-      
-### Development
-
-This web application was developed using Angular for a senior design project. 
-###### Hint: entering the Konami code will show secret exoplanets!
 
 ## FAQ
 
@@ -52,3 +47,15 @@ This web application was developed using Angular for a senior design project.
 Exoplanets, or extrasolar planets, are planets that orbit stars outside of our solar system.
 
 #### How often is data updated?
+
+The list of planets is routinely updated bi-weekly, but may be updated more frequently depending on new significant exoplanet discoveries.
+
+#### Why are there no results show up after searching?
+
+Either no exoplanets match the given input or data was not returned properly. Try searching again or changing the input.
+
+#### How is data accessed from NASA's Exoplanet Archive?
+
+This web application utilizes Table Access Protocol (TAP) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, primarily for astronomical data but can be used for other types as well.
+
+###### Hint: entering the Konami code will show secret exoplanets!
