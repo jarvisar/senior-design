@@ -17,7 +17,7 @@ An exoplanet, also known as an extrasolar planet, is a planet that orbits a star
       orbiting stars in our galaxy. The discovery of exoplanets has also led to the possibility of finding potentially 
       habitable planets and the search for extraterrestrial life. [NASA](https://exoplanets.nasa.gov/what-is-an-exoplanet/overview/)
       
- #### Initiating a Search
+ ### Initiating a Search
  
  To search NASA's exoplanet archive, select a valid query using one of the four available drop-down boxes. 
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
@@ -26,7 +26,7 @@ An exoplanet, also known as an extrasolar planet, is a planet that orbits a star
       can take up to 20 seconds to process. Some example large searches include exoplanets discovered using transit, exoplanets 
       discovered in 2014 and 2016, and exoplanets first observed by Kepler.
       
- #### Understanding the Input
+ ### Understanding the Input
  
  When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
@@ -35,14 +35,14 @@ An exoplanet, also known as an extrasolar planet, is a planet that orbits a star
  * Discovery year refers to the year the exoplanet was first found
  * Discovery facility refers to the facility or observatory that first discovered the exoplanet
 
-#### Receiving Results
+### Receiving Results
 
 All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the California Institute of Technology. After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear allowing the results to be exported in CSV format on the local disk. 
         To sort the data, click on a column header to toggle between descending and ascending order. 
         By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
         in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
         
-#### Understanding the Results
+### Understanding the Results
 
 The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery details, and academic reference.
 
@@ -53,7 +53,7 @@ The results returned from the search will include columns with information such 
 For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km and 
       it's mass is 5.972 x 10<sup>24</sup> kg.
       
-#### Development
+### Development
 
 This web application was developed using Angular for a senior design project. 
 ###### Hint: entering the Konami code will show secret exoplanets!
