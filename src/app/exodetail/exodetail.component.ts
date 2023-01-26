@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { InputbarComponent } from '../inputbar/inputbar.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LoadingService } from '../loading.service'
 
 @Component({
   selector: 'app-exodetail',
@@ -23,7 +24,7 @@ export class ExodetailComponent implements OnInit {
   public decstr_m: Number;
   public decstr_s: Number;
   
-  constructor(public inputbar: InputbarComponent, private sanitizer: DomSanitizer) {
+  constructor(public inputbar: InputbarComponent, private sanitizer: DomSanitizer, public loadingService: LoadingService) {
   }
 
   ngOnInit(): void {
@@ -52,6 +53,10 @@ export class ExodetailComponent implements OnInit {
 
   openOverview(){
     window.open("https://exoplanetarchive.ipac.caltech.edu/overview/" + this.exoplanet.pl_name);
+  }
+
+  openSkyMap(){
+    window.open('http://sky-map.org/skywindow?ra=' + this.rastr_h + " " + this.rastr_m + " " + this.rastr_s + '&de=' + this.decstr_d+  " " + this.decstr_m + " " + this.decstr_s + '&show_grid=1&img_source=DSS2&show_box=1&zoom=8&box_color=white&box_width=30&box_height=30&show_stars=1');
   }
 
   async searchHost(event: Event){

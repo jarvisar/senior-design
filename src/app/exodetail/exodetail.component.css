@@ -27,32 +27,10 @@ mat-card.mat-card-pointer:hover {
 
 .button{
   height: 40px;
-  width: 155px;
+  width: 100%;
   font-size:16px;
   letter-spacing: 0.1px;
   color: white;
-}
-
-/* style4 */
-.search-anchor{
-  position: relative;
-  display: inline-block;
-}
-.search-anchor:after{
-  content:'';
-  position: absolute;
-  border-bottom: 2px solid black;
-  top: 100%;
-  transition: all 0.4s;
- }
-
-/* style4 */
-.search-anchor:after {
-  right: 100%;
-  left: 0;
-}
-.search-anchor:hover:after {
-  right: 0;
 }
 
 iframe {
@@ -78,14 +56,6 @@ iframe {
     width: 155px;
   }
 
-mat-card img{
-    object-fit: cover;
-    width: 99%; 
-    height: 90%;
-    border: 1px solid white;
-    border-radius: 5%;
-}
-
 .mat-icon-bottom {
   display: flex;
   align-items: center;
@@ -102,9 +72,37 @@ mat-card img{
   margin-left: 5px;
 }
 
+mat-card img{
+  object-fit: cover;
+  width: 99%; 
+  height: 90%;
+  border: 1px solid white;
+  border-radius: 5%;
+}
+
 mat-card {
   margin-bottom: 15px;
   overflow: hidden; 
   position: relative;
   height: 95%;
+}
+
+.search-anchor{
+  position: relative;
+  display: inline-block;
+}
+.search-anchor:after{
+  content:'';
+  position: absolute;
+  border-bottom: 2px solid black;
+  top: 100%;
+  transition: all 0.4s;
+ }
+
+.search-anchor:after {
+  right: 100%;
+  left: 0;
+}
+.search-anchor:hover:after {
+  right: 0;
 }

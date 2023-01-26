@@ -14,20 +14,28 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         console.log(params.get('ra'));
+        
+        $(document).ready(function() {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
     </script>
+
+    <style>
+        html { visibility:hidden; }
+    </style>
 
     <!-- Aladin Lite JS code -->
     <script type="text/javascript" src="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
 
     <!-- Creation of Aladin Lite instance with initial parameters -->
     <script type="text/javascript">
-        var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", showLayersControl: false, showFullscreenControl: false, cooFrame: 'ICRSd', fullScreen: true, showGotoControl: false, fov:0.3, target: params.get('ra') + ", " + params.get('dec')});
+        var aladin = A.aladin('#aladin-lite-div', {fullScreen: true, survey: "P/DSS2/color", showLayersControl: false, showFullscreenControl: false, cooFrame: 'ICRSd', showGotoControl: false, fov:0.3, target: params.get('ra') + ", " + params.get('dec')});
 
         $('input[name=survey]').change(function() {
             aladin.setImageSurvey($(this).val());
         });
 
-        var marker1 = A.marker(params.get('ra'), params.get('dec'), {popupTitle: params.get('name'), popupDesc: (params.get('st_spectype') != 'null' ? 'Object type: ' + params.get('st_spectype')  + " star" : 'Star type not available')});
+        var marker1 = A.marker(params.get('ra'), params.get('dec'), {popupTitle: params.get('name'), popupDesc: (params.get('st_spectype') != 'null' ? 'Star type: ' + params.get('st_spectype') : 'Star type not available')});
         var M1 = A.marker('83.633333', '22.013333', {popupTitle: 'M1 (Crab Nebula)', popupDesc: 'Other Names: NGC 1952'});
         var M16 = A.marker('274.76', '-13.765', {popupTitle: 'M16 (Eagle Nebula)', popupDesc: 'Other Names: NGC 6611'});
         var Veil = A.marker('311.408333', '30.708333', {popupTitle: 'Veil Nebula', popupDesc: 'Other Names: NGC 6960'});

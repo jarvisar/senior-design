@@ -32,6 +32,7 @@ p {
     position: fixed;
     bottom: 110px;
     right: 35px;
+    z-index: 10;
   }
 
   .table{
