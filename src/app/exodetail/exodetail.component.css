@@ -6,34 +6,53 @@
   position: relative;
 }
 
-.eyes-button {
-    background-color: #fc3d21;
-    height: 40px;
-    width: 155px;
-    font-size:16px;
-    letter-spacing: 0.1px;
-    color: white;
-}
-
 mat-card.mat-card-pointer:hover {
   cursor: pointer;
 }
 
+.eyes-button {
+  background-color: #fc3d21;
+}
+
 .ref-button {
   background-color: #0b3d91;
+}
+.overview-button {
+  background-color: #999999;
+}
+
+.skymap-button{
+  background-color: #fc3d21;
+}
+
+.button{
   height: 40px;
   width: 155px;
   font-size:16px;
   letter-spacing: 0.1px;
   color: white;
 }
-.overview-button {
-  background-color: #999999;
-  height: 40px;
-  width: 155px;
-  font-size:16px;
-  letter-spacing: 0.1px;
-  color: white;
+
+/* style4 */
+.search-anchor{
+  position: relative;
+  display: inline-block;
+}
+.search-anchor:after{
+  content:'';
+  position: absolute;
+  border-bottom: 2px solid black;
+  top: 100%;
+  transition: all 0.4s;
+ }
+
+/* style4 */
+.search-anchor:after {
+  right: 100%;
+  left: 0;
+}
+.search-anchor:hover:after {
+  right: 0;
 }
 
 iframe {
