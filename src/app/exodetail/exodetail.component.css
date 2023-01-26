@@ -38,7 +38,7 @@ iframe {
   margin-top: 10px;
   position: absolute;
   width: calc(100% - 20px);
-  height: calc(100% - 95px);
+  height: calc(100% - 55px);
   overflow: hidden;
   bottom: 10px;
   left: 10px;

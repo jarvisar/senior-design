@@ -10,14 +10,16 @@
         <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="New Search">{{exoplanet.discoverymethod}}</a></div>
         <br>
         <div class="mat-body-1">{{methodDict[exoplanet.discoverymethod]}}</div>
-      </mat-card>
-      <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+        <br> 
         <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="New Search">{{exoplanet.hostname}}</a></div>
         
         <p>This system consists of {{exoplanet.sy_snum}} {{exoplanet.st_spectype != null ? exoplanet.st_spectype + " type" : ''}} star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}.</p>
         <!-- <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p> -->
         <br>
-        
+      </mat-card>
+      <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+        <div class="mat-body-2">Decimal Position: {{exoplanet.ra}}, {{exoplanet.dec}}</div>
+        <br>
         <iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
       </mat-card>
       <mat-card class="resources-card " appMaterialElevation>
