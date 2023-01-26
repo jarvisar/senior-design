@@ -46,7 +46,7 @@ For example, an exoplanet with a radius of 0.5 ER has half the radius of the Ear
 
 Exoplanets, or extrasolar planets, are planets that orbit stars outside of our solar system.
 
-#### How often is data updated?
+#### How often is the data updated?
 
 The list of planets is routinely updated bi-weekly, but may be updated more frequently depending on new significant exoplanet discoveries.
 
