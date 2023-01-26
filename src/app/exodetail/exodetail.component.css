@@ -10,15 +10,16 @@ a:hover {
   cursor: pointer;
 }
 
-.eyes-button {
+.overview-button {
   background-color: #fc3d21;
+}
+
+.eyes-button {
+  background-color: #999999;
 }
 
 .ref-button {
   background-color: #0b3d91;
-}
-.overview-button {
-  background-color: #999999;
 }
 
 .skymap-button{

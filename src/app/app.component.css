@@ -146,7 +146,19 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #3ff9dc;
+  
+}
+
+.venus{
+  background-color: #FFC649;
+}
+
+.mercury{
+  background-color: #d5d7de;
+}
+
+.earth{
+  background: linear-gradient(to right, blue 50%, green 50%);;
 }
 
 .sun {
