@@ -13,6 +13,9 @@ export interface Exoplanet{
     cb_flag?: number; // Indicates if exoplanet orbits binary system: 1 = yes, 0 = no
     rastr?: number; // Right Ascension of the planetary system in sexagesimal format
     decstr?: number; // Declination of the planetary system in sexagesimal format
-    ra?: number;
-    dec?: number;
+    ra?: number; // Right Ascension of the planetary system in decimal format
+    dec?: number; // Declination of the planetary system in decimal format
+    pl_orbper?: number; // Orbital period in days
+    pl_rade?: number; // Planet radius in units of radius of the Earth
+    pl_bmasse?: number; // Planet's Mass measured in units of masses of the Earth
 }

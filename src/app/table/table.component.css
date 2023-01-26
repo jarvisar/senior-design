@@ -5,7 +5,7 @@
     -ms-overflow-style: none;
     max-height: calc(100% - 185px);
     width: 98%;
-    overflow-x: hidden;
+    overflow-x: scroll;
     overflow-y: scroll;
     border: 1px solid lightgray;
     border-radius: 25px;
@@ -16,12 +16,6 @@
 
 .table-container::-webkit-scrollbar {
     display: none;
-}
-
-.table-paginator-container{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 .mat-option.mat-selected{
@@ -35,6 +29,7 @@ mat-paginator {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 0.8em;
     height: auto;
+    width: 100%;
 }
 
 .test-table th:first-child {

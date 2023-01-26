@@ -42,8 +42,9 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   ]
 })
 export class TableComponent implements OnInit {
-  tableDef = [{column: 'index', title: 'Index'}, {column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, {column: 'disc_year', title: 'Discovery Year'}, {column: 'disc_facility', title: 'Discovery Facility'}];
-  displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'disc_facility'];
+  tableDef = [{column: 'index', title: 'Index'}, {column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, 
+  {column: 'disc_year', title: 'Discovery Year'}, {column: 'disc_facility', title: 'Discovery Facility'}, {column: 'pl_orbper', title: 'Orbital Period'}, {column: 'pl_rade', title: 'Radius'}, {column: 'pl_bmasse', title: 'Mass'}];
+  displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'disc_facility', 'pl_orbper', 'pl_rade', 'pl_bmasse'];
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;

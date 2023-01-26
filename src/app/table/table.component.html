@@ -26,7 +26,11 @@
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table custom-table" >
         <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
-            <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"> {{def.column == 'index' ? i + 1 : exoplanet[def.column]}} </td>
+            <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"> 
+                <!-- Add units to columns -->
+                {{def.column == 'index' ? i + 1 : (def.column == 'pl_orbper' ? (exoplanet[def.column] == null ? "N/A" : exoplanet[def.column].toFixed(2) + " days") : (def.column == 'pl_rade' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]*6378.1).toLocaleString('en') + " km") : (def.column == 'pl_bmasse' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toFixed(2) + " Earths") : exoplanet[def.column]))) }}
+                
+            </td>
         </ng-container>
 
         <ng-container matColumnDef="expandedDetail" class="detail-container">
