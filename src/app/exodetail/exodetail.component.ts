@@ -56,7 +56,7 @@ export class ExodetailComponent implements OnInit {
   }
 
   openSkyMap(){
-    window.open('http://sky-map.org/skywindow?ra=' + this.rastr_h + " " + this.rastr_m + " " + this.rastr_s + '&de=' + this.decstr_d+  " " + this.decstr_m + " " + this.decstr_s + '&show_grid=1&img_source=DSS2&show_box=1&zoom=8&box_color=white&box_width=30&box_height=30&show_stars=1');
+    window.open('http://sky-map.org/?ra=' + this.rastr_h + " " + this.rastr_m + " " + this.rastr_s + '&de=' + this.decstr_d+  " " + this.decstr_m + " " + this.decstr_s + '&show_grid=1&img_source=DSS2&show_box=1&zoom=8&box_color=white&box_width=30&box_height=30&show_stars=1');
   }
 
   async searchHost(event: Event){
