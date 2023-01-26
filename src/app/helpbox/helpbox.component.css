@@ -22,9 +22,14 @@ mat-card {
 }
 
 mat-dialog-content {
+    padding-top: 5px;
     display: grid;
     grid-template-columns: repeat(3, minmax(280px, 1fr));
-    grid-gap: 50px;
+    grid-gap: 30px;
     margin-bottom: 20px
   }
   
+  h2[mat-dialog-title] {
+    text-align: center;
+    
+    }
