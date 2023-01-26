@@ -34,11 +34,11 @@
     <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px;">
       <mat-icon>help</mat-icon>
     </button>
-    <!-- Show download button if table has results -->
-    <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" >
-      <mat-icon>download</mat-icon>
-    </button>
   </div>
+  <!-- Show download button if table has results -->
+  <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" >
+    <mat-icon>download</mat-icon>
+  </button>
 
   <!-- Data Table -->
   <div  class="table" *ngIf="showTable" @inOutAnimation >
