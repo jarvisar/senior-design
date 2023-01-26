@@ -44,7 +44,7 @@ All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarc
         
 #### Understanding the Results
 
-The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery method, discovery year, discovery facility, and academic reference.
+The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery details, and academic reference.
 
 * The orbital period column is the time (in days) for exoplanet to orbit host star
 * The radius column is measured in units of radius of the Earth (ER)
