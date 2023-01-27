@@ -3,7 +3,9 @@
 
 # Exoplanet Archive Search
 
- Search for exoplanets using data from NASA's Exoplanet Archive
+ Search for exoplanets using data from NASA's Exoplanet Archive!
+ 
+ Visit the (http://jarvisar.github.io/senior-design)[GitHub Pages] site to access the latest deployment.
       
  ### Initiating a Search
  
