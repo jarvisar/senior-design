@@ -1,6 +1,7 @@
 {
-    "short_name": "Exoplanet Archive Search",
-    "name": "Search for exoplanets using data from NASA's Archive",
+    "short_name": "Exoplanet Search",
+    "name": "NASA Exoplanet Archive Search",
+    "description": "Search for exoplanets using data from NASA's Archive",
     "icons": [
       {
         "src": "/senior-dessig/assets/icon256.png",
@@ -16,7 +17,7 @@
     "shortcuts": [
       {
         "name": "NASA Exoplanet Archive Search",
-        "short_name": "Exoplanet",
+        "short_name": "Exoplanet Search",
         "description": "Search for exoplanets using data from NASA's Archive",
         "url": "/senior-design",
         "icons": [{ "src": "/senior-dessign/assets/icon256.png", "sizes": "256x256" }]
