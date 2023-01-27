@@ -1,8 +1,10 @@
+
+
+# Exoplanet Archive Search
+
 <p align="right">
   <img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/icon.png" width="200px" style="float: right; margin-left: 10px;"/>
 </>
-
-# Exoplanet Archive Search
 
  Search for exoplanets using data from NASA's Exoplanet Archive
       
