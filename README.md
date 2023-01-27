@@ -47,7 +47,7 @@ For example, an exoplanet with a radius of 0.5 ER has half the radius of the Ear
 
 #### What is an exoplanet?
 
-Exoplanets, or extrasolar planets, are planets that orbit stars outside of our solar system.
+Exoplanets, or [extrasolar planets](https://exoplanets.nasa.gov/what-is-an-exoplanet/overview/), are planets that orbit stars outside of our solar system.
 
 #### How often is the data updated?
 
