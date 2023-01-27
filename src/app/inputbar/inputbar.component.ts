@@ -8,6 +8,7 @@ import { trigger,transition,style,animate,state } from '@angular/animations';
 import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
+import { Observable } from 'rxjs';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   trigger(
@@ -46,6 +47,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
 })
 export class InputbarComponent implements OnInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
+  selected$: Observable<boolean>;
 
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
@@ -66,7 +68,11 @@ export class InputbarComponent implements OnInit {
   public apiQuery!: string;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
-    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef) { }
+    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef) {
+      this.selected$ = new Observable((observer) => {
+        observer.next(this.selected);
+      });
+  }
 
   // initiate hostname select box
   private _selectedHost!: number;

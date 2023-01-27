@@ -60,7 +60,7 @@ export class ExodetailComponent implements OnInit {
   }
 
   async searchHost(event: Event){
-    this.setValues(this.inputbar.hostData.findIndex(host => host === this.exoplanet.hostname),0,0,0);
+    this.setValues()
     this.inputbar.selectedHostValue = this.exoplanet.hostname;
     this.inputbar.searchclick(event);
   }
