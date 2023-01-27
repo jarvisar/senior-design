@@ -146,6 +146,7 @@ export class InputbarComponent implements OnInit {
     this.firstSearch = true;
   }
 
+  // Only load hostnames if user clicks on select box
   async loadOptions(){
     this.hostData = await this.selectService.getHostData();
     this.selected = true;
@@ -157,7 +158,7 @@ export class InputbarComponent implements OnInit {
 
   doNothing(){}
   
-
+  // Load option data for other 3 select boxes
   async ngOnInit() {
     const methodPromise = this.selectService.getMethodData();
     const yearPromise = this.selectService.getYearData();
@@ -174,12 +175,12 @@ export class InputbarComponent implements OnInit {
   public buildQuery(){
     let firstConditional: boolean = true;
     this.apiQuery = '';
-    //first check if select box has valid value then check if any other conditional has been applied 
+    // First check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHostValue != "Host Names" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
-    //returns true if input is empty
+    // Returns true if input is empty
     return firstConditional;
   }
 
