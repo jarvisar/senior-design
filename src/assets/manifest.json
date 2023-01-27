@@ -7,19 +7,19 @@
         "sizes": "256x256"
       }
     ],
-    "id": "/",
+    "id": "/senior-design",
     "start_url": "/a",
     "background_color": "#222222",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/senior-design",
     "theme_color": "#222222",
     "shortcuts": [
       {
         "name": "NASA Exoplanet Archive Search?",
         "short_name": "Exoplanet",
         "description": "Search for exoplanets using data from NASA's Archive",
-        "url": "/",
-        "icons": [{ "src": "/images/today.png", "sizes": "256x256" }]
+        "url": "/senior-design",
+        "icons": [{ "src": "/assets/icon.png", "sizes": "256x256" }]
       }
     ]
   }
