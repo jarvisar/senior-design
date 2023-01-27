@@ -84,6 +84,7 @@ export class InputbarComponent implements OnInit {
   public set selectedHost(index: number) {
     this._selectedHost = index;
     this.selectedHostValue = this.hostData[index];
+    console.log(this.selectedHostValue);
   }
 
   // initiate discovery method select box
