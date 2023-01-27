@@ -1,19 +1,19 @@
 {
-    "index": "senior-design/index.html",
+    "index": "/senior-design/index.html",
     "assetGroups": [
       {
         "name": "app",
         "installMode": "prefetch",
         "resources": {
           "files": [
-            "/favicon.ico",
-            "/index.html",
-            "/*.css",
-            "/*.js"
+            "/senior-design/favicon.ico",
+            "/senior-design/index.html",
+            "/senior-design/*.css",
+            "/senior-design/*.js"
           ],
           "versionedFiles": [
-            "/assets/**/*",
-            "/assets/hostnames.csv"
+            "/senior-design/assets/**/*",
+            "/senior-design/assets/hostnames.csv"
           ]
         }
       }
