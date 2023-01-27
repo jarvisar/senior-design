@@ -32,6 +32,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CdkTableModule } from '@angular/cdk/table';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SafePipe } from './safe.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { SafePipe } from './safe.pipe';
     MatExpansionModule,
     MatPaginatorModule,
     CdkTableModule,
-    ScrollingModule
+    ScrollingModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }) 
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
