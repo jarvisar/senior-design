@@ -15,7 +15,7 @@
     "theme_color": "#222222",
     "shortcuts": [
       {
-        "name": "NASA Exoplanet Archive Search?",
+        "name": "NASA Exoplanet Archive Search",
         "short_name": "Exoplanet",
         "description": "Search for exoplanets using data from NASA's Archive",
         "url": "/senior-design",
