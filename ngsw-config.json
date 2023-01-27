@@ -12,7 +12,8 @@
             "/*.js"
           ],
           "versionedFiles": [
-            "/assets/**/*"
+            "/assets/**/*",
+            "/assets/hostnames.csv"
           ]
         }
       }

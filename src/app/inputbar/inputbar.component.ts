@@ -145,10 +145,17 @@ export class InputbarComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.hostData = await this.selectService.getHostData();
-    this.methodData = await this.selectService.getMethodData();
-    this.yearData = await this.selectService.getYearData();
-    this.facilityData = await this.selectService.getFacilityData();
+    const hostPromise = this.selectService.getHostData();
+    const methodPromise = this.selectService.getMethodData();
+    const yearPromise = this.selectService.getYearData();
+    const facilityPromise = this.selectService.getFacilityData();
+
+    const [hostData, methodData, yearData, facilityData] = await Promise.all([hostPromise, methodPromise, yearPromise, facilityPromise]);
+
+    this.hostData = hostData;
+    this.methodData = methodData;
+    this.yearData = yearData;
+    this.facilityData = facilityData;
     this.clearSelect();
   }
 
