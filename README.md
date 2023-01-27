@@ -4,7 +4,7 @@
 
 # Exoplanet Archive Search
 
-##### Search for exoplanets using data from NASA's Exoplanet Archive
+ Search for exoplanets using data from NASA's Exoplanet Archive
       
  ### Initiating a Search
  
