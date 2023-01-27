@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
@@ -45,7 +45,8 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
   ]
 })
 export class InputbarComponent implements OnInit {
-  
+  @ViewChild('hostSelect') select: HTMLSelectElement;
+
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
   public showTable: boolean = false;
@@ -56,6 +57,7 @@ export class InputbarComponent implements OnInit {
   methodData: any[] = [];
   yearData: any[] = [];
   facilityData: any[] = [];
+  selected = false;
   
   public selectedHostValue!: string;
   public selectedMethodValue!: string;
@@ -64,7 +66,7 @@ export class InputbarComponent implements OnInit {
   public apiQuery!: string;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
-    public loadingService: LoadingService, public selectService: SelectService) { }
+    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef) { }
 
   // initiate hostname select box
   private _selectedHost!: number;
@@ -144,15 +146,25 @@ export class InputbarComponent implements OnInit {
     this.firstSearch = true;
   }
 
+  async loadOptions(){
+    this.hostData = await this.selectService.getHostData();
+    this.selected = true;
+    setTimeout(() => {
+      this.select.size = 20;
+      this.cd.detectChanges();
+    });
+  }
+
+  doNothing(){}
+  
+
   async ngOnInit() {
-    const hostPromise = this.selectService.getHostData();
     const methodPromise = this.selectService.getMethodData();
     const yearPromise = this.selectService.getYearData();
     const facilityPromise = this.selectService.getFacilityData();
 
-    const [hostData, methodData, yearData, facilityData] = await Promise.all([hostPromise, methodPromise, yearPromise, facilityPromise]);
-
-    this.hostData = hostData;
+    const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
+    this.hostData = ["Host Names"];
     this.methodData = methodData;
     this.yearData = yearData;
     this.facilityData = facilityData;
