@@ -1,135 +1,143 @@
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0px 0;
-  }
-
-  a:link {
-    color: #6666ff;
-    background-color: transparent;
-    text-decoration: underline;
-  }
-  a:visited {
-    color: #5555ff;
-    background-color: transparent;
-    text-decoration: underline;
-  }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>NASA Exoplanet Archive Search</title>
+    <link rel="preload" as="image" href="https://jarvisar.github.io/senior-design/assets/starfield.jpg">
+  </head>
+  <style>
+    :host {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 14px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
   
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #010621;
-    background-image: url("./assets/starfield.jpg");
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar #github-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
-
-  .content {
-    display: block;
-    height: 50%;
-    width: 99%;
-    margin: 48px auto 82px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-    left: 0;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 0px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    vertical-align: middle;
-  }
-
-  .footer {
-    background-image: url("./assets/starfield.jpg");
-    background-color: #010621;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -100px;
-    left: -850px;
-    z-index: -10;
-    width: 100%;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0px 0;
+    }
   
-  svg#clouds2 {
-    position: fixed;
-    bottom: -160px;
-    left: 0;
-    z-index: -10;
-    width: 100%;
-  }
-
-  svg#clouds3 {
-    position: fixed;
-    bottom: -180px;
-    left: -230px;
-    z-index: -10;
-    width: 100%;
-  }
-
-  svg#rocket-smoke {
-    height: 100%;
-    position: fixed;
-    top: 10px;
-    right: 20%;
-    z-index: -10;
-  }
-</style>
-
-<!-- Toolbar -->
+    a:link {
+      color: #6666ff;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    a:visited {
+      color: #5555ff;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+    
+    p {
+      margin: 0;
+    }
+  
+    .spacer {
+      flex: 1;
+    }
+  
+    .toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background-color: #010621;
+      background-image: url("./assets/starfield.jpg");
+      color: white;
+      font-weight: 600;
+    }
+  
+    .toolbar #github-logo {
+      height: 40px;
+      margin: 0 8px;
+    }
+  
+    .content {
+      display: block;
+      height: 50%;
+      width: 99%;
+      margin: 48px auto 82px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      left: 0;
+    }
+  
+    svg.material-icons {
+      height: 24px;
+      width: auto;
+    }
+  
+    svg.material-icons:not(:last-child) {
+      margin-right: 0px;
+    }
+  
+    .card svg.material-icons path {
+      fill: #888;
+    }
+  
+    footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      vertical-align: middle;
+    }
+  
+    .footer {
+      background-image: url("./assets/starfield.jpg");
+      background-color: #010621;
+    }
+  
+    svg#clouds {
+      position: fixed;
+      bottom: -100px;
+      left: -850px;
+      z-index: -10;
+      width: 100%;
+    }
+    
+    svg#clouds2 {
+      position: fixed;
+      bottom: -160px;
+      left: 0;
+      z-index: -10;
+      width: 100%;
+    }
+  
+    svg#clouds3 {
+      position: fixed;
+      bottom: -180px;
+      left: -230px;
+      z-index: -10;
+      width: 100%;
+    }
+  
+    svg#rocket-smoke {
+      height: 100%;
+      position: fixed;
+      top: 10px;
+      right: 20%;
+      z-index: -10;
+    }
+  </style>
+  <body>
+    <!-- Toolbar -->
 <div class="toolbar" role="banner" >
   <img style="margin-left: 10px;" width="40" alt="Project Logo" src="assets/icon.png"  />
   <span style="font-size:18.0pt; font-family: Roboto, Helvetica Neue, sans-serif; font-weight: 400; margin-left: 5px;">NASA Exoplanet Archive Search</span>
@@ -198,5 +206,15 @@
   <a class = "footer_text"href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener" style="vertical-align: middle; font-family: Roboto, Helvetica Neue, sans-serif;">NASA Exoplanet Archive</a>
   <p class = "footer_text" style="display: inline; vertical-align: middle;"> operated by the California Institute of Technology.&nbsp;</p>
 </span>
+
+  </body>
+</html>
+
+
+<head>
+  
+</head>
+
+
 
 <router-outlet></router-outlet>
