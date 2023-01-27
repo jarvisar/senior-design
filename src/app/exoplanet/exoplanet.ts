@@ -16,7 +16,10 @@ export interface Exoplanet{
     ra?: number; // Right Ascension of the planetary system in decimal format
     dec?: number; // Declination of the planetary system in decimal format
     pl_orbper?: number; // Orbital period in days
+    pl_orbsmax?: number; // Orbital radius in au
+    pl_orbeccen?: number; // Amount by which the orbit of the planet deviates from a perfect circle (eccentricity)
     pl_rade?: number; // Planet radius in units of radius of the Earth
     pl_bmasse?: number; // Planet's Mass measured in units of masses of the Earth
+    pl_dens?: number; // Planet density in g/cm^3
     sy_dist?: number; // Distance from Earth in parsecs
 }
