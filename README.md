@@ -3,7 +3,7 @@
 
 # Exoplanet Archive Search
 
- Search for exoplanets using data from NASA's Exoplanet Archive!
+ Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
  
  Visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site to access the latest deployment.
       
@@ -59,6 +59,6 @@ Either no exoplanets match the given input or data was not returned properly. Tr
 
 #### How is data accessed from NASA's Exoplanet Archive?
 
-This web application utilizes Table Access Protocol (TAP) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, primarily for astronomical data.
+This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/documents/TAP/)) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, primarily for astronomical data.
 
 ###### Hint: entering the Konami code will show secret exoplanets!
