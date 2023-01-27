@@ -1,5 +1,6 @@
 <p align="center">
-	<img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/icon.png" width="200px"/>
+    <img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/icon.png" width="200px" style="float: left; margin-right: 10px;"/>
+    Search for exoplanets using data from NASA's Exoplanet Archive...
 </p>
 
 # Exoplanet Archive Search
