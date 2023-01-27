@@ -18,7 +18,7 @@
         <br>
       </mat-card>
       <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2">Decimal Position: {{exoplanet.ra}}, {{exoplanet.dec}}</div>
+        <div class="mat-body-2">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
         <br>
         <iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
       </mat-card>
