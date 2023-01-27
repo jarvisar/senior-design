@@ -3,7 +3,7 @@
     "name": "Search for exoplanets using data from NASA's Archive",
     "icons": [
       {
-        "src": "/assets/icon256.png",
+        "src": "/senior-dessig/assets/icon256.png",
         "sizes": "256x256"
       }
     ],
@@ -19,7 +19,7 @@
         "short_name": "Exoplanet",
         "description": "Search for exoplanets using data from NASA's Archive",
         "url": "/senior-design",
-        "icons": [{ "src": "/assets/icon256.png", "sizes": "256x256" }]
+        "icons": [{ "src": "/senior-dessign/assets/icon256.png", "sizes": "256x256" }]
       }
     ]
   }
