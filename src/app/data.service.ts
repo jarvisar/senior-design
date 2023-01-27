@@ -39,7 +39,7 @@ export class DataService {
       }
     }
     return this.http
-      .get<any[]>(this.hostUrl + 'select+distinct+disc_facility+from+pscomppars&format=json', httpOptions)
+      .get<any[]>(this.hostUrl + 'select+distinct+disc_facility+from+pscomppars&format=json', cacheOptions)
       .toPromise()
       .then((data) => {
         let expiry = Date.now() + this.EXPIRY_TIME;
