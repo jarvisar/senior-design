@@ -2,17 +2,21 @@
 <mat-dialog-content class="mat-typography">
   <mat-card appMaterialElevation>
     <h3>What is an Exoplanet?</h3>
-      <p>An exoplanet, also known as an extrasolar planet, is a planet that orbits a star (or stars) outside of our solar system. 
+      <p>An exoplanet, also known as an <a target="_blank" href="https://exoplanets.nasa.gov/what-is-an-exoplanet/overview/" rel="noreferrer noopener">extrasolar planet</a>, is a planet that orbits a star(s) outside of our solar system. 
       These planets are detected using a variety of methods, such as radial velocity, transit, and direct imaging. 
+      <br>
+      <br>
       The study of exoplanets is a rapidly growing field in astronomy and has led to the discovery of thousands of planets 
       orbiting stars in our galaxy. The discovery of exoplanets has also led to the possibility of finding potentially 
       habitable planets and the search for extraterrestrial life.</p>
   </mat-card>
   <mat-card appMaterialElevation>
   <h3>Initiating a Search</h3>
-    <p>To search NASA's exoplanet database, select a valid query using one of the four available drop-down boxes. 
+    <p>To search NASA's exoplanet database, select a valid query using the four available drop-down boxes. 
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
       method used, and the discovery year and facility. To learn more about each option, refer to the input help section. 
+      <br>
+      <br>
       Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
       can take up to 20 seconds to process. Some example large searches include exoplanets discovered using transit, exoplanets 
       discovered in 2014 and 2016, and exoplanets first observed by Kepler.</p>
@@ -21,17 +25,19 @@
     <h3>Understanding the Input</h3>
       <p>When searching, the input options allow for specific information to be entered. Here's what each option represents:</p>
       <ul>
-        <li>The hostname option refers to the name of the star an exoplanet orbits.</li>
-        <li>The discovery method option refers to how the exoplanet was first discovered.</li>
-        <li>The discovery year option refers to the year the exoplanet was first found.</li>
-        <li>The discovery facility option refers to the facility that first discovered the exoplanet.</li>
+        <li>Host name refers to the name of the star an exoplanet orbits.</li>
+        <li>Discovery method refers to how the exoplanet was first discovered.</li>
+        <li>Discovery year refers to the year the exoplanet was first found.</li>
+        <li>Discovery facility refers to the facility that first discovered the exoplanet.</li>
       </ul>
       <br>
   </mat-card>
   <mat-card appMaterialElevation>
     <h3>Receiving Results</h3>
       <p>After submitting a search, the results will be displayed in a table format. 
-        Additionally, a download button will appear, allowing the results to be exported to a CSV file on the local disk. 
+        Additionally, a download button will appear to export the data to the local disk as a CSV file. 
+        <br>
+        <br>
         To sort the data, click on a column header to toggle between descending and ascending order. 
         By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
         in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
@@ -48,6 +54,10 @@
       it's mass is 5.972 x 10<sup>24</sup> kg.</p>
   </mat-card>
   <mat-card appMaterialElevation>
+  <h4>Data Source</h4>
+  <p>This web application utilizes Table Access Protocol <a target="_blank" href="https://www.ivoa.net/documents/TAP/" rel="noreferrer noopener">(TAP)</a> to request and return data from the Exoplanet Archive. 
+    TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, primarily for astronomical data. The list of planets is routinely updated bi-weekly, but may be updated 
+    more frequently depending on new significant exoplanet discoveries. </p>
   <h4>Developed by Adam Jarvis </h4>
   <p> This web application was developed using Angular for my senior design project. The source code can be found on <a target="_blank" href="https://github.com/jarvisar/senior-design/" rel="noreferrer noopener">Github</a>. 
     <span class="small-text">(hint: entering the Konami code will show secret exoplanets!)</span>
