@@ -88,8 +88,9 @@ mat-card {
   margin-bottom: 15px;
   overflow: hidden; 
   position: relative;
-  height: 95%;
-  min-height: 320px;;
+  
+  min-height: 320px;
+  max-height: 95%;
 }
 
 .search-anchor{
