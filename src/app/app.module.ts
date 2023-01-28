@@ -70,7 +70,6 @@ import { environment } from '../environments/environment';
     MatPaginatorModule,
     CdkTableModule,
     ScrollingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
