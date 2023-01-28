@@ -2,7 +2,6 @@
 <div class="card-container">
     <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
         <div class="mat-body-2" style="margin-bottom: 10px">Observed by <a class="search-anchor style4" (click)="searchFacility($event)" title="New Search">{{exoplanet.disc_facility}}</a></div>
-        
         <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
         src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError">
       </mat-card>
@@ -14,10 +13,9 @@
         <p>{{exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + exoplanet.pl_orbper.toFixed(3) + " days to orbit its host star." : ""}}</p>
         <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen +")" : ""}}</p>
         <br>
-        <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="New Search">{{exoplanet.discoverymethod}}</a></div>
-        <button mat-icon-button (click)="methodbox.openDialog(exoplanet.discoverymethod)" appearance="outline" style="margin-left: 5px;" tabindex="6">
-          <mat-icon>help</mat-icon>
-        </button>
+        <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="New Search">{{exoplanet.discoverymethod}}</a>
+          
+        </div>
         <br>
         <!-- <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p> -->
         <br>
