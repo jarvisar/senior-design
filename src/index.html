@@ -150,7 +150,7 @@ p{
 <head>
   <title>NASA Exoplanet Archive Search</title>
   <meta name="description" content="Search for exoplanets using data from NASA's Exoplanet Archive">
-  <meta name="google-site-verification" content="tHWkMppvvijkoZIKM4owMs08YnOzCgNQFQS9is0ZBts" />
+  <meta name="google-site-verification" content="tHWkMppvvijkoZIKM4owMs08YnOzCgNQFQS9is0ZBts"/>
   <meta charset="utf-8">
   <link rel="preload" as="image" href="https://jarvisar.github.io/senior-design/assets/starfield.jpg">
   <title>NASA Exoplanet Search</title>
@@ -159,8 +159,9 @@ p{
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="apple-touch-icon" href="assets/app-icon.png">
-  <link rel="manifest" href="/senior-design/assets/manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#444444">
 </head>
 <body>
   <div id="loader">
@@ -184,7 +185,7 @@ p{
     </style>
     <div class="application-loading-container">
       <div class="application-loading-box">
-        <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 98px); left: calc(50% - 100px);" [@fadeinandout]>
+        <div class="spinner-box" *ngif="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 98px); left: calc(50% - 100px);" [@fadeinandout]="">
           <div class="solar-system">
             <div class="earth-orbit orbit">
               <div class="planet earth"></div>
@@ -203,5 +204,6 @@ p{
     </div>
   </div>
   <app-root></app-root>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 </html>
