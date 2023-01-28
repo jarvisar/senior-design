@@ -165,7 +165,7 @@ p{
 <body>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/senior-design/ngsw-config.json', {
+      navigator.serviceWorker.register('/senior-design/ngsw-worker.js', {
         scope: '/senior-design/',
       }).then((reg) => {
         reg.onupdatefound = () => {
