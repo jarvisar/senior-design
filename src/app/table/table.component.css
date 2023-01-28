@@ -88,6 +88,7 @@ tr.exoplanet-detail-row {
 
 .detail-container{
     background: linear-gradient(to bottom, #ffffff, #eeeeee);
+    width: 100%;
 }
 
 .mat-select-value-text {

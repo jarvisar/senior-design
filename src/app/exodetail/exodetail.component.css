@@ -1,9 +1,11 @@
 .card-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   height: 100%;
   position: relative;
+  width: 100%;
 }
 
 a:hover {
@@ -75,7 +77,7 @@ iframe {
 }
 
 mat-card img{
-  object-fit: cover;
+  object-fit: contain;
   width: 99%; 
   height: calc(100% - 55px);
   border: 1px solid white;
@@ -87,6 +89,7 @@ mat-card {
   overflow: hidden; 
   position: relative;
   height: 95%;
+  min-height: 320px;;
 }
 
 .search-anchor{

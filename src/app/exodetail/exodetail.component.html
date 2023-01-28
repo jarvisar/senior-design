@@ -2,8 +2,10 @@
 <div class="card-container">
     <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
         <div class="mat-body-2" style="margin-bottom: 10px">Observed by <a class="search-anchor style4" (click)="searchFacility($event)" title="New Search">{{exoplanet.disc_facility}}</a></div>
-        <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
-        src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError">
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
+          src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
+        </div>
       </mat-card>
       <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
         <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="New Search">{{exoplanet.hostname}}</a></div>
@@ -14,7 +16,9 @@
         <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen +")" : ""}}</p>
         <br>
         <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="New Search">{{exoplanet.discoverymethod}}</a>
-          
+        <button mat-icon-button appearance="outline" style="transform: scale(0.8); color: #333" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
+          <mat-icon>help</mat-icon>
+        </button>
         </div>
         <br>
         <!-- <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p> -->
