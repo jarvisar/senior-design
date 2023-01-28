@@ -16,7 +16,7 @@
         <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen +")" : ""}}</p>
         <br>
         <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="New Search">{{exoplanet.discoverymethod}}</a>
-        <button mat-icon-button appearance="outline" style="transform: scale(0.8); color: #333" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
+        <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
           <mat-icon>help</mat-icon>
         </button>
         </div>
