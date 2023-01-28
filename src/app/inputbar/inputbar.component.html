@@ -43,6 +43,11 @@
 
   <!-- Data Table -->
   <div  class="table" *ngIf="showTable" @inOutAnimation >
-    <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable" @inOutAnimation></app-table>
+    <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
+    <div class="no-results" *ngIf="showTable && exoplanetData.length == 0" @inOutAnimation>
+      <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation (click)="clearclick($event)">No Results Found</p>
+      <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>New Search?</p>
+    </div>
+    
     <!-- <p *ngIf="!showTable" class="placeholder-text">Find your new favorite exoplanet!</p> -->
   </div>
