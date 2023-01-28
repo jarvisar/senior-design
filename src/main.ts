@@ -13,5 +13,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
   if ('serviceWorker' in navigator && environment.production) {
+    console.log("test!");
     navigator.serviceWorker.register('/senior-design/ngsw-worker.js', { scope: '/senior-design/' });
   }
