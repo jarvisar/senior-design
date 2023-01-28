@@ -15,8 +15,10 @@
         <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen +")" : ""}}</p>
         <br>
         <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="New Search">{{exoplanet.discoverymethod}}</a></div>
+        <button mat-icon-button (click)="methodbox.openDialog(exoplanet.discoverymethod)" appearance="outline" style="margin-left: 5px;" tabindex="6">
+          <mat-icon>help</mat-icon>
+        </button>
         <br>
-        <div class="mat-body-1">{{methodDict[exoplanet.discoverymethod]}}</div>
         <!-- <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p> -->
         <br>
       </mat-card>

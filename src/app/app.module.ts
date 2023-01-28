@@ -34,6 +34,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SafePipe } from './safe.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MethodboxComponent } from './methodbox/methodbox.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { environment } from '../environments/environment';
     ExodetailComponent,
     SecretComponent,
     MaterialElevationDirective,
-    SafePipe
+    SafePipe,
+    MethodboxComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, MethodboxComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
