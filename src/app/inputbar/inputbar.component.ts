@@ -10,7 +10,7 @@ import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
 import { Observable } from 'rxjs';
 
-export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
+export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
   trigger(
       'inOutAnimation', 
       [
@@ -18,7 +18,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
           ':enter', 
           [
             style({ opacity: 0 }),
-            animate('.2s ease-out', 
+            animate('.1s ease-out', 
                     style({  opacity: 1 }))
           ]
         ),
@@ -26,7 +26,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
           ':leave', 
           [
             style({  opacity: 1 }),
-            animate('.2s ease-in', 
+            animate('.1s ease-in', 
                     style({  opacity: 0 }))
           ]
         )
@@ -48,6 +48,8 @@ export const fadeInOut = (name = 'fadeInOut', duration = 5.5) =>
 export class InputbarComponent implements OnInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
   selected$: Observable<boolean>;
+
+  showNewSearch = false;
 
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
@@ -151,6 +153,7 @@ export class InputbarComponent implements OnInit {
     this.clearSelect();
     this.exoplanetData = [];
     this.firstSearch = true;
+    this.showNewSearch = false
   }
 
   // Only load hostnames if user clicks on select box

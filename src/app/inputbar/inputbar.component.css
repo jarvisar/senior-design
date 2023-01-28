@@ -19,6 +19,11 @@ p {
     margin-left: 15px;
   }
 
+
+p{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
   .search_button, .clear_button {
     background-color: #0b3d91;
     width: 80px;
@@ -45,5 +50,48 @@ p {
   background-color: #F5F5F5; 
 }
 
+.no-results {
+  text-align: center;
+  position: relative;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
 
-  
+.no-results-text{
+font-size: 4em;
+}
+
+
+p{
+  position: relative;
+  display: inline-block;
+}
+p:after{
+  content:'';
+  position: absolute;
+  border-bottom: 2px solid black;
+  top: 100%;
+  transition: all 0.4s;
+ }
+
+.no-results-text:hover{
+  cursor: pointer;
+}
+
+p:after {
+  right: 100%;
+  left: 0;
+}
+p:hover:after {
+  right: 0;
+}
+
+.new-search {
+  font-size: 2em;
+  margin-top: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
