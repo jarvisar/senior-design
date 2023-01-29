@@ -8,7 +8,8 @@ export class DownloadService {
   // Download search results as CSV file
   downloadFile(data, filename='data') {
     // List which columns to export
-    let csvData = this.ConvertToCSV(data, ['pl_name','hostname', 'discoverymethod', 'disc_year', 'disc_facility', 'disc_refname', 'pl_controv_flag']);
+    let csvData = this.ConvertToCSV(data, ['pl_name','hostname', 'discoverymethod', 'disc_year', 'disc_facility', 'disc_refname', 'pl_controv_flag', 'sy_snum', 'sy_pnum', 
+    'sy_mnum', 'st_spectype', 'cb_flag', 'rastr', 'decstr', 'ra', 'dec', 'pl_orbper', 'pl_orbsmax', 'pl_orbeccen', 'pl_rade', 'pl_bmasse', 'pl_dens', 'sy_dist']);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
     let dwldLink = document.createElement("a");
