@@ -6,24 +6,28 @@
     <option *ngFor="let _ of hostData; index as i" [value]="i">
         {{hostData[i]}}
     </option>
+    <label>Hostname Select</label>
   </select>
     
     <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod" tabindex="1">
       <option *ngFor="let _ of methodData; index as i" [value]="i">
         {{methodData[i]}}
       </option>
+      <label>Method Select</label>
     </select>
 
     <select class="year_select" id="year_select"  [(ngModel)]="selectedYear" tabindex="2">
       <option *ngFor="let _ of yearData; index as i" [value]="i">
         {{yearData[i]}}
       </option>
+      <label>Year Select</label>
     </select>
 
     <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility" tabindex="3">
       <option *ngFor="let _ of facilityData; index as i" [value]="i">
         {{facilityData[i]}}
       </option>
+      <label>Facility Select</label>
     </select>
 
     <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="loadingService.isLoading$ | async" tabindex="4">
