@@ -6,6 +6,12 @@
     {
       "src": "/senior-design/assets/icon256.png",
       "sizes": "256x256"
+    },
+    {
+      "src": "/senior-design/assets/maskable_icon.png",
+      "sizes": "266x266",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "id": "/senior-design",
@@ -21,7 +27,8 @@
       "description": "Search for exoplanets using data from NASA's Archive",
       "url": "/senior-design/",
       "icons": [
-        { "src": "/senior-design/assets/icon256.png", "sizes": "256x256"}
+        { "src": "/senior-design/assets/icon256.png", "sizes": "256x256"},
+        { "src": "/senior-design/assets/maskable_icon.png", "sizes": "266x266", "type": "image/png", "purpose": "any maskable" }
       ]
     }
   ]
