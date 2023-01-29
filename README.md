@@ -5,10 +5,12 @@
 
  Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
  
- Visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site to access the latest deployment.
+ Visit the [GitHub Pages](https://jarvisar.github.io/senior-design) site to access the latest deployment.
  
 This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on your device like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in your browser's menu or address bar.
       
+All of the required documentation can be found on the [main](https://GitHub.com/jarvisar/senior-design) branch.
+
  ### Initiating a Search
  
  To search NASA's exoplanet database, select a valid query using the four available drop-down boxes. 
