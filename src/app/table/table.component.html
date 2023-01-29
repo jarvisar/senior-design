@@ -24,43 +24,43 @@
 
 <div class="table-container" [@blur]="blurState">  
     
-        <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table custom-table" >
-            <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
-                <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"> 
-                    <!-- Add units to columns -->
-                    {{def.column == 'index' ? i + 1 : (def.column == 'pl_dens' ? (exoplanet[def.column] == null ? "N/A" : exoplanet[def.column].toFixed(3)) : (def.column == 'pl_rade' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toLocaleString('en') + " ER") : (def.column == 'pl_bmasse' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toFixed(2) + " EM") : exoplanet[def.column]))) }}
-                    
-                </td>
-            </ng-container>
-    
-            <ng-container matColumnDef="expandedDetail" class="detail-container">
-                <td mat-cell *matCellDef="let exoplanet" [attr.colspan]="displayedColumns.length" class="detail-container">
-                    <div class="exoplanet-detail" *ngIf="expandedExoplanet"
-                        [@detailExpand]="exoplanet == expandedExoplanet ? 'expanded' : 'collapsed'" >
-                        <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                            <app-exodetail *ngIf="expandedExoplanet == exoplanet" [exoplanet]="exoplanet" style="padding: 30px; width: 100%; justify-content: center;"></app-exodetail>
-                        </div>
-                        
-                    </div>
-                </td>
-            </ng-container>
-    
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <ng-container >
-                <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
-                class="exoplanet-row"
-                [ngClass]="{'exoplanet-expanded-row': exoplanet.expanded }"
-                [class.exoplanet-expanded-row]="expandedExoplanet === exoplanet"
-                (click)="expandedExoplanet = expandedExoplanet === exoplanet ? null : exoplanet">
-                </tr>
-            </ng-container>
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table custom-table" >
+        <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
+            <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"> 
+                <!-- Add units to columns -->
+                {{def.column == 'index' ? i + 1 : (def.column == 'pl_dens' ? (exoplanet[def.column] == null ? "N/A" : exoplanet[def.column].toFixed(3)) : (def.column == 'pl_rade' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toLocaleString('en') + " ER") : (def.column == 'pl_bmasse' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toFixed(2) + " EM") : exoplanet[def.column]))) }}
                 
-            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="expandedDetail" class="detail-container">
+            <td mat-cell *matCellDef="let exoplanet" [attr.colspan]="displayedColumns.length" class="detail-container">
+                <div class="exoplanet-detail" *ngIf="expandedExoplanet"
+                    [@detailExpand]="exoplanet == expandedExoplanet ? 'expanded' : 'collapsed'" >
+                    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                        <app-exodetail *ngIf="expandedExoplanet == exoplanet" [exoplanet]="exoplanet" style="padding: 30px; width: 100%; justify-content: center;"></app-exodetail>
+                    </div>
+                    
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <ng-container >
+            <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
+            class="exoplanet-row"
+            [ngClass]="{'exoplanet-expanded-row': exoplanet.expanded }"
+            [class.exoplanet-expanded-row]="expandedExoplanet === exoplanet"
+            (click)="expandedExoplanet = expandedExoplanet === exoplanet ? null : exoplanet">
+            </tr>
+        </ng-container>
             
-        </table>
-        <mat-paginator [length]="dataSource.data.length" [pageSize]="dataSource.data.length < 50 ? dataSource.data.length : 50" [pageSizeOptions]="dataSource.data.length < 50 ? [dataSource.data.length] : [50, 100, 250, 500]" (page)="nextPage($event)"></mat-paginator>
-        <div class="border"></div>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
+        
+    </table>
+    <mat-paginator [ngStyle]="{'opacity': dataSource.data.length < 5 ? '0': '1'}" [length]="dataSource.data.length" [pageSize]="dataSource.data.length < 50 ? dataSource.data.length : 50" [pageSizeOptions]="dataSource.data.length < 50 ? [dataSource.data.length] : [50, 100, 250, 500]" (page)="nextPage($event)"></mat-paginator>
+    <div class="border"></div>
 </div>
 
 <!--
