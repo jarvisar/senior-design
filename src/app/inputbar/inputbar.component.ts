@@ -128,6 +128,9 @@ export class InputbarComponent implements OnInit {
 
   async searchclick(event?: Event) {
     //if all four select boxes are set to , buildQuery() returns true
+    if(event != null){
+      this.router.navigate([], {queryParams: {}});
+    }
     let emptySearch: boolean = this.buildQuery();
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
@@ -196,7 +199,7 @@ export class InputbarComponent implements OnInit {
     });
     
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
-    
+
     // Don't load hostData until user clicks on select box
     this.hostData = ["Host Names"];
     this.methodData = methodData;
