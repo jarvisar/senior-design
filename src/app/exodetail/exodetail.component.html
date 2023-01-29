@@ -25,7 +25,7 @@
       </mat-card>
       <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
         <div class="mat-body-2" style="display: inline-block;">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
-        <button mat-icon-button appearance="outline" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 0; top: 5px;" tabindex="6">
+        <button mat-icon-button appearance="outline" aria-label="Fullscreen" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 5px; top: 5px;" tabindex="6">
           <mat-icon>fullscreen</mat-icon>
         </button>
         <iframe #iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
