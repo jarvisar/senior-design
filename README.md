@@ -36,12 +36,11 @@ All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarc
 
 The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery method, discovery year, discovery facility, and academic reference.
 
-* The orbital period column is the time (in days) for the exoplanet to orbit host star
-* The radius column is measured in units of radius of the Earth (ER)
-* The mass column is measured in units of mass of the Earth (EM)
+  * The density column is measured in g/cm<sup>3</sup>
+  * The radius column is measured in units of radius of the Earth (ER)
+  * The mass column is measured in units of mass of the Earth (EM)
 
-For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km and 
-      it's mass is 5.972 x 10<sup>24</sup> kg.
+For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>.
 
 ## FAQ
 
