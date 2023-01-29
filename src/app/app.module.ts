@@ -34,6 +34,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SafePipe } from './safe.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { environment } from '../environments/environment';
     MatPaginatorModule,
     CdkTableModule,
     ScrollingModule,
+    DatePipe,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -79,7 +81,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

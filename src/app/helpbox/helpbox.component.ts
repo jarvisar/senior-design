@@ -1,6 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { DataService } from '../data.service';
+import { DatePipe } from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 
 
@@ -12,11 +11,16 @@ import {MatDialog} from '@angular/material/dialog';
 @Injectable()
 export class HelpboxComponent implements OnInit {
   
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public datepipe: DatePipe) { }
+
+  currentDatetime;
 
   // Opens help box window
   public openDialog() {
+    this.currentDatetime = this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+    console.log(this.currentDatetime);
     const dialogRef = this.dialog.open(HelpboxComponent);
+    dialogRef.componentInstance.currentDatetime = this.currentDatetime;
   }
 
   ngOnInit(): void {
