@@ -5,15 +5,12 @@
 
  Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
  
- Visit the [GitHub Pages](https://jarvisar.github.io/senior-design) site to access the latest deployment.
- 
 All of the required documentation can be found on the [main](https://GitHub.com/jarvisar/senior-design) branch.
 
+Visit the [GitHub Pages](https://jarvisar.github.io/senior-design) site to access the latest deployment.
 
 This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on your device like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in your browser's menu or address bar.
       
-This web application also uses my CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
-
  ### Initiating a Search
  
  To search NASA's exoplanet database, select a valid query using the four available drop-down boxes. 
@@ -67,6 +64,7 @@ Either no exoplanets match the given input or data was not returned properly. Tr
 
 #### How is data accessed from NASA's Exoplanet Archive?
 
-This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/documents/TAP/)) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, including astronomical data.
+This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/documents/TAP/)) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, including astronomical data. This web application also uses my CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
+
 
 ###### Hint: entering the Konami code will show secret exoplanets!
