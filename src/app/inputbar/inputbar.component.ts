@@ -181,20 +181,17 @@ export class InputbarComponent implements OnInit {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
           this.selectedHostValue = params['hostname'];
-          this.searchclick()
         }
         if (params['discoverymethod'] != undefined){
           this.selectedMethodValue = params['discoverymethod'];
-          this.searchclick()
         }
         if (params['disc_year'] != undefined){
           this.selectedYearValue = params['disc_year'];
-          this.searchclick()
         }
         if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
-          this.searchclick()
         }
+        this.searchclick()
       }
     });
     
