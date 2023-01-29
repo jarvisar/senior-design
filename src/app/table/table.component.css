@@ -38,8 +38,8 @@
 mat-paginator {
     position: sticky;
     bottom: 0;
-    left: calc(100% - 410px);
-    width: 410px;
+    left: calc(100% - 420px);
+    width: 420px;
     background-color: #0c3e92;
     color: white;
     font-family: Roboto, "Helvetica Neue", sans-serif;
