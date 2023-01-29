@@ -6,7 +6,7 @@
 
 The main objective of this project is to develop and build a web application capable of querying data from [NASA's Exoplanetary Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) using user input. After entering a valid query, the web app builds an API URL using the user's input and calls NASA's archive to return the requested data. 
 
-After returning the data, the web app displays the data in a responsive table. A download button gives the user the option to export the exoplanet data to the local disk. This web application utilizes Table Access Protocol [(TAP)](https://www.ivoa.net/documents/TAP/) to call and return data from the exoplanet archive. 
+After returning the data, the web app then displays the data in a responsive table. A download button gives the user the option to export the exoplanet data to the local disk. This web application utilizes Table Access Protocol [(TAP)](https://www.ivoa.net/documents/TAP/) to call and return data from the exoplanet archive. 
 
 Currently, the source code can be found in the [master branch](https://github.com/jarvisar/senior-design/tree/master) of the repository. To access the latest deployment, visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site. 
 
