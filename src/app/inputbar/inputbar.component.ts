@@ -187,7 +187,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   doNothing(){}
 
   private searchCalled = false;
-
   async ngAfterViewInit (){
     // Load query parameters
     this.route.queryParams.pipe(skip(1)).subscribe(params => {
@@ -204,6 +203,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
         }
+        // Only search if first search
+        // Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
           this.searchCalled = true;
           this.searchclick();
