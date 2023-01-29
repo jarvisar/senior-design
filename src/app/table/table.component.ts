@@ -58,7 +58,7 @@ export class TableComponent implements OnInit {
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
   pageEvent: PageEvent;
-  
+
   setTableDataSource(data: Exoplanet[]) {
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
       this.updateData();
