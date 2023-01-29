@@ -14,6 +14,12 @@
     background-color: white;
 }
 
+.border{
+    border-bottom: 20px solid #0c3e92;
+    position: sticky;
+    bottom: 0;
+}
+
 .table-container::-webkit-scrollbar {
     display: none;
 }
@@ -40,6 +46,10 @@ mat-paginator {
     font-size: 0.8em;
     height: auto;
     border-top-left-radius: 25px;
+}
+
+.mat-paginator{
+    height: 36;
 }
   
 .test-table th:first-child {
