@@ -41,7 +41,7 @@
     </button>
   </div>
   <!-- Show download button if table has results -->
-  <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" tabindex="7">
+  <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" tabindex="7" [@inOutAnimation]>
     <mat-icon>download</mat-icon>
   </button>
 
