@@ -44,8 +44,11 @@
         var LMC = A.marker('80.894167', '-69.756111', {popupTitle: 'Large Magellanic Cloud', popupDesc: '158,200 light years away'});
         
         var markerLayer = A.catalog({color: '#ff0000'});
+        var mainLayer = A.catalog({color: '#0000ff'})
         aladin.addCatalog(markerLayer);
-        markerLayer.addSources([marker1, M1, M16, Veil, Andromeda, M45, LMC]);
+        aladin.addCatalog(mainLayer);
+        markerLayer.addSources([M1, M16, Veil, Andromeda, M45, LMC]);
+        mainLayer.addSources([marker1])
     </script>
 
     
