@@ -1,7 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-helpbox',
   templateUrl: './helpbox.component.html',

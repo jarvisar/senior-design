@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import { MatSort, Sort } from '@angular/material/sort';
