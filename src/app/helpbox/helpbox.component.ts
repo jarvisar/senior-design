@@ -20,7 +20,6 @@ export class HelpboxComponent implements OnInit {
     this.currentDatetime = this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     console.log(this.currentDatetime);
     const dialogRef = this.dialog.open(HelpboxComponent);
-    dialogRef.componentInstance.currentDatetime = this.currentDatetime;
   }
 
   ngOnInit(): void {
