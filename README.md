@@ -20,7 +20,7 @@
  
  When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
- * Hostname refers to the name of the star an exoplanet orbits
+ * Host name refers to the name of the star the exoplanet orbits
  * Discovery method refers to how the exoplanet was first discovered
  * Discovery year refers to the year the exoplanet was first found
  * Discovery facility refers to the facility or observatory that first discovered the exoplanet
