@@ -7,7 +7,7 @@
  
  Visit the [GitHub Pages](http://jarvisar.github.io/senior-design) site to access the latest deployment.
  
-This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on your device like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in your browser's menu.
+This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on your device like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in your browser's menu or address bar.
       
  ### Initiating a Search
  
