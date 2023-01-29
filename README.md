@@ -14,8 +14,9 @@ This project is built using [Angular 14](https://angular.io/) and is a Progressi
  To search NASA's exoplanet database, select a valid query using four available drop-down boxes. 
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
       method used, and the discovery year and facility. To learn more about each option, refer to the input help section. 
-      Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
-      can take up to 15 seconds to process. Some example large searches include exoplanets discovered using [transit](https://exoplanets.nasa.gov/faq/31/whats-a-transit/), exoplanets 
+      
+Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
+      can take up to 15 seconds to process. Some example large searches include exoplanets discovered using transit, exoplanets 
       discovered in 2014 and 2016, and exoplanets first observed by the [Kepler space telescope](https://www.nasa.gov/mission_pages/kepler/overview/index.html).
       
  ### Understanding the Input
@@ -30,7 +31,8 @@ This project is built using [Angular 14](https://angular.io/) and is a Progressi
 ### Receiving Results
 
 All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear to download the data to the local disk in CSV format. 
-        To sort the data, click on a column header to toggle between descending and ascending order. 
+
+To sort the data, click on a column header to toggle between descending and ascending order. 
         By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
         in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
         
