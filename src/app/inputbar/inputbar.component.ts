@@ -131,7 +131,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     if(this.searchCalled == false){
       this.searchCalled = true;
     }
-    // Set query parameters if search button is actuall clicked
+    // Set query parameters if search button is actually clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
       let queryParams = {};
