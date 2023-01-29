@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1674948891279,
+  "timestamp": 1674956848102,
   "index": "https://jarvisar.github.io/senior-design/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://jarvisar.github.io/senior-design/favicon.ico",
         "https://jarvisar.github.io/senior-design/index.html",
-        "https://jarvisar.github.io/senior-design/main.cd56a63498545e99.js",
+        "https://jarvisar.github.io/senior-design/main.8753cd335da40e9e.js",
         "https://jarvisar.github.io/senior-design/manifest.webmanifest",
         "https://jarvisar.github.io/senior-design/polyfills.d5467ff57e5f9889.js",
         "https://jarvisar.github.io/senior-design/runtime.60551efdfa7f86a4.js",
@@ -37,7 +37,6 @@
         "https://jarvisar.github.io/senior-design/assets/hostnames.csv",
         "https://jarvisar.github.io/senior-design/assets/icon.png",
         "https://jarvisar.github.io/senior-design/assets/icon256.png",
-        "https://jarvisar.github.io/senior-design/assets/manifest.json",
         "https://jarvisar.github.io/senior-design/assets/starfield.jpg"
       ],
       "patterns": []
@@ -53,11 +52,10 @@
     "https://jarvisar.github.io/senior-design/assets/hostnames.csv": "8ddc221b4665933e557f7411b6e869327e5cd929",
     "https://jarvisar.github.io/senior-design/assets/icon.png": "efe0f68df0b56de3482c96f468de3e1b103b4ce6",
     "https://jarvisar.github.io/senior-design/assets/icon256.png": "f1670f90292d6190ac3603ed4d4da99e9901fab0",
-    "https://jarvisar.github.io/senior-design/assets/manifest.json": "c4e5af1d9bc0c32e7b7fea89c6cc3263c5c40afd",
     "https://jarvisar.github.io/senior-design/assets/starfield.jpg": "454e3f345a044b77297a13bf512e0b016e7f16d3",
     "https://jarvisar.github.io/senior-design/favicon.ico": "88cfef011c111668f25f1d0383936cd18e1c0386",
-    "https://jarvisar.github.io/senior-design/index.html": "8190e4d6f0b748322822ca1491dda58903ff2c6c",
-    "https://jarvisar.github.io/senior-design/main.cd56a63498545e99.js": "5d0a3abbff366454bd8f81c72e66818ff90ecda1",
+    "https://jarvisar.github.io/senior-design/index.html": "0662b73ca2f2b3efc65b5de2280e20a4e5858ad3",
+    "https://jarvisar.github.io/senior-design/main.8753cd335da40e9e.js": "4ce0b6813157b8cb360a287d5332d52d72cd0c2c",
     "https://jarvisar.github.io/senior-design/manifest.webmanifest": "1263d96f69aed4c682dc916a5ef1e0f3d2a178d1",
     "https://jarvisar.github.io/senior-design/polyfills.d5467ff57e5f9889.js": "8f17a655f1206e2f9b157fe44cc371cacf577bfc",
     "https://jarvisar.github.io/senior-design/runtime.60551efdfa7f86a4.js": "9372c38a7113efc6cbea2c3982c60e5baf016216",
