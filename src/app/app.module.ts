@@ -21,11 +21,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TableComponent } from './table/table.component'; 
 import { MatTableModule } from '@angular/material/table';
 import { SortDirective } from './directive/sort.directive';
-import {MatSortModule} from '@angular/material/sort';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ExodetailComponent } from './exodetail/exodetail.component';
-import {MatListModule} from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { SecretComponent } from './secret/secret.component';
 import { MaterialElevationDirective } from './material-elevation.directive';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -34,7 +34,6 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SafePipe } from './safe.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -71,17 +70,14 @@ import { DatePipe } from '@angular/common';
     MatPaginatorModule,
     CdkTableModule,
     ScrollingModule,
-    DatePipe,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, DatePipe],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

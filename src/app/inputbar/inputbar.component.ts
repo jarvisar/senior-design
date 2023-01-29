@@ -175,6 +175,7 @@ export class InputbarComponent implements OnInit {
     const facilityPromise = this.selectService.getFacilityData();
 
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
+    // Don't load hostData until user clicks on select box
     this.hostData = ["Host Names"];
     this.methodData = methodData;
     this.yearData = yearData;

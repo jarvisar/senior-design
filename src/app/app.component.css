@@ -1,22 +1,22 @@
 .footer{
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    margin-top: 8px;
-    text-align: center; 
-    color: white; 
-    display: table-cell;
-    vertical-align: middle;
-    height: 25px;
-  }
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  margin-top: 8px;
+  text-align: center; 
+  color: white; 
+  display: table-cell;
+  vertical-align: middle;
+  height: 25px;
+}
 
-  html, body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
- }
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 
 .footer_text{
   font-family: Roboto, "Helvetica Neue", sans-serif;

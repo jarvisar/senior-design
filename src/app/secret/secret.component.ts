@@ -25,7 +25,7 @@ export class SecretComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private http: HttpClient) { }
 
-  // open secret da]ialog box
+  // open secret dialog box
   public openDialog() {
     let dialogConfig = new MatDialogConfig();
     dialogConfig.minWidth = '50%';

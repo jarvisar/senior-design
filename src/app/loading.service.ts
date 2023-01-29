@@ -12,5 +12,6 @@ export class LoadingService {
   setLoading(isLoading: boolean) {
     this.isLoading$$.next(isLoading);
   }
+  
   constructor() { }
 }

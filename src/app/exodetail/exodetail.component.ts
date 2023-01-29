@@ -89,6 +89,7 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.searchclick(event);
   }
 
+  // Set select elements based on search
   setValues(host = 0, method = 0, year = 0, facility = 0){
     this.inputbar.selectedHost = host;
     this.inputbar.selectedMethod = method;
@@ -142,7 +143,7 @@ export class ExodetailComponent implements OnInit {
       default:
           this.formattedDiscFacility = "image_" + this.exoplanet.disc_facility.replace(/ /g, "").replace(/\./g, "_").replace(/-/g, "_");
     } 
-}
+  }
 
   public methodDict = {
     'Transit Timing Variations': 'This method searches for regular modulations of the brightness of a star due to distortions in its shape from a massive exoplanet on a close-in orbit. Such planets can cause slight tidal distortions to their host stars, giving them as slightly ellipsoidal (stretched) shape and causing changes in apparent brightness, depending on whether the wider or narrower face of the star is oriented toward the observer.',

@@ -23,45 +23,54 @@ export class DataService {
   // Use the CORS proxy to set CORS headers
   hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=';
   defaultQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens+from+pscomppars'
-  public exoplanetData: Array<Exoplanet> = [{pl_name: '11 Com b', hostname: '11 Com', discoverymethod: 'Radial Velocity', disc_year: 2007, disc_facility: 'Xinglong Station'}];
+
   private FACILITY_DATA_CACHE_KEY = 'facilityDataCache';
   private METHOD_DATA_CACHE_KEY = 'methodDataCache';
   private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days
 
   constructor(private http: HttpClient) {}
 
+  // Return discovery facility options
   getDiscFacilityData(): Promise<any> {
     let facilityDataCache = localStorage.getItem(this.FACILITY_DATA_CACHE_KEY);
     if (facilityDataCache) {
       let cacheData = JSON.parse(facilityDataCache);
+      // Return data from cache if not expired
       if (cacheData.expiry > Date.now()) {
         return Promise.resolve(cacheData.data);
       }
     }
+    // If expired use exoplanet database
     return this.http
       .get<any[]>(this.hostUrl + 'select+distinct+disc_facility+from+pscomppars&format=json', cacheOptions)
       .toPromise()
       .then((data) => {
+        // Store in cache for future use
         let expiry = Date.now() + this.EXPIRY_TIME;
         localStorage.setItem(this.FACILITY_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
         return data;
       });
   }
 
+  // Return discovery method options
   getDiscMethodData(): Promise<any>{
     let methodDataCache = localStorage.getItem(this.METHOD_DATA_CACHE_KEY);
+    // Return data from cache if not expired
     if (methodDataCache) {
       return Promise.resolve(JSON.parse(methodDataCache));
     }
+    // If expired use exoplanet database
     return this.http
     .get<any[]>(this.hostUrl + 'select+distinct+discoverymethod+from+pscomppars&format=json', cacheOptions)
     .toPromise()
     .then((data) => {
+      // Store in cache for future use
       localStorage.setItem(this.METHOD_DATA_CACHE_KEY, JSON.stringify(data));
       return data;
     });
   }
 
+  // Return exoplanet data after search
   getExoPlanetData(query: string): Promise<any> {
     console.log(this.hostUrl + query);
     return this.http.get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', httpOptions).toPromise();
