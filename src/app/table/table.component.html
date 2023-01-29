@@ -35,7 +35,7 @@
 
         <ng-container matColumnDef="expandedDetail" class="detail-container">
             <td mat-cell *matCellDef="let exoplanet" [attr.colspan]="displayedColumns.length" class="detail-container">
-                <div class="exoplanet-detail"
+                <div class="exoplanet-detail" *ngIf="expandedExoplanet"
                     [@detailExpand]="exoplanet == expandedExoplanet ? 'expanded' : 'collapsed'" >
                     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
                         <app-exodetail *ngIf="expandedExoplanet == exoplanet" [exoplanet]="exoplanet" style="padding: 30px; width: 100%; justify-content: center;"></app-exodetail>
