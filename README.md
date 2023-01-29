@@ -11,6 +11,8 @@ This project is built using [Angular 14](https://angular.io/) and is a Progressi
       
 All of the required documentation can be found on the [main](https://GitHub.com/jarvisar/senior-design) branch.
 
+This web application also uses my CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
+
  ### Initiating a Search
  
  To search NASA's exoplanet database, select a valid query using the four available drop-down boxes. 
