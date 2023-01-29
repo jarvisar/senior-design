@@ -128,7 +128,7 @@ export class InputbarComponent implements OnInit {
   }
 
   async searchclick(event?: Event) {
-    //if all four select boxes are set to , buildQuery() returns true
+    // Set query parameters if search button is actuall clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
       let queryParams = {};
@@ -146,6 +146,7 @@ export class InputbarComponent implements OnInit {
       }
       this.router.navigate([], { queryParams: queryParams });
     }
+    //if all four select boxes are set to , buildQuery() returns true
     let emptySearch: boolean = this.buildQuery();
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
@@ -173,6 +174,7 @@ export class InputbarComponent implements OnInit {
     this.exoplanetData = [];
     this.firstSearch = true;
     this.showNewSearch = false;
+    // Clear query parameters
     this.router.navigate([], {queryParams: {}});
   }
 
