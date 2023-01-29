@@ -23,9 +23,9 @@
 }
 
 /* If on mobile, make table 1000px */
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1320px) {
     .table-container {
-        width: 1320px;
+        width: 1325px;
     }
 }
 mat-paginator {
