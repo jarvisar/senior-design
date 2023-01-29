@@ -24,9 +24,11 @@
         <br>
       </mat-card>
       <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
-        <br>
-        <iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
+        <div class="mat-body-2" style="display: inline-block;">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
+        <button mat-icon-button appearance="outline" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 0; top: 5px;" tabindex="6">
+          <mat-icon>fullscreen</mat-icon>
+        </button>
+        <iframe #iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
       </mat-card>
       <mat-card class="resources-card " appMaterialElevation>
         <div class="mat-body-2">Additional Resources</div>
