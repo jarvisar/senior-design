@@ -77,7 +77,9 @@ export class DataService {
     let methodDataCache = localStorage.getItem(this.METHOD_DATA_CACHE_KEY);
     if (methodDataCache) {
       let cacheData = JSON.parse(methodDataCache);
-      return Promise.resolve(cacheData.data);
+      if (cacheData.expiry > Date.now()) {
+        return Promise.resolve(cacheData.data);
+      }
     }
     // If expired use exoplanet database
     return this.http

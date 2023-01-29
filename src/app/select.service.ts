@@ -21,9 +21,11 @@ export class SelectService {
 
   async getMethodData() {
     let response = await this.data.getDiscMethodData();
-    response.forEach((e: any) => {
-      this.methodData.push(e.discoverymethod)
-    });
+    if(response != undefined){
+      response.forEach((e: any) => {
+        this.methodData.push(e.discoverymethod)
+      });
+    }
     return this.methodData;
   }
 
