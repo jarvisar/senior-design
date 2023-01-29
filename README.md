@@ -15,7 +15,7 @@ This project is built using [Angular 14](https://angular.io/) and is a Progressi
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
       method used, and the discovery year and facility. To learn more about each option, refer to the input help section. 
       
-      Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
+Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
       can take up to 15 seconds to process. Some example large searches include exoplanets discovered using [transit](https://exoplanets.nasa.gov/faq/31/whats-a-transit/), exoplanets 
       discovered in 2014 and 2016, and exoplanets first observed by the [Kepler space telescope](https://www.nasa.gov/mission_pages/kepler/overview/index.html).
       
