@@ -28,7 +28,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
             <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"> 
                 <!-- Add units to columns -->
-                {{def.column == 'index' ? i + 1 : (def.column == 'pl_dens' ? (exoplanet[def.column] == null ? "N/A" : exoplanet[def.column].toFixed(2) + " g/cm^3") : (def.column == 'pl_rade' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toLocaleString('en') + " ER") : (def.column == 'pl_bmasse' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toFixed(2) + " EM") : exoplanet[def.column]))) }}
+                {{def.column == 'index' ? i + 1 : (def.column == 'pl_dens' ? (exoplanet[def.column] == null ? "N/A" : exoplanet[def.column].toFixed(3)) : (def.column == 'pl_rade' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toLocaleString('en') + " ER") : (def.column == 'pl_bmasse' ? (exoplanet[def.column] == null ? "N/A" : (exoplanet[def.column]).toFixed(2) + " EM") : exoplanet[def.column]))) }}
                 
             </td>
         </ng-container>
