@@ -28,7 +28,10 @@ export class SelectService {
   }
 
   async getYearData() {
-    this.yearData = await this.csvToArray('./assets/disc_year.csv', 'Discovery Year');
+    let response = await this.data.getDiscYearData();
+    response.forEach((e: any) => {
+      this.yearData.push(e.disc_year)
+    });
     return this.yearData;
   }
 

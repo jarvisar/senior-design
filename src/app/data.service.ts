@@ -26,6 +26,7 @@ export class DataService {
 
   private FACILITY_DATA_CACHE_KEY = 'facilityDataCache';
   private METHOD_DATA_CACHE_KEY = 'methodDataCache';
+  private YEAR_DATA_CACHE_KEY = 'yearDataCache';
   private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days
 
   constructor(private http: HttpClient) {}
@@ -52,12 +53,31 @@ export class DataService {
       });
   }
 
-  // Return discovery method options
+  getDiscYearData(): Promise<any> {
+    let yearDataCache = localStorage.getItem(this.YEAR_DATA_CACHE_KEY);
+    if (yearDataCache) {
+      let cacheData = JSON.parse(yearDataCache);
+      if (cacheData.expiry > Date.now()) {
+        return Promise.resolve(cacheData.data);
+      }
+    }
+    // If expired use exoplanet database
+    return this.http
+      .get<any[]>(this.hostUrl + 'select+distinct+disc_year+from+pscomppars+order+by+disc_year+desc&format=json', cacheOptions)
+      .toPromise()
+      .then((data) => {
+        // Store in cache for future use
+        let expiry = Date.now() + this.EXPIRY_TIME;
+        localStorage.setItem(this.YEAR_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
+        return data;
+      });
+  }
+
   getDiscMethodData(): Promise<any>{
     let methodDataCache = localStorage.getItem(this.METHOD_DATA_CACHE_KEY);
-    // Return data from cache if not expired
     if (methodDataCache) {
-      return Promise.resolve(JSON.parse(methodDataCache));
+      let cacheData = JSON.parse(methodDataCache);
+      return Promise.resolve(cacheData.data);
     }
     // If expired use exoplanet database
     return this.http
@@ -65,7 +85,8 @@ export class DataService {
     .toPromise()
     .then((data) => {
       // Store in cache for future use
-      localStorage.setItem(this.METHOD_DATA_CACHE_KEY, JSON.stringify(data));
+      let expiry = Date.now() + this.EXPIRY_TIME;
+      localStorage.setItem(this.METHOD_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
       return data;
     });
   }
