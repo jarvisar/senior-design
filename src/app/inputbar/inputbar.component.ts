@@ -9,7 +9,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
   trigger(
@@ -71,7 +71,7 @@ export class InputbarComponent implements OnInit {
   public apiQuery!: string;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
-    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute) {
+    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router) {
       this.selected$ = new Observable((observer) => {
         observer.next(this.selected);
       });
@@ -154,7 +154,8 @@ export class InputbarComponent implements OnInit {
     this.clearSelect();
     this.exoplanetData = [];
     this.firstSearch = true;
-    this.showNewSearch = false
+    this.showNewSearch = false;
+    this.router.navigate([], {queryParams: {}});
   }
 
   // Only load hostnames if user clicks on select box
@@ -179,7 +180,7 @@ export class InputbarComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
-          this.selectedMethodValue = params['hostname'];
+          this.selectedHostValue = params['hostname'];
           this.searchclick()
         }
         if (params['discoverymethod'] != undefined){
@@ -187,11 +188,11 @@ export class InputbarComponent implements OnInit {
           this.searchclick()
         }
         if (params['disc_year'] != undefined){
-          this.selectedMethodValue = params['disc_year'];
+          this.selectedYearValue = params['disc_year'];
           this.searchclick()
         }
         if (params['disc_facility'] != undefined){
-          this.selectedMethodValue = params['disc_facility'];
+          this.selectedFacilityValue = params['disc_facility'];
           this.searchclick()
         }
       }
