@@ -1,20 +1,20 @@
 
 <div class="card-container">
     <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2" style="margin-bottom: 10px">Observed by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
+        <div class="mat-body-2" style="margin-bottom: 10px">Observed by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
         <div style="display: flex; align-items: center; justify-content: center;">
           <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
           src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
         </div>
       </mat-card>
       <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="Search for exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
+        <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
         <p>This system consists of {{exoplanet.sy_snum}} {{exoplanet.st_spectype != null ? exoplanet.st_spectype + " type" : ''}} star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
         <br *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">
         <div class="mat-body-2" *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">Orbit  Information</div>
         <p>{{exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + exoplanet.pl_orbper.toFixed(3) + " days to orbit its host star." : ""}}</p>
         <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen.toFixed(3) +")" : ""}}</p>
-        <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="Search for exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
+        <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
         <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
           <mat-icon>help</mat-icon>
         </button>
