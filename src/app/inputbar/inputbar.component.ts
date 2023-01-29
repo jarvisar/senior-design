@@ -134,20 +134,13 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     // Set query parameters if search button is actually clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
-      let queryParams = {};
-      if (this.selectedHostValue != "Host Names") {
-        queryParams["hostname"] = this.selectedHostValue;
-      }
-      if (this.selectedMethodValue != "Discovery Method") {
-        queryParams["discoverymethod"] = this.selectedMethodValue;
-      }
-      if (this.selectedYearValue != "Discovery Year") {
-        queryParams["disc_year"] = this.selectedYearValue;
-      }
-      if (this.selectedFacilityValue != "Discovery Facility") {
-        queryParams["disc_facility"] = this.selectedFacilityValue;
-      }
-      this.router.navigate([], { queryParams: queryParams });
+      let queryParams = Object.assign({},
+        this.selectedHostValue != "Host Names" ? { hostname: this.selectedHostValue } : {},
+        this.selectedMethodValue != "Discovery Method" ? { discoverymethod: this.selectedMethodValue } : {},
+        this.selectedYearValue != "Discovery Year" ? { disc_year: this.selectedYearValue } : {},
+        this.selectedFacilityValue != "Discovery Facility" ? { disc_facility: this.selectedFacilityValue } : {}
+      );
+      this.router.navigate([], { queryParams });
     }
     //if all four select boxes are set to , buildQuery() returns true
     let emptySearch: boolean = this.buildQuery();
