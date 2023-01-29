@@ -55,6 +55,10 @@ mat-paginator {
     }
 }
   
+mat-paginator .mat-select-value-text {
+    color: white;
+}
+
 .test-table th:first-child {
     width: 60px;
 
