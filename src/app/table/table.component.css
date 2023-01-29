@@ -4,13 +4,13 @@
     display: block;
     -ms-overflow-style: none;
     max-height: calc(100% - 180px);
-    width: 98%;
+    width: calc(100% - 30px);
     overflow-x: scroll;
     overflow-y: scroll;
     border: 1px solid lightgray;
     border-radius: 25px;
     box-shadow: 0 0 0.7em 0.38em rgba(0, 0, 0, 0.15);
-    margin-left: 1%;
+    margin-left: 10px;
     background-color: white;
 }
 
@@ -23,7 +23,7 @@
 }
 
 /* If on mobile, make table 1000px */
-@media only screen and (max-width: 1320px) {
+@media only screen and (max-width: 1355px) {
     .table-container {
         width: 1325px;
     }
