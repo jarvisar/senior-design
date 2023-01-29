@@ -27,7 +27,7 @@
 
 ### Receiving Results
 
-All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the California Institute of Technology. After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear, allowing the results to be exported to a CSV file on the local disk. 
+All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear, allowing the results to be exported to a CSV file on the local disk. 
         To sort the data, click on a column header to toggle between descending and ascending order. 
         By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
         in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
