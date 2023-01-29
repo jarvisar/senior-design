@@ -1,29 +1,4 @@
-
-
- <!-- <table *ngIf="exoplanetData.length > 0" class="styled-table" [@fadeinandout]>
-    <thead >
-        <tr>
-            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="pl_name">Planet Name</th>
-            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="hostname">Host Name</th>
-            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="discoverymethod">Discovery Method</th>
-            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_year">Discovery Year</th>
-            <th scope="col" [appSort]="exoplanetData" data-order="desc" data-name="disc_facility">Discovery Facility</th>
-        </tr>
-    </thead>
-    <tbody >
-        <tr  *ngFor="let exoplanet of exoplanetData; count as i" (click)="nasaEyes(exoplanet)">
-            <td>{{exoplanet.pl_name}}</td>
-            <td>{{exoplanet.hostname}}</td>
-            <td>{{exoplanet.discoverymethod}}</td>
-            <td>{{exoplanet.disc_year}}</td>
-            <td>{{exoplanet.disc_facility}}</td>
-        </tr>
-    </tbody>    
-</table> -->
-
-
 <div class="table-container" [@blur]="blurState">  
-    
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)" multiTemplateDataRows class="test-table custom-table" >
         <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> {{def.title}} </th>
@@ -57,41 +32,7 @@
         </ng-container>
             
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
-        
     </table>
     <mat-paginator [ngStyle]="{'opacity': dataSource.data.length < 5 ? '0': '1'}" [length]="dataSource.data.length" [pageSize]="dataSource.data.length < 50 ? dataSource.data.length : 50" [pageSizeOptions]="dataSource.data.length < 50 ? [dataSource.data.length] : [50, 100, 250, 500]" (page)="nextPage($event)"></mat-paginator>
     <div class="border"></div>
 </div>
-
-<!--
-            <ng-container matColumnDef="pl_name">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Planet Name </th>
-                <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.pl_name}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="hostname">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Host Name </th>
-                <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.hostname}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="discoverymethod">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Discovery Method </th>
-                <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.discoverymethod}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="disc_year">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Discovery Year </th>
-                <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.disc_year}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="disc_facility">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Discovery Facility </th>
-                <td mat-cell *matCellDef="let exoplanet"> {{exoplanet.disc_facility}} </td>
-            </ng-container>
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-              
-              <tbody>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </tbody> 
-                -->
