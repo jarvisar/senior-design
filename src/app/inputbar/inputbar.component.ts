@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
@@ -9,7 +9,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
 import { Observable } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { first, skip, delay } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
@@ -47,7 +47,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
     ])
   ]
 })
-export class InputbarComponent implements OnInit {
+export class InputbarComponent implements OnInit, AfterViewInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
   selected$: Observable<boolean>;
 
@@ -128,6 +128,9 @@ export class InputbarComponent implements OnInit {
   }
 
   async searchclick(event?: Event) {
+    if(this.searchCalled == false){
+      this.searchCalled = true;
+    }
     // Set query parameters if search button is actuall clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
@@ -191,15 +194,10 @@ export class InputbarComponent implements OnInit {
   doNothing(){}
 
   private searchCalled = false;
-  
-  // Load option data for other 3 select boxes
-  async ngOnInit() {
-    const methodPromise = this.selectService.getMethodData();
-    const yearPromise = this.selectService.getYearData();
-    const facilityPromise = this.selectService.getFacilityData();
 
+  async ngAfterViewInit (){
     // Load query parameters
-    this.route.queryParams.pipe(take(2)).subscribe(params => {
+    this.route.queryParams.pipe(skip(1)).subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
           this.selectedHostValue = params['hostname'];
@@ -219,6 +217,13 @@ export class InputbarComponent implements OnInit {
         }
       }
     });
+  }
+  
+  // Load option data for other 3 select boxes
+  async ngOnInit() {
+    const methodPromise = this.selectService.getMethodData();
+    const yearPromise = this.selectService.getYearData();
+    const facilityPromise = this.selectService.getFacilityData();
     
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
 
