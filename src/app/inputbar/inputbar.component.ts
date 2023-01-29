@@ -9,6 +9,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
@@ -130,6 +131,20 @@ export class InputbarComponent implements OnInit {
     //if all four select boxes are set to , buildQuery() returns true
     if(event != null){
       this.router.navigate([], {queryParams: {}});
+      let queryParams = {};
+      if (this.selectedHostValue != "Host Names") {
+        queryParams["hostname"] = this.selectedHostValue;
+      }
+      if (this.selectedMethodValue != "Discovery Method") {
+        queryParams["discoverymethod"] = this.selectedMethodValue;
+      }
+      if (this.selectedYearValue != "Discovery Year") {
+        queryParams["disc_year"] = this.selectedYearValue;
+      }
+      if (this.selectedFacilityValue != "Discovery Facility") {
+        queryParams["disc_facility"] = this.selectedFacilityValue;
+      }
+      this.router.navigate([], { queryParams: queryParams });
     }
     let emptySearch: boolean = this.buildQuery();
     this.firstSearch = false;
@@ -172,6 +187,8 @@ export class InputbarComponent implements OnInit {
   }
 
   doNothing(){}
+
+  private searchCalled = false;
   
   // Load option data for other 3 select boxes
   async ngOnInit() {
@@ -180,7 +197,7 @@ export class InputbarComponent implements OnInit {
     const facilityPromise = this.selectService.getFacilityData();
 
     // Load query parameters
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.pipe(take(2)).subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
           this.selectedHostValue = params['hostname'];
@@ -194,7 +211,10 @@ export class InputbarComponent implements OnInit {
         if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
         }
-        this.searchclick()
+        if (!this.searchCalled) {
+          this.searchCalled = true;
+          this.searchclick();
+        }
       }
     });
     
