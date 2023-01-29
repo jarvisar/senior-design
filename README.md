@@ -20,14 +20,14 @@
  
  When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
- * Hostname refers to the name of the star an exoplanet orbits
+ * Host name refers to the name of the star the exoplanet orbits
  * Discovery method refers to how the exoplanet was first discovered
  * Discovery year refers to the year the exoplanet was first found
  * Discovery facility refers to the facility or observatory that first discovered the exoplanet
 
 ### Receiving Results
 
-All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the California Institute of Technology. After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear, allowing the results to be exported to a CSV file on the local disk. 
+All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear to download the data to the local disk in CSV format. 
         To sort the data, click on a column header to toggle between descending and ascending order. 
         By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
         in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
@@ -36,12 +36,11 @@ All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarc
 
 The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery method, discovery year, discovery facility, and academic reference.
 
-* The orbital period column is the time (in days) for the exoplanet to orbit host star
-* The radius column is measured in units of radius of the Earth (ER)
-* The mass column is measured in units of mass of the Earth (EM)
+  * The density column is measured in g/cm<sup>3</sup>
+  * The radius column is measured in units of radius of the Earth (ER)
+  * The mass column is measured in units of mass of the Earth (EM)
 
-For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km and 
-      it's mass is 5.972 x 10<sup>24</sup> kg.
+For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>.
 
 ## FAQ
 
@@ -59,6 +58,6 @@ Either no exoplanets match the given input or data was not returned properly. Tr
 
 #### How is data accessed from NASA's Exoplanet Archive?
 
-This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/documents/TAP/)) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, primarily for astronomical data.
+This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/documents/TAP/)) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, including astronomical data.
 
 ###### Hint: entering the Konami code will show secret exoplanets!
