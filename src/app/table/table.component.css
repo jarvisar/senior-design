@@ -54,12 +54,14 @@ mat-paginator {
   
 .test-table th:first-child {
     width: 60px;
+
 }
 
 .test-table {
     width: 100%;
     height: calc(100% - 112px);
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin-bottom: -56px;
 }
 
 .mat-header-cell {
