@@ -60,7 +60,7 @@
             
         </table>
         
-        <mat-paginator *ngIf="dataSource.data.length > 50" [length]="dataSource.data.length" [pageSize]="50" [pageSizeOptions]="[50, 100, 250, 500]" (page)="nextPage($event)"></mat-paginator>
+        <mat-paginator [length]="dataSource.data.length" [pageSize]="50" [pageSizeOptions]="[50, 100, 250, 500]" (page)="nextPage($event)"></mat-paginator>
         <div class="border"></div>
         
 </div>
