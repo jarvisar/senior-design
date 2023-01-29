@@ -11,7 +11,7 @@ This project is built using [Angular 14](https://angular.io/) and is a Progressi
       
  ### Initiating a Search
  
- To search NASA's exoplanet database, select a valid query using four available drop-down boxes. 
+ To search NASA's exoplanet database, select a valid query using the four available drop-down boxes. 
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
       method used, and the discovery year and facility. To learn more about each option, refer to the input help section. 
       
