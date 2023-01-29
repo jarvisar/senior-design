@@ -33,7 +33,12 @@ p{
     margin-left: 15px;
   }
 
-
+  #downloadButton {
+    position: fixed;
+    bottom: 110px;
+    right: 35px;
+    z-index: 10;
+  }
 
   .table{
     height: 100%;
