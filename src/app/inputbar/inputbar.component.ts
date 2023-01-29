@@ -9,6 +9,7 @@ import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
   trigger(
@@ -70,7 +71,7 @@ export class InputbarComponent implements OnInit {
   public apiQuery!: string;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
-    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef) {
+    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute) {
       this.selected$ = new Observable((observer) => {
         observer.next(this.selected);
       });
@@ -125,7 +126,7 @@ export class InputbarComponent implements OnInit {
     this.selectedFacilityValue = this.facilityData[index];
   }
 
-  async searchclick(event: Event) {
+  async searchclick(event?: Event) {
     //if all four select boxes are set to , buildQuery() returns true
     let emptySearch: boolean = this.buildQuery();
     this.firstSearch = false;
@@ -174,6 +175,28 @@ export class InputbarComponent implements OnInit {
     const yearPromise = this.selectService.getYearData();
     const facilityPromise = this.selectService.getFacilityData();
 
+    // Load query parameters
+    this.route.queryParams.subscribe(params => {
+      if (Object.keys(params).length > 0) {
+        if (params['hostname'] != undefined){
+          this.selectedMethodValue = params['hostname'];
+          this.searchclick()
+        }
+        if (params['discoverymethod'] != undefined){
+          this.selectedMethodValue = params['discoverymethod'];
+          this.searchclick()
+        }
+        if (params['disc_year'] != undefined){
+          this.selectedMethodValue = params['disc_year'];
+          this.searchclick()
+        }
+        if (params['disc_facility'] != undefined){
+          this.selectedMethodValue = params['disc_facility'];
+          this.searchclick()
+        }
+      }
+    });
+    
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
     // Don't load hostData until user clicks on select box
     this.hostData = ["Host Names"];
@@ -187,10 +210,10 @@ export class InputbarComponent implements OnInit {
     let firstConditional: boolean = true;
     this.apiQuery = '';
     // First check if select box has valid value then check if any other conditional has been applied 
-    (this.selectedHostValue != "Host Names" ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
-    (this.selectedMethodValue != "Discovery Method" ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedYearValue != "Discovery Year" ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedFacilityValue != "Discovery Facility" ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedHostValue != "Host Names" && this.selectedHostValue != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
+    (this.selectedMethodValue != "Discovery Method" && this.selectedMethodValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedYearValue != "Discovery Year" && this.selectedYearValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedFacilityValue != "Discovery Facility" && this.selectedFacilityValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
     // Returns true if input is empty
     return firstConditional;
   }
