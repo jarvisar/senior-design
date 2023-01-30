@@ -22,7 +22,8 @@ const cacheOptions = {
 export class DataService {
   // Use the CORS proxy to set CORS headers
   hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=';
-  defaultQuery = 'select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens+from+pscomppars'
+  columns = 'pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens';
+  defaultQuery = 'select+' + this.columns + '+from+pscomppars'
 
   private FACILITY_DATA_CACHE_KEY = 'facilityDataCache';
   private METHOD_DATA_CACHE_KEY = 'methodDataCache';
