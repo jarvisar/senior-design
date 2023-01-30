@@ -101,4 +101,8 @@ export class DataService {
     console.log(this.hostUrl + query);
     return this.http.get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', httpOptions).toPromise();
   }
+
+  getTopExoplanetData(): Promise<any> {
+    return this.http.get<any[]>(this.hostUrl + 'select+top+200+' + this.columns + '+from+pscomppars&format=json', httpOptions).toPromise();
+  }
 }
