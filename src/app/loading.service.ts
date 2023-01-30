@@ -8,7 +8,7 @@ import { startWith } from 'rxjs/operators';
 export class LoadingService {
   private isLoading$$ = new BehaviorSubject<boolean>(false);
   isLoading$ = this.isLoading$$.asObservable().pipe(startWith(false));
-  // Loading spinner
+  // Returns true if loading 
   setLoading(isLoading: boolean) {
     this.isLoading$$.next(isLoading);
   }

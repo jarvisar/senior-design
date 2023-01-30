@@ -11,8 +11,6 @@ export class HelpboxComponent implements OnInit {
   
   constructor(public dialog: MatDialog) { }
 
-  currentDatetime;
-
   // Opens help box window
   public openDialog() {
     const dialogRef = this.dialog.open(HelpboxComponent);
@@ -20,7 +18,6 @@ export class HelpboxComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
 
 

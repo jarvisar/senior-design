@@ -40,6 +40,10 @@ mat-paginator {
     height: 36;
 }
 
+mat-paginator .mat-select-value-text {
+    color: white;
+}
+
 .table-container::-webkit-scrollbar { 
     display: none;
 }
@@ -53,10 +57,6 @@ mat-paginator {
     .table-container {
         width: 1330px;
     }
-}
-  
-mat-paginator .mat-select-value-text {
-    color: white;
 }
 
 .test-table th:first-child {

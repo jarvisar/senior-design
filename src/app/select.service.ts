@@ -48,13 +48,11 @@ export class SelectService {
   async csvToArray(filePath: string, firstElement: string){
     var list: any[]=[firstElement];
     return this.http.get(filePath, {responseType: 'text', params: {encoding: 'utf-8'}}).toPromise().then(data => {
-        data?.split('\n').forEach(e => {
-        e = e.replace(/['"]+/g, '');
-        list.push(e);
-        });
-        return list;
+      data?.split('\n').forEach(e => {
+      e = e.replace(/['"]+/g, '');
+      list.push(e);
+      });
+      return list;
     });
   }
-
-
 }

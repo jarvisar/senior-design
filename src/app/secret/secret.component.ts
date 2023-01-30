@@ -84,6 +84,4 @@ export class SecretComponent implements OnInit {
         this.planets = response.results;
       });
   }
-
-  
 }

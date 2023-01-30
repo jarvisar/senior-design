@@ -51,14 +51,14 @@ iframe {
   font-size: 16px;
 }
 
-  .mat-card {
-    width: calc(30% - 60px);
-    margin: 0 10px;
-  }
+.mat-card {
+  width: calc(30% - 60px);
+  margin: 0 10px;
+}
 
-  .resources-card{
-    width: 165px;
-  }
+.resources-card{
+  width: 165px;
+}
 
 .mat-icon-bottom {
   display: flex;
@@ -68,12 +68,6 @@ iframe {
   bottom: 10px;
   left: 20px;
   flex-wrap: nowrap;
-}
-
-.controversial-flag {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: #333333;
-  margin-left: 5px;
 }
 
 mat-card img{
@@ -92,6 +86,13 @@ mat-card {
   max-height: 95%;
 }
 
+.controversial-flag {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #333333;
+  margin-left: 5px;
+}
+
+/* css styling for underlining anchors */
 .search-anchor{
   position: relative;
   display: inline-block;

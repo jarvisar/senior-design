@@ -36,7 +36,6 @@ mat-card {
     min-width: 280px;
 }
   
-  h2[mat-dialog-title] {
+h2[mat-dialog-title] {
     text-align: center;
-    
-    }
+}

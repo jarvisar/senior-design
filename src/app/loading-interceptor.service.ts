@@ -9,7 +9,7 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   constructor(private loadingService: LoadingService) { }
 
-  // Intercept HTTP requests to display loading spinner
+  // Intercept HTTP requests
   intercept(request: HttpRequest<any>, next: HttpHandler) {
     this.totalRequests++;
     this.loadingService.setLoading(true);
