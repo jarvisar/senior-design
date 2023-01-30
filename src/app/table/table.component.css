@@ -40,7 +40,7 @@ mat-paginator {
     height: 36;
 }
 
-.table-container::-webkit-scrollbar {
+.table-container::-webkit-scrollbar { 
     display: none;
 }
 
@@ -48,10 +48,10 @@ mat-paginator {
     color: white;
 }
 
-/* If on mobile, make table 1325px */
-@media only screen and (max-width: 1350px) {
+/* If on mobile, make table 1330px */
+@media only screen and (max-width: 1355px) {
     .table-container {
-        width: 1325px;
+        width: 1330px;
     }
 }
   
