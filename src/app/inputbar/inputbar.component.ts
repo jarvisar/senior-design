@@ -187,6 +187,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
 
   doNothing(){}
 
+  showTooltip = false;
+  shareMessage = 'test';
+
   private searchCalled = false;
   async ngAfterViewInit (){
     // Load query parameters
@@ -243,6 +246,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   share(){
+    this.showTooltip = true;
     navigator.clipboard.writeText('https://jarvisar.github.io/senior-design' + this.router.url).then(
       () => {
         console.log('Text copied to clipboard');
