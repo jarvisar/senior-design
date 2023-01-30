@@ -133,7 +133,17 @@
         overflow-x: hidden;
       }
     }
-  
+
+    @media only screen and (max-width: 900px) {
+      .header-title{
+        font-size:14.0pt; 
+      }
+      .footer{
+        height: 40px;
+      }
+
+    }
+
 
   </style>
   <body>
@@ -141,7 +151,7 @@
     <!-- Toolbar -->
 <div class="toolbar" role="banner" >
   <img style="margin-left: 10px;" width="47" alt="Project Logo" src="assets/icon.png"  />
-  <span style="font-size:20.0pt; font-family: Roboto, Helvetica Neue, sans-serif; font-weight: 400; margin-left: 10px;">NASA Exoplanet Archive Search</span>
+  <span class="header-title">NASA Exoplanet Archive Search</span>
     <div class="spacer"></div>
     <a aria-label="Source Code" target="_blank" rel="noopener" href="https://github.com/jarvisar/senior-design/tree/master/" title="Project Source Code">
       <img style="margin-right: 10px;" width="45" alt="GitHub Logo" src="assets/github.png" />
@@ -214,7 +224,7 @@
 <span class="footer" id="footer">
   <p class = "footer_text" style="display: inline; vertical-align: middle;">All data is sourced directly from the </p>
   <a class = "footer_text"href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener" style="vertical-align: middle; font-family: Roboto, Helvetica Neue, sans-serif;">NASA Exoplanet Archive</a>
-  <p class = "footer_text" style="display: inline; vertical-align: middle;">.&nbsp;</p>
+  <p class = "footer_text footer_text3" style="display: inline; vertical-align: middle;"> operated by the California Institute of Technology.&nbsp;</p>
 </span>
 
 </body>
