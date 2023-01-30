@@ -1,56 +1,67 @@
-
+<!-- Card container -->
 <div class="card-container">
-    <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2" style="margin-bottom: 10px">{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
-        <div style="display: flex; align-items: center; justify-content: center;">
-          <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
-          src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
-        </div>
-      </mat-card>
-      <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
-        <p>This system consists of {{exoplanet.sy_snum}} {{exoplanet.st_spectype != null ? exoplanet.st_spectype + " type" : ''}} star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
-        <div class="mat-body-2" *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">Orbit  Information</div>
-        <p>{{exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + exoplanet.pl_orbper.toFixed(3) + " days to orbit its host star." : ""}}</p>
-        <p *ngIf="habitable != null">{{habitable}}</p>
-        <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen.toFixed(3) +")" : ""}}</p>
-        <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
-        <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
-          <mat-icon>help</mat-icon>
-        </button>
-        </div>
+
+  <!-- Discovery Facility Card -->
+  <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+    <div class="mat-body-2" style="margin-bottom: 10px">{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
+      src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
+    </div>
+  </mat-card>
+  
+  <!-- Star System, Orbit, and Detection Method Card -->
+  <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+    <!-- Star System Info -->
+    <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
+    <p>This system consists of {{exoplanet.sy_snum}} {{exoplanet.st_spectype != null ? exoplanet.st_spectype + " type" : ''}} star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
+    <!-- Orbit Info -->
+    <div class="mat-body-2" *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">Orbit  Information</div>
+    <p>{{exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + exoplanet.pl_orbper.toFixed(3) + " days to orbit its host star." : ""}}</p>
+    <p *ngIf="habitable != null">{{habitable}}</p>
+    <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen.toFixed(3) +")" : ""}}</p>
+    <!-- Detection Method Info -->
+    <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
+      <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
+        <mat-icon>help</mat-icon>
+      </button>
+    </div>
+    <br>
+  </mat-card>
+
+  <!-- Aladin Sky Visualization Card -->
+  <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+    <div class="mat-body-2" style="display: inline-block;">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
+    <!-- Fullscreen button -->
+    <button mat-icon-button appearance="outline" aria-label="Fullscreen" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 5px; top: 5px;" tabindex="6">
+      <mat-icon>fullscreen</mat-icon>
+    </button>
+    <iframe #iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
+  </mat-card>
+
+  <!-- Additional Resources Card -->
+  <mat-card class="resources-card " appMaterialElevation>
+    <div class="mat-body-2">Additional Resources</div>
+    <br>
+      <div matLine class="resources-container">
+        <button mat-raised-button (click)="openOverview()" class="overview-button button">Overview</button>
         <br>
-        <!-- <p>Binary System? {{exoplanet.cb_flag == 1 ? 'Yes' : 'No'}}</p> -->
         <br>
-      </mat-card>
-      <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2" style="display: inline-block;">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
-        <button mat-icon-button appearance="outline" aria-label="Fullscreen" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 5px; top: 5px;" tabindex="6">
-          <mat-icon>fullscreen</mat-icon>
-        </button>
-        <iframe #iframe [src]="iframeSrc | safe" scrolling="no" allowfullscreen></iframe>
-      </mat-card>
-      <mat-card class="resources-card " appMaterialElevation>
-        <div class="mat-body-2">Additional Resources</div>
+        <button mat-raised-button (click)="nasaEyes()" class="eyes-button button">NASA Eyes</button>
         <br>
-          <div matLine class="resources-container">
-            <button mat-raised-button (click)="openOverview()" class="overview-button button">Overview</button>
-            <br>
-            <br>
-            <button mat-raised-button (click)="nasaEyes()" class="eyes-button button">NASA Eyes</button>
-            <br>
-            <br>
-            <button mat-raised-button (click)="openRef()" class="ref-button button">Reference<div class="ref-link" #refContainer style="display: none;"></div></button>
-            <br>
-            <br>
-            <button mat-raised-button (click)="openSkyMap()" class="skymap-button button">Sky-Map</button>
-            <br>
-            <br>
-            <span class="mat-icon-bottom" *ngIf="exoplanet.pl_controv_flag == 1" matTooltip="Confirmation status of this planet has been questioned in the published literature" matTooltipPosition="above">
-              <mat-icon >error_outline</mat-icon>
-              <p class="controversial-flag">Controversial</p>
-            </span>
-          </div>
-      </mat-card>  
+        <br>
+        <button mat-raised-button (click)="openRef()" class="ref-button button">Reference<div class="ref-link" #refContainer style="display: none;"></div></button>
+        <br>
+        <br>
+        <button mat-raised-button (click)="openSkyMap()" class="skymap-button button">Sky-Map</button>
+        <br>
+        <br>
+        <!-- Display controversial flag if needed -->
+        <span class="mat-icon-bottom" *ngIf="exoplanet.pl_controv_flag == 1" matTooltip="Confirmation status of this planet has been questioned in the published literature" matTooltipPosition="above">
+          <mat-icon >error_outline</mat-icon>
+          <p class="controversial-flag">Controversial</p>
+        </span>
+      </div>
+  </mat-card>  
 </div>
 
