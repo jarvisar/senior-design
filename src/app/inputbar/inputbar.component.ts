@@ -80,16 +80,16 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   // initiate hostname select box
-  private _selectedHost!: number;
+  private _selectedHost!: string;
 
-  public get selectedHost(): number {
+  public get selectedHost(): string {
     return this._selectedHost;
   }
 
-  public set selectedHost(index: number) {
+  public set selectedHost(index: string) {
     this._selectedHost = index;
     this.selectedHostValue = this.hostData[index];
-    console.log(this.selectedHostValue);
+    console.log(this.selectedHost);
   }
 
   // initiate discovery method select box
@@ -136,7 +136,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     if(event != null){
       this.router.navigate([], {queryParams: {}});
       let queryParams = Object.assign({},
-        this.selectedHostValue != "Host Names" ? { hostname: this.selectedHostValue } : {},
+        this.selectedHost != "" ? { hostname: this.selectedHost } : {},
         this.selectedMethodValue != "Discovery Method" ? { discoverymethod: this.selectedMethodValue } : {},
         this.selectedYearValue != "Discovery Year" ? { disc_year: this.selectedYearValue } : {},
         this.selectedFacilityValue != "Discovery Facility" ? { disc_facility: this.selectedFacilityValue } : {}
@@ -159,7 +159,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearSelect() {
-    this.selectedHost = 0;
+    this.selectedHost = '';
     this.selectedMethod = 0;
     this.selectedYear = 0;
     this.selectedFacility = 0;
@@ -180,15 +180,11 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.hostData = await this.selectService.getHostData();
     this.selected = true;
     setTimeout(() => {
-      this.select.size = 20;
       this.cd.detectChanges();
     });
   }
 
   doNothing(){}
-
-  showTooltip = false;
-  shareMessage = 'test';
 
   private searchCalled = false;
   async ngAfterViewInit (){
@@ -196,7 +192,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.route.queryParams.pipe(skip(1)).subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
-          this.selectedHostValue = params['hostname'];
+          this.selectedHost = params['hostname'];
         }
         if (params['discoverymethod'] != undefined){
           this.selectedMethodValue = params['discoverymethod'];
@@ -226,7 +222,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
 
     // Don't load hostData until user clicks on select box
-    this.hostData = ["Host Names"];
+    this.hostData = [];
     this.methodData = methodData;
     this.yearData = yearData;
     this.facilityData = facilityData;
@@ -237,7 +233,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     let firstConditional: boolean = true;
     this.apiQuery = '';
     // First check if select box has valid value then check if any other conditional has been applied 
-    (this.selectedHostValue != "Host Names" && this.selectedHostValue != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHostValue + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
+    (this.selectedHost != '' && this.selectedHost != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHost + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethodValue != "Discovery Method" && this.selectedMethodValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" && this.selectedYearValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedFacilityValue != "Discovery Facility" && this.selectedFacilityValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
@@ -246,7 +242,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   share(){
-    this.showTooltip = true;
+    // Copy current URL to clipboard
     navigator.clipboard.writeText('https://jarvisar.github.io/senior-design' + this.router.url).then(
       () => {
         console.log('Text copied to clipboard');

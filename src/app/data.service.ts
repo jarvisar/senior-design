@@ -98,7 +98,7 @@ export class DataService {
 
   // Return exoplanet data after search
   getExoPlanetData(query: string): Promise<any> {
-    console.log(this.hostUrl + query);
+    console.log(this.hostUrl + this.defaultQuery + query + '&format=json');
     return this.http.get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', httpOptions).toPromise();
   }
 
