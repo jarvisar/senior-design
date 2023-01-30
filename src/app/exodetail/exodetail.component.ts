@@ -17,6 +17,7 @@ export class ExodetailComponent implements OnInit {
   public imgError: boolean = false;
   public formattedDiscFacility;
   public href;
+  public habitable: string | null = null;
   public iframeSrc;
   public rastr_h: Number;
   public rastr_m: Number;
@@ -41,6 +42,7 @@ export class ExodetailComponent implements OnInit {
     //this.iframeSrc = `../assets/aladin.html?ra=${this.exoplanet.ra}&dec=${this.exoplanet.dec}&name=${this.exoplanet.hostname}&st_spectype=${this.exoplanet.st_spectype}`
     this.iframeSrc = `https://jarvisar.github.io/senior-design/assets/aladin.html?ra=${this.exoplanet.ra}&dec=${this.exoplanet.dec}&name=${this.exoplanet.hostname}&st_spectype=${this.exoplanet.st_spectype}`
     console.log(this.iframeSrc);
+    this.determineHabitability();
   }
 
   nasaEyes(){
@@ -98,6 +100,55 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.selectedYear = year;
     this.inputbar.selectedFacility = facility;
     this.inputbar.firstSearch = true;
+  }
+
+  determineHabitability(){
+    let startype = String(this.exoplanet.st_spectype)[0];
+    if(startype == 'A'){
+      if(this.exoplanet.pl_orbsmax < 8.5){
+        this.habitable = 'Most Likely Too Cold'
+      } else if(this.exoplanet.pl_orbsmax > 12.5){
+        this.habitable = 'Most Likely Too Hot'
+      } else{
+        this.habitable = 'Potentially Habitable'
+      }
+    }
+    else if(startype == 'F'){
+      if(this.exoplanet.pl_orbsmax < 1.5){
+        this.habitable = 'Most Likely Too Cold'
+      } else if(this.exoplanet.pl_orbsmax > 2.2){
+        this.habitable = 'Most Likely Too Hot'
+      } else{
+        this.habitable = 'Potentially Habitable'
+      }
+    }
+    else if(startype == 'G'){
+      if(this.exoplanet.pl_orbsmax < 0.95){
+        this.habitable = 'Most Likely Too Cold'
+      } else if(this.exoplanet.pl_orbsmax > 1.4){
+        this.habitable = 'Most Likely Too Hot'
+      } else{
+        this.habitable = 'Potentially Habitable'
+      }
+    }
+    else if(startype == 'K'){
+      if(this.exoplanet.pl_orbsmax < 0.38){
+        this.habitable = 'Most Likely Too Cold'
+      } else if(this.exoplanet.pl_orbsmax > 0.56){
+        this.habitable = 'Most Likely Too Hot'
+      } else{
+        this.habitable = 'Potentially Habitable'
+      }
+    }
+    else if(startype == 'M'){
+      if(this.exoplanet.pl_orbsmax < 0.08){
+        this.habitable = 'Most Likely Too Cold'
+      } else if(this.exoplanet.pl_orbsmax > 0.12){
+        this.habitable = 'Most Likely Too Hot'
+      } else{
+        this.habitable = 'Potentially Habitable'
+      }
+    }
   }
 
   // Ensures discovery facility image is loaded correctly
