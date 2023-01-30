@@ -1,66 +1,73 @@
-p {
-    font-family: Lato;
+.inputbar {
+  white-space: nowrap;
+  overflow-x: auto;
+  display: inline-block;
+
+
+} 
+
+@media only screen and (max-width: 1355px) {
+  .inputbar{
+    padding-right: 15px;
   }
-
-  .inputbar {
-    white-space: nowrap;
-    overflow-x: auto;
-    display: inline-block;
-
-
-  } 
-
-  @media only screen and (max-width: 1355px) {
-    .inputbar{
-      padding-right: 15px;
-    }
-  }
-  .hostname_select, .method_select, .year_select, .facility_select  {
-    width: 260px;
-    height:40px;
-    font-size:16px;
-    text-align:left;
-    padding-left: 10px;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-weight: 450;
-    margin-left: 15px;
-  }
-
-p{
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-  .search_button, .clear_button {
-    background-color: #0b3d91;
-    width: 80px;
-    height: 40px;
-    font-size:16px;
-    letter-spacing: 0.1px;
-    margin-left: 15px;
-  }
+.hostname_select, .method_select, .year_select, .facility_select  {
+  width: 260px;
+  height:40px;
+  font-size:16px;
+  text-align:left;
+  padding-left: 10px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 450;
+  margin-left: 15px;
+}
 
-  #shareButton {
-    position: fixed;
-    bottom: 155px;
-    right: 30px;
-    z-index: 10;
-  }
+.search_button, .clear_button {
+  background-color: #0b3d91;
+  width: 80px;
+  height: 40px;
+  font-size:16px;
+  letter-spacing: 0.1px;
+  margin-left: 15px;
+}
 
-  #downloadButton {
-    position: fixed;
-    bottom: 105px;
-    right: 30px;
-    z-index: 10;
-  }
+#shareButton {
+  position: fixed;
+  bottom: 155px;
+  right: 30px;
+  z-index: 10;
+}
 
-  .table{
-    height: 100%;
-    width: 100%;
-  }
+#downloadButton {
+  position: fixed;
+  bottom: 105px;
+  right: 30px;
+  z-index: 10;
+}
+
+.table{
+  height: 100%;
+  width: 100%;
+}
 
 .table::-webkit-scrollbar { 
   width: 0.2em;
   background-color: #F5F5F5; 
+}
+
+p{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+p:after {
+  right: 100%;
+  left: 0;
+}
+p:hover:after {
+  right: 0;
 }
 
 .no-results {
@@ -76,10 +83,6 @@ p{
   color: #555;
 }
 
-p{
-  position: relative;
-  display: inline-block;
-}
 .no-results-text:after{
   content:'';
   position: absolute;
@@ -90,14 +93,6 @@ p{
 
 .no-results-text:hover{
   cursor: pointer;
-}
-
-p:after {
-  right: 100%;
-  left: 0;
-}
-p:hover:after {
-  right: 0;
 }
 
 .new-search {
