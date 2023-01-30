@@ -6,8 +6,15 @@ p {
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
+
+
   } 
 
+  @media only screen and (max-width: 1355px) {
+    .inputbar{
+      padding-right: 15px;
+    }
+  }
   .hostname_select, .method_select, .year_select, .facility_select  {
     width: 260px;
     height:40px;
