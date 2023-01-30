@@ -1,15 +1,16 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef  } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
 import { Observable } from 'rxjs';
-import { first, skip, delay } from 'rxjs/operators';
+import { skip } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
@@ -72,7 +73,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public apiQuery!: string;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
-    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router) {
+    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
       this.selected$ = new Observable((observer) => {
         observer.next(this.selected);
       });
@@ -239,6 +240,17 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedFacilityValue != "Discovery Facility" && this.selectedFacilityValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
     // Returns true if input is empty
     return firstConditional;
+  }
+
+  share(){
+    navigator.clipboard.writeText('https://jarvisar.github.io/senior-design' + this.router.url).then(
+      () => {
+        console.log('Text copied to clipboard');
+      },
+      (err) => {
+        console.error('Failed to copy text: ', err);
+      }
+    );
   }
 
   download(){

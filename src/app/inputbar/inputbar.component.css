@@ -32,10 +32,17 @@ p{
     margin-left: 15px;
   }
 
+  #shareButton {
+    position: fixed;
+    bottom: 160px;
+    right: 30px;
+    z-index: 10;
+  }
+
   #downloadButton {
     position: fixed;
     bottom: 110px;
-    right: 35px;
+    right: 30px;
     z-index: 10;
   }
 
