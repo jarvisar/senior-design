@@ -1,7 +1,7 @@
 
 <div class="card-container">
     <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
-        <div class="mat-body-2" style="margin-bottom: 10px">Observed by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
+        <div class="mat-body-2" style="margin-bottom: 10px">First observed by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
         <div style="display: flex; align-items: center; justify-content: center;">
           <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
           src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
