@@ -4,7 +4,9 @@
 <div class="inputbar" id="inputbar" *ngIf="facilityData.length > 1" [@inOutAnimation]>
   
   <!-- Host Name Input -->
-  <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" [(ngModel)]="selectedHost" placeholder="Host Names" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Names'" >  
+  <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" 
+    [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Names'"
+    [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Names'" >  
   <datalist id="hostlist">
     <option *ngFor="let host of hostData">
       {{host}}

@@ -176,12 +176,15 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   // Only load hostnames if user clicks on select box
+  loading: boolean;
   async loadOptions(){
+    this.loading = true;
     this.hostData = await this.selectService.getHostData();
     this.selected = true;
     setTimeout(() => {
       this.cd.detectChanges();
     });
+    this.loading = false;
   }
 
   doNothing(){}
