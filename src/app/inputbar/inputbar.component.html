@@ -41,8 +41,8 @@
     </button>
   </div>
   <!-- Show download button if table has results -->
-  <button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share(); showTooltip = true" id="shareButton" tabindex="7" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above">
-    <mat-icon>share</mat-icon>
+  <button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share(); showTooltip = true" id="shareButton" tabindex="7" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
+    <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
 </button>
 
   <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" tabindex="8" [@inOutAnimation] title="Download Data">
