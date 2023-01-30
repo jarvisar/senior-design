@@ -1,61 +1,68 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="inputbar" id="inputbar" *ngIf="facilityData.length > 1" [@inOutAnimation]>
 
-  <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Names'" placeholder="Host Names">
-    
+<!-- Input Bar -->
+<div class="inputbar" id="inputbar" *ngIf="facilityData.length > 1" [@inOutAnimation]>
+  
+  <!-- Host Name Input -->
+  <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Names'" placeholder="Host Names">  
   <datalist id="hostlist">
     <option *ngFor="let _ of hostData; index as i">
         {{hostData[i]}}
     </option>
   </datalist>
 
-    <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod" tabindex="1">
-      <option *ngFor="let _ of methodData; index as i" [value]="i">
-        {{methodData[i]}}
-      </option>
-      <label>Method Select</label>
-    </select>
+  <!-- Discovery Method Select -->
+  <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod" tabindex="1">
+    <option *ngFor="let _ of methodData; index as i" [value]="i">
+      {{methodData[i]}}
+    </option>
+    <label>Method Select</label>
+  </select>
 
-    <select class="year_select" id="year_select"  [(ngModel)]="selectedYear" tabindex="2">
-      <option *ngFor="let _ of yearData; index as i" [value]="i">
-        {{yearData[i]}}
-      </option>
-      <label>Year Select</label>
-    </select>
+  <!-- Discovery Year Select -->
+  <select class="year_select" id="year_select"  [(ngModel)]="selectedYear" tabindex="2">
+    <option *ngFor="let _ of yearData; index as i" [value]="i">
+      {{yearData[i]}}
+    </option>
+    <label>Year Select</label>
+  </select>
 
-    <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility" tabindex="3">
-      <option *ngFor="let _ of facilityData; index as i" [value]="i">
-        {{facilityData[i]}}
-      </option>
-      <label>Facility Select</label>
-    </select>
+  <!-- Discovery Facility Select -->
+  <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility" tabindex="3">
+    <option *ngFor="let _ of facilityData; index as i" [value]="i">
+      {{facilityData[i]}}
+    </option>
+    <label>Facility Select</label>
+  </select>
 
-    <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="loadingService.isLoading$ | async" tabindex="4">
-      <div matToolTip="test" >
-        Search
-      </div>
-    </button>
-    <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)" tabindex="5">Clear</button>
-    <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;" tabindex="6">
-      <mat-icon>help</mat-icon>
-    </button>
+  <!-- Search, Clear, & Help Buttons -->
+  <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="loadingService.isLoading$ | async" tabindex="4">Search</button>
+
+  <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)" tabindex="5">Clear</button>
+
+  <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;" tabindex="6">
+    <mat-icon>help</mat-icon>
+  </button>
+
 </div>
-  <!-- Show download button if table has results -->
-  <button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share()" id="shareButton" tabindex="7" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
-    <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
-  </button>
 
-  <button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" tabindex="8" [@inOutAnimation] title="Download Data">
-    <mat-icon>download</mat-icon>
-  </button>
+<!-- Show share & download button if table is visible -->
+<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share()" id="shareButton" tabindex="7" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
+  <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
+</button>
 
-  <!-- Data Table -->
-  <div  class="table" *ngIf="showTable" @inOutAnimation >
-    <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
-    <div class="no-results" *ngIf="showTable && exoplanetData.length == 0" @inOutAnimation>
-      <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation (click)="clearclick($event)">No Results Found</p>
-      <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
+<button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" tabindex="8" [@inOutAnimation] title="Download Data">
+  <mat-icon>download</mat-icon>
+</button>
+
+<!-- Data Table -->
+<div  class="table" *ngIf="showTable" @inOutAnimation >
+  <!-- Table Component -->
+  <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
+  <!-- No Results Text -->
+  <div class="no-results" *ngIf="showTable && exoplanetData.length == 0" @inOutAnimation>
+    <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation (click)="clearclick($event)">No Results Found</p>
+    <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
   </div>
-    
-    <!-- <p *ngIf="!showTable" class="placeholder-text">Find your new favorite exoplanet!</p> -->
-  </div>
+  <!-- <p *ngIf="!showTable" class="placeholder-text">Find your new favorite exoplanet!</p> -->
+</div>
