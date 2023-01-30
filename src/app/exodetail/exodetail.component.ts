@@ -115,15 +115,15 @@ export class ExodetailComponent implements OnInit {
       this.habitable = null;
       return;
     }
-    const thresholds = HabitabilityThresholds[this.exoplanet.st_spectype[0]];
+    let thresholds = HabitabilityThresholds[this.exoplanet.st_spectype[0]];
     if (!thresholds) {
       this.habitable = null;
       return;
     }
     if (this.exoplanet.pl_orbsmax < thresholds.min) {
-      this.habitable = 'Most likely too cold to be habitable.';
+      this.habitable = 'Most likely not habitable (too cold).';
     } else if (this.exoplanet.pl_orbsmax > thresholds.max) {
-      this.habitable = 'Most likely too hot to be habitable.';
+      this.habitable = 'Most likely not habitable (too hot).';
     } else {
       this.habitable = 'Potentially habitable!';
     }
