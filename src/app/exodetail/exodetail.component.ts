@@ -121,9 +121,9 @@ export class ExodetailComponent implements OnInit {
       return;
     }
     if (this.exoplanet.pl_orbsmax < thresholds.min) {
-      this.habitable = 'Most likely not habitable (too cold).';
+      this.habitable = 'Most likely not habitable (too cold)';
     } else if (this.exoplanet.pl_orbsmax > thresholds.max) {
-      this.habitable = 'Most likely not habitable (too hot).';
+      this.habitable = 'Most likely not habitable (too hot)';
     } else {
       this.habitable = 'Potentially habitable!';
     }
