@@ -3,6 +3,14 @@ import { InputbarComponent } from '../inputbar/inputbar.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { LoadingService } from '../loading.service'
 
+const HabitabilityThresholds = {
+  A: { min: 8.5, max: 12.5 },
+  F: { min: 1.5, max: 2.2 },
+  G: { min: 0.95, max: 1.4 },
+  K: { min: 0.38, max: 0.56 },
+  M: { min: 0.08, max: 0.12 }
+};
+
 @Component({
   selector: 'app-exodetail',
   templateUrl: './exodetail.component.html',
@@ -101,53 +109,23 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.selectedFacility = facility;
     this.inputbar.firstSearch = true;
   }
-
-  determineHabitability(){
-    let startype = String(this.exoplanet.st_spectype)[0];
-    if(startype == 'A'){
-      if(this.exoplanet.pl_orbsmax < 8.5){
-        this.habitable = 'Most Likely Too Cold'
-      } else if(this.exoplanet.pl_orbsmax > 12.5){
-        this.habitable = 'Most Likely Too Hot'
-      } else{
-        this.habitable = 'Potentially Habitable'
-      }
+  
+  determineHabitability() {
+    if (this.exoplanet.st_spectype == null){
+      this.habitable = null;
+      return;
     }
-    else if(startype == 'F'){
-      if(this.exoplanet.pl_orbsmax < 1.5){
-        this.habitable = 'Most Likely Too Cold'
-      } else if(this.exoplanet.pl_orbsmax > 2.2){
-        this.habitable = 'Most Likely Too Hot'
-      } else{
-        this.habitable = 'Potentially Habitable'
-      }
+    const thresholds = HabitabilityThresholds[this.exoplanet.st_spectype[0]];
+    if (!thresholds) {
+      this.habitable = null;
+      return;
     }
-    else if(startype == 'G'){
-      if(this.exoplanet.pl_orbsmax < 0.95){
-        this.habitable = 'Most Likely Too Cold'
-      } else if(this.exoplanet.pl_orbsmax > 1.4){
-        this.habitable = 'Most Likely Too Hot'
-      } else{
-        this.habitable = 'Potentially Habitable'
-      }
-    }
-    else if(startype == 'K'){
-      if(this.exoplanet.pl_orbsmax < 0.38){
-        this.habitable = 'Most Likely Too Cold'
-      } else if(this.exoplanet.pl_orbsmax > 0.56){
-        this.habitable = 'Most Likely Too Hot'
-      } else{
-        this.habitable = 'Potentially Habitable'
-      }
-    }
-    else if(startype == 'M'){
-      if(this.exoplanet.pl_orbsmax < 0.08){
-        this.habitable = 'Most Likely Too Cold'
-      } else if(this.exoplanet.pl_orbsmax > 0.12){
-        this.habitable = 'Most Likely Too Hot'
-      } else{
-        this.habitable = 'Potentially Habitable'
-      }
+    if (this.exoplanet.pl_orbsmax < thresholds.min) {
+      this.habitable = 'Most likely too cold to be habitable.';
+    } else if (this.exoplanet.pl_orbsmax > thresholds.max) {
+      this.habitable = 'Most likely too hot to be habitable.';
+    } else {
+      this.habitable = 'Potentially habitable!';
     }
   }
 
