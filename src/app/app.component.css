@@ -7,10 +7,17 @@
         2px 2px 1px #919191,
         3px 3px 1px #919191;
   transition: text-shadow 0.5s ease;
+  transform: translateY(0);
 }
 
 .header-title:hover{
+  text-shadow: 1px 1px 1px #919191,
+  2px 2px 1px #919191;
+}
+
+.header-title:active{
   text-shadow: 1px 1px 1px #919191;
+  transition: all 0.1s ease;
 }
 
 .footer{
