@@ -2,8 +2,6 @@
   white-space: nowrap;
   overflow-x: auto;
   display: inline-block;
-
-
 } 
 
 @media only screen and (max-width: 1355px) {
@@ -21,6 +19,7 @@
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 450;
   margin-left: 15px;
+  transform: all 0.5 ease;
 }
 
 .search_button, .clear_button {
