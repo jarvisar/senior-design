@@ -36,6 +36,7 @@ a:hover {
   color: white;
 }
 
+/* Aladin iframe */
 iframe {
   margin-top: 10px;
   position: absolute;
@@ -91,7 +92,7 @@ mat-card {
   margin-left: 5px;
 }
 
-/* css styling for underlining anchors */
+/* underlining anchors */
 .search-anchor{
   position: relative;
   display: inline-block;

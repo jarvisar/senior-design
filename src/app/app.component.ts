@@ -52,7 +52,6 @@ export class AppComponent implements AfterViewInit  {
     // prevents duplicate triggers
     event.stopImmediatePropagation()
     this.currentInput.push(event.key);
-    console.log(event.key);
     if (this.currentInput.length > this.konamiCode.length) {
       this.currentInput.shift();
     }
@@ -61,6 +60,3 @@ export class AppComponent implements AfterViewInit  {
     }
   }
 }
-
-
-

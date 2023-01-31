@@ -46,17 +46,16 @@ export class TableComponent implements OnInit {
   tableDef = [{column: 'index', title: 'Index'}, {column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, 
   {column: 'disc_year', title: 'Discovery Year'}, {column: 'pl_dens', title: 'Density (g/cm³)'}, {column: 'pl_rade', title: 'Radius'}, {column: 'pl_bmasse', title: 'Mass'}, {column: 'disc_facility', title: 'Discovery Facility'}];
 
-  // Define which
+  // Define which columns to display on table
   displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_dens', 'pl_rade', 'pl_bmasse', 'disc_facility'];
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
+  @Input() numResults!: number;
   @Input() set exoplanetData(data: Exoplanet[]) {
     this.setTableDataSource(data);
   }
-  
-  @Input() numResults!: number;
 
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
@@ -77,13 +76,13 @@ export class TableComponent implements OnInit {
     };
   }
 
-nextPage(event:PageEvent){
-  let limit = (event.pageIndex * event.pageSize) + event.pageSize;
-  let offset = (event.pageIndex * event.pageSize);
-}
+  nextPage(event:PageEvent){
+    let limit = (event.pageIndex * event.pageSize) + event.pageSize;
+    let offset = (event.pageIndex * event.pageSize);
+  }
   
   constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent) {
-    // test data for debugging
+    // test data
     // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 

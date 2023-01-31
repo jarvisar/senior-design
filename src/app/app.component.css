@@ -123,7 +123,7 @@ svg#rocket-smoke {
     transform: translateY(-0.3px);
   }
     
-   .header-title:active {
+  .header-title:active {
     text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
     transform: translateY(0);
     transition: transform 0.1s ease;
