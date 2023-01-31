@@ -18,8 +18,8 @@
     <!-- Orbit Info -->
     <div class="mat-body-2" *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">Orbit  Information</div>
     <p>{{exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + exoplanet.pl_orbper.toFixed(3) + " days to orbit its host star." : ""}}</p>
-    <p *ngIf="habitable != null">{{habitable}}</p>
     <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "(Orbit Eccentricity: " + exoplanet.pl_orbeccen.toFixed(3) +")" : ""}}</p>
+    <p *ngIf="habitable != null">{{habitable}}</p>
     <!-- Detection Method Info -->
     <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
       <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above">
