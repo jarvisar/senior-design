@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
   </head>
   <style>
+    /* Load background images for toolbar and footer */
     .toolbar {
       background-image: url("./assets/starfield.jpg");
     }
-  
     .footer {
       background-image: url("./assets/starfield.jpg");
     }
@@ -17,9 +17,11 @@
 <body>
   <!-- Toolbar -->
   <div class="toolbar" role="banner" >
-    <img style="margin-left: 10px;" width="47" alt="Project Logo" src="assets/icon.png"  />
+    <img style="margin-left: 10px;" width="47" alt="Project Logo" src="assets/icon.png"/>
+    <!-- Toolbar Title -->
     <span class="header-title" (click)="clearclick($event)">NASA Exoplanet Archive Search</span>
       <div class="spacer"></div>
+      <!-- Github Button -->
       <a aria-label="Source Code" target="_blank" rel="noopener" href="https://github.com/jarvisar/senior-design/tree/master/" title="Project Source Code">
         <img style="margin-right: 10px;" width="45" alt="GitHub Logo" src="assets/github.png" />
       </a>
