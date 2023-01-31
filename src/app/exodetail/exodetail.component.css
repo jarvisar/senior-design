@@ -100,7 +100,7 @@ mat-card {
   content:'';
   position: absolute;
   border-bottom: 2px solid #666;
-  top: 100%;
+  top: 90%;
   transition: all 0.3s;
  }
 
