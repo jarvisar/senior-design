@@ -11,6 +11,16 @@ const HabitabilityThresholds = {
   M: { min: 0.08, max: 0.12 }
 };
 
+const planetTypes = [
+  { min: 0, max: 0.00001, type: "Asteroidan" },
+  { min: 0.00001, max: 0.1, type: "Mercury-sized" },
+  { min: 0.1, max: 0.5, type: "Subterran" },
+  { min: 0.5, max: 2, type: "Terran" },
+  { min: 2, max: 10, type: "Superearth" },
+  { min: 10, max: 50, type: "Neptunian" },
+  { min: 50, max: 5000, type: "Jovian" }
+];
+
 @Component({
   selector: 'app-exodetail',
   templateUrl: './exodetail.component.html',
@@ -131,25 +141,17 @@ export class ExodetailComponent implements OnInit {
     }
   }
 
-  determinePlanetType(){
+  determinePlanetType() {
     console.log(this.exoplanet.pl_bmasse);
-    if (this.exoplanet.pl_bmasse == null){
+    if (this.exoplanet.pl_bmasse == null) {
       return;
     }
-    if (this.exoplanet.pl_bmasse < 0.00001){
-      this.pl_type = "Asteroidan"
-    } else if (this.exoplanet.pl_bmasse >= 0.00001 && this.exoplanet.pl_bmasse < 0.1){
-      this.pl_type = "Mercury-sized"
-    } else if (this.exoplanet.pl_bmasse >= 0.1 && this.exoplanet.pl_bmasse < 0.5){
-      this.pl_type = "Subterran"
-    } else if (this.exoplanet.pl_bmasse >= 0.5 && this.exoplanet.pl_bmasse < 2){
-      this.pl_type = "Terran"
-    } else if (this.exoplanet.pl_bmasse >= 2 && this.exoplanet.pl_bmasse < 10){
-      this.pl_type = "Superearth"
-    } else if (this.exoplanet.pl_bmasse >= 10 && this.exoplanet.pl_bmasse < 50){
-      this.pl_type = "Neptunian"
-    } else if (this.exoplanet.pl_bmasse >= 50 && this.exoplanet.pl_bmasse < 5000){
-      this.pl_type = "Jovian"
+    let planetType = planetTypes.find(pt => 
+      this.exoplanet.pl_bmasse >= pt.min && 
+      this.exoplanet.pl_bmasse < pt.max
+    );
+    if (planetType) {
+      this.pl_type = planetType.type;
     }
   }
 
