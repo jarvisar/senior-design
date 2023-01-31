@@ -1,3 +1,21 @@
+.toolbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #010621;
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar #github-logo {
+  height: 40px;
+  margin: 0 8px;
+}
+
 .header-title {
   font-size: 20pt;
   font-family: Roboto, Helvetica Neue, sans-serif;
@@ -7,18 +25,33 @@
   transition: transform 0.3s ease, text-shadow 0.3s ease;
   transform: translateY(-0.5px);
   cursor: pointer;
-  }
+}
   
-  .header-title:hover {
+.header-title:hover {
   text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
   transform: translateY(-0.3px);
-  }
+}
   
-  .header-title:active {
+ .header-title:active {
   text-shadow: 1px 1px 1px #919191;
   transform: translateY(0);
   transition: transform 0.1s ease;
-  }
+}
+
+.content {
+  display: block;
+  display: table-cell;
+  position: fixed;
+  margin: 40px auto 82px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: 50%;
+  width: 99%;
+  left: 0;
+}
 
 .footer{
   position: fixed;
@@ -29,9 +62,25 @@
   margin-top: 8px;
   text-align: center; 
   color: white; 
+  background-color: #010621;
   display: table-cell;
   vertical-align: middle;
   height: 25px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.footer_text{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 html, body {
@@ -40,15 +89,102 @@ html, body {
   overflow: hidden;
 }
 
-.footer_text{
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+svg.material-icons {
+  height: 24px;
+  width: auto;
 }
 
-.content {
-  overflow: hidden;
+svg.material-icons:not(:last-child) {
+  margin-right: 0px;
+}
+
+svg#clouds2 {
+  z-index: -8;
+}
+
+svg#clouds {
+  z-index: -10;
+}
+
+svg#rocket-smoke {
+  height: 100%;
   position: fixed;
-  display: table-cell;
-  width: 100%
+  top: 10px;
+  right: 20%;
+  z-index: -9;
+}
+
+/* Default cloud position */
+@media only screen and (min-width: 850px) {
+  svg#clouds{
+    bottom: 25px;
+  }
+  svg#clouds2{
+    bottom: 25px;
+  }
+}
+
+/* Mobile sizing */
+@media only screen and (max-width: 850px) {
+  svg#rocket-smoke {
+    position: fixed;
+    top: 120px;
+    left: -60px;
+    overflow: hidden;
+    transform: scale(0.8);
+  }
+  .background{
+    overflow: hidden;
+  }
+  .header-title{
+    font-size:14.0pt; 
+  }
+  .footer{
+    height: 40px;
+  }
+  svg#clouds{
+    bottom: 40px;
+  }
+  svg#clouds2{
+    bottom: 40px;
+  }
+}
+
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px 0;
+}
+
+a:link {
+  color: #6666ff;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:visited {
+  color: #5555ff;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0;
+}
+
+.spacer {
+  flex: 1;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
