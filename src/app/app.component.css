@@ -28,12 +28,12 @@
 }
   
 .header-title:hover {
-  text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
-  transform: translateY(-0.3px);
+  text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 2.5px 2.5px 1px #919191;
+  transform: translateY(-0.35px);
 }
   
  .header-title:active {
-  text-shadow: 1px 1px 1px #919191;
+  text-shadow: 1px 1px 1px #919191, 1.5px 1.5px 1px #919191;
   transform: translateY(0);
   transition: transform 0.1s ease;
   transform: translateY(-0.1px);
@@ -110,7 +110,7 @@ svg#rocket-smoke {
   z-index: -9;
 }
 
-@media only screen and (min-height: 1500px) {
+@media only screen and (min-height: 1350px) {
   .header-title {
     text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191, 4px 4px 1px #919191;
     transition: transform 0.25s ease, text-shadow 0.25s ease;
