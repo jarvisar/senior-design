@@ -37,6 +37,7 @@ export class ExodetailComponent implements OnInit {
   public href;
   public habitable: string | null = null;
   public pl_type: string | null = null;
+  public pl_size: string | null = null;
   public iframeSrc;
   public rastr_h: Number;
   public rastr_m: Number;
@@ -63,6 +64,7 @@ export class ExodetailComponent implements OnInit {
     console.log(this.iframeSrc);
     this.determineHabitability();
     this.determinePlanetType();
+    this.determineSize();
   }
 
   nasaEyes(){
@@ -142,7 +144,6 @@ export class ExodetailComponent implements OnInit {
   }
 
   determinePlanetType() {
-    console.log(this.exoplanet.pl_bmasse);
     if (this.exoplanet.pl_bmasse == null) {
       return;
     }
@@ -152,6 +153,25 @@ export class ExodetailComponent implements OnInit {
     );
     if (planetType) {
       this.pl_type = planetType.type;
+    }
+  }
+
+  determineSize(){
+    if(this.exoplanet.pl_rade == null){
+      return;
+    }
+    if(this.exoplanet.pl_rade < 0.27){
+      this.pl_size = "smaller than the moon";
+    } else if(this.exoplanet.pl_rade < 1 && this.exoplanet.pl_rade >= 0.27){
+      this.pl_size = "smaller than Earth";
+    } else if(this.exoplanet.pl_rade == 1){
+      this.pl_size = "same size as Earth!";
+    } else if(this.exoplanet.pl_rade > 1 && this.exoplanet.pl_rade < 6){
+      this.pl_size = "larger than Earth";
+    } else if(this.exoplanet.pl_rade < 11.3 && this.exoplanet.pl_rade >= 6){
+      this.pl_size = "smaller than Jupiter";
+    } else if(this.exoplanet.pl_rade > 11.3){
+      this.pl_size = "larger than Jupiter";
     }
   }
 
