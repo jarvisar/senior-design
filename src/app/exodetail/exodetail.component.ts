@@ -52,7 +52,7 @@ export class ExodetailComponent implements OnInit {
     this.iframeSrc = `https://jarvisar.github.io/senior-design/assets/aladin.html?ra=${this.exoplanet.ra}&dec=${this.exoplanet.dec}&name=${this.exoplanet.hostname}&st_spectype=${this.exoplanet.st_spectype}`
     console.log(this.iframeSrc);
     this.determineHabitability();
-    this.determinePlantedType();
+    this.determinePlanetType();
   }
 
   nasaEyes(){
@@ -131,7 +131,7 @@ export class ExodetailComponent implements OnInit {
     }
   }
 
-  determinePlantedType(){
+  determinePlanetType(){
     console.log(this.exoplanet.pl_bmasse);
     if (this.exoplanet.pl_bmasse == null){
       return;
