@@ -100,15 +100,15 @@ mat-card {
 .search-anchor:after{
   content:'';
   position: absolute;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #666;
   top: 100%;
   transition: all 0.3s;
  }
 
 .search-anchor:after {
-  right: 100%;
-  left: 0;
+  right: 50%;
+  left: 50%;
 }
 .search-anchor:hover:after {
-  right: 0;
+  right: 0; left: 0;
 }

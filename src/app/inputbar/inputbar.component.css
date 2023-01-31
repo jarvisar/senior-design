@@ -63,11 +63,11 @@ p{
 }
 
 p:after {
-  right: 100%;
-  left: 0;
+  left: 50%;
+  right: 50%;
 }
 p:hover:after {
-  right: 0;
+  right: 0; left: 0;
 }
 
 .no-results {
