@@ -4,15 +4,14 @@
   font-weight: 400; 
   margin-left: 10px;
   text-shadow: 1px 1px 1px #919191,
-        1px 2px 1px #919191,
-        1px 3px 1px #919191,
-        1px 4px 1px #919191,
-    1px 18px 6px rgba(16,16,16,0.4),
-    1px 22px 10px rgba(16,16,16,0.2),
-    1px 25px 35px rgba(16,16,16,0.2),
-    1px 30px 60px rgba(16,16,16,0.4);
+        2px 2px 1px #919191,
+        3px 3px 1px #919191;
+  transition: text-shadow 0.5s ease;
 }
 
+.header-title:hover{
+  text-shadow: 1px 1px 1px #919191;
+}
 
 .footer{
   position: fixed;
