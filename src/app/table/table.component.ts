@@ -42,8 +42,11 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   ]
 })
 export class TableComponent implements OnInit {
+  // Define table column titles
   tableDef = [{column: 'index', title: 'Index'}, {column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, 
   {column: 'disc_year', title: 'Discovery Year'}, {column: 'pl_dens', title: 'Density (g/cm³)'}, {column: 'pl_rade', title: 'Radius'}, {column: 'pl_bmasse', title: 'Mass'}, {column: 'disc_facility', title: 'Discovery Facility'}];
+
+  // Define which
   displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_dens', 'pl_rade', 'pl_bmasse', 'disc_facility'];
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -57,7 +60,6 @@ export class TableComponent implements OnInit {
 
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
-  pageEvent: PageEvent;
 
   setTableDataSource(data: Exoplanet[]) {
       this.dataSource = new MatTableDataSource<Exoplanet>(data);

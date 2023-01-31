@@ -159,6 +159,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearSelect() {
+    // Reset all four inputs
     this.selectedHost = '';
     this.selectedMethod = 0;
     this.selectedYear = 0;
@@ -190,8 +191,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   doNothing(){}
 
   private searchCalled = false;
+  // Load query parameters
   async ngAfterViewInit (){
-    // Load query parameters
     this.route.queryParams.pipe(skip(1)).subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
@@ -206,8 +207,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
         }
-        // Only search if first search
-        // Prevents duplicate searches after setting query parameters in searchclick()
+        // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
           this.searchCalled = true;
           this.searchclick();
@@ -216,8 +216,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     });
   }
   
-  // Load option data for other 3 select boxes
   async ngOnInit() {
+      // Load option data for 3 select boxes
     const methodPromise = this.selectService.getMethodData();
     const yearPromise = this.selectService.getYearData();
     const facilityPromise = this.selectService.getFacilityData();
