@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, NgModule } from '@angular/core';
+import { Component, AfterViewInit, NgModule, ViewChild } from '@angular/core';
 import { DataService } from './data.service';
 import { InputbarComponent } from './inputbar/inputbar.component';
 import { LoadingService } from './loading.service';
@@ -26,10 +26,11 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
 })
 export class AppComponent implements AfterViewInit  {
   title = 'senior-design';
+  @ViewChild(InputbarComponent, { static: false }) inputbar: InputbarComponent;
   public konamiCode;
   public currentInput;
 
-  constructor(private data: DataService, public inputbar: InputbarComponent, public loadingService: LoadingService, private renderer: Renderer2, private router: Router, private secret: SecretComponent){
+  constructor(private data: DataService, public loadingService: LoadingService, private renderer: Renderer2, private router: Router, private secret: SecretComponent){
     this.konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     this.currentInput = []
   }
@@ -39,6 +40,10 @@ export class AppComponent implements AfterViewInit  {
     this.renderer.setStyle(loader, 'display', 'none');
     let toolbar = <HTMLElement>document.querySelector('.toolbar');
     toolbar.style.display = 'flex';
+  }
+
+  clearclick(event: Event) {
+    this.inputbar.clearclick(event);
   }
 
   //Listen for Konami Code

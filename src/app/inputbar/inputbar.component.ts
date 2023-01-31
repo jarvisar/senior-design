@@ -168,15 +168,13 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearclick(event: Event) {
-    setTimeout(() => {
-      this.showTable = false;
-      this.clearSelect();
-      this.exoplanetData = [];
-      this.firstSearch = true;
-      this.showNewSearch = false;
-      this.cd.detectChanges();
-      this.router.navigate([], {queryParams: {}});
-    });
+    this.showTable = false;
+    this.clearSelect();
+    this.exoplanetData = [];
+    this.firstSearch = true;
+    this.showNewSearch = false;
+    // Clear query parameters
+    this.router.navigate([], {queryParams: {}});
   }
 
   // Only load hostnames if user clicks on select box
@@ -185,9 +183,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.loading = true;
     this.hostData = await this.selectService.getHostData();
     this.selected = true;
-    setTimeout(() => {
-      this.cd.detectChanges();
-    });
     this.loading = false;
   }
 
