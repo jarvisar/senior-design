@@ -36,6 +36,7 @@
   text-shadow: 1px 1px 1px #919191;
   transform: translateY(0);
   transition: transform 0.1s ease;
+  transform: translateY(-0.1px);
 }
 
 .content {
