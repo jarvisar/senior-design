@@ -6,6 +6,7 @@
   text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
   transform: translateY(-0.4px);
+  cursor: pointer;
   }
   
   .header-title:hover {
@@ -16,7 +17,7 @@
   .header-title:active {
   text-shadow: 1px 1px 1px #919191;
   transform: translateY(0);
-  transition: all 0.1s ease;
+  transition: transform 0.1s ease;
   }
 
 .footer{

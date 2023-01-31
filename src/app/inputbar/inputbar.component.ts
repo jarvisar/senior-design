@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
 import { HelpboxComponent } from '../helpbox/helpbox.component';
@@ -39,6 +39,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
   selector: 'app-inputbar',
   templateUrl: './inputbar.component.html',
   styleUrls: ['./inputbar.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default,
   animations: [
     fadeInOut('fadeinandout', 0.1),
     trigger('detailExpand', [
@@ -167,13 +168,15 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearclick(event: Event) {
-    this.showTable = false;
-    this.clearSelect();
-    this.exoplanetData = [];
-    this.firstSearch = true;
-    this.showNewSearch = false;
-    // Clear query parameters
-    this.router.navigate([], {queryParams: {}});
+    setTimeout(() => {
+      this.showTable = false;
+      this.clearSelect();
+      this.exoplanetData = [];
+      this.firstSearch = true;
+      this.showNewSearch = false;
+      this.cd.detectChanges();
+      this.router.navigate([], {queryParams: {}});
+    });
   }
 
   // Only load hostnames if user clicks on select box
