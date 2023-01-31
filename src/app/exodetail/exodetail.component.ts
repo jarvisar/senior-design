@@ -13,12 +13,12 @@ const HabitabilityThresholds = {
 
 const planetTypes = [
   { min: 0, max: 0.00001, type: "Asteroidan" },
-  { min: 0.00001, max: 0.1, type: "Mercury-sized" },
+  { min: 0.00001, max: 0.1, type: "Mercurial" },
   { min: 0.1, max: 0.5, type: "Subterran" },
   { min: 0.5, max: 2, type: "Terran" },
   { min: 2, max: 10, type: "Superterran" },
-  { min: 10, max: 50, type: "Neptunian" },
-  { min: 50, max: 5000, type: "Jovian" }
+  { min: 10, max: 50, type: "Neptunian Gas Giant" },
+  { min: 50, max: 5000, type: "Jovian Gas Giant" }
 ];
 
 @Component({
