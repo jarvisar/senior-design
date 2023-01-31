@@ -2,7 +2,7 @@
 <div class="card-container">
 
   <!-- Discovery Facility Card -->
-  <mat-card class="mat-card" appMaterialElevation>
+  <mat-card class="mat-card" appMaterialElevation style="min-height: 100px;">
     <div class="mat-body-2" style="margin-bottom: 10px">{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
     <div style="display: flex; align-items: center; justify-content: center;">
       <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
