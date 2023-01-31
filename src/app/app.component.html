@@ -118,22 +118,7 @@
       z-index: -9;
     }
 
-    /* Mobile sizing */
-    @media only screen and (max-width: 1355px) {
-
-      svg#rocket-smoke {
-        position: fixed;
-        top: 120px;
-        left: -60px;
-        overflow: hidden;
-        transform: scale(0.8);
-      }
-
-      .background{
-        overflow: hidden;
-      }
-    }
-
+    /* Default cloud position */
     @media only screen and (min-width: 850px) {
       svg#clouds{
         bottom: 25px;
@@ -143,14 +128,24 @@
       }
     }
 
+    /* Mobile sizing */
     @media only screen and (max-width: 850px) {
+      svg#rocket-smoke {
+        position: fixed;
+        top: 120px;
+        left: -60px;
+        overflow: hidden;
+        transform: scale(0.8);
+      }
+      .background{
+        overflow: hidden;
+      }
       .header-title{
         font-size:14.0pt; 
       }
       .footer{
         height: 40px;
       }
-
       svg#clouds{
         bottom: 40px;
       }
