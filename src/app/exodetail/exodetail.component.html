@@ -2,7 +2,7 @@
 <div class="card-container">
 
   <!-- Discovery Facility Card -->
-  <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+  <mat-card class="mat-card" appMaterialElevation>
     <div class="mat-body-2" style="margin-bottom: 10px">{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor style4" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
     <div style="display: flex; align-items: center; justify-content: center;">
       <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
@@ -11,7 +11,7 @@
   </mat-card>
   
   <!-- Star System, Orbit, and Detection Method Card -->
-  <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+  <mat-card class="mat-card" appMaterialElevation style="min-height: 320px;">
     <!-- Star System Info -->
     <div class="mat-body-2">Host Star System: <a class="search-anchor style4" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
     <p>This system consists of {{exoplanet.sy_snum}} {{exoplanet.st_spectype != null ? exoplanet.st_spectype + " type" : ''}} star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
@@ -19,6 +19,7 @@
     <div class="mat-body-2" *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">Orbit  Information</div>
     <p>{{exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + exoplanet.pl_orbper.toFixed(3) + " days to orbit its host star." : ""}}</p>
     <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "Orbit Eccentricity: " + exoplanet.pl_orbeccen.toFixed(3) : ""}}</p>
+    <p *ngIf="pl_type != null">{{pl_type}}</p>
     <p *ngIf="habitable != null">{{habitable}}</p>
     <!-- Detection Method Info -->
     <div class="mat-body-2">Detection Method: <a class="search-anchor style4" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
@@ -30,7 +31,7 @@
   </mat-card>
 
   <!-- Aladin Sky Visualization Card -->
-  <mat-card class="mat-card mat-card-pointer" appMaterialElevation>
+  <mat-card class="mat-card" appMaterialElevation style="min-height: 320px;">
     <div class="mat-body-2" style="display: inline-block;">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
     <!-- Fullscreen button -->
     <button mat-icon-button appearance="outline" aria-label="Fullscreen" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 5px; top: 5px;" tabindex="6">
@@ -40,7 +41,7 @@
   </mat-card>
 
   <!-- Additional Resources Card -->
-  <mat-card class="resources-card " appMaterialElevation>
+  <mat-card class="resources-card " appMaterialElevation style="min-height: 320px;">
     <div class="mat-body-2">Additional Resources</div>
     <br>
       <div matLine class="resources-container">
