@@ -26,6 +26,7 @@ export class ExodetailComponent implements OnInit {
   public formattedDiscFacility;
   public href;
   public habitable: string | null = null;
+  public pl_type: string | null = null;
   public iframeSrc;
   public rastr_h: Number;
   public rastr_m: Number;
@@ -51,6 +52,7 @@ export class ExodetailComponent implements OnInit {
     this.iframeSrc = `https://jarvisar.github.io/senior-design/assets/aladin.html?ra=${this.exoplanet.ra}&dec=${this.exoplanet.dec}&name=${this.exoplanet.hostname}&st_spectype=${this.exoplanet.st_spectype}`
     console.log(this.iframeSrc);
     this.determineHabitability();
+    this.determinePlantedType();
   }
 
   nasaEyes(){
@@ -126,6 +128,28 @@ export class ExodetailComponent implements OnInit {
       this.habitable = 'Most likely not habitable (too hot)';
     } else {
       this.habitable = 'Potentially habitable!';
+    }
+  }
+
+  determinePlantedType(){
+    console.log(this.exoplanet.pl_bmasse);
+    if (this.exoplanet.pl_bmasse == null){
+      return;
+    }
+    if (this.exoplanet.pl_bmasse < 0.00001){
+      this.pl_type = "Asteroidan"
+    } else if (this.exoplanet.pl_bmasse >= 0.00001 && this.exoplanet.pl_bmasse < 0.1){
+      this.pl_type = "Mercury-sized"
+    } else if (this.exoplanet.pl_bmasse >= 0.1 && this.exoplanet.pl_bmasse < 0.5){
+      this.pl_type = "Subterran"
+    } else if (this.exoplanet.pl_bmasse >= 0.5 && this.exoplanet.pl_bmasse < 2){
+      this.pl_type = "Terran"
+    } else if (this.exoplanet.pl_bmasse >= 2 && this.exoplanet.pl_bmasse < 10){
+      this.pl_type = "Superearth"
+    } else if (this.exoplanet.pl_bmasse >= 10 && this.exoplanet.pl_bmasse < 50){
+      this.pl_type = "Neptunian"
+    } else if (this.exoplanet.pl_bmasse >= 50 && this.exoplanet.pl_bmasse < 5000){
+      this.pl_type = "Jovian"
     }
   }
 
