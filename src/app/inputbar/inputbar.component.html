@@ -5,8 +5,8 @@
   
   <!-- Host Name Input -->
   <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" 
-    [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Names'"
-    [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Names'" >  
+    [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Name'"
+    [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Name'" >  
   <datalist id="hostlist">
     <option *ngFor="let host of hostData">
       {{host}}
