@@ -6,7 +6,7 @@
   <!-- Host Name Input -->
   <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" 
     [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Name'"
-    [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Name'" >  
+    [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Name'">  
   <datalist id="hostlist">
     <option *ngFor="let host of hostData">
       {{host}}
@@ -14,7 +14,7 @@
   </datalist>
 
   <!-- Discovery Method Select -->
-  <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod" tabindex="1">
+  <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod">
     <option *ngFor="let _ of methodData; index as i" [value]="i">
       {{methodData[i]}}
     </option>
@@ -22,7 +22,7 @@
   </select>
 
   <!-- Discovery Year Select -->
-  <select class="year_select" id="year_select"  [(ngModel)]="selectedYear" tabindex="2">
+  <select class="year_select" id="year_select"  [(ngModel)]="selectedYear">
     <option *ngFor="let _ of yearData; index as i" [value]="i">
       {{yearData[i]}}
     </option>
@@ -30,7 +30,7 @@
   </select>
 
   <!-- Discovery Facility Select -->
-  <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility" tabindex="3">
+  <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility">
     <option *ngFor="let _ of facilityData; index as i" [value]="i">
       {{facilityData[i]}}
     </option>
@@ -38,26 +38,26 @@
   </select>
 
   <!-- Search, Clear, & Help Buttons -->
-  <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="loadingService.isLoading$ | async" tabindex="4">Search</button>
+  <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="(loadingService.isLoading$ | async) && previousQueries.length == 0" >Search</button>
 
-  <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)" tabindex="5">Clear</button>
+  <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)">Clear</button>
 
-  <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;" tabindex="6">
+  <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;">
     <mat-icon>help</mat-icon>
   </button>
 
 </div>
 
 <!-- Show share & download button if table is visible -->
-<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="previousSearch($event)" id="previousButton" tabindex="7" [disabled]="loadingService.isLoading$ | async" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
+<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="previousSearch($event)" id="previousButton" [disabled]="loadingService.isLoading$ | async" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
   <mat-icon style="transform: scale(0.9);">restore</mat-icon>
 </button>
 
-<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share()" id="shareButton" tabindex="7" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
+<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share()" id="shareButton" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
   <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
 </button>
 
-<button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" tabindex="8" [@inOutAnimation] title="Download Data">
+<button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0" (click)="download()" id="downloadButton" [@inOutAnimation] title="Download Data">
   <mat-icon>download</mat-icon>
 </button>
 

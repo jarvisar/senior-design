@@ -135,7 +135,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       this.searchCalled = true;
     }
     // Set query parameters if search button is actually clicked
-
     if(event != null){
       this.router.navigate([], {queryParams: {}});
       let queryParams = Object.assign({},
@@ -196,10 +195,13 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   doNothing(){}
 
   previousSearch(event: Event){
+    console.log(this.previousQueries.length);
     let query = this.previousQueries.pop();
     if (query != undefined){
+      
       this.searchclick(event, query);
       this.clearSelect();
+      this.router.navigate([], {queryParams: {}});
     }
   }
 
