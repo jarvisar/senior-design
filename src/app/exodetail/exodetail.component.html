@@ -13,7 +13,7 @@
   <!-- Star System, Orbit, and Detection Method Card -->
   <mat-card class="mat-card" appMaterialElevation >
     <!-- Planet Info -->
-    <div class="mat-body-2" *ngIf="pl_type != null || habitable != null">Planet  Information</div>
+    <div class="mat-body-2" *ngIf="pl_type != null || habitable != null">Planet Information</div>
     <p *ngIf="pl_type != null">Potentially {{pl_type}}{{ pl_size == null ? "" : ", " + pl_size}}</p>
     <p *ngIf="habitable != null">{{habitable}}</p>
     <!-- Host Star System Info -->
