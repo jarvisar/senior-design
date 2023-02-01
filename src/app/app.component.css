@@ -148,7 +148,7 @@ svg#rocket-smoke {
   svg#rocket-smoke {
     position: fixed;
     bottom: -10%;
-    left: 10%;
+    left: -70px;
     overflow: hidden;
     z-index: -9;
     transform: scale(0.9);
