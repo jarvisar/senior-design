@@ -103,6 +103,7 @@ svg#clouds {
 }
 
 svg#rocket-smoke {
+  height: 90%;
   position: fixed;
   bottom: -10%;
   left: 50%;
