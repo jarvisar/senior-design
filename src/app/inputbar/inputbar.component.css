@@ -40,6 +40,14 @@
   margin-left: 15px;
 }
 
+#previousButton {
+  position: fixed;
+  bottom: 205px;
+  right: 30px;
+  z-index: 10;
+  background-color: #fc3d21;
+}
+
 #shareButton {
   position: fixed;
   bottom: 155px;

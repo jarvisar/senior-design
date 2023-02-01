@@ -72,6 +72,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedYearValue!: string;
   public selectedFacilityValue!: string;
   public apiQuery!: string;
+  public previousQueries: string[] = [];
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
@@ -129,11 +130,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.selectedFacilityValue = this.facilityData[index];
   }
 
-  async searchclick(event?: Event) {
+  async searchclick(event?: Event, query?: string) {
     if(this.searchCalled == false){
       this.searchCalled = true;
     }
     // Set query parameters if search button is actually clicked
+
     if(event != null){
       this.router.navigate([], {queryParams: {}});
       let queryParams = Object.assign({},
@@ -145,7 +147,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       this.router.navigate([], { queryParams });
     }
     //if all four select boxes are set to , buildQuery() returns true
-    let emptySearch: boolean = this.buildQuery();
+    
+    if (query != undefined){
+      this.apiQuery = query;
+    } else{
+      let emptySearch: boolean = this.buildQuery();
+    }
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
     let response = await this.data.getExoPlanetData(this.apiQuery);
@@ -187,6 +194,14 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   doNothing(){}
+
+  previousSearch(event: Event){
+    let query = this.previousQueries.pop();
+    if (query != undefined){
+      this.searchclick(event, query);
+      this.clearSelect();
+    }
+  }
 
   private searchCalled = false;
   // Load query parameters
@@ -231,6 +246,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   public buildQuery(){
+    if(this.apiQuery != '' && this.apiQuery != undefined){
+      console.log('works!');
+      this.previousQueries.push(this.apiQuery);
+    }
     let firstConditional: boolean = true;
     this.apiQuery = '';
     // First check if select box has valid value then check if any other conditional has been applied 

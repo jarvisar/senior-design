@@ -49,6 +49,10 @@
 </div>
 
 <!-- Show share & download button if table is visible -->
+<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="previousSearch($event)" id="previousButton" tabindex="7" [disabled]="loadingService.isLoading$ | async" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
+  <mat-icon style="transform: scale(0.9);">restore</mat-icon>
+</button>
+
 <button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="share()" id="shareButton" tabindex="7" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
   <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
 </button>
