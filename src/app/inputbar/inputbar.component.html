@@ -49,7 +49,7 @@
 </div>
 
 <!-- Show share & download button if table is visible -->
-<button mat-mini-fab *ngIf="exoplanetData.length > 0" (click)="previousSearch($event)" id="previousButton" [disabled]="loadingService.isLoading$ | async" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
+<button mat-mini-fab *ngIf="showTable" (click)="previousSearch($event)" id="previousButton" [disabled]="(loadingService.isLoading$ | async) || previousQueries[0] == undefined" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
   <mat-icon style="transform: scale(0.9);">restore</mat-icon>
 </button>
 
