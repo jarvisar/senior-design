@@ -80,6 +80,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedMinRadius;
   public selectedMinDensity
   public selectedMaxDensity;
+  public selectedStarType;
   public showControversial: boolean = false;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
@@ -235,35 +236,37 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['hostname'] != undefined){
           this.selectedHost = params['hostname'];
         }
-        if (params['discoverymethod'] != undefined){
+        else if (params['discoverymethod'] != undefined){
           this.selectedMethodValue = params['discoverymethod'];
         }
-        if (params['disc_year'] != undefined){
+        else if (params['disc_year'] != undefined){
           this.selectedYearValue = params['disc_year'];
         }
-        if (params['disc_facility'] != undefined){
+        else if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
         }
-        if (params['pl_bmasse_min'] != undefined){
+        else if (params['pl_bmasse_min'] != undefined){
           this.selectedMinMass = params['pl_bmasse_min'];
         }
-        if (params['pl_bmasse_max'] != undefined){
+        else if (params['pl_bmasse_max'] != undefined){
           this.selectedMaxMass = params['pl_bmasse_max'];
         }
-        if (params['pl_rade_min'] != undefined){
+        else if (params['pl_rade_min'] != undefined){
           this.selectedMinRadius = params['pl_rade_min'];
         }
-        if (params['pl_rade_max'] != undefined){
+        else if (params['pl_rade_max'] != undefined){
           this.selectedMaxRadius = params['pl_rade_max'];
         }
-        if (params['pl_dens_min'] != undefined){
+        else if (params['pl_dens_min'] != undefined){
           this.selectedMinDensity = params['pl_dens_min'];
         }
-        if (params['pl_dens_max'] != undefined){
+        else if (params['pl_dens_max'] != undefined){
           this.selectedMaxDensity = params['pl_dens_max'];
         }
-        if (params['pl_controv_flag'] == 1){
+        else if (params['pl_controv_flag'] == 1){
           this.showControversial = true;
+        } else{
+          return;
         }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
