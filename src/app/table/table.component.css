@@ -13,6 +13,11 @@
     background-color: white;
 }
 
+.table-container::-webkit-scrollbar { 
+    display: none;
+}
+
+/* Bottom blue border */
 .border{
     border-bottom: 20px solid #0c3e92;
     position: sticky;
@@ -21,6 +26,7 @@
     z-index: 1;
 }
 
+/* Paginator styling */
 mat-paginator {
     position: sticky;
     bottom: 0;
@@ -43,15 +49,11 @@ mat-paginator .mat-select-value-text {
     color: white;
 }
 
-.table-container::-webkit-scrollbar { 
-    display: none;
-}
-
 .mat-option.mat-selected{
     color: white;
 }
 
-/* If on mobile, make table 1330px */
+/* If on smaller screen, make table 1350px */
 @media only screen and (max-width: 1375px) {
     .table-container {
         width: 1350px;
@@ -61,7 +63,6 @@ mat-paginator .mat-select-value-text {
 
 .test-table th:first-child {
     width: 60px;
-
 }
 
 /* Testing row borders
@@ -97,6 +98,7 @@ td.mat-cell {
     background-color: #eaeaea;
 }
   
+/* Expanded row */
 .exoplanet-detail {
   overflow: hidden;
   display: flex;
