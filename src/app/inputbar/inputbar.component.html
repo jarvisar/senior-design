@@ -45,18 +45,17 @@
   <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;">
     <mat-icon>help</mat-icon>
   </button>
-  <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs"></mat-checkbox>
+  <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs" [matTooltip]="'Show Additional Columns'"></mat-checkbox>
   <br>
+  <!-- Additional Inputs -->
   <div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
     <input class="pl_bmasse-min-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Mass'" [placeholder]="'Min. Mass (EM)'">
     <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Mass'" [placeholder]="'Max. Mass (EM)'">
     <input class="pl_rade-min-input" [(ngModel)]="selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Radius (ER)'" [placeholder]="'Min. Radius (ER)'">
     <input class="pl_rade-max-input" [(ngModel)]="selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Radius (ER)'" [placeholder]="'Max. Radius (ER)'">
-    
     <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="showControversial">Controversial</mat-checkbox>
   </div>
 </div>
-
 
 <!-- Show share & download button if table is visible -->
 <button mat-mini-fab *ngIf="showTable && !(loadingService.isLoading$ | async)" (click)="previousSearch($event)" id="previousButton" [disabled]="previousQueries[0] == undefined" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
