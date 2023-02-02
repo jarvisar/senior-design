@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DownloadService {
-
   // Download search results as CSV file
   downloadFile(data, filename='data') {
     // List which columns to export
@@ -26,7 +25,7 @@ export class DownloadService {
     document.body.removeChild(dwldLink);
   }
 
-  // Converts JSON to CSV
+  // Converts to CSV
   ConvertToCSV(objArray, headerList) {
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
