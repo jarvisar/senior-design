@@ -13,6 +13,8 @@
 @media only screen and (max-width: 1355px) {
   .inputbar{
     padding-right: 15px;
+    width: 1350px;
+    overflow: hidden;
   }
 }
 

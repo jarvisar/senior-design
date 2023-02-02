@@ -55,7 +55,7 @@ mat-paginator .mat-select-value-text {
 /* If on mobile, make table 1330px */
 @media only screen and (max-width: 1355px) {
     .table-container {
-        width: 1330px;
+        width: 1345px;
     }
 }
 
