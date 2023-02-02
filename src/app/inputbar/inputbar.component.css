@@ -157,7 +157,7 @@ p:hover:after {
   opacity: 1; /* Firefox */
 }
 
-::placeholder{
+#additional-input::placeholder{
   white-space:pre-line; 
   font-size: 11.5pt;
   transform: translateY(-25%);

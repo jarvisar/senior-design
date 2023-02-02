@@ -190,6 +190,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.selectedMaxMass = undefined;
     this.selectedMinRadius = undefined;
     this.selectedMaxRadius = undefined;
+    this.selectedMinDensity = undefined;
+    this.selectedMaxDensity = undefined;
     this.showControversial = false;
   }
 
