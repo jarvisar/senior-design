@@ -48,9 +48,11 @@
   <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs"></mat-checkbox>
 </div>
 <br>
-<div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation]>
-  <input class="pl_bmasse-min-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Mass'" [placeholder]="'Min. Mass'">
-  <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Mass'" [placeholder]="'Max. Mass'">
+<div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
+  <input class="pl_bmasse-min-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Mass'" [placeholder]="'Min. Mass (EM)'">
+  <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Mass'" [placeholder]="'Max. Mass (EM)'">
+  <input class="pl_rade-min-input" [(ngModel)]="selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Radius (ER)'" [placeholder]="'Min. Radius (ER)'">
+  <input class="pl_rade-max-input" [(ngModel)]="selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Radius (ER)'" [placeholder]="'Max. Radius (ER)'">
 </div>
 
 <!-- Show share & download button if table is visible -->

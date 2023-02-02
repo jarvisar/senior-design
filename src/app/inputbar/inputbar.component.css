@@ -52,7 +52,7 @@
   display: inline-block;
 } 
 
-.pl_bmasse-min-input, .pl_bmasse-max-input{
+.pl_bmasse-min-input, .pl_bmasse-max-input, .pl_rade-min-input, .pl_rade-max-input{
   width: 100px;
   height:40px;
   font-size:16px;
