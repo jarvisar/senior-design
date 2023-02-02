@@ -53,12 +53,14 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
   selected$: Observable<boolean>;
 
-  showNewSearch = false;
+  
 
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
   public showTable: boolean = false;
-  public firstSearch : boolean = true;
+  public firstSearch: boolean = true;
+  public showNewSearch: boolean = false;
+  public additionalInputs: boolean = false;
   
   // Initialize data to prevent undefined errors
   hostData: any[] = [];
@@ -73,6 +75,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedFacilityValue!: string;
   public apiQuery!: string;
   public previousQueries: string[] = [];
+
+  public selectedMinMass;
+  public selectedMaxMass;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
@@ -259,6 +264,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedMethodValue != "Discovery Method" && this.selectedMethodValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" && this.selectedYearValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedFacilityValue != "Discovery Facility" && this.selectedFacilityValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedMinMass != "" && this.selectedMinMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+>+\''  + this.selectedMinMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+>+\''  + this.selectedMinMass + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedMaxMass != "" && this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
     // Returns true if input is empty
     return firstConditional;
   }

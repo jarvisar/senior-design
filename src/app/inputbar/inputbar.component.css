@@ -2,7 +2,13 @@
   white-space: nowrap;
   overflow-x: auto;
   display: inline-block;
+  width: 100%;
+
 } 
+
+.inputbar::-webkit-scrollbar { 
+  display: none;
+}
 
 @media only screen and (max-width: 1355px) {
   .inputbar{
@@ -40,6 +46,24 @@
   margin-left: 15px;
 }
 
+.additional-inputs {
+  white-space: nowrap;
+  overflow-x: auto;
+  display: inline-block;
+} 
+
+.pl_bmasse-min-input, .pl_bmasse-max-input{
+  width: 100px;
+  height:40px;
+  font-size:16px;
+  text-align:left;
+  padding-left: 10px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 450;
+  margin-left: 15px;
+  transform: all 0.5 ease;
+}
+
 #previousButton {
   position: fixed;
   bottom: 205px;
@@ -63,8 +87,8 @@
 }
 
 .table{
-  height: 100%;
   width: 100%;
+  transition: all 0.3 ease;
 }
 
 .table::-webkit-scrollbar { 

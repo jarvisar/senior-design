@@ -45,7 +45,12 @@
   <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;">
     <mat-icon>help</mat-icon>
   </button>
-
+  <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs"></mat-checkbox>
+</div>
+<br>
+<div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation]>
+  <input class="pl_bmasse-min-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Mass'" [placeholder]="'Min. Mass'">
+  <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Mass'" [placeholder]="'Max. Mass'">
 </div>
 
 <!-- Show share & download button if table is visible -->
@@ -62,7 +67,7 @@
 </button>
 
 <!-- Data Table -->
-<div  class="table" *ngIf="showTable" @inOutAnimation >
+<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 50px)' : '100%', 'transition': 'all 0.3 ease'}">
   <!-- Table Component -->
   <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
   <!-- No Results Text -->

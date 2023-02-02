@@ -34,6 +34,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { SafePipe } from './safe.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { environment } from '../environments/environment';
     MatPaginatorModule,
     CdkTableModule,
     ScrollingModule,
+    MatCheckboxModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'
