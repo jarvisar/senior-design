@@ -59,7 +59,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public firstSearch: boolean = true;
   public showNewSearch: boolean = false;
   public additionalInputs: boolean = false;
-  public loadingAmount = undefined;
+  public error;
   
   // Initialize data to prevent undefined errors
   hostData: any[] = [];
@@ -178,12 +178,18 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
     // Call data service
-    let response = await this.data.getExoPlanetData(this.apiQuery);
-    response.forEach((e: Exoplanet) => {
-      //Add each exoplanet to array
-      newArray.push(e)
-    });
-    this.exoplanetData = newArray;
+    try{
+      let response = await this.data.getExoPlanetData(this.apiQuery);
+      response.forEach((e: Exoplanet) => {
+        //Add each exoplanet to array
+        newArray.push(e)
+      });
+      this.exoplanetData = newArray;
+    } catch (err: any) {
+      // Display error message if needed
+      console.log("Error loading data");
+      this.error = true;
+    }
     console.log(this.exoplanetData);
     this.numResults = this.exoplanetData.length;
     this.showTable = true;
