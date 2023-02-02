@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Exoplanet } from './exoplanet/exoplanet'
 
+//Set target URL for CORS proxy
 const headerDict = {
   'Target-URL': 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync',
 }
@@ -21,6 +21,7 @@ const cacheOptions = {
 export class DataService {
   // Use the CORS proxy to set CORS headers
   hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=';
+  // Columns to pull from database
   columns = 'pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens';
   defaultQuery = 'select+' + this.columns + '+from+pscomppars'
 
@@ -28,7 +29,7 @@ export class DataService {
   private FACILITY_DATA_CACHE_KEY = 'facilityDataCache';
   private METHOD_DATA_CACHE_KEY = 'methodDataCache';
   private YEAR_DATA_CACHE_KEY = 'yearDataCache';
-  private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days
+  private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
   constructor(private http: HttpClient) {}
 
