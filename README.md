@@ -23,12 +23,21 @@ Once a query has been entered, click the search button to retrieve data from NAS
       
  ### Understanding the Input
  
- When searching, the input options allow for specific information to be entered. Here's what each option represents:
+When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
  * Host name refers to the name of the star the exoplanet orbits
  * Discovery method refers to how the exoplanet was first discovered
  * Discovery year refers to the year the exoplanet was first found
  * Discovery facility refers to the facility or observatory that first discovered the exoplanet
+ 
+Selecting the checkbox next to the help button will display additional inputs:
+  
+  * Min Mass and Max Mass refer to the minimum and maximum allowed planet mass in units of Earth's mass (EM)
+  * Min Radius and Max Radius refer to the minimum and maximum allowed planet radius in units of Earth's Radius (ER)
+  * Min Density and Max Density refer to the minimum and maximum allowed planet density in g/cm<sup>3</sup>
+  * Star Type refers to the stellar classification of the host star
+  * # of Stars and # of Planets refers to the number of stars and planets in the host system respectively
+  * Selecting the controversial checkbox will filter controversial exoplanets
 
 ### Receiving Results
 
