@@ -92,11 +92,7 @@
   transform: all 0.5 ease;
 }
 
-.pl_rade-min-input, .pl_dens-min-input{
-  margin-left: 25px;
-}
-
-.star-type-select, .planet-num-select, .star-num-select{
+.star-type-select, .star-num-select, .planet-num-select{
   width: 100px;
   height:40px;
   font-size:16px;
@@ -104,8 +100,16 @@
   padding-left: 5px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 450;
-  margin-left: 25px;
+  margin-left: 10px;
   transform: all 0.5 ease;
+}
+
+.planet-num-select{
+  width: 115px;
+}
+
+.pl_rade-min-input, .pl_dens-min-input, .star-type-select{
+  margin-left: 25px;
 }
 
 .controversial-checkbox{
