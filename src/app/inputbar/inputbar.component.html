@@ -64,6 +64,26 @@
       <option [value]="'M'">M</option>
       <label>Star Type Select</label>
     </select>
+    <select class="star-num-select" id="star-num-select"  [(ngModel)]="selectedStarNum">
+      <option [value]="'# of Stars in System'"># of Stars in System</option>
+      <option [value]="'1'">1</option>
+      <option [value]="'2'">2</option>
+      <option [value]="'3'">3</option>
+      <option [value]="'4'">4</option>
+      <label># of Stars Select</label>
+    </select>
+    <select class="planet-num-select" id="planet-num-select"  [(ngModel)]="selectedPlanetNum">
+      <option [value]="'# of Planets in System'"># of Planets in System</option>
+      <option [value]="'1'">1</option>
+      <option [value]="'2'">2</option>
+      <option [value]="'3'">3</option>
+      <option [value]="'4'">4</option>
+      <option [value]="'5'">5</option>
+      <option [value]="'6'">6</option>
+      <option [value]="'7'">7</option>
+      <option [value]="'8'">8</option>
+      <label># of Planets Select</label>
+    </select>
     <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="showControversial">Controversial</mat-checkbox>
   </div>
 </div>

@@ -81,6 +81,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedMinDensity
   public selectedMaxDensity;
   public selectedStarType;
+  public selectedPlanetNum;
+  public selectedStarNum;
   public showControversial: boolean = false;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
@@ -158,6 +160,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.selectedMinDensity != undefined || this.selectedMinDensity != "" ? { pl_dens_min: this.selectedMinDensity } : {},
         this.selectedMaxDensity != undefined || this.selectedMaxDensity != "" ? { pl_dens_max: this.selectedMaxDensity } : {},
         this.selectedStarType != undefined && this.selectedStarType != "Star Type" ? { star_type: this.selectedStarType } : {},
+        this.selectedPlanetNum != undefined && this.selectedPlanetNum != "# of Planets in System" ? { sy_pnum: this.selectedPlanetNum } : {},
+        this.selectedStarNum != undefined && this.selectedStarNum != "# of Stars in System" ? { sy_snum: this.selectedStarNum } : {},
         this.showControversial == true ? { pl_controv_flag: 1 } : {}
       );
       this.router.navigate([], { queryParams });
@@ -195,6 +199,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.selectedMinDensity = undefined;
     this.selectedMaxDensity = undefined;
     this.selectedStarType = 'Star Type';
+    this.selectedStarNum = '# of Stars in System';
+    this.selectedPlanetNum = '# of Planets in System';
     this.showControversial = false;
   }
 
@@ -271,6 +277,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['pl_controv_flag'] != undefined){
           this.showControversial = true;
         }
+        if (params['sy_pnum'] != undefined){
+          this.selectedPlanetNum = params['sy_pnum'];
+        }
+        if (params['sy_snum'] != undefined){
+          this.selectedStarNum = params['sy_snum'];
+        }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
           this.searchCalled = true;
@@ -318,6 +330,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedMaxDensity != "" && this.selectedMaxDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+<+\''  + this.selectedMaxDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+<+\''  + this.selectedMaxDensity + '\'') : this.apiQuery = this.apiQuery);
     (this.showControversial == true ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
     (this.selectedStarType != "Star Type" && this.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedPlanetNum != "# of Planets in System" && this.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedStarNum != "# of Stars in System" && this.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
     
     // Returns true if input is empty
     return firstConditional;
