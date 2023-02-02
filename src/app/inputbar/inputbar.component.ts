@@ -193,6 +193,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.selectedMaxRadius = undefined;
     this.selectedMinDensity = undefined;
     this.selectedMaxDensity = undefined;
+    this.selectedStarType = 'Star Type';
     this.showControversial = false;
   }
 
@@ -236,37 +237,35 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['hostname'] != undefined){
           this.selectedHost = params['hostname'];
         }
-        else if (params['discoverymethod'] != undefined){
+        if (params['discoverymethod'] != undefined){
           this.selectedMethodValue = params['discoverymethod'];
-        }
-        else if (params['disc_year'] != undefined){
+        } 
+        if (params['disc_year'] != undefined){
           this.selectedYearValue = params['disc_year'];
-        }
-        else if (params['disc_facility'] != undefined){
+        } 
+        if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
-        }
-        else if (params['pl_bmasse_min'] != undefined){
+        } 
+        if (params['pl_bmasse_min'] != undefined){
           this.selectedMinMass = params['pl_bmasse_min'];
-        }
-        else if (params['pl_bmasse_max'] != undefined){
+        } 
+        if (params['pl_bmasse_max'] != undefined){
           this.selectedMaxMass = params['pl_bmasse_max'];
-        }
-        else if (params['pl_rade_min'] != undefined){
+        } 
+        if (params['pl_rade_min'] != undefined){
           this.selectedMinRadius = params['pl_rade_min'];
-        }
-        else if (params['pl_rade_max'] != undefined){
+        } 
+        if (params['pl_rade_max'] != undefined){
           this.selectedMaxRadius = params['pl_rade_max'];
-        }
-        else if (params['pl_dens_min'] != undefined){
+        } 
+        if (params['pl_dens_min'] != undefined){
           this.selectedMinDensity = params['pl_dens_min'];
-        }
-        else if (params['pl_dens_max'] != undefined){
+        } 
+        if (params['pl_dens_max'] != undefined){
           this.selectedMaxDensity = params['pl_dens_max'];
-        }
-        else if (params['pl_controv_flag'] == 1){
+        } 
+        if (params['pl_controv_flag'] != undefined){
           this.showControversial = true;
-        } else{
-          return;
         }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
@@ -312,7 +311,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedMaxRadius != "" && this.selectedMaxRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+<+\''  + this.selectedMaxRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+<+\''  + this.selectedMaxRadius + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMinDensity != "" && this.selectedMinDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+>+\''  + this.selectedMinDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+>+\''  + this.selectedMinDensity + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMaxDensity != "" && this.selectedMaxDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+<+\''  + this.selectedMaxDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+<+\''  + this.selectedMaxDensity + '\'') : this.apiQuery = this.apiQuery);
-    (this.showControversial != false ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+where+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
+    (this.showControversial == true ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
+    (this.selectedStarType != "Star Type" && this.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
     
     // Returns true if input is empty
     return firstConditional;
