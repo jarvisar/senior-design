@@ -68,7 +68,7 @@ Exoplanets, or [extrasolar planets](https://exoplanets.nasa.gov/what-is-an-exopl
 
 The list of planets is routinely updated bi-weekly, but may be updated more frequently depending on new significant exoplanet discoveries.
 
-#### Why are there no results show up after searching?
+#### Why are there no results after searching?
 
 Either no exoplanets match the given input or data was not returned properly. Try searching again or changing the input.
 
