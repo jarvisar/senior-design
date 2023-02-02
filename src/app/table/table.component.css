@@ -65,6 +65,13 @@ mat-paginator .mat-select-value-text {
 
 }
 
+/* Testing row borders
+td.mat-cell {
+    border-left: 1px solid #eaeaea;
+    border-bottom: 2px solid #eaeaea;
+    padding-left: 7px;
+} */
+
 .test-table {
     width: 100%;
     height: calc(100% - 112px);
