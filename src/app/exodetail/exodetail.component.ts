@@ -113,8 +113,14 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.searchclick(event);
   }
 
+  async searchStarType(event: Event){
+    this.inputbar.clearSelect();
+    this.inputbar.selectedStarType = this.exoplanet.st_spectype[0];
+    this.inputbar.searchclick(event);
+  }
+
   // Set select elements based on search
-  setValues(host = 0, method = 0, year = 0, facility = 0){
+  setValues(host = 0, method = 0, year = 0, facility = 0, startype= 0, sy_snum = 0, sy_pnum = 0){
     if (host == 0){
       this.inputbar.selectedHost = '';
     }
@@ -122,6 +128,15 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.selectedYear = year;
     this.inputbar.selectedFacility = facility;
     this.inputbar.firstSearch = true;
+    if (startype == 0){
+      this.inputbar.selectedStarType = undefined;
+    }
+    if (sy_snum == 0){
+      this.inputbar.selectedStarNum = '';
+    }
+    if (sy_pnum == 0){
+      this.inputbar.selectedPlanetNum = undefined;
+    }
   }
   
   determineHabitability() {
