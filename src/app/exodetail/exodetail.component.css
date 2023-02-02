@@ -46,12 +46,11 @@ iframe {
   right: 10px;
 }
 
+/* Additional Resources Buttons + Controversial Flag */
 .resources-card{
   width: 165px;
 }
 
-
-/* Additional Resources Buttons + Controversial Flag */
 .button{
   height: 40px;
   width: 100%;
@@ -92,23 +91,24 @@ iframe {
   flex-wrap: nowrap;
 }
 
+/* underlining search anchors */
 a:hover {
   cursor: pointer;
 }
 
-/* underlining anchors */
 .search-anchor{
   position: relative;
   display: inline-block;
   font-weight: 600;
 }
+
 .search-anchor:after{
   content:'';
   position: absolute;
   border-bottom: 2px solid #555;
   top: 90%;
   transition: all 0.3s;
- }
+}
 
 .search-anchor:after {
   right: 50%;
