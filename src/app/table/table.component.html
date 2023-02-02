@@ -25,6 +25,7 @@
         <ng-container >
             <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
             class="exoplanet-row"
+            matTooltip="Click to Expand" matTooltipShowDelay="5000"
             [ngClass]="{'exoplanet-expanded-row': exoplanet.expanded }"
             [class.exoplanet-expanded-row]="expandedExoplanet === exoplanet"
             (click)="expandedExoplanet = expandedExoplanet === exoplanet ? null : exoplanet">
