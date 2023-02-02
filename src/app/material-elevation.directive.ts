@@ -18,6 +18,8 @@ export class MaterialElevationDirective implements OnChanges {
     this.setElevation(this.defaultElevation);
   }
 
+  // Elevate mat-cards on mouseover
+
   ngOnChanges(_changes: SimpleChanges) {
     this.setElevation(this.defaultElevation);
   }
