@@ -157,6 +157,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.selectedMaxRadius != undefined || this.selectedMaxRadius != "" ? { pl_rade_max: this.selectedMaxRadius } : {},
         this.selectedMinDensity != undefined || this.selectedMinDensity != "" ? { pl_dens_min: this.selectedMinDensity } : {},
         this.selectedMaxDensity != undefined || this.selectedMaxDensity != "" ? { pl_dens_max: this.selectedMaxDensity } : {},
+        this.selectedStarType != undefined || this.selectedMaxDensity != "Star Type" ? { star_type: this.selectedMaxDensity } : {},
         this.showControversial == true ? { pl_controv_flag: 1 } : {}
       );
       this.router.navigate([], { queryParams });
@@ -263,7 +264,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         } 
         if (params['pl_dens_max'] != undefined){
           this.selectedMaxDensity = params['pl_dens_max'];
-        } 
+        }
+        if (params['star_type'] != undefined){
+          this.selectedStarType = params['star_type'];
+        }  
         if (params['pl_controv_flag'] != undefined){
           this.showControversial = true;
         }
