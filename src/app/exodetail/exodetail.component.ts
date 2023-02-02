@@ -122,6 +122,33 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.searchclick(event);
   }
 
+  async searchPlanetType(event: Event){
+    this.inputbar.clearSelect();
+    if(this.exoplanet.pl_type == "Asteroidan"){
+      this.inputbar.selectedMinMass = 0;
+      this.inputbar.selectedMaxMass = 0.00001;
+    } else if(this.pl_type == "Mercurial"){
+      this.inputbar.selectedMinMass = 0.00001;
+      this.inputbar.selectedMaxMass = 0.1;
+    } else if(this.pl_type == "Subterran"){
+      this.inputbar.selectedMinMass = 0.1;
+      this.inputbar.selectedMaxMass = 0.5;
+    } else if(this.pl_type == "Terran"){
+      this.inputbar.selectedMinMass = 0.5;
+      this.inputbar.selectedMaxMass = 2;
+    } else if(this.pl_type == "Superterran"){
+      this.inputbar.selectedMinMass = 2;
+      this.inputbar.selectedMaxMass = 10;
+    } else if(this.pl_type == "Neptunian Gas Giant"){
+      this.inputbar.selectedMinMass = 10;
+      this.inputbar.selectedMaxMass = 50;
+    } else if(this.pl_type == "Jovian Gas Giant"){
+      this.inputbar.selectedMinMass = 50;
+      this.inputbar.selectedMaxMass = 5000;
+    }
+    this.inputbar.searchclick(event);
+  }
+
   // Set select elements based on search
   setValues(host = 0, method = 0, year = 0, facility = 0){
     if (host == 0){

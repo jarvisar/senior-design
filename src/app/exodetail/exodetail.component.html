@@ -14,7 +14,7 @@
   <mat-card class="mat-card" appMaterialElevation >
     <!-- Planet Info -->
     <div class="section-title" *ngIf="pl_type != null || habitable != null">Planet Information</div>
-    <p *ngIf="pl_type != null">Potentially {{pl_type}}{{ pl_size == null ? "" : ", " + pl_size}}</p>
+    <p *ngIf="pl_type != null">Potentially <a class="search-anchor" (click)="searchPlanetType($event)" title="Search for other exoplanets with same planet type">{{pl_type}}</a>{{ pl_size == null ? "" : ", " + pl_size}}</p>
     <p *ngIf="habitable != null">{{habitable}}</p>
     <!-- Host Star System Info -->
     <div class="section-title">Host Star System: <a class="search-anchor" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
