@@ -1,9 +1,5 @@
-.small-text {
-    position: absolute;
-    bottom: 5px;
-    right: 10px;
-    font-size: 12px;
-    color: gray;
+h2[mat-dialog-title] {
+    text-align: center;
 }
 
 mat-dialog-content {
@@ -18,24 +14,16 @@ mat-dialog-content {
     margin-bottom: 20px;
 }
 
-mat-dialog{
-    background: 
-    radial-gradient(circle at 40% 40%, #eaeaea, #ffffff),
-    repeating-linear-gradient(
-      135deg,
-      #eaeaea,
-      #ffffff 10%,
-      #eaeaea 10%,
-      #ffffff 20%
-    );
-}
-
 mat-card {
     flex-basis: 100%;
     width: 92%;
     min-width: 280px;
 }
-  
-h2[mat-dialog-title] {
-    text-align: center;
+
+.small-text {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 12px;
+    color: gray;
 }
