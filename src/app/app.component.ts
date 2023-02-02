@@ -26,7 +26,9 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
 })
 export class AppComponent implements AfterViewInit  {
   title = 'senior-design';
+
   @ViewChild(InputbarComponent, { static: false }) inputbar: InputbarComponent;
+  
   public konamiCode;
   public currentInput;
 
