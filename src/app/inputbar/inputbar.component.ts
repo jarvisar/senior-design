@@ -59,6 +59,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public firstSearch: boolean = true;
   public showNewSearch: boolean = false;
   public additionalInputs: boolean = false;
+  public loadingAmount = undefined;
   
   // Initialize data to prevent undefined errors
   hostData: any[] = [];
@@ -67,13 +68,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   facilityData: any[] = [];
   selected = false;
   
+  // Main inputs
   public selectedHostValue!: string;
   public selectedMethodValue!: string;
   public selectedYearValue!: string;
   public selectedFacilityValue!: string;
-  public apiQuery!: string;
-  public previousQueries: string[] = [];
-
+  // Additional Inputs
   public selectedMinMass;
   public selectedMaxMass;
   public selectedMaxRadius;
@@ -84,6 +84,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedPlanetNum;
   public selectedStarNum;
   public showControversial: boolean = false;
+
+  public apiQuery!: string;
+  public previousQueries: string[] = [];
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
