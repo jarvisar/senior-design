@@ -89,12 +89,13 @@ export class ExodetailComponent implements OnInit {
   }
 
   async searchHost(event: Event){
-    this.setValues();
+    this.inputbar.clearSelect();
     this.inputbar.selectedHost = this.exoplanet.hostname;
     this.inputbar.searchclick(event);
   }
 
   async searchMethod(event: Event){
+    this.inputbar.clearSelect();
     this.setValues(0,this.inputbar.methodData.findIndex(method => method === this.exoplanet.discoverymethod),0,0);
     console.log(this.exoplanet.discoverymethod);
     this.inputbar.selectedMethodValue = this.exoplanet.discoverymethod;
@@ -102,12 +103,14 @@ export class ExodetailComponent implements OnInit {
   }
 
   async searchYear(event: Event){
+    this.inputbar.clearSelect();
     this.setValues(0,0,this.inputbar.yearData.findIndex(year => year === this.exoplanet.disc_year),0);
     this.inputbar.selectedYearValue = this.exoplanet.disc_year;
     this.inputbar.searchclick(event);
   }
 
   async searchFacility(event: Event){
+    this.inputbar.clearSelect();
     this.setValues(0,0,0,this.inputbar.facilityData.findIndex(facility => facility === this.exoplanet.disc_facility));
     this.inputbar.selectedFacilityValue = this.exoplanet.disc_facility;
     this.inputbar.searchclick(event);
@@ -120,7 +123,7 @@ export class ExodetailComponent implements OnInit {
   }
 
   // Set select elements based on search
-  setValues(host = 0, method = 0, year = 0, facility = 0, startype= 0, sy_snum = 0, sy_pnum = 0){
+  setValues(host = 0, method = 0, year = 0, facility = 0){
     if (host == 0){
       this.inputbar.selectedHost = '';
     }
@@ -128,15 +131,6 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.selectedYear = year;
     this.inputbar.selectedFacility = facility;
     this.inputbar.firstSearch = true;
-    if (startype == 0){
-      this.inputbar.selectedStarType = undefined;
-    }
-    if (sy_snum == 0){
-      this.inputbar.selectedStarNum = '';
-    }
-    if (sy_pnum == 0){
-      this.inputbar.selectedPlanetNum = undefined;
-    }
   }
   
   determineHabitability() {
