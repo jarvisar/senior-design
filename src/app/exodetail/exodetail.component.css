@@ -8,8 +8,56 @@
   width: 100%;
 }
 
-a:hover {
-  cursor: pointer;
+mat-card {
+  margin-bottom: 15px;
+  overflow: hidden; 
+  position: relative;
+  max-height: 95%;
+}
+
+.mat-card {
+  width: calc(30% - 60px);
+  margin: 0 10px;
+}
+
+.section-title{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Disc. Facility Img */
+mat-card img{
+  object-fit: contain;
+  width: 99%; 
+  height: calc(100% - 55px);
+  border: 1px solid white;
+  border-radius: 5%;
+}
+
+/* Aladin iframe */
+iframe {
+  margin-top: 10px;
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 55px);
+  overflow: hidden;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+.resources-card{
+  width: 165px;
+}
+
+
+/* Additional Resources Buttons + Controversial Flag */
+.button{
+  height: 40px;
+  width: 100%;
+  font-size:16px;
+  letter-spacing: 0.1px;
+  color: white;
 }
 
 .overview-button {
@@ -28,37 +76,10 @@ a:hover {
   background-color: #fc3d21;
 }
 
-.button{
-  height: 40px;
-  width: 100%;
-  font-size:16px;
-  letter-spacing: 0.1px;
-  color: white;
-}
-
-/* Aladin iframe */
-iframe {
-  margin-top: 10px;
-  position: absolute;
-  width: calc(100% - 20px);
-  height: calc(100% - 55px);
-  overflow: hidden;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-}
-
-.mat-body-2{
-  font-size: 16px;
-}
-
-.mat-card {
-  width: calc(30% - 60px);
-  margin: 0 10px;
-}
-
-.resources-card{
-  width: 165px;
+.controversial-flag {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #333333;
+  margin-left: 5px;
 }
 
 .mat-icon-bottom {
@@ -71,36 +92,20 @@ iframe {
   flex-wrap: nowrap;
 }
 
-mat-card img{
-  object-fit: contain;
-  width: 99%; 
-  height: calc(100% - 55px);
-  border: 1px solid white;
-  border-radius: 5%;
-}
-
-mat-card {
-  margin-bottom: 15px;
-  overflow: hidden; 
-  position: relative;
-  max-height: 95%;
-}
-
-.controversial-flag {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  color: #333333;
-  margin-left: 5px;
+a:hover {
+  cursor: pointer;
 }
 
 /* underlining anchors */
 .search-anchor{
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 .search-anchor:after{
   content:'';
   position: absolute;
-  border-bottom: 2px solid #666;
+  border-bottom: 2px solid #555;
   top: 90%;
   transition: all 0.3s;
  }
