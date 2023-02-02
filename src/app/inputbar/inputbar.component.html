@@ -102,7 +102,7 @@
 </button>
 
 <!-- Data Table -->
-<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 60px)' : '100%', 'transition': 'all 0.3 ease'}">
+<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 60px)' : '100%'}">
   <!-- Table Component -->
   <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
   <!-- No Results Text -->

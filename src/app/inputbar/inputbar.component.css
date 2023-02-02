@@ -52,6 +52,7 @@
   margin-left: 5px;
 }
 
+/* Additional Inputs */
 .additional-inputs {
   white-space: nowrap;
   overflow-x: auto;
@@ -140,7 +141,7 @@
 
 .table{
   width: 100%;
-  transition: all 0.3 ease;
+  transition: height 0.3 ease;
 }
 
 .table::-webkit-scrollbar { 
