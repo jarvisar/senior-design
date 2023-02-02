@@ -182,10 +182,11 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.selectedMethod = 0;
     this.selectedYear = 0;
     this.selectedFacility = 0;
-    this.selectedMinMass = undefined 
-    this.selectedMaxMass = undefined 
-    this.selectedMinRadius = undefined
-    this.selectedMaxRadius = undefined
+    this.selectedMinMass = undefined; 
+    this.selectedMaxMass = undefined;
+    this.selectedMinRadius = undefined;
+    this.selectedMaxRadius = undefined;
+    this.showControversial = false;
   }
 
   clearclick(event: Event) {
