@@ -148,7 +148,11 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.selectedHost != "" ? { hostname: this.selectedHost } : {},
         this.selectedMethodValue != "Discovery Method" ? { discoverymethod: this.selectedMethodValue } : {},
         this.selectedYearValue != "Discovery Year" ? { disc_year: this.selectedYearValue } : {},
-        this.selectedFacilityValue != "Discovery Facility" ? { disc_facility: this.selectedFacilityValue } : {}
+        this.selectedFacilityValue != "Discovery Facility" ? { disc_facility: this.selectedFacilityValue } : {},
+        this.selectedMinMass != undefined || this.selectedMinMass != "" ? { pl_bmasse_min: this.selectedMinMass } : {},
+        this.selectedMaxMass != undefined || this.selectedMaxMass != "" ? { pl_bmasse_max: this.selectedMaxMass } : {},
+        this.selectedMinRadius != undefined || this.selectedMinRadius != "" ? { pl_rade_min: this.selectedMinRadius } : {},
+        this.selectedMaxRadius != undefined || this.selectedMaxRadius != "" ? { pl_rade_max: this.selectedMaxRadius } : {}
       );
       this.router.navigate([], { queryParams });
     }
@@ -233,6 +237,18 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         }
         if (params['disc_facility'] != undefined){
           this.selectedFacilityValue = params['disc_facility'];
+        }
+        if (params['pl_bmasse_min'] != undefined){
+          this.selectedMinMass = params['pl_bmasse_min'];
+        }
+        if (params['pl_bmasse_max'] != undefined){
+          this.selectedMaxMass = params['pl_bmasse_max'];
+        }
+        if (params['pl_rade_min'] != undefined){
+          this.selectedMinRadius = params['pl_rade_min'];
+        }
+        if (params['pl_rade_max'] != undefined){
+          this.selectedMaxRadius = params['pl_rade_max'];
         }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
