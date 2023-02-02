@@ -23,20 +23,28 @@ Once a query has been entered, click the search button to retrieve data from NAS
       
  ### Understanding the Input
  
- When searching, the input options allow for specific information to be entered. Here's what each option represents:
+When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
  * Host name refers to the name of the star the exoplanet orbits
  * Discovery method refers to how the exoplanet was first discovered
  * Discovery year refers to the year the exoplanet was first found
  * Discovery facility refers to the facility or observatory that first discovered the exoplanet
+ 
+Selecting the checkbox next to the help button will display additional inputs:
+  
+  * Min Mass and Max Mass refer to the minimum and maximum allowed planet mass in units of Earth's mass (EM)
+  * Min Radius and Max Radius refer to the minimum and maximum allowed planet radius in units of Earth's Radius (ER)
+  * Min Density and Max Density refer to the minimum and maximum allowed planet density in g/cm<sup>3</sup>
+  * Star Type refers to the stellar classification of the host star
+  * \# of Stars and \# of Planets refers to the number of stars and planets in the host system respectively
+  * Selecting the controversial checkbox will filter controversial exoplanets
 
 ### Receiving Results
 
 All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear to download the data to the local disk in CSV format. 
 
 To sort the data, click on a column header to toggle between descending and ascending order. 
-        By clicking on an individual exoplanet's row, specific data about that exoplanet can be viewed such as its position 
-        in the sky and other additional resources. Clicking on a card's title will search for exoplanets with similar data.
+        Clicking on an individual exoplanet's row will show specific data about that exoplanet, such as its planet type, orbit information, and its position in the             sky. Values with a cyan color in the expanded row are searchable terms; clicking on one will search for Exoplanets with similar data.
         
 ### Understanding the Results
 
@@ -45,8 +53,10 @@ The results returned from the search will include columns with information such 
   * The density column is measured in g/cm<sup>3</sup>
   * The radius column is measured in units of radius of the Earth (ER)
   * The mass column is measured in units of mass of the Earth (EM)
+  * Orbital period is measured in days; refers to how long it takes for exoplanet to fully orbit its host star
+  * Semi-major axis is measured in astronomical units (AU); refers to distance between planet and host star
 
-For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>.
+For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>. The Earth's orbital period is 365.25 days, and its distance from the Sun is exactly 1 AU.
 
 ## FAQ
 
@@ -58,7 +68,7 @@ Exoplanets, or [extrasolar planets](https://exoplanets.nasa.gov/what-is-an-exopl
 
 The list of planets is routinely updated bi-weekly, but may be updated more frequently depending on new significant exoplanet discoveries.
 
-#### Why are there no results show up after searching?
+#### Why are there no results after searching?
 
 Either no exoplanets match the given input or data was not returned properly. Try searching again or changing the input.
 
