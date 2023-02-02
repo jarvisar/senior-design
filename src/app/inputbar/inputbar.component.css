@@ -63,12 +63,16 @@
   padding-left: 10px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 450;
-  margin-left: 15px;
+  margin-left: 10px;
   transform: all 0.5 ease;
 }
 
+.pl_rade-min-input, .pl_dens-min-input{
+  margin-left: 25px;
+}
+
 .controversial-checkbox{
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 #previousButton {
