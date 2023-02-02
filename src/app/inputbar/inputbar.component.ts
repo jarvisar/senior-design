@@ -53,8 +53,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
   selected$: Observable<boolean>;
 
-  
-
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
   public showTable: boolean = false;
@@ -80,6 +78,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedMaxMass;
   public selectedMaxRadius;
   public selectedMinRadius;
+  public showControversial: boolean = false;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
@@ -152,7 +151,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.selectedMinMass != undefined || this.selectedMinMass != "" ? { pl_bmasse_min: this.selectedMinMass } : {},
         this.selectedMaxMass != undefined || this.selectedMaxMass != "" ? { pl_bmasse_max: this.selectedMaxMass } : {},
         this.selectedMinRadius != undefined || this.selectedMinRadius != "" ? { pl_rade_min: this.selectedMinRadius } : {},
-        this.selectedMaxRadius != undefined || this.selectedMaxRadius != "" ? { pl_rade_max: this.selectedMaxRadius } : {}
+        this.selectedMaxRadius != undefined || this.selectedMaxRadius != "" ? { pl_rade_max: this.selectedMaxRadius } : {},
+        this.showControversial == true ? { pl_controv_flag: 1 } : {}
       );
       this.router.navigate([], { queryParams });
     }
@@ -177,7 +177,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearSelect() {
-    // Reset all four inputs
+    // Reset all inputs
     this.selectedHost = '';
     this.selectedMethod = 0;
     this.selectedYear = 0;
@@ -186,7 +186,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.selectedMaxMass = undefined 
     this.selectedMinRadius = undefined
     this.selectedMaxRadius = undefined
-    // Returns true if input is empty
   }
 
   clearclick(event: Event) {
@@ -250,10 +249,14 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['pl_rade_max'] != undefined){
           this.selectedMaxRadius = params['pl_rade_max'];
         }
+        if (params['pl_controv_flag'] == 1){
+          this.showControversial = true;
+        }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
           this.searchCalled = true;
           this.searchclick();
+          this.cd.detectChanges();
         }
       }
     });
@@ -291,6 +294,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedMaxMass != "" &&   this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMinRadius != "" && this.selectedMinRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+>+\''  + this.selectedMinRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+>+\''  + this.selectedMinRadius + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMaxRadius != "" && this.selectedMaxRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+<+\''  + this.selectedMaxRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+<+\''  + this.selectedMaxRadius + '\'') : this.apiQuery = this.apiQuery);
+    (this.showControversial != false ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+where+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
+    
     // Returns true if input is empty
     return firstConditional;
   }

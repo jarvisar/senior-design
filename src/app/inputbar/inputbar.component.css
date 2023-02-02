@@ -50,6 +50,7 @@
   white-space: nowrap;
   overflow-x: auto;
   display: inline-block;
+  width: 100%;
 } 
 
 .pl_bmasse-min-input, .pl_bmasse-max-input, .pl_rade-min-input, .pl_rade-max-input{
@@ -62,6 +63,10 @@
   font-weight: 450;
   margin-left: 15px;
   transform: all 0.5 ease;
+}
+
+.controversial-checkbox{
+  padding-left: 10px;
 }
 
 #previousButton {

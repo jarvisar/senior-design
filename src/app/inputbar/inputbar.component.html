@@ -53,6 +53,7 @@
   <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Mass'" [placeholder]="'Max. Mass (EM)'">
   <input class="pl_rade-min-input" [(ngModel)]="selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Radius (ER)'" [placeholder]="'Min. Radius (ER)'">
   <input class="pl_rade-max-input" [(ngModel)]="selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Radius (ER)'" [placeholder]="'Max. Radius (ER)'">
+  <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="showControversial">Controversial</mat-checkbox>
 </div>
 
 <!-- Show share & download button if table is visible -->
