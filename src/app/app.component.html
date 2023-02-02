@@ -27,9 +27,9 @@
       </a>
   </div>
 
-  <!-- Main -->
+  <!-- Main Content Container -->
   <div class="container" style="z-index: 1;">
-    <div class="content content-waves" role="main" style=" height: 100%; width: 100%; overflow: hidden;">
+    <div class="content" role="main" style="height: 100%; width: 100%; overflow: hidden;">
     
       <!-- Input Bar + Data Table -->
       <div class="input_bar" id="input_bar" style=" height: 100%; width: 100%; overflow-y: hidden; overflow-x: auto; margin-top: 26px; z-index: 2;">
@@ -37,7 +37,6 @@
       </div>
       
       <!-- Loading Spinner -->
-      <!-- <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: calc(50% - 100px); left: calc(50% - 35px); stroke: #0b3d91;" [@fadeinandout]></mat-spinner> -->
       <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 150px); left: calc(50% - 100px);" [@fadeinandout]>
         <div class="solar-system">
           <div class="earth-orbit orbit">
@@ -53,10 +52,12 @@
         </div>
         <div class="loading-text">Loading</div>
       </div>
+      <!-- Old Mat Spinner -->
+      <!-- <mat-spinner *ngIf="loadingService.isLoading$ | async" [diameter]="70" style="position: absolute; top: calc(50% - 100px); left: calc(50% - 35px); stroke: #0b3d91;" [@fadeinandout]></mat-spinner> -->
     </div>
   </div>
 
-  <!-- Background Clouds -->
+  <!-- Background SVGs -->
   <div class="background" style="overflow-y: hidden; overflow-x: hidden; z-index: -1; margin-top: 100px; ">
     
     <!-- Back Cloud SVG -->
@@ -71,7 +72,7 @@
           </mask>
       </defs>
     </svg>
-    <!-- Front Clouds SVG -->
+    <!-- Front 2 Clouds SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" id="clouds2" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" preserveAspectRatio="none" viewBox="0 0 2560 1440" style="left: 0; position: absolute; overflow-y: hidden; overflow-x: hidden; width: 100%;">
       <g mask="url(&quot;#SvgjsMask1132&quot;)" fill="none" style="overflow-x: hidden;">
           <path d="M2645.333333333333 1440L0 1440 L0 1328.17Q-10.89 1189.28, 128 1178.38Q165.78 1088.16, 256 1125.94Q413.58 1070.18, 469.3333333333333 1227.76Q626.89 1171.99, 682.6666666666666 1329.55Q781.77 1215.32, 896 1314.42Q892.8 1183.22, 1024 1180.03Q1123.29 1065.98, 1237.3333333333333 1165.27Q1360.01 1159.95, 1365.3333333333333 1282.63Q1375.68 1164.97, 1493.3333333333333 1175.32Q1573.21 1041.86, 1706.6666666666665 1121.73Q1863.43 1065.16, 1919.9999999999998 1221.92Q2043.85 1132.43, 2133.333333333333 1256.28Q2227.25 1222.19, 2261.333333333333 1316.11Q2289.87 1216.65, 2389.333333333333 1245.19Q2419.01 1146.87, 2517.333333333333 1176.54Q2566.24 1097.45, 2645.333333333333 1146.36z" 
@@ -85,7 +86,7 @@
           </mask>
       </defs>
     </svg>
-    <!-- Rocket Smoke SVG -->
+    <!-- Rocket + Smoke SVG -->
     <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="556.119" height="1083.632" viewBox="0 0 556.119 1083.632" style=" overflow-x: hidden;">
       <path id="Path_40" data-name="Path 40" d="M 583.06105 160.97984 C 564.76384 160.85308 549.06602 163.89515 535.96884 170.10641 C 531.6103 172.1734 527.44615 174.643 523.47709 177.51475 L 506.98249 172.15538 L 478.28553 185.76437 L 489.35101 197.36883 C 341.10574 267.74825 118.91159 446.04498 121.60033 882.93164 C 125.62933 1537.5862 464.37424 1084.6862 464.37424 1084.6862 C 464.37424 1084.6862 379.20971 859.9353 363.36593 774.92428 C 340.27706 651.02409 348.32792 459.6103 526.18804 266.60026 L 529.00854 278.65483 L 557.70549 265.04584 L 562.74188 249.54497 C 567.57307 248.22038 572.17547 246.52113 576.54775 244.44761 C 601.20127 232.75586 621.54161 207.51135 637.56677 168.71683 C 617.37434 163.67049 599.20565 161.09169 583.06105 160.97984 z M 582.28177 175.59652 C 591.56548 175.58255 601.72613 176.49183 612.76828 178.34829 L 616.04612 178.91724 L 614.61468 181.73154 C 601.57212 206.83194 586.38005 223.24077 569.37403 231.30578 L 566.9995 232.37445 C 557.38084 236.47845 546.30765 238.52125 533.66407 238.43247 L 532.3334 238.39889 L 515.3365 207.25918 L 515.86825 206.53313 C 523.81537 195.80367 532.90448 188.10336 543.14204 183.24825 C 553.77087 178.20761 566.80893 175.6198 582.28177 175.59652 z M 565.2146 191.77176 C 560.53845 191.85996 556.29977 194.69828 554.84572 199.17337 C 552.98454 204.90149 556.3908 211.14251 562.45404 213.11257 C 568.51719 215.08261 574.94134 212.03594 576.80252 206.30782 C 578.6637 200.5797 575.25735 194.33917 569.1942 192.36914 C 567.86786 191.93818 566.52392 191.74706 565.2146 191.77176 z " transform="translate(-100 -140.939)" fill="#f7f7f7"/>
     </svg>
@@ -95,7 +96,7 @@
   <footer class="footer">
     <p class="footer-text">All data is sourced directly from the 
       <a class="footer-link" href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener"> NASA Exoplanet Archive</a>
-       operated by the California Institute of Technology.
+      operated by the California Institute of Technology.
     </p>
   </footer>
 
