@@ -78,6 +78,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public selectedMaxMass;
   public selectedMaxRadius;
   public selectedMinRadius;
+  public selectedMinDensity
+  public selectedMaxDensity;
   public showControversial: boolean = false;
 
   constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
@@ -152,6 +154,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.selectedMaxMass != undefined || this.selectedMaxMass != "" ? { pl_bmasse_max: this.selectedMaxMass } : {},
         this.selectedMinRadius != undefined || this.selectedMinRadius != "" ? { pl_rade_min: this.selectedMinRadius } : {},
         this.selectedMaxRadius != undefined || this.selectedMaxRadius != "" ? { pl_rade_max: this.selectedMaxRadius } : {},
+        this.selectedMinDensity != undefined || this.selectedMinDensity != "" ? { pl_dens_min: this.selectedMinDensity } : {},
+        this.selectedMaxDensity != undefined || this.selectedMaxDensity != "" ? { pl_dens_max: this.selectedMaxDensity } : {},
         this.showControversial == true ? { pl_controv_flag: 1 } : {}
       );
       this.router.navigate([], { queryParams });
@@ -250,6 +254,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['pl_rade_max'] != undefined){
           this.selectedMaxRadius = params['pl_rade_max'];
         }
+        if (params['pl_dens_min'] != undefined){
+          this.selectedMinDensity = params['pl_dens_min'];
+        }
+        if (params['pl_dens_max'] != undefined){
+          this.selectedMaxDensity = params['pl_dens_max'];
+        }
         if (params['pl_controv_flag'] == 1){
           this.showControversial = true;
         }
@@ -295,6 +305,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedMaxMass != "" &&   this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMinRadius != "" && this.selectedMinRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+>+\''  + this.selectedMinRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+>+\''  + this.selectedMinRadius + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMaxRadius != "" && this.selectedMaxRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+<+\''  + this.selectedMaxRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+<+\''  + this.selectedMaxRadius + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedMinDensity != "" && this.selectedMinDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+>+\''  + this.selectedMinDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+>+\''  + this.selectedMinDensity + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedMaxDensity != "" && this.selectedMaxDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+<+\''  + this.selectedMaxDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+<+\''  + this.selectedMaxDensity + '\'') : this.apiQuery = this.apiQuery);
     (this.showControversial != false ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+where+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
     
     // Returns true if input is empty

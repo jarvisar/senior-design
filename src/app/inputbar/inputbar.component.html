@@ -49,10 +49,12 @@
   <br>
   <!-- Additional Inputs -->
   <div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
-    <input class="pl_bmasse-min-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Mass'" [placeholder]="'Min. Mass (EM)'">
-    <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Mass'" [placeholder]="'Max. Mass (EM)'">
-    <input class="pl_rade-min-input" [(ngModel)]="selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min. Radius (ER)'" [placeholder]="'Min. Radius (ER)'">
-    <input class="pl_rade-max-input" [(ngModel)]="selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max. Radius (ER)'" [placeholder]="'Max. Radius (ER)'">
+    <input class="pl_bmasse-min-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'">
+    <input class="pl_bmasse-max-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Mass'" [placeholder]="'Max Mass (EM)'">
+    <input class="pl_rade-min-input" [(ngModel)]="selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Radius (ER)'" [placeholder]="'Min Radius (ER)'">
+    <input class="pl_rade-max-input" [(ngModel)]="selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Radius (ER)'" [placeholder]="'Max Radius (ER)'">
+    <input class="pl_dens-min-input" [(ngModel)]="selectedMinDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Density (g/cm³)'" [placeholder]="'Min Density (g/cm³)'">
+    <input class="pl_dens-max-input" [(ngModel)]="selectedMaxDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Density (g/cm³)'" [placeholder]="'Max Density (g/cm³)'">
     <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="showControversial">Controversial</mat-checkbox>
   </div>
 </div>
