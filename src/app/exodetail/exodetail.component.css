@@ -22,7 +22,7 @@ mat-card {
 
 .section-title{
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 550;
 }
 
 /* Disc. Facility Img */
@@ -99,13 +99,14 @@ a:hover {
 .search-anchor{
   position: relative;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 550;
+  color: #75778a;
 }
 
 .search-anchor:after{
   content:'';
   position: absolute;
-  border-bottom: 2px solid #555;
+  border-bottom: 2px solid #75778a;
   top: 93%;
   transition: all 0.3s;
 }
