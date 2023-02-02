@@ -36,7 +36,7 @@ Selecting the checkbox next to the help button will display additional inputs:
   * Min Radius and Max Radius refer to the minimum and maximum allowed planet radius in units of Earth's Radius (ER)
   * Min Density and Max Density refer to the minimum and maximum allowed planet density in g/cm<sup>3</sup>
   * Star Type refers to the stellar classification of the host star
-  * # of Stars and # of Planets refers to the number of stars and planets in the host system respectively
+  * \# of Stars and \# of Planets refers to the number of stars and planets in the host system respectively
   * Selecting the controversial checkbox will filter controversial exoplanets
 
 ### Receiving Results
