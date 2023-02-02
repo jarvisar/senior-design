@@ -1,3 +1,10 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Toolbar */
 .toolbar{
   position: fixed;
   top: 0;
@@ -31,7 +38,7 @@
   transform: translateY(-0.35px);
 }
   
- .header-title:active {
+.header-title:active {
   text-shadow: 1px 1px 1px #919191, 1.5px 1.5px 1px #919191;
   transform: translateY(0);
   transition: transform 0.1s ease;
@@ -76,12 +83,6 @@
 .footer-link {
   color: white;
   text-decoration: none;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
 }
 
 svg.material-icons {
@@ -206,17 +207,7 @@ p {
   flex: 1;
 }
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
-
-.loading-text{
-  color: #333333;
-  font-size: 12pt;
-  text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE;
-}
-
-/* KEYFRAMES FOR SPINNER */
+/* Loading Spinner */
 
 @keyframes spin {
   from {
@@ -282,8 +273,6 @@ p {
     transform: scale(0.75);
   }
 }
-
-/* SOLAR SYSTEM SPINNER */
 
 .solar-system {
   width: 200px;
@@ -358,3 +347,8 @@ p {
   background-color: #ffab91;
 }
 
+.loading-text{
+  color: #333333;
+  font-size: 12pt;
+  text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE;
+}
