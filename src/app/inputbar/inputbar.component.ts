@@ -162,8 +162,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       );
       this.router.navigate([], { queryParams });
     }
-    //if all four select boxes are set to , buildQuery() returns true
-    
+    // Check for query parameter (used for previous search)
     if (query != undefined){
       this.apiQuery = query;
     } else{
@@ -171,6 +170,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     }
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
+    // Call data service
     let response = await this.data.getExoPlanetData(this.apiQuery);
     response.forEach((e: Exoplanet) => {
       //Add each exoplanet to array
@@ -299,7 +299,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
 
   public buildQuery(){
     if(this.apiQuery != '' && this.apiQuery != undefined){
-      console.log('works!');
+      // Store previous query
       this.previousQueries.push(this.apiQuery);
     }
     let firstConditional: boolean = true;
@@ -309,6 +309,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedMethodValue != "Discovery Method" && this.selectedMethodValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYearValue != "Discovery Year" && this.selectedYearValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedFacilityValue != "Discovery Facility" && this.selectedFacilityValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
+    // Additional inputs
     (this.selectedMinMass != "" &&   this.selectedMinMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+>+\''  + this.selectedMinMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+>+\''  + this.selectedMinMass + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMaxMass != "" &&   this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMinRadius != "" && this.selectedMinRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+>+\''  + this.selectedMinRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+>+\''  + this.selectedMinRadius + '\'') : this.apiQuery = this.apiQuery);
