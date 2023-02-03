@@ -45,7 +45,7 @@
   <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-left: 5px; color: #444;">
     <mat-icon>help</mat-icon>
   </button>
-  <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs" [matTooltip]="'Show Additional Columns'"></mat-checkbox>
+  <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs" [matTooltip]="'Show Additional Inputs'"></mat-checkbox>
   <br>
   <!-- Additional Inputs -->
   <div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
