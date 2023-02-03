@@ -88,7 +88,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public apiQuery!: string;
   public previousQueries: string[] = [];
 
-  constructor(public helpbox: HelpboxComponent, private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
+  constructor(private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
       this.selected$ = new Observable((observer) => {
         observer.next(this.selected);

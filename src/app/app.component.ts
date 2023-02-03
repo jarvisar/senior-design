@@ -7,6 +7,7 @@ import { Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
 import { SecretComponent } from './secret/secret.component';
+import { HelpboxComponent } from './helpbox/helpbox.component';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.1) =>
   trigger(name, [
@@ -32,7 +33,7 @@ export class AppComponent implements AfterViewInit  {
   public konamiCode;
   public currentInput;
 
-  constructor(private data: DataService, public loadingService: LoadingService, private renderer: Renderer2, private router: Router, private secret: SecretComponent){
+  constructor(private data: DataService, public loadingService: LoadingService, private renderer: Renderer2, private router: Router, private secret: SecretComponent, public helpbox: HelpboxComponent){
     this.konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
     this.currentInput = []
   }
