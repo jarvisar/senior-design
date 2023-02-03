@@ -340,7 +340,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.showControversial == true ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
     (this.selectedStarType != "Star Type" && this.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedPlanetNum != "# of Planets in System" && this.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedStarNum != "# of Stars in System" && this.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedStarNum != "# of Stars in System" && this.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.selectedStarNum + '\'') : this.apiQuery = this.apiQuery);
     
     // Returns true if input is empty
     return firstConditional;
