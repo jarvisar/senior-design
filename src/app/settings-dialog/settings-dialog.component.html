@@ -1,8 +1,8 @@
 <h2>Configure Table Columns</h2>
 <br>
 <div class="checkbox-container">
-    <mat-checkbox color="primary" [(ngModel)]="hostname" [disabled]="true">Host Name (star name)</mat-checkbox>
-    <mat-checkbox color="primary" [(ngModel)]="pl_name" [disabled]="true">Exoplanet Name</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="hostname" [disabled]="true" [matTooltip]="'Required'">Host Name (star name)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_name" [disabled]="true" [matTooltip]="'Required'">Exoplanet Name</mat-checkbox>
     <mat-checkbox color="primary" [(ngModel)]="discoverymethod">Discovery Method</mat-checkbox>
     <mat-checkbox color="primary" [(ngModel)]="disc_year">Discovery Year</mat-checkbox>
     <mat-checkbox color="primary" [(ngModel)]="disc_facility">Discovery Facility</mat-checkbox>
