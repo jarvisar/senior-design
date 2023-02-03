@@ -1,0 +1,24 @@
+h2{
+    font-family: Roboto, 'sans-serif';
+    text-align: center;
+}
+
+.checkbox-container{
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 16px;
+    align-items: center;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+    
+.button{
+    height: 50px;
+    width: 100px;
+    margin-right: 16px;
+    background-color: #0b3d91;
+    color: white;
+}

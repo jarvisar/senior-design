@@ -1,1 +1,31 @@
-<p>settings-dialog works!</p>
+<h2>Configure Table Columns</h2>
+<br>
+<div class="checkbox-container">
+    <mat-checkbox color="primary" [(ngModel)]="hostname" [disabled]="true">Host Name (star name)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_name" [disabled]="true">Exoplanet Name</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="discoverymethod">Discovery Method</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="disc_year">Discovery Year</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="disc_facility">Discovery Facility</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_controv_flag">Controversial Flag</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="sy_snum">Number of Stars in System</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="sy_pnum">Number of Planets in System</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="sy_mnum">Number of Moons in System</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="st_spectype">Spectral Type of Host Star</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="cb_flag">Orbits Binary System</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="rastr">Right Ascension (sexagesimal format)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="decstr">Declination (sexagesimal format)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="ra">Right Ascension (decimal format)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="dec">Declination (decimal format)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_orbper">Orbital Period (days)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_orbsmax">Orbital Radius (au)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_orbeccen">Orbital Eccentricity</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_rade">Planet Radius (Earth units)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_bmasse">Planet Mass (Earth units)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="pl_dens">Planet Density (g/cm^3)</mat-checkbox>
+    <mat-checkbox color="primary" [(ngModel)]="sy_dist">Distance from Earth (parsecs)</mat-checkbox>
+</div>
+<br>
+<div class="button-container">
+    <button mat-raised-button (click)="saveSettings()" class="button">Save</button>
+    <button mat-raised-button (click)="defaultSettings()" class="button" style="margin-left: 10px;">Default</button>
+</div>

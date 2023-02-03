@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputbarComponent } from './inputbar/inputbar.component';
 import { ExoplanetComponent } from './exoplanet/exoplanet.component';
 import { HelpboxComponent } from './helpbox/helpbox.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadingInterceptor } from './loading-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -81,6 +81,8 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} },
     HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, SettingsDialogComponent ],
   bootstrap: [AppComponent]
 })

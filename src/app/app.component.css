@@ -27,6 +27,7 @@ html, body {
   font-size: 20pt;
   font-family: Roboto, Helvetica Neue, sans-serif;
   margin-left: 10px;
+  font-weight: 550;
   text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191;
   transition: transform 0.25s ease, text-shadow 0.25s ease;
   transform: translateY(-0.5px);

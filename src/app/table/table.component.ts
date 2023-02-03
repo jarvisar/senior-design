@@ -10,6 +10,7 @@ import { InputbarComponent } from '../inputbar/inputbar.component';
 import { DownloadService } from '../download.service';
 import { Router } from '@angular/router';
 import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   trigger(name, [
@@ -46,11 +47,34 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
 })
 export class TableComponent implements OnInit {
   // Define table column titles
-  tableDef = [{column: 'index', title: 'Index'}, {column: 'pl_name', title: 'Planet Name'}, {column: 'hostname', title: 'Host Name'}, {column: 'discoverymethod', title: 'Discovery Method'}, 
-  {column: 'disc_year', title: 'Discovery Year'}, {column: 'pl_dens', title: 'Density (g/cm³)'}, {column: 'pl_rade', title: 'Radius'}, {column: 'pl_bmasse', title: 'Mass'}, {column: 'disc_facility', title: 'Discovery Facility'}];
+  tableDef = [
+    {column: 'index', title: 'Index'},
+    {column: 'pl_name', title: 'Planet Name'},
+    {column: 'hostname', title: 'Host Name'},
+    {column: 'discoverymethod', title: 'Discovery Method'},
+    {column: 'disc_year', title: 'Discovery Year'},
+    {column: 'pl_dens', title: 'Density (g/cm³)'},
+    {column: 'pl_rade', title: 'Radius'},
+    {column: 'pl_bmasse', title: 'Mass'},
+    {column: 'disc_facility', title: 'Discovery Facility'},
+    {column: 'ra', title: 'RA'},
+    {column: 'dec', title: 'Declination'},
+    {column: 'rastr', title: 'RA (sexagesimal)'},
+    {column: 'decstr', title: 'Declination (sexagesimal)'},
+    {column: 'pl_orbper', title: 'Orbital Period (days)'},
+    {column: 'pl_orbsmax', title: 'Orbital Radius (au)'},
+    {column: 'pl_orbeccen', title: 'Eccentricity'},
+    {column: 'st_spectype', title: 'Spectral Type'},
+    {column: 'sy_dist', title: 'Distance from Earth (parsecs)'},
+    {column: 'sy_snum', title: '# of Stars in System'},
+    {column: 'sy_pnum', title: '# of Planets in System'},
+    {column: 'sy_mnum', title: '# of Moons in System'},
+    {column: 'cb_flag', title: 'Orbits Binary System'},
+    {column: 'pl_controv_flag', title: 'Controversial'}
+  ];
 
   // Define which columns to display on table
-  displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_dens', 'pl_rade', 'pl_bmasse', 'disc_facility'];
+  displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_rade', 'pl_bmasse', 'pl_dens', 'disc_facility'];
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
@@ -84,7 +108,8 @@ export class TableComponent implements OnInit {
     let offset = (event.pageIndex * event.pageSize);
   }
   
-  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, private router: Router, private columnSettings: SettingsDialogComponent) {
+  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
+    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog) {
     // test data
     // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
@@ -102,7 +127,13 @@ export class TableComponent implements OnInit {
   }
 
   changeColumns(){
-    this.columnSettings.openDialog();
+    let dialogRef = this.dialog.open(SettingsDialogComponent, {
+      data: this.displayedColumns
+    })
+    dialogRef.afterClosed().subscribe(res => {
+      // received data from dialog-component
+      this.displayedColumns = res.data;
+    })
   }
 
   share(){
