@@ -1,6 +1,7 @@
 .table-container {
     margin: 15px 0;
     display: block;
+    position: relative;
     -ms-overflow-style: none;
     max-height: calc(100% - 180px);
     width: calc(100% - 25px);
@@ -24,6 +25,7 @@
     bottom: 0;
     width: 100%;
     z-index: 1;
+    box-shadow: inset 4px 7px 20px -9px rgba(255,255,255,1);
 }
 
 /* Paginator styling */
@@ -74,9 +76,10 @@ td.mat-cell {
 
 .test-table {
     width: 100%;
-    height: calc(100% - 112px);
+    height: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     margin-bottom: -56px;
+
 }
 
 .mat-header-cell {
@@ -124,4 +127,35 @@ tr.exoplanet-detail-row {
 
 .mat-select-value-text {
     color: white;
+}
+
+
+/* Side Buttons */
+.sidebar-buttons-container button {
+    height: 40px;
+    width: 40px;
+    margin: -5px 0;
+}
+
+#shareButton {
+    background-color: #fc3d21;
+}
+
+#columnButton{
+    background-color: #eaeaea;
+}
+
+.sidebar-buttons-container{
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    width: 60px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: 210px;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b3d91;
+    border-radius: 30px;
 }

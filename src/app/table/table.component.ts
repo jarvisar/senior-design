@@ -7,6 +7,9 @@ import { LoadingService } from '../loading.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ExodetailComponent } from '../exodetail/exodetail.component';
 import { InputbarComponent } from '../inputbar/inputbar.component';
+import { DownloadService } from '../download.service';
+import { Router } from '@angular/router';
+import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.component';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   trigger(name, [
@@ -81,7 +84,7 @@ export class TableComponent implements OnInit {
     let offset = (event.pageIndex * event.pageSize);
   }
   
-  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent) {
+  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, private router: Router, private columnSettings: SettingsDialogComponent) {
     // test data
     // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
@@ -96,6 +99,26 @@ export class TableComponent implements OnInit {
 
   sortData(sort: Sort){
     this.dataSource.sort = this.sort;
+  }
+
+  changeColumns(){
+    this.columnSettings.openDialog();
+  }
+
+  share(){
+    // Copy current URL to clipboard
+    navigator.clipboard.writeText('https://jarvisar.github.io/senior-design' + this.router.url).then(
+      () => {
+        console.log('Text copied to clipboard');
+      },
+      (err) => {
+        console.error('Failed to copy text: ', err);
+      }
+    );
+  }
+
+  download(){
+    this.downloadService.downloadFile(this.inputbar.exoplanetData, 'exoplanet_data');
   }
 
   ngOnInit(): void {

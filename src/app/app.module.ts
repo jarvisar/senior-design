@@ -35,6 +35,7 @@ import { SafePipe } from './safe.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ExodetailComponent,
     SecretComponent,
     MaterialElevationDirective,
-    SafePipe
+    SafePipe,
+    SettingsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +81,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule ],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, SettingsDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

@@ -89,17 +89,7 @@
 </div>
 
 <!-- Show share & download button if table is visible -->
-<button mat-mini-fab *ngIf="showTable && !(loadingService.isLoading$ | async)" (click)="previousSearch($event)" id="previousButton" [disabled]="previousQueries[0] == undefined" [@inOutAnimation] aria-label="Previous Search" title="Previous Search" matTooltipPosition="above" matTooltipShowDelay="3000">
-  <mat-icon style="transform: scale(0.9);">restore</mat-icon>
-</button>
 
-<button mat-mini-fab *ngIf="exoplanetData.length > 0  && !(loadingService.isLoading$ | async)" (click)="share()" id="shareButton" [@inOutAnimation] aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard" matTooltipPosition="above" matTooltipShowDelay="3000">
-  <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
-</button>
-
-<button mat-mini-fab color="primary" *ngIf="exoplanetData.length > 0  && !(loadingService.isLoading$ | async)" (click)="download()" id="downloadButton" [@inOutAnimation] title="Download Data">
-  <mat-icon>download</mat-icon>
-</button>
 
 <!-- Data Table -->
 <div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 60px)' : '100%'}">

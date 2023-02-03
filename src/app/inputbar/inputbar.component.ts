@@ -345,20 +345,4 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     // Returns true if input is empty
     return firstConditional;
   }
-
-  share(){
-    // Copy current URL to clipboard
-    navigator.clipboard.writeText('https://jarvisar.github.io/senior-design' + this.router.url).then(
-      () => {
-        console.log('Text copied to clipboard');
-      },
-      (err) => {
-        console.error('Failed to copy text: ', err);
-      }
-    );
-  }
-
-  download(){
-    this.downloadService.downloadFile(this.exoplanetData, 'exoplanet_data');
-  }
 }
