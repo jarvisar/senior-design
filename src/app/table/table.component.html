@@ -27,8 +27,8 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <ng-container >
             <tr mat-row *matRowDef="let exoplanet; columns: displayedColumns;"
-            class="exoplanet-row" 
-            matTooltip="Click to Expand" matTooltipShowDelay="6000"
+            class="exoplanet-row"
+            matTooltip="{{expandedExoplanet === exoplanet ? 'Click to Close' : 'Click to Expand'}}" matTooltipShowDelay="6000"
             [ngClass]="{'exoplanet-expanded-row': exoplanet.expanded }"
             [class.exoplanet-expanded-row]="expandedExoplanet === exoplanet"
             (click)="expandedExoplanet = expandedExoplanet === exoplanet ? null : exoplanet">
@@ -37,25 +37,30 @@
             
         <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="exoplanet-detail-row"></tr>
     </table>
-    <!-- Paginator & Bottom Border-->
+    <!-- Paginator -->
     <mat-paginator [@blur]="blurState" [ngStyle]="{'opacity': dataSource.data.length < 6 ? '0': '1'}" [length]="dataSource.data.length" [pageSize]="dataSource.data.length < 50 ? dataSource.data.length : 50" [pageSizeOptions]="dataSource.data.length < 50 ? [dataSource.data.length] : [50, 100, 250, 500]" (page)="nextPage($event)"></mat-paginator>
+    <!-- Sidebar Buttons -->
     <div class="sidebar-buttons-container" [@blur]="blurState">
+        <!-- Column Settings Button -->
         <button mat-mini-fab (click)="changeColumns()" id="columnButton" aria-label="Configure Table Columns" title="Configure Table Columns">
             <mat-icon style="transform: scale(0.9); color: #444;">settings</mat-icon>
         </button>
         <br>
+        <!-- Previous Search Button -->
         <button mat-mini-fab (click)="inputbar.previousSearch($event)" id="previousButton" [disabled]="inputbar.previousQueries[0] == undefined" aria-label="Previous Search" title="Previous Search">
             <mat-icon style="transform: scale(0.9);">restore</mat-icon>
         </button>
         <br>
+        <!-- Copy URL Button -->
         <button mat-mini-fab (click)="share()" id="shareButton"  aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard">
             <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
         </button>
         <br>
+        <!-- Download Button -->
         <button mat-mini-fab color="primary" (click)="download()" id="downloadButton"  title="Download Data">
             <mat-icon>download</mat-icon>
         </button>
     </div>
+    <!-- Border -->
     <div class="border" [@blur]="blurState"></div>
-    
 </div>
