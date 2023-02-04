@@ -75,6 +75,12 @@ export class TableComponent implements OnInit {
 
   // Define which columns to display on table
   displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_rade', 'pl_bmasse', 'pl_dens', 'disc_facility'];
+
+  actualPaginator: MatPaginator;
+  allExoplanetData: MatTableDataSource<Exoplanet>;
+  dataSource: MatTableDataSource<Exoplanet>;
+  expandedExoplanet: Exoplanet | null;
+  blurState = 'unblurred';
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, {static: false})
@@ -84,10 +90,18 @@ export class TableComponent implements OnInit {
 
   @Input() numResults!: number;
   @Input() set exoplanetData(data: Exoplanet[]) {
+    // Load all exoplanet data in new MatTableDataSource
     this.allExoplanetData = new MatTableDataSource<Exoplanet>(data);
     this.allExoplanetData.paginator = this.paginator;
     this.allExoplanetData.sort = this.sort;
+    // Set actual table Data Source to slice of data
     this.setTableDataSource(data.slice(0, 50));
+    this.allExoplanetData.sortingDataAccessor = ( exoplanet, property) => {
+      switch ( property ) {
+        case 'exoplanet.pl_name': return exoplanet.pl_name;
+        default: return exoplanet[property];
+      }
+    };
   }
 
   constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
@@ -96,42 +110,33 @@ export class TableComponent implements OnInit {
     // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 
-  actualPaginator: MatPaginator;
-  allExoplanetData: MatTableDataSource<Exoplanet>;
-  dataSource: MatTableDataSource<Exoplanet>;
-  expandedExoplanet: Exoplanet | null;
-
   setTableDataSource(data: Exoplanet[]) {
-      this.dataSource = new MatTableDataSource<Exoplanet>(data);
-      this.updateData();
-      this.dataSource.sort = this.sort;
-      this.expandedExoplanet = null;
-      this.allExoplanetData.sortingDataAccessor = ( exoplanet, property) => {
-      switch ( property ) {
-        case 'exoplanet.pl_name': return exoplanet.pl_name;
-        default: return exoplanet[property];
-      }
-    };
-      
+    // Set table data source to slice of exoplanet data
+    this.dataSource = new MatTableDataSource<Exoplanet>(data);
+    // Blur table if loading new data
+    this.loadingService.isLoading$.subscribe(isLoading => {
+      this.blurState = isLoading ? 'blurred' : 'unblurred';
+    });
+    // Reset expanded exoplanet after loading new data
+    this.expandedExoplanet = null;
   }
 
-  nextPage(event: PageEvent) {
+  /* Triggered by user changing page on mat-paginator  */
+  pageChange(event: PageEvent) {
     let limit = (event.pageIndex * event.pageSize) + event.pageSize;
     let offset = (event.pageIndex * event.pageSize);
     this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
-    this.dataSource.sort = this.sort;
-    this.sortData(this.sort);
   }
 
+  /* Triggered by user clicking on header to sort */
   sortData(sort: Sort){
-    console.log(sort);
     this.sortByColumn(sort.active, sort.direction);
     let limit = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize) + this.actualPaginator.pageSize;
     let offset = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize);
-    console.log(limit + " " + offset);
     this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
   }
 
+  /* Sorts allExoplanetData */
   sortByColumn(columnName: string, direction: string) {
     if(direction == "asc"){
       this.allExoplanetData.data.sort((a, b) => {
@@ -148,14 +153,6 @@ export class TableComponent implements OnInit {
     } else {
       this.allExoplanetData.data.sort();
     }
-  }
-
-  blurState = 'unblurred';
-  updateData() {
-    this.changeDetectorRef.detectChanges();
-    this.loadingService.isLoading$.subscribe(isLoading => {
-        this.blurState = isLoading ? 'blurred' : 'unblurred';
-    });
   }
 
   changeColumns(){
