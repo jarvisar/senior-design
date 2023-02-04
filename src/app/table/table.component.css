@@ -7,9 +7,9 @@
     width: calc(100% - 30px);
     overflow-x: scroll;
     overflow-y: scroll;
-    border: 1px solid lightgray;
+    
     border-radius: 25px;
-    box-shadow: 0 0 0.72em 0.38em rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -1px 0.68em 0.32em rgba(0, 0, 0, 0.13);
     margin-left: 15px;
     background-color: white;
 }
