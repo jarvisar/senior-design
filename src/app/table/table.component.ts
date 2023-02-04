@@ -82,17 +82,21 @@ export class TableComponent implements OnInit {
     this.actualPaginator = value;
   }
 
-  actualPaginator: MatPaginator;
-
   @Input() numResults!: number;
   @Input() set exoplanetData(data: Exoplanet[]) {
     this.allExoplanetData = new MatTableDataSource<Exoplanet>(data);
     this.allExoplanetData.paginator = this.paginator;
     this.allExoplanetData.sort = this.sort;
-    
     this.setTableDataSource(data.slice(0, 50));
   }
 
+  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
+    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog) {
+    // test data
+    // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
+  }
+
+  actualPaginator: MatPaginator;
   allExoplanetData: MatTableDataSource<Exoplanet>;
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
@@ -117,20 +121,6 @@ export class TableComponent implements OnInit {
     this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
     this.dataSource.sort = this.sort;
     this.sortData(this.sort);
-  }
-  
-  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
-    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog) {
-    // test data
-    // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
-  }
-
-  blurState = 'unblurred';
-  updateData() {
-    this.changeDetectorRef.detectChanges();
-    this.loadingService.isLoading$.subscribe(isLoading => {
-        this.blurState = isLoading ? 'blurred' : 'unblurred';
-    });
   }
 
   sortData(sort: Sort){
@@ -158,6 +148,14 @@ export class TableComponent implements OnInit {
     } else {
       this.allExoplanetData.data.sort();
     }
+  }
+
+  blurState = 'unblurred';
+  updateData() {
+    this.changeDetectorRef.detectChanges();
+    this.loadingService.isLoading$.subscribe(isLoading => {
+        this.blurState = isLoading ? 'blurred' : 'unblurred';
+    });
   }
 
   changeColumns(){
