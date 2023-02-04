@@ -128,16 +128,20 @@ export class TableComponent implements OnInit {
     });
     // Reset expanded exoplanet after loading new data
     this.expandedExoplanet = null;
-    setTimeout(() => {
-      this.shrinkAnimation = true;
-    }, 500);
   }
 
   /* Triggered by user changing page on mat-paginator  */
   pageChange(event: PageEvent) {
     let limit = (event.pageIndex * event.pageSize) + event.pageSize;
+    limit = Math.min(this.allExoplanetData.data.length, limit)
     let offset = (event.pageIndex * event.pageSize);
-    this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
+    if(this.allExoplanetData.data.length < 50){
+      this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(0, this.allExoplanetData.data.length));
+    } else {
+      this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
+      this.dataSource.paginator = null;
+    }
+    
   }
 
   /* Triggered by user clicking on header to sort */
