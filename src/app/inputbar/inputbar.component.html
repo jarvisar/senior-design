@@ -86,15 +86,12 @@
   </div>
 </div>
 
-<!-- Show share & download button if table is visible -->
-
-
 <!-- Data Table -->
 <div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 60px)' : '100%'}">
   <!-- Table Component -->
   <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
   <!-- No Results Text -->
-  <div class="no-results-container" *ngIf="showTable && exoplanetData.length == 0 && error != true" @inOutAnimation (click)="clearclick($event)">
+  <div class="no-results-container" *ngIf="showTable && exoplanetData.length == 0 && error != true && !(loadingService.isLoading$ | async)" @inOutAnimation (click)="clearclick($event)">
     <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation>No Results Found</p>
     <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
   </div>
