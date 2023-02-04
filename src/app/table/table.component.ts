@@ -77,35 +77,46 @@ export class TableComponent implements OnInit {
   displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_rade', 'pl_bmasse', 'pl_dens', 'disc_facility'];
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false})
+  set paginator(value: MatPaginator) {
+    this.actualPaginator = value;
+  }
+
+  actualPaginator: MatPaginator;
 
   @Input() numResults!: number;
   @Input() set exoplanetData(data: Exoplanet[]) {
-    this.setTableDataSource(data);
+    this.allExoplanetData = new MatTableDataSource<Exoplanet>(data);
+    this.allExoplanetData.paginator = this.paginator;
+    this.allExoplanetData.sort = this.sort;
+    
+    this.setTableDataSource(data.slice(0,50));
   }
 
+  allExoplanetData: MatTableDataSource<Exoplanet>;
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
 
   setTableDataSource(data: Exoplanet[]) {
+      console.log(this.allExoplanetData);
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
       this.updateData();
-      this.expandedExoplanet = null;
       this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.sort.active = 'pl_name';
-      this.sort.direction = 'desc';
-      this.dataSource.sortingDataAccessor = ( exoplanet, property) => {
+      this.expandedExoplanet = null;
+      
+      this.allExoplanetData.sortingDataAccessor = ( exoplanet, property) => {
       switch ( property ) {
         case 'exoplanet.pl_name': return exoplanet.pl_name;
         default: return exoplanet[property];
       }
     };
+      
   }
 
-  nextPage(event:PageEvent){
+  nextPage(event: PageEvent) {
     let limit = (event.pageIndex * event.pageSize) + event.pageSize;
     let offset = (event.pageIndex * event.pageSize);
+    this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
   }
   
   constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
@@ -123,7 +134,7 @@ export class TableComponent implements OnInit {
   }
 
   sortData(sort: Sort){
-    this.dataSource.sort = this.sort;
+    this.allExoplanetData.sort = this.sort;
   }
 
   changeColumns(){
