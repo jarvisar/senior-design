@@ -79,7 +79,7 @@ td.mat-cell {
     height: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     margin-bottom: -56px;
-
+    transition: all 0.5 ease;
 }
 
 .mat-header-cell {

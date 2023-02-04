@@ -21,7 +21,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
           ':enter', 
           [
             style({ opacity: 0 }),
-            animate('.1s ease-out', 
+            animate('.15s ease-out', 
                     style({  opacity: 1 }))
           ]
         ),
@@ -29,7 +29,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
           ':leave', 
           [
             style({  opacity: 1 }),
-            animate('.1s ease-in', 
+            animate('.15s ease-in', 
                     style({  opacity: 0 }))
           ]
         )
@@ -68,25 +68,26 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   facilityData: any[] = [];
   selected = false;
   
-  // Main inputs
-  public selectedHost;
-  public selectedMethod;
-  public selectedYear;
-  public selectedFacility;
-  // Additional Inputs
-  public selectedMinMass;
-  public selectedMaxMass;
-  public selectedMaxRadius;
-  public selectedMinRadius;
-  public selectedMinDensity
-  public selectedMaxDensity;
-  public selectedStarType;
-  public selectedPlanetNum;
-  public selectedStarNum;
-  public showControversial: boolean = false;
+  public query = {
+    "selectedHost": "",
+    "selectedMethod": "",
+    "selectedYear": "",
+    "selectedFacility": "",
+    "selectedMinMass": undefined as number | undefined,
+    "selectedMaxMass": undefined as number | undefined,
+    "selectedMinRadius": undefined as number | undefined,
+    "selectedMaxRadius": undefined as number | undefined,
+    "selectedMinDensity": undefined as number | undefined,
+    "selectedMaxDensity": undefined as number | undefined,
+    "selectedStarType": "Star Type",
+    "selectedStarNum": "# of Stars in System",
+    "selectedPlanetNum": "# of Planets in System",
+    "showControversial": false
+    }
+  
 
   public apiQuery!: string;
-  public previousQueries: string[] = [];
+  public previousQueries: any = [];
 
   constructor(private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
@@ -95,7 +96,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       });
   }
 
-  async searchclick(event?: Event, query?: string) {
+  async searchclick(event?: Event, query?: any) {
+
     if(this.searchCalled == false){
       this.searchCalled = true;
     }
@@ -103,33 +105,34 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     if(event != null){
       this.router.navigate([], {queryParams: {}});
       let queryParams = Object.assign({},
-        this.selectedHost != "" ? { hostname: this.selectedHost } : {},
-        this.selectedMethod != "" ? { discoverymethod: this.selectedMethod } : {},
-        this.selectedYear != "" ? { disc_year: this.selectedYear } : {},
-        this.selectedFacility != "" ? { disc_facility: this.selectedFacility } : {},
-        this.selectedMinMass != undefined || this.selectedMinMass != "" ? { pl_bmasse_min: this.selectedMinMass } : {},
-        this.selectedMaxMass != undefined || this.selectedMaxMass != "" ? { pl_bmasse_max: this.selectedMaxMass } : {},
-        this.selectedMinRadius != undefined || this.selectedMinRadius != "" ? { pl_rade_min: this.selectedMinRadius } : {},
-        this.selectedMaxRadius != undefined || this.selectedMaxRadius != "" ? { pl_rade_max: this.selectedMaxRadius } : {},
-        this.selectedMinDensity != undefined || this.selectedMinDensity != "" ? { pl_dens_min: this.selectedMinDensity } : {},
-        this.selectedMaxDensity != undefined || this.selectedMaxDensity != "" ? { pl_dens_max: this.selectedMaxDensity } : {},
-        this.selectedStarType != undefined && this.selectedStarType != "Star Type" ? { star_type: this.selectedStarType } : {},
-        this.selectedPlanetNum != undefined && this.selectedPlanetNum != "# of Planets in System" ? { sy_pnum: this.selectedPlanetNum } : {},
-        this.selectedStarNum != undefined && this.selectedStarNum != "# of Stars in System" ? { sy_snum: this.selectedStarNum } : {},
-        this.showControversial == true ? { pl_controv_flag: 1 } : {}
+        this.query.selectedHost != "" ? { hostname: this.query.selectedHost } : {},
+        this.query.selectedMethod != "" ? { discoverymethod: this.query.selectedMethod } : {},
+        this.query.selectedYear != "" ? { disc_year: this.query.selectedYear } : {},
+        this.query.selectedFacility != "" ? { disc_facility: this.query.selectedFacility } : {},
+        this.query.selectedMinMass != undefined || this.query.selectedMinMass != "" ? { pl_bmasse_min: this.query.selectedMinMass } : {},
+        this.query.selectedMaxMass != undefined || this.query.selectedMaxMass != "" ? { pl_bmasse_max: this.query.selectedMaxMass } : {},
+        this.query.selectedMinRadius != undefined || this.query.selectedMinRadius != "" ? { pl_rade_min: this.query.selectedMinRadius } : {},
+        this.query.selectedMaxRadius != undefined || this.query.selectedMaxRadius != "" ? { pl_rade_max: this.query.selectedMaxRadius } : {},
+        this.query.selectedMinDensity != undefined || this.query.selectedMinDensity != "" ? { pl_dens_min: this.query.selectedMinDensity } : {},
+        this.query.selectedMaxDensity != undefined || this.query.selectedMaxDensity != "" ? { pl_dens_max: this.query.selectedMaxDensity } : {},
+        this.query.selectedStarType != undefined && this.query.selectedStarType != "Star Type" ? { star_type: this.query.selectedStarType } : {},
+        this.query.selectedPlanetNum != undefined && this.query.selectedPlanetNum != "# of Planets in System" ? { sy_pnum: this.query.selectedPlanetNum } : {},
+        this.query.selectedStarNum != undefined && this.query.selectedStarNum != "# of Stars in System" ? { sy_snum: this.query.selectedStarNum } : {},
+        this.query.showControversial == true ? { pl_controv_flag: 1 } : {}
       );
       this.router.navigate([], { queryParams });
     }
     // Use previous query if parameter is defined, else build query using inputs
     if (query != undefined){
-      this.apiQuery = query;
-    } else{
+      this.query = query;
+    } else{ 
+      this.previousQueries.push(JSON.parse(JSON.stringify(this.query)));
       let emptySearch: boolean = this.buildQuery();
     }
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
     try {
-      let response = await this.data.getExoPlanetData(this.apiQuery);
+      let response = await this.data.getExoPlanetData(this.apiQuery, this.query);
       newArray = response.map((e: Exoplanet) => {
         return e;
       });
@@ -146,20 +149,20 @@ export class InputbarComponent implements OnInit, AfterViewInit {
 
   clearSelect() {
     // Reset all inputs
-    this.selectedHost = '';
-    this.selectedMethod = '';
-    this.selectedYear = '';
-    this.selectedFacility = '';
-    this.selectedMinMass = undefined; 
-    this.selectedMaxMass = undefined;
-    this.selectedMinRadius = undefined;
-    this.selectedMaxRadius = undefined;
-    this.selectedMinDensity = undefined;
-    this.selectedMaxDensity = undefined;
-    this.selectedStarType = 'Star Type';
-    this.selectedStarNum = '# of Stars in System';
-    this.selectedPlanetNum = '# of Planets in System';
-    this.showControversial = false;
+    this.query.selectedHost = '';
+    this.query.selectedMethod = '';
+    this.query.selectedYear = '';
+    this.query.selectedFacility = '';
+    this.query.selectedMinMass = undefined; 
+    this.query.selectedMaxMass = undefined;
+    this.query.selectedMinRadius = undefined;
+    this.query.selectedMaxRadius = undefined;
+    this.query.selectedMinDensity = undefined;
+    this.query.selectedMaxDensity = undefined;
+    this.query.selectedStarType = 'Star Type';
+    this.query.selectedStarNum = '# of Stars in System';
+    this.query.selectedPlanetNum = '# of Planets in System';
+    this.query.showControversial = false;
   }
 
   clearclick(event: Event) {
@@ -184,12 +187,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   doNothing(){}
 
   previousSearch(event: Event){
-    console.log(this.previousQueries.length);
+    let queryNew = this.previousQueries.pop();
     let query = this.previousQueries.pop();
+    this.previousQueries.push(JSON.parse(JSON.stringify(queryNew)));
     if (query != undefined){
+      this.query = query;
       this.searchclick(event, query);
-      this.clearSelect();
-      this.router.navigate([], {queryParams: {}});
     }
   }
 
@@ -200,46 +203,46 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.route.queryParams.pipe(skip(1)).subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
-          this.selectedHost = params['hostname'];
+          this.query.selectedHost = params['hostname'];
         }
         if (params['discoverymethod'] != undefined){
-          this.selectedMethod = params['discoverymethod'];
+          this.query.selectedMethod = params['discoverymethod'];
         } 
         if (params['disc_year'] != undefined){
-          this.selectedYear = params['disc_year'];
+          this.query.selectedYear = params['disc_year'];
         } 
         if (params['disc_facility'] != undefined){
-          this.selectedFacility = params['disc_facility'];
+          this.query.selectedFacility = params['disc_facility'];
         } 
         if (params['pl_bmasse_min'] != undefined){
-          this.selectedMinMass = params['pl_bmasse_min'];
+          this.query.selectedMinMass = params['pl_bmasse_min'];
         } 
         if (params['pl_bmasse_max'] != undefined){
-          this.selectedMaxMass = params['pl_bmasse_max'];
+          this.query.selectedMaxMass = params['pl_bmasse_max'];
         } 
         if (params['pl_rade_min'] != undefined){
-          this.selectedMinRadius = params['pl_rade_min'];
+          this.query.selectedMinRadius = params['pl_rade_min'];
         } 
         if (params['pl_rade_max'] != undefined){
-          this.selectedMaxRadius = params['pl_rade_max'];
+          this.query.selectedMaxRadius = params['pl_rade_max'];
         } 
         if (params['pl_dens_min'] != undefined){
-          this.selectedMinDensity = params['pl_dens_min'];
+          this.query.selectedMinDensity = params['pl_dens_min'];
         } 
         if (params['pl_dens_max'] != undefined){
-          this.selectedMaxDensity = params['pl_dens_max'];
+          this.query.selectedMaxDensity = params['pl_dens_max'];
         }
         if (params['star_type'] != undefined){
-          this.selectedStarType = params['star_type'];
+          this.query.selectedStarType = params['star_type'];
         }  
         if (params['pl_controv_flag'] != undefined){
-          this.showControversial = true;
+          this.query.showControversial = true;
         }
         if (params['sy_pnum'] != undefined){
-          this.selectedPlanetNum = params['sy_pnum'];
+          this.query.selectedPlanetNum = params['sy_pnum'];
         }
         if (params['sy_snum'] != undefined){
-          this.selectedStarNum = params['sy_snum'];
+          this.query.selectedStarNum = params['sy_snum'];
         }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
@@ -264,32 +267,31 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.methodData = methodData;
     this.yearData = yearData;
     this.facilityData = facilityData;
+    setTimeout(() => {
+      this.data.getAllExoplanetData();
+    });
   }
 
   public buildQuery(){
-    if(this.apiQuery != '' && this.apiQuery != undefined){
-      // Store previous query
-      this.previousQueries.push(this.apiQuery);
-    }
+    
     let firstConditional: boolean = true;
     this.apiQuery = '';
     // First check if select box has valid value then check if any other conditional has been applied 
-    (this.selectedHost != '' && this.selectedHost != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHost + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
-    (this.selectedMethod != '' && this.selectedMethod != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethod + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethod + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedYear != '' && this.selectedYear != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYear + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYear + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedFacility != '' && this.selectedFacility != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacility + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacility + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedHost != '' && this.query.selectedHost != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.query.selectedHost + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
+    (this.query.selectedMethod != '' && this.query.selectedMethod != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.query.selectedMethod + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.query.selectedMethod + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedYear != '' && this.query.selectedYear != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.query.selectedYear + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.query.selectedYear + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedFacility != '' && this.query.selectedFacility != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.query.selectedFacility + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.query.selectedFacility + '\'') : this.apiQuery = this.apiQuery);
     // Additional inputs
-    (this.selectedMinMass != "" &&   this.selectedMinMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+>=+\''  + this.selectedMinMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+>+\''  + this.selectedMinMass + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedMaxMass != "" &&   this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<=+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedMinRadius != "" && this.selectedMinRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+>=+\''  + this.selectedMinRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+>+\''  + this.selectedMinRadius + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedMaxRadius != "" && this.selectedMaxRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+<=+\''  + this.selectedMaxRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+<+\''  + this.selectedMaxRadius + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedMinDensity != "" && this.selectedMinDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+>=+\''  + this.selectedMinDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+>+\''  + this.selectedMinDensity + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedMaxDensity != "" && this.selectedMaxDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+<=+\''  + this.selectedMaxDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+<+\''  + this.selectedMaxDensity + '\'') : this.apiQuery = this.apiQuery);
-    (this.showControversial == true ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
-    (this.selectedStarType != "Star Type" && this.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedPlanetNum != "# of Planets in System" && this.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedStarNum != "# of Stars in System" && this.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.selectedStarNum + '\'') : this.apiQuery = this.apiQuery);
-    
+    (this.query.selectedMinMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+>=+\''  + this.query.selectedMinMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+>+\''  + this.query.selectedMinMass + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<=+\''  + this.query.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.query.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedMinRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+>=+\''  + this.query.selectedMinRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+>+\''  + this.query.selectedMinRadius + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedMaxRadius != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_rade+<=+\''  + this.query.selectedMaxRadius + '\'', firstConditional = false): this.apiQuery += '+and+pl_rade+<+\''  + this.query.selectedMaxRadius + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedMinDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+>=+\''  + this.query.selectedMinDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+>+\''  + this.query.selectedMinDensity + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedMaxDensity != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+<=+\''  + this.query.selectedMaxDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+<+\''  + this.query.selectedMaxDensity + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.showControversial == true ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
+    (this.query.selectedStarType != "Star Type" && this.query.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedPlanetNum != "# of Planets in System" && this.query.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.selectedStarNum != "# of Stars in System" && this.query.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.query.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.query.selectedStarNum + '\'') : this.apiQuery = this.apiQuery);
     // Returns true if input is empty
     return firstConditional;
   }

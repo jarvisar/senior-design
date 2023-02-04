@@ -6,7 +6,7 @@
   
   <!-- Host Name Input -->
   <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" 
-    [(ngModel)]="selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Name'"
+    [(ngModel)]="query.selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Name'"
     [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Name'">  
   <datalist id="hostlist">
     <option *ngFor="let host of hostData">
@@ -16,7 +16,7 @@
 
   <!-- Discovery Method Input -->
   <input class="method_select" id="method_select" type="search" list="methodlist" 
-    [(ngModel)]="selectedMethod" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Method'"
+    [(ngModel)]="query.selectedMethod" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Method'"
     [placeholder]="'Discovery Method'">  
   <datalist id="methodlist">
     <option *ngFor="let method of methodData">
@@ -26,7 +26,7 @@
 
   <!-- Discovery Year Input -->
   <input class="year_select" id="year_select" type="search" list="yearlist" 
-    [(ngModel)]="selectedYear" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Year'"
+    [(ngModel)]="query.selectedYear" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Year'"
     [placeholder]="'Discovery Year'">  
   <datalist id="yearlist">
     <option *ngFor="let year of yearData">
@@ -36,7 +36,7 @@
 
   <!-- Discovery Facility Input -->
   <input class="facility_select" id="facility_select" type="search" list="facilitylist" 
-    [(ngModel)]="selectedFacility" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Faciity'"
+    [(ngModel)]="query.selectedFacility" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Faciity'"
     [placeholder]="'Discovery Facility'">  
   <datalist id="facilitylist">
     <option *ngFor="let facility of facilityData">
@@ -53,13 +53,13 @@
   <br>
   <!-- Additional Inputs -->
   <div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
-    <input class="pl_bmasse-min-input" id="additional-input" [(ngModel)]="selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'">
-    <input class="pl_bmasse-max-input" id="additional-input" [(ngModel)]="selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Mass'" [placeholder]="'Max Mass (EM)'">
-    <input class="pl_rade-min-input" id="additional-input" [(ngModel)]="selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Radius (ER)'" [placeholder]="'Min Radius (ER)'">
-    <input class="pl_rade-max-input" id="additional-input" [(ngModel)]="selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Radius (ER)'" [placeholder]="'Max Radius (ER)'">
-    <input class="pl_dens-min-input" id="additional-input" [(ngModel)]="selectedMinDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Density (g/cm³)'" [placeholder]="'Min Density (g/cm³)'">
-    <input class="pl_dens-max-input" id="additional-input" [(ngModel)]="selectedMaxDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Density (g/cm³)'" [placeholder]="'Max Density (g/cm³)'">
-    <select class="star-type-select" id="star-type-select"  [(ngModel)]="selectedStarType">
+    <input class="pl_bmasse-min-input" id="additional-input" [(ngModel)]="query.selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'">
+    <input class="pl_bmasse-max-input" id="additional-input" [(ngModel)]="query.selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Mass'" [placeholder]="'Max Mass (EM)'">
+    <input class="pl_rade-min-input" id="additional-input" [(ngModel)]="query.selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Radius (ER)'" [placeholder]="'Min Radius (ER)'">
+    <input class="pl_rade-max-input" id="additional-input" [(ngModel)]="query.selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Radius (ER)'" [placeholder]="'Max Radius (ER)'">
+    <input class="pl_dens-min-input" id="additional-input" [(ngModel)]="query.selectedMinDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Density (g/cm³)'" [placeholder]="'Min Density (g/cm³)'">
+    <input class="pl_dens-max-input" id="additional-input" [(ngModel)]="query.selectedMaxDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Density (g/cm³)'" [placeholder]="'Max Density (g/cm³)'">
+    <select class="star-type-select" id="star-type-select"  [(ngModel)]="query.selectedStarType">
       <option [value]="'Star Type'">Star Type</option>
       <option [value]="'A'">A</option>
       <option [value]="'F'">F</option>
@@ -68,7 +68,7 @@
       <option [value]="'M'">M</option>
       <label>Star Type Select</label>
     </select>
-    <select class="star-num-select" id="star-num-select"  [(ngModel)]="selectedStarNum">
+    <select class="star-num-select" id="star-num-select"  [(ngModel)]="query.selectedStarNum">
       <option [value]="'# of Stars in System'"># of Stars in System</option>
       <option [value]="'1'">1</option>
       <option [value]="'2'">2</option>
@@ -76,7 +76,7 @@
       <option [value]="'4'">4</option>
       <label># of Stars Select</label>
     </select>
-    <select class="planet-num-select" id="planet-num-select"  [(ngModel)]="selectedPlanetNum">
+    <select class="planet-num-select" id="planet-num-select"  [(ngModel)]="query.selectedPlanetNum">
       <option [value]="'# of Planets in System'"># of Planets in System</option>
       <option [value]="'1'">1</option>
       <option [value]="'2'">2</option>
@@ -88,7 +88,7 @@
       <option [value]="'8'">8</option>
       <label># of Planets Select</label>
     </select>
-    <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="showControversial">Controversial</mat-checkbox>
+    <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="query.showControversial">Controversial</mat-checkbox>
   </div>
 </div>
 

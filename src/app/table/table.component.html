@@ -47,7 +47,7 @@
         </button>
         <br>
         <!-- Previous Search Button -->
-        <button mat-mini-fab (click)="inputbar.previousSearch($event)" id="previousButton" [disabled]="inputbar.previousQueries[0] == undefined" aria-label="Previous Search" title="Previous Search">
+        <button mat-mini-fab (click)="inputbar.previousSearch($event)" id="previousButton" [disabled]="inputbar.previousQueries.length == 1 || inputbar.previousQueries == undefined" aria-label="Previous Search" title="Previous Search">
             <mat-icon style="transform: scale(0.9);">restore</mat-icon>
         </button>
         <br>

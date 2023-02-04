@@ -29,7 +29,9 @@ export class DataService {
   private FACILITY_DATA_CACHE_KEY = 'facilityDataCache';
   private METHOD_DATA_CACHE_KEY = 'methodDataCache';
   private YEAR_DATA_CACHE_KEY = 'yearDataCache';
+  private EXOPLANET_DATA_CACHE_KEY = 'exoplanetDataCache';
   private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+  private EXPIRY_TIME2 = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
 
   constructor(private http: HttpClient) {}
 
@@ -98,10 +100,87 @@ export class DataService {
   }
 
   // Return exoplanet data after search
-  getExoPlanetData(query: string): Promise<any> {
+  getExoPlanetData(query: string, querySet): Promise<any> {
     console.log(this.hostUrl + this.defaultQuery + query + '&format=json');
     console.log('sending request')
-    return this.http.get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', httpOptions).toPromise();
+    let exoplanetDataCache = localStorage.getItem(this.EXOPLANET_DATA_CACHE_KEY);
+    // Check for cached data
+    if (exoplanetDataCache) {
+      let cacheData = JSON.parse(exoplanetDataCache);
+      if (cacheData.expiry > Date.now()) {
+        let filteredData = cacheData.data;
+        if (querySet.selectedHost !== '') {
+          filteredData = filteredData.filter(d => d.hostname === querySet.selectedHost);
+        }
+        if (querySet.selectedMethod !== '') {
+          filteredData = filteredData.filter(d => d.discoverymethod === querySet.selectedMethod);
+        }
+        if (querySet.selectedYear !== '') {
+          filteredData = filteredData.filter(d => d.disc_year == querySet.selectedYear);
+        }
+        if (querySet.selectedFacility !== '') {
+          filteredData = filteredData.filter(d => d.disc_facility === querySet.selectedFacility);
+        }
+        if (querySet.selectedMinMass !== undefined) {
+          filteredData = filteredData.filter(d => d.pl_bmasse >= querySet.selectedMinMass);
+        }
+        if (querySet.selectedMaxMass !== undefined) {
+          filteredData = filteredData.filter(d => d.pl_bmasse <= querySet.selectedMaxMass);
+        }
+        if (querySet.selectedMinRadius !== undefined) {
+          filteredData = filteredData.filter(d => d.pl_rade >= querySet.selectedMinRadius);
+        }
+        if (querySet.selectedMaxRadius !== undefined) {
+          filteredData = filteredData.filter(d => d.pl_rade <= querySet.selectedMaxRadius);
+        }
+        if (querySet.selectedMinDensity !== undefined) {
+          filteredData = filteredData.filter(d => d.pl_dens >= querySet.selectedMinDensity);
+        }
+        if (querySet.selectedMaxDensity !== undefined) {
+          filteredData = filteredData.filter(d => d.pl_dens <= querySet.selectedMaxDensity);
+        }
+        if (querySet.selectedStarType !== 'Star Type') {
+          filteredData = filteredData.filter(d => d.st_spectype === querySet.selectedStarType);
+        }
+        if (querySet.selectedStarNum !== '# of Stars in System') {
+          filteredData = filteredData.filter(d => d.sy_snum === querySet.selectedStarNum);
+        }
+        if (querySet.selectedPlanetNum !== '# of Planets in System') {
+          filteredData = filteredData.filter(d => d.sy_pnum === querySet.selectedPlanetNum);
+        }
+        if (querySet.showControversial === true) {
+          filteredData = filteredData.filter(d => d.pl_controv_flag === 1);
+        }
+        return Promise.resolve(filteredData);
+      }
+    }
+    // If expired use exoplanet database
+    return this.http
+    .get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', cacheOptions)
+    .toPromise();
+  }
+
+  // Cache all exoplanet data in background
+  getAllExoplanetData(): Promise<any> {
+    console.log(this.hostUrl + this.defaultQuery + '&format=json');
+    let exoplanetDataCache = localStorage.getItem(this.EXOPLANET_DATA_CACHE_KEY);
+    // Check for cached data
+    if (exoplanetDataCache) {
+      let cacheData = JSON.parse(exoplanetDataCache);
+      if (cacheData.expiry > Date.now()) {
+        return Promise.resolve(cacheData.data);
+      }
+    }
+    // If expired use exoplanet database
+    return this.http
+    .get<any[]>(this.hostUrl + this.defaultQuery + '&format=json', cacheOptions)
+    .toPromise()
+    .then((data) => {
+      // Store in cache for future use
+      let expiry = Date.now() + this.EXPIRY_TIME2;
+      localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
+      return data;
+    });
   }
 
   getTopExoplanetData(): Promise<any> {
