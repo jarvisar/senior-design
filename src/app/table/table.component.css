@@ -7,7 +7,7 @@
     width: calc(100% - 30px);
     overflow-x: scroll;
     overflow-y: scroll;
-    
+    transition: all 0.5 ease;
     border-radius: 25px;
     box-shadow: 0 -1px 0.68em 0.32em rgba(0, 0, 0, 0.13);
     margin-left: 15px;
@@ -129,7 +129,6 @@ tr.exoplanet-detail-row {
     color: white;
 }
 
-
 /* Side Buttons */
 .sidebar-buttons-container button {
     height: 40px;
@@ -147,8 +146,8 @@ tr.exoplanet-detail-row {
 
 .sidebar-buttons-container{
     position: fixed;
-    right: 25px;
-    bottom: 100px;
+    right: 15px;
+    bottom: 90px;
     width: 60px;
     z-index: 10;
     display: flex;
@@ -157,5 +156,13 @@ tr.exoplanet-detail-row {
     justify-content: center;
     align-items: center;
     background-color: #0b3d91;
-    border-radius: 30px;
+    border-top-left-radius: 30px;
 }
+
+@media only screen and (max-width: 1375px) {
+    .sidebar-buttons-container{
+        right: 30px;
+        bottom: 110px;
+        border-radius: 30px;
+    }
+  }
