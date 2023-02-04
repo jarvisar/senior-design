@@ -159,8 +159,8 @@ tr.exoplanet-detail-row {
 
 @media only screen and (max-width: 1375px) {
     .sidebar-buttons-container{
-        right: 30px;
-        bottom: calc(50% - 195px);
-        border-radius: 25px;
+        right: 30px !important;
+        bottom: calc(50% - 195px) !important;
+        border-radius: 25px !important;
     }
   }
