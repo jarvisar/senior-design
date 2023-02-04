@@ -90,67 +90,67 @@ export class ExodetailComponent implements OnInit {
 
   async searchHost(event: Event){
     this.inputbar.clearSelect();
-    this.inputbar.selectedHost = this.exoplanet.hostname;
+    this.inputbar.query.selectedHost = this.exoplanet.hostname;
     this.inputbar.searchclick(event);
   }
 
   async searchMethod(event: Event){
     this.inputbar.clearSelect();
-    this.inputbar.selectedMethod = this.exoplanet.discoverymethod;
+    this.inputbar.query.selectedMethod = this.exoplanet.discoverymethod;
     this.inputbar.searchclick(event);
   }
 
   async searchYear(event: Event){
     this.inputbar.clearSelect();
-    this.inputbar.selectedYear = this.exoplanet.disc_year;
+    this.inputbar.query.selectedYear = this.exoplanet.disc_year;
     this.inputbar.searchclick(event);
   }
 
   async searchFacility(event: Event){
     this.inputbar.clearSelect();
-    this.inputbar.selectedFacility = this.exoplanet.disc_facility;
+    this.inputbar.query.selectedFacility = this.exoplanet.disc_facility;
     this.inputbar.searchclick(event);
   }
 
   async searchStarType(event: Event){
     this.inputbar.clearSelect();
-    this.inputbar.selectedStarType = this.exoplanet.st_spectype[0];
+    this.inputbar.query.selectedStarType = this.exoplanet.st_spectype[0];
     this.inputbar.searchclick(event);
   }
 
   async searchPlanetType(event: Event){
     this.inputbar.clearSelect();
     if(this.exoplanet.pl_type == "Asteroidan"){
-      this.inputbar.selectedMinMass = 0;
-      this.inputbar.selectedMaxMass = 0.00001;
+      this.inputbar.query.selectedMinMass = 0;
+      this.inputbar.query.selectedMaxMass = 0.00001;
     } else if(this.pl_type == "Mercurial"){
-      this.inputbar.selectedMinMass = 0.00001;
-      this.inputbar.selectedMaxMass = 0.1;
+      this.inputbar.query.selectedMinMass = 0.00001;
+      this.inputbar.query.selectedMaxMass = 0.1;
     } else if(this.pl_type == "Subterran"){
-      this.inputbar.selectedMinMass = 0.1;
-      this.inputbar.selectedMaxMass = 0.5;
+      this.inputbar.query.selectedMinMass = 0.1;
+      this.inputbar.query.selectedMaxMass = 0.5;
     } else if(this.pl_type == "Terran"){
-      this.inputbar.selectedMinMass = 0.5;
-      this.inputbar.selectedMaxMass = 2;
+      this.inputbar.query.selectedMinMass = 0.5;
+      this.inputbar.query.selectedMaxMass = 2;
     } else if(this.pl_type == "Superterran"){
-      this.inputbar.selectedMinMass = 2;
-      this.inputbar.selectedMaxMass = 10;
+      this.inputbar.query.selectedMinMass = 2;
+      this.inputbar.query.selectedMaxMass = 10;
     } else if(this.pl_type == "Neptunian Gas Giant"){
-      this.inputbar.selectedMinMass = 10;
-      this.inputbar.selectedMaxMass = 50;
+      this.inputbar.query.selectedMinMass = 10;
+      this.inputbar.query.selectedMaxMass = 50;
     } else if(this.pl_type == "Jovian Gas Giant"){
-      this.inputbar.selectedMinMass = 50;
-      this.inputbar.selectedMaxMass = 5000;
+      this.inputbar.query.selectedMinMass = 50;
+      this.inputbar.query.selectedMaxMass = 5000;
     }
     this.inputbar.searchclick(event);
   }
 
   // Set select elements based on search
-  setValues(host = '', method = '', year = 0, facility = 0){
-    this.inputbar.selectedHost = host;
-    this.inputbar.selectedMethod = method;
-    this.inputbar.selectedYear = year;
-    this.inputbar.selectedFacility = facility;
+  setValues(host = '', method = '', year = '', facility = ''){
+    this.inputbar.query.selectedHost = host;
+    this.inputbar.query.selectedMethod = method;
+    this.inputbar.query.selectedYear = year;
+    this.inputbar.query.selectedFacility = facility;
     this.inputbar.firstSearch = true;
   }
   
