@@ -7,7 +7,7 @@
     width: calc(100% - 30px);
     overflow-x: scroll;
     overflow-y: scroll;
-    transition: all 0.5 ease;
+    transition: all 0.2s ease;
     border-radius: 25px;
     box-shadow: 0 -1px 0.68em 0.32em rgba(0, 0, 0, 0.13);
     margin-left: 15px;
@@ -79,7 +79,6 @@ td.mat-cell {
     height: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     margin-bottom: -56px;
-    transition: all 0.5 ease;
 }
 
 .mat-header-cell {
@@ -146,8 +145,8 @@ tr.exoplanet-detail-row {
 
 .sidebar-buttons-container{
     position: fixed;
-    right: 15px;
-    bottom: 90px;
+    
+    
     width: 60px;
     z-index: 10;
     display: flex;
@@ -156,13 +155,14 @@ tr.exoplanet-detail-row {
     justify-content: center;
     align-items: center;
     background-color: #0b3d91;
-    border-top-left-radius: 30px;
+    border-top-left-radius: 25px;
+    transition: all 0.2s ease;
 }
 
 @media only screen and (max-width: 1375px) {
     .sidebar-buttons-container{
         right: 30px;
-        bottom: 110px;
+        bottom: calc(50% - 195px);
         border-radius: 25px;
     }
   }

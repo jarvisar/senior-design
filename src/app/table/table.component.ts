@@ -42,7 +42,13 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
       })),
       transition('blurred => unblurred', animate('250ms ease-out')),
       transition('unblurred => blurred', animate('150ms ease-out'))
-    ])
+    ]),
+    trigger('columnAnimation', [
+      transition('void => *', [
+          style({opacity: 0}),
+          animate('200ms ease-in', style({opacity: 1}))
+      ]),
+  ])
   ]
 })
 export class TableComponent implements OnInit {
@@ -81,6 +87,8 @@ export class TableComponent implements OnInit {
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
   blurState = 'unblurred';
+
+  private shrinkAnimation = true;
   
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, {static: false})
@@ -111,6 +119,7 @@ export class TableComponent implements OnInit {
   }
 
   setTableDataSource(data: Exoplanet[]) {
+    this.shrinkAnimation = false;
     // Set table data source to slice of exoplanet data
     this.dataSource = new MatTableDataSource<Exoplanet>(data);
     // Blur table if loading new data
@@ -119,6 +128,9 @@ export class TableComponent implements OnInit {
     });
     // Reset expanded exoplanet after loading new data
     this.expandedExoplanet = null;
+    setTimeout(() => {
+      this.shrinkAnimation = true;
+    }, 500);
   }
 
   /* Triggered by user changing page on mat-paginator  */

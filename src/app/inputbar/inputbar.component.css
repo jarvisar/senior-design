@@ -112,7 +112,7 @@
 
 .table{
   width: 100%;
-  transition: all 0.3 ease;
+  transition: all 0.2s ease;
 }
 
 /* Custom scrollbar */
