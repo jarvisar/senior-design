@@ -69,10 +69,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   selected = false;
   
   // Main inputs
-  public selectedHostValue!: string;
-  public selectedMethodValue!: string;
-  public selectedYearValue!: string;
-  public selectedFacilityValue!: string;
+  public selectedHost;
+  public selectedMethod;
+  public selectedYear;
+  public selectedFacility;
   // Additional Inputs
   public selectedMinMass;
   public selectedMaxMass;
@@ -95,55 +95,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       });
   }
 
-  // initiate hostname select box
-  private _selectedHost!: string;
-
-  public get selectedHost(): string {
-    return this._selectedHost;
-  }
-
-  public set selectedHost(index: string) {
-    this._selectedHost = index;
-    this.selectedHostValue = this.hostData[index];
-    console.log(this.selectedHost);
-  }
-
-  // initiate discovery method select box
-  private _selectedMethod!: number;
-
-  public get selectedMethod(): number {
-    return this._selectedMethod;
-  }
-
-  public set selectedMethod(index: number) {
-    this._selectedMethod = index;
-    this.selectedMethodValue = this.methodData[index];
-  }
-
-  // initiate discovery year select box
-  private _selectedYear!: number;
-
-  public get selectedYear(): number {
-    return this._selectedYear;
-  }
-
-  public set selectedYear(index: number) {
-    this._selectedYear = index;
-    this.selectedYearValue = this.yearData[index];
-  }
-
-  // initiate discovery facility select box
-  private _selectedFacility!: number;
-
-  public get selectedFacility(): number {
-    return this._selectedFacility;
-  }
-
-  public set selectedFacility(index: number) {
-    this._selectedFacility = index;
-    this.selectedFacilityValue = this.facilityData[index];
-  }
-
   async searchclick(event?: Event, query?: string) {
     if(this.searchCalled == false){
       this.searchCalled = true;
@@ -153,9 +104,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       this.router.navigate([], {queryParams: {}});
       let queryParams = Object.assign({},
         this.selectedHost != "" ? { hostname: this.selectedHost } : {},
-        this.selectedMethodValue != "Discovery Method" ? { discoverymethod: this.selectedMethodValue } : {},
-        this.selectedYearValue != "Discovery Year" ? { disc_year: this.selectedYearValue } : {},
-        this.selectedFacilityValue != "Discovery Facility" ? { disc_facility: this.selectedFacilityValue } : {},
+        this.selectedMethod != "" ? { discoverymethod: this.selectedMethod } : {},
+        this.selectedYear != "" ? { disc_year: this.selectedYear } : {},
+        this.selectedFacility != "" ? { disc_facility: this.selectedFacility } : {},
         this.selectedMinMass != undefined || this.selectedMinMass != "" ? { pl_bmasse_min: this.selectedMinMass } : {},
         this.selectedMaxMass != undefined || this.selectedMaxMass != "" ? { pl_bmasse_max: this.selectedMaxMass } : {},
         this.selectedMinRadius != undefined || this.selectedMinRadius != "" ? { pl_rade_min: this.selectedMinRadius } : {},
@@ -196,9 +147,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   clearSelect() {
     // Reset all inputs
     this.selectedHost = '';
-    this.selectedMethod = 0;
-    this.selectedYear = 0;
-    this.selectedFacility = 0;
+    this.selectedMethod = '';
+    this.selectedYear = '';
+    this.selectedFacility = '';
     this.selectedMinMass = undefined; 
     this.selectedMaxMass = undefined;
     this.selectedMinRadius = undefined;
@@ -252,13 +203,13 @@ export class InputbarComponent implements OnInit, AfterViewInit {
           this.selectedHost = params['hostname'];
         }
         if (params['discoverymethod'] != undefined){
-          this.selectedMethodValue = params['discoverymethod'];
+          this.selectedMethod = params['discoverymethod'];
         } 
         if (params['disc_year'] != undefined){
-          this.selectedYearValue = params['disc_year'];
+          this.selectedYear = params['disc_year'];
         } 
         if (params['disc_facility'] != undefined){
-          this.selectedFacilityValue = params['disc_facility'];
+          this.selectedFacility = params['disc_facility'];
         } 
         if (params['pl_bmasse_min'] != undefined){
           this.selectedMinMass = params['pl_bmasse_min'];
@@ -325,9 +276,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.apiQuery = '';
     // First check if select box has valid value then check if any other conditional has been applied 
     (this.selectedHost != '' && this.selectedHost != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHost + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
-    (this.selectedMethodValue != "Discovery Method" && this.selectedMethodValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethodValue + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethodValue + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedYearValue != "Discovery Year" && this.selectedYearValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYearValue + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYearValue + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedFacilityValue != "Discovery Facility" && this.selectedFacilityValue != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacilityValue + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacilityValue + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedMethod != '' && this.selectedMethod != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethod + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethod + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedYear != '' && this.selectedYear != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYear + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYear + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedFacility != "Discovery Facility" && this.selectedFacility != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacility + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacility + '\'') : this.apiQuery = this.apiQuery);
     // Additional inputs
     (this.selectedMinMass != "" &&   this.selectedMinMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+>=+\''  + this.selectedMinMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+>+\''  + this.selectedMinMass + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMaxMass != "" &&   this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<=+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);

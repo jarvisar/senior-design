@@ -14,29 +14,35 @@
     </option>
   </datalist>
 
-  <!-- Discovery Method Select -->
-  <select class="method_select" id="method_select"  [(ngModel)]="selectedMethod">
-    <option *ngFor="let _ of methodData; index as i" [value]="i">
-      {{methodData[i]}}
+  <!-- Discovery Method Input -->
+  <input class="method_select" id="method_select" type="search" list="methodlist" 
+    [(ngModel)]="selectedMethod" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Method'"
+    [placeholder]="'Discovery Method'">  
+  <datalist id="methodlist">
+    <option *ngFor="let method of methodData">
+      {{method}}
     </option>
-    <label>Method Select</label>
-  </select>
+  </datalist>
 
-  <!-- Discovery Year Select -->
-  <select class="year_select" id="year_select"  [(ngModel)]="selectedYear">
-    <option *ngFor="let _ of yearData; index as i" [value]="i">
-      {{yearData[i]}}
+  <!-- Discovery Year Input -->
+  <input class="year_select" id="year_select" type="search" list="yearlist" 
+    [(ngModel)]="selectedYear" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Year'"
+    [placeholder]="'Discovery Year'">  
+  <datalist id="yearlist">
+    <option *ngFor="let year of yearData">
+      {{year}}
     </option>
-    <label>Year Select</label>
-  </select>
+  </datalist>
 
-  <!-- Discovery Facility Select -->
-  <select class="facility_select" id="facility_select"  [(ngModel)]="selectedFacility">
-    <option *ngFor="let _ of facilityData; index as i" [value]="i">
-      {{facilityData[i]}}
+  <!-- Discovery Facility Input -->
+  <input class="facility_select" id="facility_select" type="search" list="facilitylist" 
+    [(ngModel)]="selectedFacility" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Faciity'"
+    [placeholder]="'Discovery Facility'">  
+  <datalist id="facilitylist">
+    <option *ngFor="let facility of facilityData">
+      {{facility}}
     </option>
-    <label>Facility Select</label>
-  </select>
+  </datalist>
 
   <!-- Search & Clear Buttonss -->
   <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="(loadingService.isLoading$ | async) && previousQueries.length == 0" >Search</button>

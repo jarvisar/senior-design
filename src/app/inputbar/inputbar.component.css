@@ -173,7 +173,7 @@ p:hover:after {
 }
 
 /* Placeholder Styling */
-#hostname_select::placeholder { 
+::placeholder { 
   color: black;
   opacity: 1; /* Firefox */
 }

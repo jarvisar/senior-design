@@ -96,23 +96,19 @@ export class ExodetailComponent implements OnInit {
 
   async searchMethod(event: Event){
     this.inputbar.clearSelect();
-    this.setValues(0,this.inputbar.methodData.findIndex(method => method === this.exoplanet.discoverymethod),0,0);
-    console.log(this.exoplanet.discoverymethod);
-    this.inputbar.selectedMethodValue = this.exoplanet.discoverymethod;
+    this.inputbar.selectedMethod = this.exoplanet.discoverymethod;
     this.inputbar.searchclick(event);
   }
 
   async searchYear(event: Event){
     this.inputbar.clearSelect();
-    this.setValues(0,0,this.inputbar.yearData.findIndex(year => year === this.exoplanet.disc_year),0);
-    this.inputbar.selectedYearValue = this.exoplanet.disc_year;
+    this.inputbar.selectedYear = this.exoplanet.disc_year;
     this.inputbar.searchclick(event);
   }
 
   async searchFacility(event: Event){
     this.inputbar.clearSelect();
-    this.setValues(0,0,0,this.inputbar.facilityData.findIndex(facility => facility === this.exoplanet.disc_facility));
-    this.inputbar.selectedFacilityValue = this.exoplanet.disc_facility;
+    this.inputbar.selectedFacility = this.exoplanet.disc_facility;
     this.inputbar.searchclick(event);
   }
 
@@ -150,10 +146,8 @@ export class ExodetailComponent implements OnInit {
   }
 
   // Set select elements based on search
-  setValues(host = 0, method = 0, year = 0, facility = 0){
-    if (host == 0){
-      this.inputbar.selectedHost = '';
-    }
+  setValues(host = '', method = '', year = 0, facility = 0){
+    this.inputbar.selectedHost = host;
     this.inputbar.selectedMethod = method;
     this.inputbar.selectedYear = year;
     this.inputbar.selectedFacility = facility;
