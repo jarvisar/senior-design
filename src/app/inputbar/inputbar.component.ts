@@ -169,7 +169,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       );
       this.router.navigate([], { queryParams });
     }
-    // Check for query parameter (used for previous search)
+    // Use previous query if parameter is defined, else build query using inputs
     if (query != undefined){
       this.apiQuery = query;
     } else{
@@ -177,19 +177,17 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     }
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
-    // Call data service
-    try{
+    try {
       let response = await this.data.getExoPlanetData(this.apiQuery);
-      response.forEach((e: Exoplanet) => {
-        //Add each exoplanet to array
-        newArray.push(e)
+      newArray = response.map((e: Exoplanet) => {
+        return e;
       });
       this.exoplanetData = newArray;
     } catch (err: any) {
-      // Display error message if needed
-      console.log("Error loading data");
-      this.error = true;
-    }
+    // Display error message if needed
+    console.log("Error loading data");
+    this.error = true;
+  }
     console.log(this.exoplanetData);
     this.numResults = this.exoplanetData.length;
     this.showTable = true;
