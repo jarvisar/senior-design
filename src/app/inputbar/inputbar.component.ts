@@ -187,7 +187,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     console.log(this.previousQueries.length);
     let query = this.previousQueries.pop();
     if (query != undefined){
-      
       this.searchclick(event, query);
       this.clearSelect();
       this.router.navigate([], {queryParams: {}});
