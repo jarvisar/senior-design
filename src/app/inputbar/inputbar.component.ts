@@ -197,6 +197,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   private searchCalled = false;
   // Load query parameters
   async ngAfterViewInit (){
+    this.clearSelect();
     this.route.queryParams.pipe(skip(1)).subscribe(params => {
       if (Object.keys(params).length > 0) {
         if (params['hostname'] != undefined){
@@ -264,7 +265,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.methodData = methodData;
     this.yearData = yearData;
     this.facilityData = facilityData;
-    this.clearSelect();
   }
 
   public buildQuery(){
@@ -278,7 +278,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.selectedHost != '' && this.selectedHost != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.selectedHost + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.selectedMethod != '' && this.selectedMethod != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.selectedMethod + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.selectedMethod + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedYear != '' && this.selectedYear != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.selectedYear + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.selectedYear + '\'') : this.apiQuery = this.apiQuery);
-    (this.selectedFacility != "Discovery Facility" && this.selectedFacility != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacility + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacility + '\'') : this.apiQuery = this.apiQuery);
+    (this.selectedFacility != '' && this.selectedFacility != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_facility+=+\''  + this.selectedFacility + '\'', firstConditional = false): this.apiQuery += '+and+disc_facility+=+\''  + this.selectedFacility + '\'') : this.apiQuery = this.apiQuery);
     // Additional inputs
     (this.selectedMinMass != "" &&   this.selectedMinMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+>=+\''  + this.selectedMinMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+>+\''  + this.selectedMinMass + '\'') : this.apiQuery = this.apiQuery);
     (this.selectedMaxMass != "" &&   this.selectedMaxMass != undefined ? (firstConditional == true ? (this.apiQuery += '+where+pl_bmasse+<=+\''  + this.selectedMaxMass + '\'', firstConditional = false): this.apiQuery += '+and+pl_bmasse+<+\''  + this.selectedMaxMass + '\'') : this.apiQuery = this.apiQuery);
