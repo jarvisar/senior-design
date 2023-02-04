@@ -145,8 +145,6 @@ tr.exoplanet-detail-row {
 
 .sidebar-buttons-container{
     position: fixed;
-    
-    
     width: 60px;
     z-index: 10;
     display: flex;
