@@ -90,7 +90,7 @@ export class TableComponent implements OnInit {
     this.allExoplanetData.paginator = this.paginator;
     this.allExoplanetData.sort = this.sort;
     
-    this.setTableDataSource(data.slice(0,50));
+    this.setTableDataSource(data.slice(0, 50));
   }
 
   allExoplanetData: MatTableDataSource<Exoplanet>;
@@ -98,12 +98,10 @@ export class TableComponent implements OnInit {
   expandedExoplanet: Exoplanet | null;
 
   setTableDataSource(data: Exoplanet[]) {
-      console.log(this.allExoplanetData);
       this.dataSource = new MatTableDataSource<Exoplanet>(data);
       this.updateData();
       this.dataSource.sort = this.sort;
       this.expandedExoplanet = null;
-      
       this.allExoplanetData.sortingDataAccessor = ( exoplanet, property) => {
       switch ( property ) {
         case 'exoplanet.pl_name': return exoplanet.pl_name;
@@ -117,6 +115,8 @@ export class TableComponent implements OnInit {
     let limit = (event.pageIndex * event.pageSize) + event.pageSize;
     let offset = (event.pageIndex * event.pageSize);
     this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
+    this.dataSource.sort = this.sort;
+    this.sortData(this.sort);
   }
   
   constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
@@ -134,7 +134,30 @@ export class TableComponent implements OnInit {
   }
 
   sortData(sort: Sort){
-    this.allExoplanetData.sort = this.sort;
+    console.log(sort);
+    this.sortByColumn(sort.active, sort.direction);
+    let limit = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize) + this.actualPaginator.pageSize;
+    let offset = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize);
+    console.log(limit + " " + offset);
+    this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
+  }
+
+  sortByColumn(columnName: string, direction: string) {
+    if(direction == "asc"){
+      this.allExoplanetData.data.sort((a, b) => {
+        if (a[columnName] < b[columnName]) return -1;
+        if (a[columnName] > b[columnName]) return 1;
+        return 0;
+      });
+    } else if(direction == "desc"){
+      this.allExoplanetData.data.sort((a, b) => {
+        if (a[columnName] > b[columnName]) return -1;
+        if (a[columnName] < b[columnName]) return 1;
+        return 0;
+      });
+    } else {
+      this.allExoplanetData.data.sort();
+    }
   }
 
   changeColumns(){
