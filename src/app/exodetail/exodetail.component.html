@@ -22,15 +22,16 @@
     <!-- Host Star System Info -->
     <div class="section-title">Host Star System: <a class="search-anchor" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
     <p>This system consists of {{exoplanet.sy_snum}} <a class="search-anchor" (click)="searchStarType($event)" *ngIf="exoplanet.st_spectype != null" title="Search for other exoplanets orbiting {{exoplanet.st_spectype[0]}}-type stars">{{exoplanet.st_spectype[0] + "-type"}}</a> star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
+    <p *ngIf="exoplanet.st_teff != null || exoplanet.st_rad != null || exoplanet.st_mass != null"><a class="search-anchor" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a> {{exoplanet.st_rad != null ? ' is ' + exoplanet.st_rad.toFixed(2) + " times the size ": ''}} {{exoplanet.st_rad != null && exoplanet.st_mass != null ? ' and ' : ''}} {{exoplanet.st_mass != null ? 'has ' + exoplanet.st_mass + ' times the mass ': ''}} 
+      {{exoplanet.st_rad != null || exoplanet.st_mass != null ? "of the Sun" : ''}}{{exoplanet.st_teff != null ? (exoplanet.st_rad != null || exoplanet.st_mass != null ? (exoplanet.st_rad != null && exoplanet.st_mass != null ? ',' : '') + ' with an effective temperature of ' + exoplanet.st_teff + ' Kelvin' : ' has an effective temperature of ' + exoplanet.st_teff + ' Kelvin') : ''}}.</p>
     <!-- Orbit Info -->
     <div class="section-title" *ngIf="exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null">Orbit  Information</div>
     <p>{{ exoplanet.pl_orbper != null && exoplanet.pl_orbsmax != null ? 
-      "This exoplanet has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + 
+      exoplanet.pl_name + " has an orbital radius of " + exoplanet.pl_orbsmax + " ㍳ and takes " + 
       (exoplanet.pl_orbper > 365 ? (exoplanet.pl_orbper/365).toFixed(3) + " years" : exoplanet.pl_orbper.toFixed(3) + " days") + 
       " to orbit its host star." : ""
     }}
     </p>
-    <p>{{exoplanet.pl_orbeccen != null && exoplanet.pl_orbeccen != 0 ? "Orbit Eccentricity: " + exoplanet.pl_orbeccen.toFixed(3) : ""}}</p>
     <!-- Detection Method Info -->
     <div class="section-title">Detection Method: <a class="search-anchor" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
       <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above" #tooltip="matTooltip" (click)="tooltip.toggle()">
