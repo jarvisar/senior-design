@@ -8,7 +8,7 @@
   <input (click)="selected ? doNothing() : loadOptions()" class="hostname_select" id="hostname_select" type="search" list="hostlist" 
     [(ngModel)]="query.selectedHost" onfocus="this.placeholder=''" onBlur="this.placeholder='Host Name'"
     [placeholder]="(loadingService.isLoading$ | async) && loading ? 'Loading' : 'Host Name'"
-    (keyup.enter)="document.activeElement === hostSelect ? searchclick() : null" #hostSelect>  
+    (keyup.enter)="document.activeElement === hostSelect ? searchclick($event) : null" #hostSelect>  
   <datalist id="hostlist">
     <option *ngFor="let host of hostData">
       {{host}}
@@ -18,7 +18,7 @@
   <!-- Discovery Method Input -->
   <input class="method_select" id="method_select" type="search" list="methodlist" 
     [(ngModel)]="query.selectedMethod" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Method'"
-    [placeholder]="'Discovery Method'" (keyup.enter)="document.activeElement === methodSelect ? searchclick() : null" #methodSelect>  
+    [placeholder]="'Discovery Method'" (keyup.enter)="document.activeElement === methodSelect ? searchclick($event) : null" #methodSelect>  
   <datalist id="methodlist">
     <option *ngFor="let method of methodData">
       {{method}}
@@ -28,7 +28,7 @@
   <!-- Discovery Year Input -->
   <input class="year_select" id="year_select" type="search" list="yearlist" 
     [(ngModel)]="query.selectedYear" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Year'"
-    [placeholder]="'Discovery Year'" (keyup.enter)="document.activeElement === yearSelect ? searchclick() : null" #yearSelect>  
+    [placeholder]="'Discovery Year'" (keyup.enter)="document.activeElement === yearSelect ? searchclick($event) : null" #yearSelect>  
   <datalist id="yearlist">
     <option *ngFor="let year of yearData">
       {{year}}
@@ -38,7 +38,7 @@
   <!-- Discovery Facility Input -->
   <input class="facility_select" id="facility_select" type="search" list="facilitylist" 
     [(ngModel)]="query.selectedFacility" onfocus="this.placeholder=''" onBlur="this.placeholder='Discovery Faciity'"
-    [placeholder]="'Discovery Facility'" (keyup.enter)="document.activeElement === facilitySelect ? searchclick() : null" #facilitySelect>  
+    [placeholder]="'Discovery Facility'" (keyup.enter)="document.activeElement === facilitySelect ? searchclick($event) : null" #facilitySelect>  
   <datalist id="facilitylist">
     <option *ngFor="let facility of facilityData">
       {{facility}}
@@ -54,13 +54,13 @@
   <br>
   <!-- Additional Inputs -->
   <div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
-    <input class="pl_bmasse-min-input" id="additional-input" [(ngModel)]="query.selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'" (keyup.enter)="document.activeElement === minMass ? searchclick() : null" #minMass>
-    <input class="pl_bmasse-max-input" id="additional-input" [(ngModel)]="query.selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Mass'" [placeholder]="'Max Mass (EM)'" (keyup.enter)="document.activeElement === maxMass ? searchclick() : null" #maxMass>
-    <input class="pl_rade-min-input" id="additional-input" [(ngModel)]="query.selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Radius (ER)'" [placeholder]="'Min Radius (ER)'" (keyup.enter)="document.activeElement === minRadius ? searchclick() : null" #minRadius>
-    <input class="pl_rade-max-input" id="additional-input" [(ngModel)]="query.selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Radius (ER)'" [placeholder]="'Max Radius (ER)'" (keyup.enter)="document.activeElement === maxRadius ? searchclick() : null" #maxRadius>
-    <input class="pl_dens-min-input" id="additional-input" [(ngModel)]="query.selectedMinDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Density (g/cm³)'" [placeholder]="'Min Density (g/cm³)'" (keyup.enter)="document.activeElement === minDensity ? searchclick() : null" #minDensity>
-    <input class="pl_dens-max-input" id="additional-input" [(ngModel)]="query.selectedMaxDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Density (g/cm³)'" [placeholder]="'Max Density (g/cm³)'" (keyup.enter)="document.activeElement === maxDensity ? searchclick() : null" #maxDensity>
-    <select class="star-type-select" id="star-type-select"  [(ngModel)]="query.selectedStarType" (keyup.enter)="document.activeElement === starType ? searchclick() : null" #starType>
+    <input class="pl_bmasse-min-input" id="additional-input" [(ngModel)]="query.selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'" (keyup.enter)="document.activeElement === minMass ? searchclick($event) : null" #minMass>
+    <input class="pl_bmasse-max-input" id="additional-input" [(ngModel)]="query.selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Mass'" [placeholder]="'Max Mass (EM)'" (keyup.enter)="document.activeElement === maxMass ? searchclick($event) : null" #maxMass>
+    <input class="pl_rade-min-input" id="additional-input" [(ngModel)]="query.selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Radius (ER)'" [placeholder]="'Min Radius (ER)'" (keyup.enter)="document.activeElement === minRadius ? searchclick($event) : null" #minRadius>
+    <input class="pl_rade-max-input" id="additional-input" [(ngModel)]="query.selectedMaxRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Radius (ER)'" [placeholder]="'Max Radius (ER)'" (keyup.enter)="document.activeElement === maxRadius ? searchclick($event) : null" #maxRadius>
+    <input class="pl_dens-min-input" id="additional-input" [(ngModel)]="query.selectedMinDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Density (g/cm³)'" [placeholder]="'Min Density (g/cm³)'" (keyup.enter)="document.activeElement === minDensity ? searchclick($event) : null" #minDensity>
+    <input class="pl_dens-max-input" id="additional-input" [(ngModel)]="query.selectedMaxDensity" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Density (g/cm³)'" [placeholder]="'Max Density (g/cm³)'" (keyup.enter)="document.activeElement === maxDensity ? searchclick($event) : null" #maxDensity>
+    <select class="star-type-select" id="star-type-select"  [(ngModel)]="query.selectedStarType" (keyup.enter)="document.activeElement === starType ? searchclick($event) : null" #starType>
       <option [value]="'Star Type'">Star Type</option>
       <option [value]="'A'">A</option>
       <option [value]="'F'">F</option>
@@ -69,7 +69,7 @@
       <option [value]="'M'">M</option>
       <label>Star Type Select</label>
     </select>
-    <select class="star-num-select" id="star-num-select"  [(ngModel)]="query.selectedStarNum" (keyup.enter)="document.activeElement === starNum ? searchclick() : null" #starNum>
+    <select class="star-num-select" id="star-num-select"  [(ngModel)]="query.selectedStarNum" (keyup.enter)="document.activeElement === starNum ? searchclick($event) : null" #starNum>
       <option [value]="'# of Stars in System'"># of Stars in System</option>
       <option [value]="'1'">1</option>
       <option [value]="'2'">2</option>
@@ -77,7 +77,7 @@
       <option [value]="'4'">4</option>
       <label># of Stars Select</label>
     </select>
-    <select class="planet-num-select" id="planet-num-select"  [(ngModel)]="query.selectedPlanetNum" (keyup.enter)="document.activeElement === planetNum ? searchclick() : null" #planetNum>
+    <select class="planet-num-select" id="planet-num-select"  [(ngModel)]="query.selectedPlanetNum" (keyup.enter)="document.activeElement === planetNum ? searchclick($event) : null" #planetNum>
       <option [value]="'# of Planets in System'"># of Planets in System</option>
       <option [value]="'1'">1</option>
       <option [value]="'2'">2</option>
