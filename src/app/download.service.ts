@@ -29,8 +29,8 @@ export class DownloadService {
   ConvertToCSV(objArray, headerList) {
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
-    let row = 'No.';
-
+    let row = 'No.,';
+    console.log(array);
     for (let index in headerList) {
         row += headerList[index] + ',';
     }
