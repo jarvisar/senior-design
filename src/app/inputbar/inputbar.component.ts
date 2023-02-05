@@ -136,6 +136,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     } catch (err: any) {
     // Display error message if unsuccessful
     console.log("Error loading data");
+    console.log(err);
     this.error = true;
   }
     console.log(this.exoplanetData);

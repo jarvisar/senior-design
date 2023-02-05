@@ -141,7 +141,7 @@ export class DataService {
           filteredData = filteredData.filter(d => d.pl_dens <= querySet.selectedMaxDensity);
         }
         if (querySet.selectedStarType !== 'Star Type') {
-          filteredData = filteredData.filter(d => d.st_spectype === querySet.selectedStarType);
+          filteredData = filteredData.filter(d => d.st_spectype && d.st_spectype[0] == querySet.selectedStarType);
         }
         if (querySet.selectedStarNum !== '# of Stars in System') {
           filteredData = filteredData.filter(d => d.sy_snum == querySet.selectedStarNum);
