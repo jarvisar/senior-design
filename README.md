@@ -58,6 +58,28 @@ The results returned from the search will include columns with information such 
 
 For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>. The Earth's orbital period is 365.25 days, and its distance from the Sun is exactly 1 AU.
 
+## Installation
+
+Install [Node.js](https://nodejs.org/en/download/) by following the guide on the official website.
+
+After installing, you can check the Node.js version by opening a terminal and running `node -v`
+
+Install Angular CLI by running the following command in your terminal:
+
+`npm install -g @angular/cli`
+
+Clone the master branch of this repository and navigate to the /senior-design/ folder. 
+
+Open a terminal in the /senior-design/ folder and run the following command to install the dependencies:
+
+`npm install`
+
+Once installation is complete, start the development server by running:
+
+`ng serve`
+
+This will start the development server at `http://localhost:4200`
+
 ## FAQ
 
 #### What is an exoplanet?
