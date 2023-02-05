@@ -45,8 +45,7 @@ Selecting the checkbox next to the help button will display additional inputs:
 
 All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format with four additional buttons for enhanced functionality. Easily configure your columns with the column configuration button, revisit previous searches with the previous search button, quickly copy the search parameters to your clipboard, and even export the data as a CSV file for local storage with the simple click of the download button.
 
-To sort the data, click on a column header to toggle between descending and ascending order. 
-        Clicking on an individual exoplanet's row will show specific data about that exoplanet, such as its planet type, orbit information, and its position in the             sky. Values with a cyan color in the expanded row are searchable terms; clicking on one will search for Exoplanets with similar data.
+Easily sort the exoplanet data by clicking on a column header, switching between descending and ascending order. In-depth information about a specific exoplanet is available by simply clicking on its row, such as planet type, orbit information, and its position in the sky. Searchable terms within the expanded row are highlighted in cyan and can search for similar exoplanets by clicking on them.
         
 #### Understanding the Results
 
