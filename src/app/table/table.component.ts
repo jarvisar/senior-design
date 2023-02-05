@@ -46,7 +46,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
     trigger('columnAnimation', [
       transition('void => *', [
           style({opacity: 0}),
-          animate('200ms ease-in', style({opacity: 1}))
+          animate('250ms ease-in', style({opacity: 1}))
       ]),
   ])
   ]

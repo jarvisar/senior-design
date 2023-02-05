@@ -143,10 +143,10 @@ export class DataService {
           filteredData = filteredData.filter(d => d.st_spectype === querySet.selectedStarType);
         }
         if (querySet.selectedStarNum !== '# of Stars in System') {
-          filteredData = filteredData.filter(d => d.sy_snum === querySet.selectedStarNum);
+          filteredData = filteredData.filter(d => d.sy_snum == querySet.selectedStarNum);
         }
         if (querySet.selectedPlanetNum !== '# of Planets in System') {
-          filteredData = filteredData.filter(d => d.sy_pnum === querySet.selectedPlanetNum);
+          filteredData = filteredData.filter(d => d.sy_pnum == querySet.selectedPlanetNum);
         }
         if (querySet.showControversial === true) {
           filteredData = filteredData.filter(d => d.pl_controv_flag === 1);
