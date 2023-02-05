@@ -60,25 +60,29 @@ For example, an exoplanet with a radius of 0.5 ER has half the radius of the Ear
 
 ## Installation
 
-Install [Node.js](https://nodejs.org/en/download/) by following the guide on the official website.
+#### Prerequisites
+Angular, Node.js, and npm are required for this web app to run. They can downloaded from the [official website](https://nodejs.org/en/) or can be installed with a package manager like [Homebrew](https://brew.sh/) (for macOS) or [Chocolatey](https://chocolatey.org/) (for Windows).
 
-After installing, you can check the Node.js version by opening a terminal and running `node -v`
+#### Installation
+1. Clone or download the master branch of this repository.
+2. Open a terminal and navigate to the /senior-design/ directory.
+3. Run `npm install` to install the required dependencies.
+4. Run `npm install -g @angular/cli` to install Angular CLI
 
-Install Angular CLI by running the following command in your terminal:
+#### Running the Web Application
 
-`npm install -g @angular/cli`
+Run the following command to start the proxy server:
 
-Clone the master branch of this repository and navigate to the /senior-design/ folder. 
+` ng serve `
 
-Open a terminal in the /senior-design/ folder and run the following command to install the dependencies:
+The development server will start on port 4200 by default. The server is accessed at
 
-`npm install`
+` http://localhost:4200 `
 
-Once installation is complete, start the development server by running:
+#### Query Parameter Support
 
-`ng serve`
+The web app also supports query parameters. For example, if the query is `localhost:4200/?disc_year=2011`, it automatically searches for exoplanets discovered in 2011.
 
-This will start the development server at `http://localhost:4200`
 
 ## FAQ
 
