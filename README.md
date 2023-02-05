@@ -5,7 +5,7 @@
 
 Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
 
-This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on your device like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in your browser's menu or address bar.
+This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on most devices like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in the browser's menu or address bar.
   
  All of the required documentation for CS5001/2 can be found on the [main](https://GitHub.com/jarvisar/senior-design) branch.
   
@@ -43,7 +43,7 @@ Selecting the checkbox next to the help button will display additional inputs:
 
 #### Receiving Results
 
-All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format with four additional buttons for enhanced functionality. Easily configure your columns with the column configuration button, revisit previous searches with the previous search button, quickly copy the search parameters to the clipboard with the copy button, and even export the data as a CSV file for local storage with the simple click of the download button.
+All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format with four additional buttons for enhanced functionality. Easily configure the table columns with the column configuration button, revisit previous searches with the previous search button, quickly copy the search parameters to the clipboard with the copy button, and even export the data as a CSV file for local storage with the simple click of the download button.
 
 Easily sort the exoplanet data by clicking on a column header, switching between descending and ascending order. In-depth information about a specific exoplanet is available by simply clicking on its row, such as planet type, orbit information, and its position in the sky. Searchable terms within the expanded row are highlighted in cyan and can search for similar exoplanets by clicking on them.
         
