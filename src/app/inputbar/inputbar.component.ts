@@ -1,5 +1,6 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy  } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DOCUMENT } from '@angular/common';
 import { DataService } from '../data.service';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
@@ -88,7 +89,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public previousQueries: any = [];
 
   constructor(private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
-    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
+    public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, 
+    private clipboard: Clipboard, @Inject(DOCUMENT) public document: Document) {
   }
 
   async searchclick(event?: Event, query?: any) {
