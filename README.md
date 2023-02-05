@@ -63,7 +63,7 @@ For example, an exoplanet with a radius of 0.5 ER has half the radius of the Ear
 These instructions will help get a copy of the web app up and running on a local machine.
 
 #### Prerequisites
-Angular, Node.js, and npm are required for this web app to run. They can downloaded from the [official website](https://nodejs.org/en/) or can be installed with a package manager like [Homebrew](https://brew.sh/) (for macOS) or [Chocolatey](https://chocolatey.org/) (for Windows).
+Node.js and npm are required for this web app to run. They can downloaded from the [official website](https://nodejs.org/en/) or can be installed with a package manager like [Homebrew](https://brew.sh/) (for macOS) or [Chocolatey](https://chocolatey.org/) (for Windows).
 
 #### Installation
 1. Clone or download the master branch of this repository.
