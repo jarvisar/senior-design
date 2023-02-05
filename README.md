@@ -84,8 +84,9 @@ The development server will start on port 4200 by default. The server is accesse
 
 #### Query Parameter Support
 
-The web app also supports query parameters. For example, if the query is `localhost:4200/?disc_year=2011`, it automatically searches for exoplanets discovered in 2011.
+The web app also supports query parameters using exoplanet column names. For example, if the query is `localhost:4200/?disc_year=2011`, it automatically searches for exoplanets discovered in 2011.
 
+Current column definitions can be found in the [Exoplanet Archive docs](https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html).
 
 ## FAQ
 
