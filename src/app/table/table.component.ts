@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { trigger,transition,style,animate,state } from '@angular/animations';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -51,7 +51,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   ])
   ]
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, AfterViewInit {
   // Define table column titles
   tableDef = [
     {column: 'index', title: 'Index'},
@@ -87,9 +87,8 @@ export class TableComponent implements OnInit {
   dataSource: MatTableDataSource<Exoplanet>;
   expandedExoplanet: Exoplanet | null;
   blurState = 'unblurred';
-
-  private shrinkAnimation = true;
   
+  @ViewChild('tableContainer', { static: false }) tableContainer: ElementRef;
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, {static: false})
   set paginator(value: MatPaginator) {
@@ -119,7 +118,6 @@ export class TableComponent implements OnInit {
   }
 
   setTableDataSource(data: Exoplanet[]) {
-    this.shrinkAnimation = false;
     // Set table data source to slice of exoplanet data
     this.dataSource = new MatTableDataSource<Exoplanet>(data);
     // Blur table if loading new data
@@ -197,6 +195,20 @@ export class TableComponent implements OnInit {
     this.downloadService.downloadFile(this.inputbar.exoplanetData, 'exoplanet_data');
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  numberOfRows;
+  ngAfterViewInit(): void {
+    this.calculateNumberOfRows();
+    window.addEventListener('resize', () => {
+      this.calculateNumberOfRows();
+    });
+  }
+  
+  calculateNumberOfRows(): void {
+    const viewportHeight = window.innerHeight;
+    const rowHeight = 48;
+    this.numberOfRows = Math.floor((viewportHeight - 250) / rowHeight);
+    console.log()
   }
 }
