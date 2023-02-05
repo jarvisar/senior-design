@@ -59,6 +59,8 @@ The results returned from the search will include columns with information such 
 For example, an exoplanet with a radius of 0.5 ER has half the radius of the Earth and an exoplanet with 0.5 EM has half the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>. The Earth's orbital period is 365.25 days, and its distance from the Sun is exactly 1 AU.
 
 ## Installation
+  
+These instructions will help get a copy of the web app up and running on a local machine.
 
 #### Prerequisites
 Angular, Node.js, and npm are required for this web app to run. They can downloaded from the [official website](https://nodejs.org/en/) or can be installed with a package manager like [Homebrew](https://brew.sh/) (for macOS) or [Chocolatey](https://chocolatey.org/) (for Windows).
