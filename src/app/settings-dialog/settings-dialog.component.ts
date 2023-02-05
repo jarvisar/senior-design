@@ -153,6 +153,12 @@ export class SettingsDialogComponent implements OnInit {
     this.pl_orbsmax = false;
     this.pl_orbeccen = false;
     this.sy_dist = false;
+    this.pl_radj = false;
+    this.pl_bmassj = false;
+    this.pl_eqt = false;
+    this.st_teff = false;
+    this.st_mass = false;
+    this.st_rad = false;
     this.displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_rade', 'pl_bmasse', 'pl_dens', 'disc_facility'];
   }
 
