@@ -11,11 +11,14 @@
 }
 
 /* Set fixed width if on smaller screen */
-@media only screen and (max-width: 1355px) {
+@media only screen and (max-width: 1375px) {
   .inputbar{
-    padding-right: 15px;
+    padding-right: 25px;
     width: 1355px;
     overflow: hidden;
+  }
+  .table{
+    margin-right: 15px;
   }
 }
 
