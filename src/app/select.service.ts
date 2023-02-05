@@ -8,9 +8,9 @@ import { DataService } from './data.service';
 export class SelectService {
 
   hostData: any[] = [];
-  methodData: any[] = ["Discovery Method", ];
-  yearData: any[] = ["Discovery Year", ];
-  facilityData: any[] = ["Discovery Facility", ];
+  methodData: any[] = [];
+  yearData: any[] = [];
+  facilityData: any[] = [];
 
   constructor(private http: HttpClient, private data: DataService) { }
 
