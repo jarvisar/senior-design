@@ -41,7 +41,7 @@
     <!-- Paginator -->
     <mat-paginator [@blur]="blurState" [ngStyle]="{'opacity': allExoplanetData.data.length < 6 ? '0': '1'}" [length]="allExoplanetData.data.length" [pageSize]="allExoplanetData.data.length < 50 ? allExoplanetData.data.length : 50" [pageSizeOptions]="allExoplanetData.data.length < 50 ? [allExoplanetData.data.length] : [50, 100, 250, 500]" (page)="pageChange($event)"></mat-paginator>
     <!-- Sidebar Buttons -->
-    <div class="sidebar-buttons-container" [@blur]="blurState" [ngStyle]="{'right': allExoplanetData.data.length < 6 ? '15px': '15px', 'bottom': allExoplanetData.data.length < 6 ? '35px': '90px', 'border-radius': allExoplanetData.data.length < 6 ? '30px': '0px', 'border-top-left-radius': allExoplanetData.data.length < 6 ? '30px': '25px'}">
+    <div class="sidebar-buttons-container" [@blur]="blurState" [ngStyle]="{'right': allExoplanetData.data.length < numberOfRows ? '15px': '15px', 'bottom': allExoplanetData.data.length < numberOfRows ? '35px': '90px', 'border-radius': allExoplanetData.data.length < numberOfRows ? '30px': '0px', 'border-top-left-radius': allExoplanetData.data.length < numberOfRows ? '30px': '25px'}">
         <!-- Column Settings Button -->
         <button mat-mini-fab (click)="changeColumns()" id="columnButton" aria-label="Configure Table Columns" title="Configure Table Columns">
             <mat-icon style="transform: scale(0.9); color: #444;">settings</mat-icon>
