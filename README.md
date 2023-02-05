@@ -5,13 +5,15 @@
 
 Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
 
-Visit the [GitHub Pages](https://jarvisar.github.io/senior-design) site to access the latest deployment.
-
 This project is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on your device like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in your browser's menu or address bar.
   
  All of the required documentation for CS5001/2 can be found on the [main](https://GitHub.com/jarvisar/senior-design) branch.
+  
+ ## How to Use
+ 
+ Visit the [GitHub Pages](https://jarvisar.github.io/senior-design) site to access the latest deployment.
       
- ### Initiating a Search
+ #### Initiating a Search
  
  To search NASA's exoplanet database, select a valid query using the four available drop-down boxes. 
       Each drop-down box allows for specific information to be entered, such as the hostname of a star, the discovery 
@@ -21,7 +23,7 @@ Once a query has been entered, click the search button to retrieve data from NAS
       can take up to 15 seconds to process. Some example large searches include exoplanets discovered using transit, exoplanets 
       discovered in 2014 and 2016, and exoplanets first observed by the [Kepler space telescope](https://www.nasa.gov/mission_pages/kepler/overview/index.html).
       
- ### Understanding the Input
+ #### Understanding the Input
  
 When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
@@ -39,14 +41,14 @@ Selecting the checkbox next to the help button will display additional inputs:
   * \# of Stars and \# of Planets refers to the number of stars and planets in the host system respectively
   * Selecting the controversial checkbox will filter controversial exoplanets
 
-### Receiving Results
+#### Receiving Results
 
 All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format. Additionally, a download button will appear to download the data to the local disk in CSV format. 
 
 To sort the data, click on a column header to toggle between descending and ascending order. 
         Clicking on an individual exoplanet's row will show specific data about that exoplanet, such as its planet type, orbit information, and its position in the             sky. Values with a cyan color in the expanded row are searchable terms; clicking on one will search for Exoplanets with similar data.
         
-### Understanding the Results
+#### Understanding the Results
 
 The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery method, discovery year, discovery facility, and academic reference.
 
