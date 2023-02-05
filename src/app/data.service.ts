@@ -22,7 +22,7 @@ export class DataService {
   // Use the CORS proxy to set CORS headers
   hostUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=';
   // Columns to pull from database
-  columns = 'pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens';
+  columns = 'pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens,pl_radj,pl_bmassj,pl_eqt,st_teff,st_rad,st_mass';
   defaultQuery = 'select+' + this.columns + '+from+pscomppars'
 
   // Define cache keys
@@ -108,6 +108,7 @@ export class DataService {
     if (exoplanetDataCache) {
       let cacheData = JSON.parse(exoplanetDataCache);
       if (cacheData.expiry > Date.now()) {
+        // Filter cached data using query set from inputbar
         let filteredData = cacheData.data;
         if (querySet.selectedHost !== '') {
           filteredData = filteredData.filter(d => d.hostname === querySet.selectedHost);
@@ -156,13 +157,12 @@ export class DataService {
     }
     // If expired use exoplanet database
     return this.http
-    .get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', cacheOptions)
-    .toPromise();
+      .get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', cacheOptions)
+      .toPromise();
   }
 
   // Cache all exoplanet data in background
   getAllExoplanetData(): Promise<any> {
-    console.log(this.hostUrl + this.defaultQuery + '&format=json');
     let exoplanetDataCache = localStorage.getItem(this.EXOPLANET_DATA_CACHE_KEY);
     // Check for cached data
     if (exoplanetDataCache) {
@@ -171,12 +171,12 @@ export class DataService {
         return Promise.resolve(cacheData.data);
       }
     }
-    // If expired use exoplanet database
+    // If expired call exoplanet database
     return this.http
     .get<any[]>(this.hostUrl + this.defaultQuery + '&format=json', cacheOptions)
     .toPromise()
     .then((data) => {
-      // Store in cache for future use
+      // Store in cache for a max of two days before expiring
       let expiry = Date.now() + this.EXPIRY_TIME2;
       localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
       return data;

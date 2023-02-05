@@ -22,4 +22,10 @@ export interface Exoplanet{
     pl_bmasse?: number; // Planet's Mass measured in units of masses of the Earth
     pl_dens?: number; // Planet density in g/cm^3
     sy_dist?: number; // Distance from Earth in parsecs
+    pl_radj?: number; // Planet radius in units of radius of Jupiter
+    pl_bmassj?: number; // Planet mass in units of mass of Jupiter
+    pl_eqt?: number; // Equilibrium Temperature in Kelvin
+    st_teff?: number; // Stellar Effective Temperature in Kelvin
+    st_rad?: number; // Stellar Radius in units of radius of the Sun
+    st_mass?: number; // Stellar Mass in units of mass of the Sun
 }

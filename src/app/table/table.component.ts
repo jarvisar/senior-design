@@ -76,7 +76,13 @@ export class TableComponent implements OnInit, AfterViewInit {
     {column: 'sy_pnum', title: '# of Planets in System'},
     {column: 'sy_mnum', title: '# of Moons in System'},
     {column: 'cb_flag', title: 'Orbits Binary System'},
-    {column: 'pl_controv_flag', title: 'Controversial'}
+    {column: 'pl_controv_flag', title: 'Controversial'},
+    {column: 'pl_radj', title: 'Planet Radius (J)'},
+    {column: 'pl_bmassj', title: 'Planet Mass (J)'},
+    {column: 'pl_eqt', title: 'Equilibrium Temp. (K)'},
+    {column: 'st_teff', title: 'Stellar Effective Temp. (K)'},
+    {column: 'st_rad', title: 'Stellar Radius'},
+    {column: 'st_mass', title: 'Stellar Mass'}
   ];
 
   // Define which columns to display on table
@@ -197,6 +203,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {}
 
+  // Calculate max number of rows visible on screen
   numberOfRows;
   ngAfterViewInit(): void {
     this.calculateNumberOfRows();

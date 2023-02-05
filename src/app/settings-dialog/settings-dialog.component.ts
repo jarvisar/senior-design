@@ -79,6 +79,24 @@ export class SettingsDialogComponent implements OnInit {
     if(displayedColumns.includes('sy_dist')){
       this.sy_dist = true;
     }
+    if(displayedColumns.includes('pl_radj')){
+      this.pl_radj = true;
+    }
+    if(displayedColumns.includes('pl_bmassj')){
+      this.pl_bmassj = true;
+    }
+    if(displayedColumns.includes('pl_eqt')){
+      this.pl_eqt = true;
+    }
+    if(displayedColumns.includes('st_teff')){
+      this.st_teff = true;
+    }
+    if(displayedColumns.includes('st_rad')){
+      this.st_rad = true;
+    }
+    if(displayedColumns.includes('st_mass')){
+      this.st_mass = true;
+    }
   }
 
   pl_name?: boolean; // Exoplanet name
@@ -103,6 +121,12 @@ export class SettingsDialogComponent implements OnInit {
   pl_bmasse?: boolean; // Planet's Mass measured in units of masses of the Earth
   pl_dens?: boolean; // Planet density in g/cm^3
   sy_dist?: boolean; // Distance from Earth in parsecs
+  pl_radj?: boolean; // Planet radius in units of radius of Jupiter
+  pl_bmassj?: boolean; // Planet mass in units of mass of Jupiter
+  pl_eqt?: boolean; // Equilibrium Temperature in Kelvin
+  st_teff?: boolean; // Stellar Effective Temperature in Kelvin
+  st_rad?: boolean; // Stellar Radius in units of radius of the Sun
+  st_mass?: boolean; // Stellar Mass in units of mass of the Sun
 
   displayedColumns;
 
@@ -190,6 +214,24 @@ export class SettingsDialogComponent implements OnInit {
     }
     if (this.sy_dist) {
       this.displayedColumns.push('sy_dist');
+    }
+    if (this.pl_radj) {
+      this.displayedColumns.push('pl_radj');
+    }
+    if (this.pl_bmassj) {
+      this.displayedColumns.push('pl_bmassj');
+    }
+    if (this.pl_eqt) {
+      this.displayedColumns.push('pl_eqt');
+    }
+    if (this.st_teff) {
+      this.displayedColumns.push('st_teff');
+    }
+    if (this.st_rad) {
+      this.displayedColumns.push('st_rad');
+    }
+    if (this.st_mass) {
+      this.displayedColumns.push('st_mass');
     }
     if (this.disc_facility) {
       this.displayedColumns.push('disc_facility');

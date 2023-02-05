@@ -14,11 +14,13 @@ export class SelectService {
 
   constructor(private http: HttpClient, private data: DataService) { }
 
+  // Load host name input options from CSV
   async getHostData() {
     this.hostData = await this.csvToArray('./assets/hostnames.csv', 'Host Names');
     return this.hostData;
   }
 
+  // Load discovery method input options
   async getMethodData() {
     let response = await this.data.getDiscMethodData();
     if(response != undefined){
@@ -29,6 +31,7 @@ export class SelectService {
     return this.methodData;
   }
 
+  // Load discovery year input options
   async getYearData() {
     let response = await this.data.getDiscYearData();
     response.forEach((e: any) => {
@@ -37,6 +40,7 @@ export class SelectService {
     return this.yearData;
   }
 
+  // Load discovery facility input options
   async getFacilityData() {
     let response = await this.data.getDiscFacilityData();
     response.forEach((e: any) => {
@@ -45,6 +49,7 @@ export class SelectService {
     return this.facilityData;
   }
   
+  // Converts CSV file to array
   async csvToArray(filePath: string, firstElement: string){
     var list: any[]=[];
     return this.http.get(filePath, {responseType: 'text', params: {encoding: 'utf-8'}}).toPromise().then(data => {

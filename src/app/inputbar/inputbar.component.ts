@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, ChangeDetectionStrategy  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from '../data.service';
-import { HelpboxComponent } from '../helpbox/helpbox.component';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
@@ -51,7 +50,6 @@ export const fadeInOut = (name = 'fadeInOut', duration = 3) =>
 })
 export class InputbarComponent implements OnInit, AfterViewInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
-  selected$: Observable<boolean>;
 
   public exoplanetData: Array<any> = [];
   public numResults: number = 0;
@@ -68,6 +66,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   facilityData: any[] = [];
   selected = false;
   
+  // Holds current query
   public query = {
     "selectedHost": "",
     "selectedMethod": "",
@@ -83,21 +82,16 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     "selectedStarNum": "# of Stars in System",
     "selectedPlanetNum": "# of Planets in System",
     "showControversial": false
-    }
+  }
   
-
   public apiQuery!: string;
   public previousQueries: any = [];
 
   constructor(private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, private clipboard: Clipboard) {
-      this.selected$ = new Observable((observer) => {
-        observer.next(this.selected);
-      });
   }
 
   async searchclick(event?: Event, query?: any) {
-
     if(this.searchCalled == false){
       this.searchCalled = true;
     }
@@ -122,7 +116,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       );
       this.router.navigate([], { queryParams });
     }
-    // Use previous query if parameter is defined, else build query using inputs
+    // Use previous query set if parameter is defined, else build query using inputs
     if (query != undefined){
       this.query = query;
     } else{ 
@@ -138,7 +132,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       });
       this.exoplanetData = newArray;
     } catch (err: any) {
-    // Display error message if needed
+    // Display error message if unsuccessful
     console.log("Error loading data");
     this.error = true;
   }
@@ -187,6 +181,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   doNothing(){}
 
   previousSearch(event: Event){
+    // Pop second element
     let queryNew = this.previousQueries.pop();
     let query = this.previousQueries.pop();
     this.previousQueries.push(JSON.parse(JSON.stringify(queryNew)));
@@ -196,8 +191,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private searchCalled = false;
   // Load query parameters
+  private searchCalled = false;
   async ngAfterViewInit (){
     this.clearSelect();
     this.route.queryParams.pipe(skip(1)).subscribe(params => {
@@ -273,7 +268,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   public buildQuery(){
-    
     let firstConditional: boolean = true;
     this.apiQuery = '';
     // First check if select box has valid value then check if any other conditional has been applied 
