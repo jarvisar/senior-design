@@ -43,22 +43,22 @@
     <!-- Sidebar Buttons -->
     <div class="sidebar-buttons-container" [@blur]="blurState" [ngStyle]="{'right': allExoplanetData.data.length < numberOfRows ? '15px': '15px', 'bottom': allExoplanetData.data.length < numberOfRows ? '35px': '90px', 'border-radius': allExoplanetData.data.length < numberOfRows ? '30px': '0px', 'border-top-left-radius': allExoplanetData.data.length < numberOfRows ? '30px': '25px'}">
         <!-- Column Settings Button -->
-        <button mat-mini-fab (click)="changeColumns()" id="columnButton" aria-label="Configure Table Columns" title="Configure Table Columns">
+        <button mat-mini-fab (click)="changeColumns()" id="columnButton" aria-label="Configure Table Columns" matTooltip="Configure Table Columns" matTooltipShowDelay="1000" matTooltipPosition="left">
             <mat-icon style="transform: scale(0.9); color: #444;">settings</mat-icon>
         </button>
         <br>
         <!-- Previous Search Button -->
-        <button mat-mini-fab (click)="inputbar.previousSearch($event)" id="previousButton" [disabled]="inputbar.previousQueries.length == 1 || inputbar.previousQueries == undefined" aria-label="Previous Search" title="Previous Search">
+        <button mat-mini-fab (click)="inputbar.previousSearch($event)" id="previousButton" [disabled]="inputbar.previousQueries.length == 1 || inputbar.previousQueries == undefined" aria-label="Previous Search" matTooltip="Previous Search" matTooltipShowDelay="1000" matTooltipPosition="left">
             <mat-icon style="transform: scale(0.9);">restore</mat-icon>
         </button>
         <br>
         <!-- Copy URL Button -->
-        <button mat-mini-fab (click)="share()" id="shareButton"  aria-label="Copy URL to Clipboard" title="Copy URL to Clipboard">
+        <button mat-mini-fab (click)="share()" id="shareButton"  aria-label="Copy URL to Clipboard" matTooltip="Copy URL to Clipboard" matTooltipShowDelay="1000" matTooltipPosition="left">
             <mat-icon style="transform: scale(0.9);">content_copy</mat-icon>
         </button>
         <br>
         <!-- Download Button -->
-        <button mat-mini-fab color="primary" (click)="download()" id="downloadButton"  title="Download Data">
+        <button mat-mini-fab color="primary" (click)="download()" id="downloadButton"  matTooltip="Download Data" matTooltipShowDelay="1000" matTooltipPosition="left">
             <mat-icon>download</mat-icon>
         </button>
     </div>
