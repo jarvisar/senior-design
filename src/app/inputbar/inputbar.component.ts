@@ -152,14 +152,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.showTable = true;
   }
 
-  searchNearby(event: Event, westCornerRa, eastCornerRa, southCornerDec, northCornerDec){
-    this.query.westCornerRa = westCornerRa;
-    this.query.eastCornerRa  = eastCornerRa ;
-    this.query.southCornerDec  = southCornerDec ;
-    this.query.northCornerDec = northCornerDec;
-    this.searchclick(event);
-  }
-
   clearSelect() {
     // Reset all inputs
     this.query.selectedHost = '';
@@ -296,7 +288,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.methodData = methodData;
     this.yearData = yearData;
     this.facilityData = facilityData;
-    
+
     // Cache all exoplanet data asynchronously (not on main thread)
     setTimeout(() => {
       this.data.getAllExoplanetData();
