@@ -5,7 +5,14 @@ h2{
 
 .checkbox-container{
     display: grid; 
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 16px;
+    align-items: center;
+}
+
+.checkbox-subcontainer{
+    display: grid; 
+    grid-template-columns: 1fr; 
     grid-gap: 16px;
     align-items: center;
 }
