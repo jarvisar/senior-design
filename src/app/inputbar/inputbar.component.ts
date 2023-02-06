@@ -5,11 +5,9 @@ import { DataService } from '../data.service';
 import { ExoplanetComponent } from '../exoplanet/exoplanet.component';
 import { DownloadService } from '../download.service';
 import { trigger,transition,style,animate,state } from '@angular/animations';
-import { Clipboard } from '@angular/cdk/clipboard';
 import { Exoplanet } from '../exoplanet/exoplanet';
 import { LoadingService } from '../loading.service'
 import { SelectService } from '../select.service';
-import { Observable } from 'rxjs';
 import { skip } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -69,20 +67,25 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   
   // Holds current query
   public query = {
+    // Inputs
     "selectedHost": "",
     "selectedMethod": "",
     "selectedYear": "",
     "selectedFacility": "",
+    // Number Input
     "selectedMinMass": undefined as number | undefined,
     "selectedMaxMass": undefined as number | undefined,
     "selectedMinRadius": undefined as number | undefined,
     "selectedMaxRadius": undefined as number | undefined,
     "selectedMinDensity": undefined as number | undefined,
     "selectedMaxDensity": undefined as number | undefined,
+    // Select Drop-down
     "selectedStarType": "Star Type",
     "selectedStarNum": "# of Stars in System",
     "selectedPlanetNum": "# of Planets in System",
+    // Checkbox
     "showControversial": false,
+    // Sky Region Coords
     "westCornerRa": undefined as number | undefined,
     "eastCornerRa": undefined as number | undefined,
     "southCornerDec": undefined as number | undefined,
@@ -94,7 +97,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
 
   constructor(private data: DataService, private http: HttpClient, public exoplanet: ExoplanetComponent, private downloadService: DownloadService, 
     public loadingService: LoadingService, public selectService: SelectService, private cd: ChangeDetectorRef, private route: ActivatedRoute, private router: Router, 
-    private clipboard: Clipboard, @Inject(DOCUMENT) public document: Document) {
+    @Inject(DOCUMENT) public document: Document) {
   }
 
   async searchclick(event?: Event, query?: any) {
@@ -104,7 +107,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     // Set query parameters if search button is actually clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
-      let queryParams = Object.assign({},
+      let queryParams = Object.assign({}, // Clear old paramaters
         this.query.selectedHost != "" ? { hostname: this.query.selectedHost } : {},
         this.query.selectedMethod != "" ? { discoverymethod: this.query.selectedMethod } : {},
         this.query.selectedYear != "" ? { disc_year: this.query.selectedYear } : {},
@@ -124,10 +127,9 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.query.southCornerDec != undefined || this.query.southCornerDec != "" ? { southCornerDec: this.query.southCornerDec } : {},
         this.query.northCornerDec != undefined || this.query.northCornerDec != "" ? { northCornerDec: this.query.northCornerDec } : {}
       );
-      this.router.navigate([], { queryParams });
+      this.router.navigate([], { queryParams }); // Set new paramaters
     }
-    // Use previous query set if parameter is defined, else build query using inputs
-    if (query != undefined){
+    if (query != undefined){ // Use previous query set if parameter is defined, else build query using inputs
       this.query = query;
     } else{ 
       this.previousQueries.push(JSON.parse(JSON.stringify(this.query)));
@@ -142,16 +144,16 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       });
       this.exoplanetData = newArray;
     } catch (err: any) {
-    // Display error message if unsuccessful
-    console.log("Error loading data");
-    console.log(err);
-    this.error = true;
-  }
+      console.log("Error loading data");     // Display error message if unsuccessful
+      console.log(err);
+      this.error = true;
+    }
     console.log(this.exoplanetData);
     this.numResults = this.exoplanetData.length;
-    this.showTable = true;
+    this.showTable = true; // Display the table
   }
 
+  // Set four corners of sky region
   searchNearby(event, eastCornerRa, westCornerRa, southCornerDec, northCornerDec){
     this.query.eastCornerRa  = eastCornerRa;
     this.query.westCornerRa = westCornerRa;
@@ -160,8 +162,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.searchclick(event);
   }
 
+  // Reset all inputs
   clearSelect() {
-    // Reset all inputs
     this.query.selectedHost = '';
     this.query.selectedMethod = '';
     this.query.selectedYear = '';
@@ -195,7 +197,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   // Only load hostnames if user clicks on select box
   loading: boolean;
   async loadOptions(){
-    this.loading = true;
+    this.loading = true; // Sets placeholder to 'Loading...'
     this.hostData = await this.selectService.getHostData();
     this.selected = true;
     this.loading = false;
@@ -204,23 +206,22 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   doNothing(){}
 
   previousSearch(event: Event){
-    // Pop second element
-    let queryNew = this.previousQueries.pop();
-    let query = this.previousQueries.pop();
-    this.previousQueries.push(JSON.parse(JSON.stringify(queryNew)));
+    // Get second element by popping first two elements and pushing first one back
+    let queryFirst = this.previousQueries.pop();
+    let query = this.previousQueries.pop(); // Get second element
+    this.previousQueries.push(JSON.parse(JSON.stringify(queryFirst)));
     if (query != undefined){
       this.query = query;
       this.searchclick(event, query);
     }
   }
 
-  // Load query parameters
   private searchCalled = false;
   async ngAfterViewInit (){
-    this.clearSelect();
-    this.route.queryParams.pipe(skip(1)).subscribe(params => {
+    this.clearSelect(); // Clear current input
+    this.route.queryParams.pipe(skip(1)).subscribe(params => {   // Load query parameters
       if (Object.keys(params).length > 0) {
-        if (params['hostname'] != undefined){
+        if (params['hostname'] != undefined){   // If parameter is defined, set value in query
           this.query.selectedHost = params['hostname'];
         }
         if (params['discoverymethod'] != undefined){
@@ -274,7 +275,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['northCornerDec'] != undefined){
           this.query.northCornerDec = params['northCornerDec'];
         }
-        // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
+        // Prevent duplicate searches by only searching if first search
         if (!this.searchCalled) {
           this.searchCalled = true;
           this.searchclick();
@@ -285,9 +286,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
   
   async ngOnInit() {
-      // Load option data for 3 select boxes
     const methodPromise = this.selectService.getMethodData();
-    const yearPromise = this.selectService.getYearData();
+    const yearPromise = this.selectService.getYearData();              // Load option data for 3 select boxes
     const facilityPromise = this.selectService.getFacilityData();
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
 
@@ -303,10 +303,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public buildQuery(){
+  public buildQuery(){ // Builds SQL query using current query set
     let firstConditional: boolean = true;
     this.apiQuery = '';
-    // First check if select box has valid value then check if any other conditional has been applied 
+    // First check if input has valid value then check if any other conditional has been applied to determine whether to use 'where' or 'and'
     (this.query.selectedHost != '' && this.query.selectedHost != undefined ? (this.apiQuery += '+where+hostname+=+\'' + this.query.selectedHost + '\'', firstConditional = false) : this.apiQuery = this.apiQuery);
     (this.query.selectedMethod != '' && this.query.selectedMethod != undefined ? (firstConditional == true ? (this.apiQuery += '+where+discoverymethod+=+\'' + this.query.selectedMethod + '\'', firstConditional = false) : this.apiQuery += '+and+discoverymethod+=+\'' + this.query.selectedMethod + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedYear != '' && this.query.selectedYear != undefined ? (firstConditional == true ? (this.apiQuery += '+where+disc_year+=+\'' + this.query.selectedYear + '\'', firstConditional = false) : this.apiQuery += '+and+disc_year+=+\'' + this.query.selectedYear + '\'') : this.apiQuery = this.apiQuery);
@@ -322,7 +322,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.query.selectedStarType != "Star Type" && this.query.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedPlanetNum != "# of Planets in System" && this.query.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedStarNum != "# of Stars in System" && this.query.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.query.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.query.selectedStarNum + '\'') : this.apiQuery = this.apiQuery);
-    // Returns true if input is empty
+    // Returns true if input is empty (returns all exoplanet data)
     return firstConditional;
   }
 }
