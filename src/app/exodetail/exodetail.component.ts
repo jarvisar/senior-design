@@ -128,11 +128,7 @@ export class ExodetailComponent implements OnInit {
     const eastCornerRa = this.exoplanet.ra + this.angularDistanceDegrees / Math.cos(planetDecRad);
     const westCornerRa = this.exoplanet.ra - this.angularDistanceDegrees / Math.cos(planetDecRad);
     // Set inputbar query before searching
-    this.inputbar.query.eastCornerRa  = eastCornerRa;
-    this.inputbar.query.westCornerRa = westCornerRa;
-    this.inputbar.query.southCornerDec = southCornerDec ;
-    this.inputbar.query.northCornerDec = northCornerDec;
-    this.inputbar.searchclick(event);
+    this.inputbar.searchNearby(event, eastCornerRa, westCornerRa, southCornerDec, northCornerDec);
   }
 
   async searchPlanetType(event: Event){
@@ -160,15 +156,6 @@ export class ExodetailComponent implements OnInit {
       this.inputbar.query.selectedMaxMass = 5000;
     }
     this.inputbar.searchclick(event);
-  }
-
-  // Set select elements based on search
-  setValues(host = '', method = '', year = '', facility = ''){
-    this.inputbar.query.selectedHost = host;
-    this.inputbar.query.selectedMethod = method;
-    this.inputbar.query.selectedYear = year;
-    this.inputbar.query.selectedFacility = facility;
-    this.inputbar.firstSearch = true;
   }
 
   toRadians(degrees) {
