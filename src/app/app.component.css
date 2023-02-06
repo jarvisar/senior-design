@@ -36,7 +36,7 @@ html, body {
   
 .header-title:hover {
   text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
-  transform: translateY(-0.35px);
+  transform: translateY(-0.4px);
 }
   
 .header-title:active {
