@@ -70,7 +70,7 @@ Node.js and npm are required for this web app to run. They can downloaded from t
 1. Clone or download the master branch of this repository.
 2. Open a terminal and navigate to the /senior-design/ directory.
 3. Run `npm install` to install the required dependencies.
-4. Run `npm install -g @angular/cli` to install Angular CLI
+4. Run `npm install -g @angular/cli` to install Angular CLI.
 
 #### Running the Web Application
 
@@ -84,7 +84,7 @@ The development server will start on port 4200 by default. The server is accesse
 
 #### Query Parameter Support
 
-The web app also supports query parameters using exoplanet column names. For example, if the query is `localhost:4200/?disc_year=2011`, it automatically searches for exoplanets discovered in 2011.
+The web app also supports query parameters using exoplanet archive column names. For example, if the query is `localhost:4200/?disc_year=2011`, it automatically searches for exoplanets discovered in 2011.
 
 Current column definitions can be found in the [Exoplanet Archive docs](https://exoplanetarchive.ipac.caltech.edu/docs/API_PS_columns.html).
 
@@ -98,7 +98,7 @@ Exoplanets, or [extrasolar planets](https://exoplanets.nasa.gov/what-is-an-exopl
 
 The list of planets on [IPAC's website](https://www.ipac.caltech.edu/) is routinely updated bi-weekly, but may be updated more frequently depending on new significant exoplanet discoveries.
   
-Exoplanet data is cached in the background to dramatically increase load times. Cache is updated every other day.
+Exoplanet data is cached in the background to dramatically decrease load times. Cached data is updated every other day.
 
 #### Why are there no results after searching?
 
