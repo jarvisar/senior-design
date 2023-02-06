@@ -2,6 +2,7 @@
 .inputbar {
   white-space: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   display: inline-block;
   width: 100%;
 } 
