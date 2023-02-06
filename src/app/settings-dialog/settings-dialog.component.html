@@ -5,38 +5,38 @@
 <br>
 <div class="checkbox-container">
     <div class="checkbox-subcontainer subcontainer1">
-        <mat-checkbox color="primary" [(ngModel)]="hostname" [disabled]="true" [matTooltip]="'Required'" matTooltipPosition="above">Host Name (star name)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="hostname" [disabled]="true" [matTooltip]="'Required'" matTooltipPosition="above">Host Name (Star Name)</mat-checkbox>
         <mat-checkbox color="primary" [(ngModel)]="pl_name" [disabled]="true" [matTooltip]="'Required'" matTooltipPosition="above">Exoplanet Name</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="discoverymethod">Discovery Method</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="disc_year">Discovery Year</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="disc_facility">Discovery Facility</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="sy_snum">Number of Stars in System</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="sy_pnum">Number of Planets in System</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="sy_mnum">Number of Moons in System</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="st_spectype">Spectral Type of Host Star</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_controv_flag">Controversial Flag</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="discoverymethod" matTooltip="Method by which the planet was first identified" matTooltipShowDelay="5000">Discovery Method</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="disc_year" matTooltip="Year the planet was discovered" matTooltipShowDelay="5000">Discovery Year</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="disc_facility" matTooltip="Name of facility of planet discovery observations" matTooltipShowDelay="5000">Discovery Facility</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="sy_snum" matTooltip="Number of stars in the planetary system" matTooltipShowDelay="5000">Number of Stars in System</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="sy_pnum" matTooltip="Number of planets in the planetary system" matTooltipShowDelay="5000">Number of Planets in System</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="sy_mnum" matTooltip="Number of moons in the planetary system" matTooltipShowDelay="5000">Number of Moons in System</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="st_spectype" matTooltip="Classification of the star based on their spectral characteristics following the Morgan-Keenan system" matTooltipShowDelay="5000">Spectral Type of Host Star</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_controv_flag" matTooltip="Indicates whether the confirmation status of a planet has been questioned in the published literature (1=yes, 0=no)" matTooltipShowDelay="5000">Controversial Flag</mat-checkbox>
     </div>
     <div class="checkbox-subcontainer subcontainer2">
-        <mat-checkbox color="primary" [(ngModel)]="ra">Right Ascension (decimal format)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="dec">Declination (decimal format)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="rastr">Right Ascension (sexagesimal format)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="decstr">Declination (sexagesimal format)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="cb_flag">Orbits Binary System Flag</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_orbper">Orbital Period (days)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_orbsmax">Orbital Radius (au)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_orbeccen">Orbital Eccentricity</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="sy_dist">Distance from Earth (parsecs)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="ra" matTooltip="Right Ascension of the planetary system in decimal degrees" matTooltipShowDelay="5000">Right Ascension (decimal format)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="dec" matTooltip="Declination of the planetary system in decimal degrees" matTooltipShowDelay="5000">Declination (decimal format)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="rastr" matTooltip="Right Ascension of the planetary system in sexagesimal format" matTooltipShowDelay="5000">Right Ascension (sexagesimal format)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="decstr" matTooltip="Declination of the planetary system in sexagesimal notation" matTooltipShowDelay="5000">Declination (sexagesimal format)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="cb_flag" matTooltip="Flag indicating whether the planet orbits a binary system (1=yes, 0=no)" matTooltipShowDelay="5000">Orbits Binary System Flag</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_orbper" matTooltip="Time the planet takes to make a complete orbit around the host star or system" matTooltipShowDelay="5000">Orbital Period (days)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_orbsmax" matTooltip="The longest radius of an elliptic orbit, or, for exoplanets detected via gravitational microlensing or direct imaging, the projected separation in the plane of the sky (distance between planet and host star)" matTooltipShowDelay="5000">Orbital Radius (au)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_orbeccen" matTooltip="Amount by which the orbit of the planet deviates from a perfect circle" matTooltipShowDelay="5000">Orbital Eccentricity</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="sy_dist" matTooltip="Distance to the planetary system in units of parsecs" matTooltipShowDelay="5000">Distance from Earth (parsecs)</mat-checkbox>
     </div>
     <div class="checkbox-subcontainer subcontainer3">
-        <mat-checkbox color="primary" [(ngModel)]="pl_rade">Planet Radius (Earth units)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_radj">Planet Radius (Jupiter units)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_bmasse">Planet Mass (Earth units)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_bmassj">Planet Mass (Jupiter units)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_dens">Planet Density (g/cm<sup>3</sup>)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_eqt">Equilibrium Temperature (Kelvin)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="st_teff">Stellar Effective Temperature (Kelvin)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="st_rad">Stellar Radius (Solar units)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="st_mass">Stellar Mass (Solar units)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_rade" matTooltip="Length of a line segment from the center of the planet to its surface, measured in units of radius of the Earth" matTooltipShowDelay="5000">Planet Radius (Earth units)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_radj" matTooltip="Length of a line segment from the center of the planet to its surface, measured in units of radius of Jupiter" matTooltipShowDelay="5000">Planet Radius (Jupiter units)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_bmasse" matTooltip="Amount of matter contained in the planet, measured in units of masses of the Earth" matTooltipShowDelay="5000">Planet Mass (Earth units)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_bmassj" matTooltip="Amount of matter contained in the planet, measured in units of masses of Jupiter" matTooltipShowDelay="5000">Planet Mass (Jupiter units)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_dens" matTooltip="Amount of mass per unit of volume of the planet" matTooltipShowDelay="5000">Planet Density (g/cm<sup>3</sup>)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="pl_eqt" matTooltip="The 'equilibrium temperature' is a theoretical temperature a planet would have if it were a perfect absorber and emitter of energy (like a black body) and only heated by its star. For real planets, the 'effective temperature' is a temperature that would give off the same amount of energy as the planet is actually observed to receive from its star. For example, Earth's effective temperature is about 255K (or -18°C)." matTooltipShowDelay="5000">Equilibrium Temperature (Kelvin)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="st_teff" matTooltip="Temperature of the star as modeled by a black body emitting the same total amount of electromagnetic radiation" matTooltipShowDelay="5000">Stellar Effective Temperature (Kelvin)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="st_rad" matTooltip="Length of a line segment from the center of the star to its surface, measured in units of radius of the Sun" matTooltipShowDelay="5000">Stellar Radius (Solar units)</mat-checkbox>
+        <mat-checkbox color="primary" [(ngModel)]="st_mass" matTooltip="Amount of matter contained in the star, measured in units of masses of the Sun" matTooltipShowDelay="5000">Stellar Mass (Solar units)</mat-checkbox>
     </div>
 </div>
 
