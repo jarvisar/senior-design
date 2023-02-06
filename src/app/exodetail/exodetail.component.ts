@@ -118,19 +118,6 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.searchclick(event);
   }
 
-  angularDistanceDegrees = 10.0;
-  searchNearby(event: Event) {
-    this.inputbar.clearSelect();  
-    const planetDecRad = this.toRadians(this.exoplanet.dec);
-    // Calculate RA and Dec region corners
-    const northCornerDec = this.exoplanet.dec + this.angularDistanceDegrees;
-    const southCornerDec = this.exoplanet.dec - this.angularDistanceDegrees;
-    const eastCornerRa = this.exoplanet.ra + this.angularDistanceDegrees / Math.cos(planetDecRad);
-    const westCornerRa = this.exoplanet.ra - this.angularDistanceDegrees / Math.cos(planetDecRad);
-    // Set inputbar query before searching
-    this.inputbar.searchNearby(event, eastCornerRa, westCornerRa, southCornerDec, northCornerDec);
-  }
-
   async searchPlanetType(event: Event){
     this.inputbar.clearSelect();
     if(this.exoplanet.pl_type == "Asteroidan"){
@@ -156,6 +143,19 @@ export class ExodetailComponent implements OnInit {
       this.inputbar.query.selectedMaxMass = 5000;
     }
     this.inputbar.searchclick(event);
+  }
+
+  angularDistanceDegrees = 10.0;
+  searchNearby(event: Event) {
+    this.inputbar.clearSelect();  
+    let planetDecRad = this.toRadians(this.exoplanet.dec);
+    // Calculate RA and Dec region corners
+    var northCornerDec = this.exoplanet.dec + this.angularDistanceDegrees;
+    var southCornerDec = this.exoplanet.dec - this.angularDistanceDegrees;
+    var eastCornerRa = this.exoplanet.ra + this.angularDistanceDegrees / Math.cos(planetDecRad);
+    var westCornerRa = this.exoplanet.ra - this.angularDistanceDegrees / Math.cos(planetDecRad);
+    // Set inputbar query before searching
+    this.inputbar.searchNearby(event, eastCornerRa, westCornerRa, southCornerDec, northCornerDec);
   }
 
   toRadians(degrees) {
