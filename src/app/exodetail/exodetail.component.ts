@@ -161,10 +161,6 @@ export class ExodetailComponent implements OnInit {
   toRadians(degrees) {
     return degrees * (Math.PI / 180);
   }
-
-  toDegrees(radians) {
-    return radians * (180/Math.PI);
-  }
     
   determineHabitability() {
     if (this.exoplanet.st_spectype == null){
