@@ -155,7 +155,7 @@ export class ExodetailComponent implements OnInit {
     var eastCornerRa = this.exoplanet.ra + this.angularDistanceDegrees / Math.cos(planetDecRad);
     var westCornerRa = this.exoplanet.ra - this.angularDistanceDegrees / Math.cos(planetDecRad);
     // Set inputbar query before searching
-    this.inputbar.searchNearby(event, eastCornerRa, westCornerRa, southCornerDec, northCornerDec);
+    this.inputbar.searchNearby(event, eastCornerRa.toFixed(4), westCornerRa.toFixed(4), southCornerDec.toFixed(4), northCornerDec.toFixed(4));
   }
 
   toRadians(degrees) {
