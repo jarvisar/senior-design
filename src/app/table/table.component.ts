@@ -175,6 +175,14 @@ export class TableComponent implements OnInit, AfterViewInit {
     }
   }
 
+  toggleExoplanet(exoplanet) {
+    if (this.expandedExoplanets.includes(exoplanet)) {
+      this.expandedExoplanets = this.expandedExoplanets.filter(e => e !== exoplanet);
+    } else {
+      this.expandedExoplanets.push(exoplanet);
+    }
+  }
+
   changeColumns(){
     let dialogRef = this.dialog.open(SettingsDialogComponent, {
       data: this.displayedColumns
@@ -185,12 +193,8 @@ export class TableComponent implements OnInit, AfterViewInit {
     })
   }
   
-  toggleExoplanet(exoplanet) {
-    if (this.expandedExoplanets.includes(exoplanet)) {
-      this.expandedExoplanets = this.expandedExoplanets.filter(e => e !== exoplanet);
-    } else {
-      this.expandedExoplanets.push(exoplanet);
-    }
+  closeRows(){
+    this.expandedExoplanets = [];
   }
 
   share(){
