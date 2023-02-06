@@ -155,7 +155,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   searchNearby(event, eastCornerRa, westCornerRa, southCornerDec, northCornerDec){
     this.query.eastCornerRa  = eastCornerRa;
     this.query.westCornerRa = westCornerRa;
-    this.query.southCornerDec = southCornerDec ;
+    this.query.southCornerDec = southCornerDec;
     this.query.northCornerDec = northCornerDec;
     this.searchclick(event);
   }
