@@ -82,7 +82,11 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     "selectedStarType": "Star Type",
     "selectedStarNum": "# of Stars in System",
     "selectedPlanetNum": "# of Planets in System",
-    "showControversial": false
+    "showControversial": false,
+    "westCornerRa": undefined as number | undefined,
+    "eastCornerRa": undefined as number | undefined,
+    "southCornerDec": undefined as number | undefined,
+    "northCornerDec": undefined as number | undefined
   }
   
   public apiQuery!: string;
@@ -114,7 +118,11 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.query.selectedStarType != undefined && this.query.selectedStarType != "Star Type" ? { star_type: this.query.selectedStarType } : {},
         this.query.selectedPlanetNum != undefined && this.query.selectedPlanetNum != "# of Planets in System" ? { sy_pnum: this.query.selectedPlanetNum } : {},
         this.query.selectedStarNum != undefined && this.query.selectedStarNum != "# of Stars in System" ? { sy_snum: this.query.selectedStarNum } : {},
-        this.query.showControversial == true ? { pl_controv_flag: 1 } : {}
+        this.query.showControversial == true ? { pl_controv_flag: 1 } : {},
+        this.query.westCornerRa != undefined || this.query.westCornerRa != "" ? { westCornerRa: this.query.westCornerRa } : {},
+        this.query.eastCornerRa != undefined || this.query.eastCornerRa != "" ? { eastCornerRa: this.query.eastCornerRa } : {},
+        this.query.southCornerDec != undefined || this.query.southCornerDec != "" ? { southCornerDec: this.query.southCornerDec } : {},
+        this.query.northCornerDec != undefined || this.query.northCornerDec != "" ? { northCornerDec: this.query.northCornerDec } : {}
       );
       this.router.navigate([], { queryParams });
     }
@@ -144,6 +152,14 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.showTable = true;
   }
 
+  searchNearby(event: Event, westCornerRa, eastCornerRa, southCornerDec, northCornerDec){
+    this.query.westCornerRa = westCornerRa;
+    this.query.eastCornerRa  = eastCornerRa ;
+    this.query.southCornerDec  = southCornerDec ;
+    this.query.northCornerDec = northCornerDec;
+    this.searchclick(event);
+  }
+
   clearSelect() {
     // Reset all inputs
     this.query.selectedHost = '';
@@ -160,6 +176,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.query.selectedStarNum = '# of Stars in System';
     this.query.selectedPlanetNum = '# of Planets in System';
     this.query.showControversial = false;
+    this.query.westCornerRa = undefined;
+    this.query.eastCornerRa = undefined;
+    this.query.southCornerDec = undefined;
+    this.query.northCornerDec = undefined;
   }
 
   clearclick(event: Event) {
@@ -239,8 +259,20 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         if (params['sy_pnum'] != undefined){
           this.query.selectedPlanetNum = params['sy_pnum'];
         }
-        if (params['sy_snum'] != undefined){
+        if (params['sy_sum'] != undefined){
           this.query.selectedStarNum = params['sy_snum'];
+        }
+        if (params['westCornerRa'] != undefined){
+          this.query.westCornerRa = params['westCornerRa'];
+        }
+        if (params['eastCornerRa'] != undefined){
+          this.query.eastCornerRa = params['eastCornerRa'];
+        }
+        if (params['southCornerDec'] != undefined){
+          this.query.southCornerDec = params['southCornerDec'];
+        }
+        if (params['northCornerDec'] != undefined){
+          this.query.northCornerDec = params['northCornerDec'];
         }
         // Only search if first search; Prevents duplicate searches after setting query parameters in searchclick()
         if (!this.searchCalled) {
@@ -257,7 +289,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     const methodPromise = this.selectService.getMethodData();
     const yearPromise = this.selectService.getYearData();
     const facilityPromise = this.selectService.getFacilityData();
-    
     const [ methodData, yearData, facilityData] = await Promise.all([ methodPromise, yearPromise, facilityPromise]);
 
     // Don't load hostData until user clicks on select box
@@ -265,6 +296,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.methodData = methodData;
     this.yearData = yearData;
     this.facilityData = facilityData;
+    
+    // Cache all exoplanet data asynchronously (not on main thread)
     setTimeout(() => {
       this.data.getAllExoplanetData();
     });
