@@ -36,14 +36,14 @@ export class MaterialElevationDirective implements OnChanges {
   
   setElevation(amount: number) {
     const elevationPrefix = 'mat-elevation-z';
-    // remove all elevation classes
+    // Remove all elevation classes
     const classesToRemove = Array.from((<HTMLElement>this.element.nativeElement).classList)
       .filter(c => c.startsWith(elevationPrefix));
     classesToRemove.forEach((c) => {
       this.renderer.removeClass(this.element.nativeElement, c);
     });
 
-    // add the given elevation class
+    // Add the given elevation class
     const newClass = `${elevationPrefix}${amount}`;
     this.renderer.addClass(this.element.nativeElement, newClass);
   }
