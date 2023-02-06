@@ -228,6 +228,5 @@ export class TableComponent implements OnInit, AfterViewInit {
     const viewportHeight = window.innerHeight;
     const rowHeight = 48;
     this.numberOfRows = Math.floor((viewportHeight - 240) / rowHeight);
-    console.log(this.numberOfRows)
   }
 }

@@ -61,7 +61,6 @@ export class ExodetailComponent implements OnInit {
     // Local HTML file loaded during development
     //this.iframeSrc = `../assets/aladin.html?ra=${this.exoplanet.ra}&dec=${this.exoplanet.dec}&name=${this.exoplanet.hostname}&st_spectype=${this.exoplanet.st_spectype}`
     this.iframeSrc = `https://jarvisar.github.io/senior-design/assets/aladin.html?ra=${this.exoplanet.ra}&dec=${this.exoplanet.dec}&name=${this.exoplanet.hostname}&st_spectype=${this.exoplanet.st_spectype}`
-    console.log(this.iframeSrc);
     this.determineHabitability();
     this.determinePlanetType();
     this.determineSize();
