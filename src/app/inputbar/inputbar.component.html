@@ -103,9 +103,9 @@
     <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
   </div>
 
-  <div class="no-results-container" *ngIf="showTable && error == true" @inOutAnimation (click)="clearclick($event)">
+  <div class="no-results-container" *ngIf="showTable && error == true" @inOutAnimation (click)="searchclick($event)">
     <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation>Error Loading Data</p>
-    <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
+    <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to try again</p>
   </div>
   <!-- <p *ngIf="!showTable" class="placeholder-text">Find your new favorite exoplanet!</p> -->
 </div>
