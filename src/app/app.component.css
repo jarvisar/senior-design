@@ -50,7 +50,7 @@ html, body {
   display: block;
   display: table-cell;
   position: fixed;
-  margin: 40px auto 82px;
+  margin: 35px auto 82px;
   flex-direction: column;
   align-items: center;
   text-align: center;

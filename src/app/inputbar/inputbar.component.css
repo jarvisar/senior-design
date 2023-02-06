@@ -51,6 +51,7 @@
   overflow-x: auto;
   display: inline-block;
   width: 100%;
+  margin-top: 10px;
 } 
 
 .pl_bmasse-min-input, .pl_bmasse-max-input{
@@ -177,7 +178,7 @@ p:hover:after {
   opacity: 1; /* Firefox */
 }
 
-#additional-input::placeholder{
+.additional-inputs::placeholder{
   text-align: center;
   white-space:pre-line; 
   font-size: 11.5pt;

@@ -1,9 +1,9 @@
 .table-container {
-    margin: 15px 0;
+    margin: -5px 0;
     display: block;
     position: relative;
     -ms-overflow-style: none;
-    max-height: calc(100% - 180px);
+    max-height: calc(100% - 170px);
     width: calc(100% - 30px);
     overflow-x: scroll;
     overflow-y: scroll;

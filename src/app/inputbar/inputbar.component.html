@@ -53,7 +53,7 @@
   <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs" [matTooltip]="'Show Additional Inputs'"></mat-checkbox>
   <br>
   <!-- Additional Inputs -->
-  <div class="additional-inputs" *ngIf="additionalInputs == true" [@inOutAnimation] style="padding-top: 10px;">
+  <div class="additional-inputs" [ngStyle]="{'height': additionalInputs ? 'auto' : '0', 'margin-bottom': additionalInputs ? '5px' : '0px'}">
     <input class="pl_bmasse-min-input" id="additional-input" [(ngModel)]="query.selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'" (keyup.enter)="document.activeElement === minMass ? searchclick($event) : null" #minMass>
     <input class="pl_bmasse-max-input" id="additional-input" [(ngModel)]="query.selectedMaxMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Max Mass'" [placeholder]="'Max Mass (EM)'" (keyup.enter)="document.activeElement === maxMass ? searchclick($event) : null" #maxMass>
     <input class="pl_rade-min-input" id="additional-input" [(ngModel)]="query.selectedMinRadius" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Radius (ER)'" [placeholder]="'Min Radius (ER)'" (keyup.enter)="document.activeElement === minRadius ? searchclick($event) : null" #minRadius>
@@ -94,7 +94,7 @@
 </div>
 
 <!-- Data Table -->
-<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 60px)' : '100%'}">
+<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 45px)' : '100%'}">
   <!-- Table Component -->
   <app-table [exoplanetData]="exoplanetData" [numResults]="numResults" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
   <!-- No Results Text -->
