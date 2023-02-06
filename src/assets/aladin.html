@@ -44,12 +44,13 @@
         var M42 = A.marker('83.820000', '-5.390000', {popupTitle: 'M42 (Great Orion Nebula)', popupDesc: 'Other Names: NGC 1976 '});
         var M51 = A.marker('202.469575', '47.195258', {popupTitle: 'M51 (Whirlpool Galaxy)', popupDesc: 'Other Names: Question Mark Galaxy, NGC 5194'});
         var Leo = A.marker('169.750000', '13.200000', {popupTitle: 'Leo Triplet'});
+        var Polaris = A.marker('37.954561', '89.264109', {popupTitle: 'Polaris (North Star)', popupDesc: 'Other Names: alf UMi, Lodestar'});
         
         var markerLayer = A.catalog({color: '#ff0000'});
         var mainLayer = A.catalog({color: '#0000ff'})
         aladin.addCatalog(markerLayer);
         aladin.addCatalog(mainLayer);
-        markerLayer.addSources([M1, M16, Veil, Andromeda, M45, LMC, M42, M51, Leo]);
+        markerLayer.addSources([M1, M16, Veil, Andromeda, M45, LMC, M42, M51, Leo, Polaris]);
         mainLayer.addSources([marker1])
     </script>
 
