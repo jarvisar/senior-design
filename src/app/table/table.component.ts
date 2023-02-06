@@ -91,7 +91,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   actualPaginator: MatPaginator;
   allExoplanetData: MatTableDataSource<Exoplanet>;
   dataSource: MatTableDataSource<Exoplanet>;
-  expandedExoplanet: Exoplanet | null;
+  expandedExoplanets: Exoplanet[] = [];
   blurState = 'unblurred';
   
   @ViewChild('tableContainer', { static: false }) tableContainer: ElementRef;
@@ -107,7 +107,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.allExoplanetData = new MatTableDataSource<Exoplanet>(data);
     this.allExoplanetData.paginator = this.paginator;
     this.allExoplanetData.sort = this.sort;
-    // Set actual table Data Source to slice of data
+    // Set actual table data source to slice of data
     this.setTableDataSource(data.slice(0, 50));
     this.allExoplanetData.sortingDataAccessor = ( exoplanet, property) => {
       switch ( property ) {
@@ -115,12 +115,6 @@ export class TableComponent implements OnInit, AfterViewInit {
         default: return exoplanet[property];
       }
     };
-  }
-
-  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
-    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog) {
-    // test data
-    // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "Qatar"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 
   setTableDataSource(data: Exoplanet[]) {
@@ -131,7 +125,13 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.blurState = isLoading ? 'blurred' : 'unblurred';
     });
     // Reset expanded exoplanet after loading new data
-    this.expandedExoplanet = null;
+    this.expandedExoplanets = [];
+  }
+
+  constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
+    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog) {
+    // test data
+    // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "Transit", disc_year: 2000, disc_facility: "Kepler"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
 
   /* Triggered by user changing page on mat-paginator  */
@@ -183,6 +183,14 @@ export class TableComponent implements OnInit, AfterViewInit {
       // received data from dialog-component
       this.displayedColumns = res.data;
     })
+  }
+  
+  toggleExoplanet(exoplanet) {
+    if (this.expandedExoplanets.includes(exoplanet)) {
+      this.expandedExoplanets = this.expandedExoplanets.filter(e => e !== exoplanet);
+    } else {
+      this.expandedExoplanets.push(exoplanet);
+    }
   }
 
   share(){
