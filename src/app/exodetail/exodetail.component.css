@@ -100,13 +100,13 @@ a:hover {
   position: relative;
   display: inline-block;
   font-weight: 550;
-  color: #7e748a;
+  color: #8c86a6;
 }
 
 .search-anchor:after{
   content:'';
   position: absolute;
-  border-bottom: 2px solid #787091;
+  border-bottom: 2px solid #8c86a6;
   top: 93%;
   transition: all 0.3s;
 }

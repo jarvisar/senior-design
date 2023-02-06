@@ -6,7 +6,7 @@
 
   <!-- Discovery Facility Card -->
   <mat-card class="mat-card" appMaterialElevation style="min-height: 100px;">
-    <div class="section-title" style="margin-bottom: 10px">{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor" (click)="searchFacility($event)" title="Search for other exoplanets first observed by {{exoplanet.disc_facility}}">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" title="Search for other exoplanets discovered in {{exoplanet.disc_year}}">{{exoplanet.disc_year}}</a></div>
+    <div class="section-title" style="margin-bottom: 10px">{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor" (click)="searchFacility($event)" matTooltip="Search for other exoplanets first observed by {{exoplanet.disc_facility}}" matTooltipShowDelay="1500">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" matTooltip="Search for other exoplanets discovered in {{exoplanet.disc_year}}" matTooltipShowDelay="1500">{{exoplanet.disc_year}}</a></div>
     <div style="display: flex; align-items: center; justify-content: center;">
       <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
       src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
@@ -17,11 +17,11 @@
   <mat-card class="mat-card" appMaterialElevation >
     <!-- Planet Info -->
     <div class="section-title" *ngIf="pl_type != null || habitable != null">Planet Information</div>
-    <p *ngIf="pl_type != null">Potentially <a class="search-anchor" (click)="searchPlanetType($event)" title="Search for other exoplanets with same planet type">{{pl_type}}</a>{{ pl_size == null ? "" : ", " + pl_size}}</p>
+    <p *ngIf="pl_type != null">Potentially <a class="search-anchor" (click)="searchPlanetType($event)" matTooltip="Search for other exoplanets with same planet type" matTooltipShowDelay="1500">{{pl_type}}</a>{{ pl_size == null ? "" : ", " + pl_size}}</p>
     <p *ngIf="habitable != null">{{habitable}}</p>
     <!-- Host Star System Info -->
-    <div class="section-title">Host Star System: <a class="search-anchor" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a></div>
-    <p>This system consists of {{exoplanet.sy_snum}} <a class="search-anchor" (click)="searchStarType($event)" *ngIf="exoplanet.st_spectype != null" title="Search for other exoplanets orbiting {{exoplanet.st_spectype[0]}}-type stars">{{exoplanet.st_spectype[0] + "-type"}}</a> star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
+    <div class="section-title">Host Star System: <a class="search-anchor" (click)="searchHost($event)" matTooltip="Search for other exoplanets orbiting {{exoplanet.hostname}}" matTooltipShowDelay="1500">{{exoplanet.hostname}}</a></div>
+    <p>This system consists of {{exoplanet.sy_snum}} <a class="search-anchor" (click)="searchStarType($event)" *ngIf="exoplanet.st_spectype != null" matTooltip="Search for other exoplanets orbiting {{exoplanet.st_spectype[0]}}-type stars" matTooltipShowDelay="1500">{{exoplanet.st_spectype[0] + "-type"}}</a> star{{exoplanet.sy_snum > 1 ? 's' : ''}}, {{exoplanet.sy_pnum}} planet{{exoplanet.sy_pnum > 1 ? 's' : ''}}, and {{exoplanet.sy_mnum}} moon{{exoplanet.sy_mnum > 1 || exoplanet.sy_mnum == 0 ? 's' : ''}}{{exoplanet.sy_dist != null ? " and is " + exoplanet.sy_dist.toFixed(2) + " parsecs away" : ""}}.</p>
     <p *ngIf="exoplanet.st_teff != null || exoplanet.st_rad != null || exoplanet.st_mass != null"><a class="search-anchor" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a> {{exoplanet.st_rad != null ? ' is ' + exoplanet.st_rad.toFixed(2) + " times the size ": ''}} {{exoplanet.st_rad != null && exoplanet.st_mass != null ? ' and ' : ''}} {{exoplanet.st_mass != null ? 'has ' + exoplanet.st_mass + ' times the mass ': ''}} 
       {{exoplanet.st_rad != null || exoplanet.st_mass != null ? "of the Sun" : ''}}{{exoplanet.st_teff != null ? (exoplanet.st_rad != null || exoplanet.st_mass != null ? (exoplanet.st_rad != null && exoplanet.st_mass != null ? ',' : '') + ' with an effective temperature of ' + exoplanet.st_teff + ' Kelvin' : ' has an effective temperature of ' + exoplanet.st_teff + ' Kelvin') : ''}}.</p>
     <!-- Orbit Info -->
@@ -33,7 +33,7 @@
     }}
     </p>
     <!-- Detection Method Info -->
-    <div class="section-title">Detection Method: <a class="search-anchor" (click)="searchMethod($event)" title="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}">{{exoplanet.discoverymethod}}</a>
+    <div class="section-title">Detection Method: <a class="search-anchor" (click)="searchMethod($event)" matTooltip="Search for other exoplanets discovered using {{exoplanet.discoverymethod}}" matTooltipShowDelay="1500">{{exoplanet.discoverymethod}}</a>
       <button mat-icon-button appearance="outline" style="height: 5px !important; width: 5px !important; border-radius: 50% !important; margin-left: 5px; color: #666;" matTooltip="{{methodDict[exoplanet.discoverymethod]}}" matTooltipPosition="above" #tooltip="matTooltip" (click)="tooltip.toggle()">
         <mat-icon>help</mat-icon>
       </button>
@@ -43,7 +43,7 @@
 
   <!-- Aladin Sky Visualization Card -->
   <mat-card class="mat-card" appMaterialElevation style="min-height: 350px;">
-    <div class="section-title" style="display: inline-block;">Decimal Position: {{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</div>
+    <div class="section-title" style="display: inline-block;">Decimal Position: <a class="search-anchor" (click)="searchNearby($event)" matTooltip="Search for other nearby exoplanets" matTooltipShowDelay="1500">{{exoplanet.ra.toFixed(3)}}, {{exoplanet.dec.toFixed(3)}}</a></div>
     <!-- Fullscreen button -->
     <button mat-icon-button appearance="outline" aria-label="Fullscreen" (click)="makeFullscreen()" style="margin-left: 5px; color: #444; position: absolute; right: 5px; top: 5px;" tabindex="6">
       <mat-icon>fullscreen</mat-icon>

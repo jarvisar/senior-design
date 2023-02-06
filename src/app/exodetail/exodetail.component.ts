@@ -153,7 +153,28 @@ export class ExodetailComponent implements OnInit {
     this.inputbar.query.selectedFacility = facility;
     this.inputbar.firstSearch = true;
   }
-  
+
+  // Calculate RA and Dec region corners
+  angularDistanceDegrees = 10.0;
+  searchNearby(event: Event) {
+    const planetRaRad = this.toRadians(this.exoplanet.ra);
+    const planetDecRad = this.toRadians(this.exoplanet.dec);
+
+    const northCornerDec = this.exoplanet.dec + this.angularDistanceDegrees;
+    const southCornerDec = this.exoplanet.dec - this.angularDistanceDegrees;
+    const eastCornerRa = this.exoplanet.ra + this.angularDistanceDegrees / Math.cos(planetDecRad);
+    const westCornerRa = this.exoplanet.ra - this.angularDistanceDegrees / Math.cos(planetDecRad);    
+    this.inputbar.searchNearby(event, westCornerRa, eastCornerRa, southCornerDec, northCornerDec);
+  }
+
+  toRadians(degrees) {
+    return degrees * (Math.PI / 180);
+  }
+
+  toDegrees(radians) {
+    return radians * (180/Math.PI);
+  }
+    
   determineHabitability() {
     if (this.exoplanet.st_spectype == null){
       this.habitable = null;

@@ -69,17 +69,6 @@ mat-paginator .mat-select-value-text {
     }
 }
 
-.test-table th:first-child {
-    width: 60px;
-}
-
-/* Testing row borders
-td.mat-cell {
-    border-left: 1px solid #eaeaea;
-    border-bottom: 2px solid #eaeaea;
-    padding-left: 7px;
-} */
-
 .test-table {
     width: 100%;
     height: 100%;
@@ -91,6 +80,7 @@ td.mat-cell {
     font-size: 1.2em;
     background-color: #0c3e92;
     color: white;
+    padding-left: 7px;
 }
 
 .mat-cell {
@@ -170,3 +160,40 @@ tr.exoplanet-detail-row {
         border-radius: 25px !important;
     }
   }
+
+td.mat-cell {
+    border-left: 1px solid #eaeaea;
+    border-bottom: 2px solid #eaeaea;
+    padding-left: 7px;
+} 
+
+.mat-column-index {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 30px;
+}
+
+.mat-column-disc_year {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 100px;    
+}
+
+.mat-column-pl_bmasse {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 60px;    
+}
+
+.mat-column-pl_rade {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 55px;    
+}
+
+.mat-column-pl_dens {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 55px;    
+}
+
