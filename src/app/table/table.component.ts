@@ -101,7 +101,6 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.actualPaginator = value;
   }
 
-  @Input() numResults!: number;
   @Input() set exoplanetData(data: Exoplanet[]) {
     // Load all exoplanet data in new MatTableDataSource
     this.allExoplanetData = new MatTableDataSource<Exoplanet>(data);

@@ -51,11 +51,11 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   @ViewChild('hostSelect') select: HTMLSelectElement;
 
   public exoplanetData: Array<any> = [];
-  public numResults: number = 0;
   public showTable: boolean = false;
   public firstSearch: boolean = true;
   public showNewSearch: boolean = false;
   public additionalInputs: boolean = false;
+  public doneLoading: boolean = true;
   public error;
   
   // Initialize data to prevent undefined errors
@@ -104,6 +104,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     if(this.searchCalled == false){
       this.searchCalled = true;
     }
+    this.doneLoading = false;
     // Set query parameters if search button is actually clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
@@ -149,7 +150,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       this.error = true;
     }
     console.log(this.exoplanetData);
-    this.numResults = this.exoplanetData.length;
+    this.doneLoading = true;
     this.showTable = true; // Display the table
   }
 
