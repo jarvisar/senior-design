@@ -185,7 +185,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   changeColumns(){
     let dialogRef = this.dialog.open(SettingsDialogComponent, {
-      data: this.columnsService.displayedColumns;
+      data: this.columnsService.displayedColumns
     })
     dialogRef.afterClosed().subscribe(res => {
       // received data from dialog-component
