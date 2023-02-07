@@ -42,7 +42,7 @@
       </div>
       
       <!-- Loading Spinner -->
-      <div class="spinner-box" *ngIf="loadingService.isLoading$ | async" style="position: absolute; top: calc(50% - 150px); left: calc(50% - 100px);" [@fadeinandout]>
+      <div class="spinner-box" *ngIf="(loadingService.isLoading$ | async) || ((loadingService.isLoadingAll$ | async) && inputbar.searchCalled == true) " style="position: absolute; top: calc(50% - 150px); left: calc(50% - 100px);" [@fadeinandout]>
         <div class="solar-system">
           <div class="earth-orbit orbit">
             <div class="planet earth"></div>

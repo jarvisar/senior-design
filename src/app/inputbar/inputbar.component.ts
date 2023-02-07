@@ -216,7 +216,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private searchCalled = false;
+  public searchCalled = false;
   async ngAfterViewInit (){
     this.clearSelect(); // Clear current input
     this.route.queryParams.pipe(skip(1)).subscribe(params => {   // Load query parameters

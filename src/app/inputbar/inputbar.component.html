@@ -46,7 +46,7 @@
   </datalist>
 
   <!-- Search & Clear Buttonss -->
-  <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="(loadingService.isLoading$ | async) && previousQueries.length == 0" >Search</button>
+  <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="(loadingService.isLoading$ | async) || ((loadingService.isLoadingAll$ | async) && searchCalled == true)" >Search</button>
 
   <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)">Clear</button>
 
