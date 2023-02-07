@@ -186,13 +186,13 @@ td.mat-cell {
     max-width: 100px;    
 }
 
-.mat-column-pl_bmasse {
+.mat-column-pl_rade {
     word-wrap: break-word ;
     white-space: unset;
-    max-width: 60px;    
+    max-width: 55px;    
 }
 
-.mat-column-pl_rade {
+.mat-column-pl_bmasse {
     word-wrap: break-word ;
     white-space: unset;
     max-width: 55px;    
@@ -202,5 +202,11 @@ td.mat-cell {
     word-wrap: break-word ;
     white-space: unset;
     max-width: 55px;    
+}
+
+.mat-column-pl_eqt {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 65px;    
 }
 
