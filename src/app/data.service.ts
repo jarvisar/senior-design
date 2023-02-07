@@ -181,25 +181,24 @@ export class DataService {
     .get<any[]>(this.hostUrl + "+" + this.defaultQuery + '&format=json', cacheOptions)
     .toPromise()
     .then((data) => {
-      // Store in cache for a max of two days before expiring
+      // Store in cache for a max of three days before expiring
       let expiry = Date.now() + this.EXPIRY_TIME2;
       localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
       return data;
     })
-    .catch(error => {
+    .catch(error => { // If error, try again once
       console.error(error);
       return this.http
       .get<any[]>(this.hostUrl + "+" + this.defaultQuery + '&format=json', cacheOptions)
       .toPromise()
       .then((data) => {
-        // Store in cache for a max of two days before expiring
+        // Store in cache for a max of three days before expiring
         let expiry = Date.now() + this.EXPIRY_TIME2;
         localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
         return data;
       });
     });
   }
-  
 
   getTopExoplanetData(): Promise<any> {
     return this.http.get<any[]>(this.hostUrl + 'select+top+200+' + this.columns + '+from+pscomppars&format=json', httpOptions).toPromise();
