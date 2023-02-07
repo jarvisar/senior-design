@@ -178,7 +178,7 @@ export class DataService {
     }
     // If expired call exoplanet database
     return this.http
-    .get<any[]>(this.hostUrl + this.defaultQuery + '&format=json', cacheOptions)
+    .get<any[]>(this.hostUrl + "+" + this.defaultQuery + '&format=json', cacheOptions)
     .toPromise()
     .then((data) => {
       // Store in cache for a max of two days before expiring

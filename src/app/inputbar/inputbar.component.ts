@@ -55,7 +55,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   public firstSearch: boolean = true;
   public showNewSearch: boolean = false;
   public additionalInputs: boolean = false;
-  public doneLoading: boolean = true;
   public error;
   
   // Initialize data to prevent undefined errors
@@ -104,7 +103,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     if(this.searchCalled == false){
       this.searchCalled = true;
     }
-    this.doneLoading = false;
     // Set query parameters if search button is actually clicked
     if(event != null){
       this.router.navigate([], {queryParams: {}});
@@ -150,7 +148,6 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       this.error = true;
     }
     console.log(this.exoplanetData);
-    this.doneLoading = true;
     this.showTable = true; // Display the table
   }
 
@@ -323,6 +320,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.query.selectedStarType != "Star Type" && this.query.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedPlanetNum != "# of Planets in System" && this.query.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedStarNum != "# of Stars in System" && this.query.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.query.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.query.selectedStarNum + '\'') : this.apiQuery = this.apiQuery);
+    (this.query.westCornerRa != undefined && this.query.eastCornerRa != undefined && this.query.southCornerDec != undefined && this.query.northCornerDec != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+ra+>=+\'' + this.query.westCornerRa + '\'+and+ra+<=+\'' + this.query.eastCornerRa + '\'+and+dec+>=+\'' + this.query.southCornerDec + '\'+and+dec+<=+\'' + this.query.northCornerDec + '\'' , firstConditional = false): this.apiQuery += '+and+ra+>=+\'' + this.query.westCornerRa + '\'+and+ra+<=+\'' + this.query.eastCornerRa + '\'+and+dec+>=+\'' + this.query.southCornerDec + '\'+and+dec+<=+\'' + this.query.northCornerDec + '\'') : this.apiQuery = this.apiQuery);
     // Returns true if input is empty (returns all exoplanet data)
     return firstConditional;
   }

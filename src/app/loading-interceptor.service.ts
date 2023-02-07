@@ -29,7 +29,7 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   // Prevents displaying loading circle while loading all exoplanet data for cache 
   private shouldExcludeRequest(request: HttpRequest<any>) {
-    const excludeUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens,pl_radj,pl_bmassj,pl_eqt,st_teff,st_rad,st_mass+from+pscomppars&format=json';
+    const excludeUrl = 'https://cors-proxy-phi.vercel.app/proxy?query=+select+pl_name,hostname,discoverymethod,disc_year,disc_facility,disc_refname,pl_controv_flag,sy_snum,sy_pnum,sy_mnum,cb_flag,rastr,decstr,st_spectype,ra,dec,pl_orbper,pl_rade,pl_bmasse,sy_dist,pl_orbsmax,pl_orbeccen,pl_dens,pl_radj,pl_bmassj,pl_eqt,st_teff,st_rad,st_mass+from+pscomppars&format=json';
     return request.url === excludeUrl;
   }
 }
