@@ -31,7 +31,7 @@ export class DataService {
   private YEAR_DATA_CACHE_KEY = 'yearDataCache';
   private EXOPLANET_DATA_CACHE_KEY = 'exoplanetDataCache';
   private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-  private EXPIRY_TIME2 = 2 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
+  private EXPIRY_TIME2 = 3 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
 
   constructor(private http: HttpClient) {}
 
@@ -185,8 +185,21 @@ export class DataService {
       let expiry = Date.now() + this.EXPIRY_TIME2;
       localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
       return data;
+    })
+    .catch(error => {
+      console.error(error);
+      return this.http
+      .get<any[]>(this.hostUrl + "+" + this.defaultQuery + '&format=json', cacheOptions)
+      .toPromise()
+      .then((data) => {
+        // Store in cache for a max of two days before expiring
+        let expiry = Date.now() + this.EXPIRY_TIME2;
+        localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
+        return data;
+      });
     });
   }
+  
 
   getTopExoplanetData(): Promise<any> {
     return this.http.get<any[]>(this.hostUrl + 'select+top+200+' + this.columns + '+from+pscomppars&format=json', httpOptions).toPromise();
