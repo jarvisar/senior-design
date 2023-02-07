@@ -159,7 +159,7 @@ export class SettingsDialogComponent implements OnInit {
     this.st_teff = false;
     this.st_mass = false;
     this.st_rad = false;
-    this.displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_rade', 'pl_bmasse', 'pl_dens', 'disc_facility'];
+    this.displayedColumns = this.columnsService.defaultColumns;
   }
 
   saveSettings(){
