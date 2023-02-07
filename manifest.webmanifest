@@ -1,6 +1,6 @@
 {
   "short_name": "Exoplanet Search",
-  "name": "NASA Exoplanet Archive Search",
+  "name": "Exoplanet Archive Search",
   "description": "Search for exoplanets using data from NASA's Archive",
   "icons": [
     {
@@ -33,10 +33,27 @@
       "description": "Search for exoplanets using data from NASA's Archive",
       "url": "/senior-design/",
       "icons": [
-        { "src": "/senior-design/assets/icon96.png", "sizes": "96x96", "purpose": "any"},
-        { "src": "/senior-design/assets/icon256.png", "sizes": "276x276", "purpose": "any"},
-        { "src": "/senior-design/assets/maskable_icon.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+        {
+          "src": "/senior-design/assets/icon96.png",
+          "sizes": "96x96",
+          "purpose": "any"
+        },
+        {
+          "src": "/senior-design/assets/icon256.png",
+          "sizes": "276x276",
+          "purpose": "any"
+        },
+        {
+          "src": "/senior-design/assets/maskable_icon.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
       ]
     }
+  ],
+  "lang": "en",
+  "display_override": [
+    "standalone"
   ]
 }
