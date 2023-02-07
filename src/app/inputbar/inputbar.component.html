@@ -50,8 +50,11 @@
 
   <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)">Clear</button>
 
+  <!-- Additional Inputs Checkbox -->
   <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs" [matTooltip]="'Show Additional Inputs'"></mat-checkbox>
+
   <br>
+
   <!-- Additional Inputs -->
   <div class="additional-inputs" [ngStyle]="{'height': additionalInputs ? 'auto' : '0', 'margin-bottom': additionalInputs ? '5px' : '0px'}">
     <input class="pl_bmasse-min-input" id="additional-input" [(ngModel)]="query.selectedMinMass" onfocus="this.placeholder=''" onBlur="this.placeholder='Min Mass'" [placeholder]="'Min Mass (EM)'" (keyup.enter)="document.activeElement === minMass ? searchclick($event) : null" #minMass>
@@ -102,10 +105,12 @@
     <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation>No Results Found</p>
     <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
   </div>
-
+  <!-- Error Text -->
   <div class="no-results-container" *ngIf="showTable && error == true" @inOutAnimation (click)="searchclick($event)">
     <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation>Error Loading Data</p>
     <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to try again</p>
   </div>
+
+  <!-- Old Placeholder Text -->
   <!-- <p *ngIf="!showTable" class="placeholder-text">Find your new favorite exoplanet!</p> -->
 </div>
