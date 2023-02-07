@@ -242,8 +242,13 @@ export class SettingsDialogComponent implements OnInit {
     if (this.disc_facility) {
       this.displayedColumns.push('disc_facility');
     }
+    let expiry = Date.now() + this.EXPIRY_TIME;
+    localStorage.setItem(this.COLUMN_CACHE_KEY, JSON.stringify({ expiry, data: this.displayedColumns }));
     this.dialogRef.close({ data: this.displayedColumns })
   }
+
+  private COLUMN_CACHE_KEY = 'columnCache';
+  private EXPIRY_TIME = 128 * 24 * 60 * 60 * 1000; // 128 days in milliseconds
 
   ngOnInit(): void {
   }
