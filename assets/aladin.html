@@ -3,7 +3,7 @@
 
     <!-- Aladin Lite CSS style file -->
     <link rel="stylesheet" href="https://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,600,700' rel='stylesheet' type='text/css'>
     <!-- Aladin Lite has a dependency on the jQuery library -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js" charset="utf-8"></script>
 
@@ -34,8 +34,7 @@
 
     <!-- Creation of Aladin Lite instance with initial parameters -->
     <script type="text/javascript">
-        var aladin = A.aladin('#aladin-lite-div', {fullScreen: true, reticleSize: 18, survey: "P/DSS2/color", showLayersControl: false, showSimbadPointerControl: true, showFrame: false, showfov: false, 
-                                                    showFullscreenControl: false, showGotoControl: false, fov:0.3, target: params.get('ra') + ", " + params.get('dec')});
+        var aladin = A.aladin('#aladin-lite-div', {fullScreen: true, reticleSize: 18, survey: "P/DSS2/color", showLayersControl: false, showSimbadPointerControl: true, showFrame: false, showfov: false, showFullscreenControl: false, showGotoControl: false, fov:0.3, target: params.get('ra') + ", " + params.get('dec')});
 
         $('input[name=survey]').change(function() {
             aladin.setImageSurvey($(this).val());
