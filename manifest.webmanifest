@@ -5,7 +5,8 @@
   "icons": [
     {
       "src": "/senior-design/assets/icon256.png",
-      "sizes": "276x276"
+      "sizes": "276x276",
+      "purpose": "any"
     },
     {
       "src": "/senior-design/assets/maskable_icon.png",
