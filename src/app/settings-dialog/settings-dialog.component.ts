@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable, Input, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ColumnsService } from '../columns.service';
 
 
 @Component({
@@ -10,8 +11,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 @Injectable()
 export class SettingsDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Array<string>,
-    private dialogRef: MatDialogRef<SettingsDialogComponent>) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Array<string>, private dialogRef: MatDialogRef<SettingsDialogComponent>, public columnsService: ColumnsService) {
     let displayedColumns = Array.from(data);
     if(displayedColumns.includes('pl_name')){
       this.pl_name = true;

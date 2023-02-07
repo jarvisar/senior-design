@@ -11,6 +11,7 @@ import { DownloadService } from '../download.service';
 import { Router } from '@angular/router';
 import { SettingsDialogComponent } from '../settings-dialog/settings-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ColumnsService } from '../columns.service';
 
 export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
   trigger(name, [
@@ -86,7 +87,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   ];
 
   // Define which columns to display on table
-  displayedColumns = ['index', 'pl_name', 'hostname', 'discoverymethod', 'disc_year', 'pl_rade', 'pl_bmasse', 'pl_dens', 'disc_facility'];
+  displayedColumns = this.columnsService.displayedColumns;
 
   actualPaginator: MatPaginator;
   allExoplanetData: MatTableDataSource<Exoplanet>;
@@ -128,7 +129,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   constructor(public loadingService: LoadingService, private changeDetectorRef: ChangeDetectorRef, public inputbar: InputbarComponent, private downloadService: DownloadService, 
-    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog) {
+    private router: Router, public columnSettings: SettingsDialogComponent, private dialog: MatDialog, public columnsService: ColumnsService) {
     // test data
     // this.dataSource = new MatTableDataSource<Exoplanet>( [{pl_name: "test", hostname: "test", discoverymethod: "Transit", disc_year: 2000, disc_facility: "Kepler"}, {pl_name: "test2", hostname: "test", discoverymethod: "test", disc_year: 2000, disc_facility: "test"}] );
   }
@@ -184,10 +185,11 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   changeColumns(){
     let dialogRef = this.dialog.open(SettingsDialogComponent, {
-      data: this.displayedColumns
+      data: this.columnsService.displayedColumns;
     })
     dialogRef.afterClosed().subscribe(res => {
       // received data from dialog-component
+      this.columnsService.displayedColumns = res.data;
       this.displayedColumns = res.data;
     })
   }
