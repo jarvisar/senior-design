@@ -97,7 +97,7 @@
 </div>
 
 <!-- Data Table -->
-<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 46px)' : '100%'}">
+<div  class="table" *ngIf="showTable" @inOutAnimation [ngStyle]="{'height': additionalInputs ? 'calc(100% - 45px)' : '100%'}">
   <!-- Table Component -->
   <app-table [exoplanetData]="exoplanetData" *ngIf="showTable && exoplanetData.length != 0" @inOutAnimation></app-table>
   <!-- No Results Text -->

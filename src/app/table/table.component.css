@@ -169,6 +169,13 @@ button[disabled] {
     }
   }
 
+  @media only screen and (max-width: 475px) {
+    .sidebar-buttons-container{
+        height: 250px;
+        width: 55px;
+    }
+  }
+
 td.mat-cell {
     border-left: 1px solid #eaeaea;
     padding-left: 7px;
