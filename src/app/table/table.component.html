@@ -39,7 +39,7 @@
         </tr>
     </table>
     <!-- Paginator -->
-    <mat-paginator [@blur]="blurState" [ngStyle]="{'opacity': allExoplanetData.data.length < 6 ? '0': '1'}" [length]="allExoplanetData.data.length" [pageSize]="allExoplanetData.data.length < 50 ? allExoplanetData.data.length : 50" [pageSizeOptions]="allExoplanetData.data.length < 50 ? [allExoplanetData.data.length] : [50, 100, 250, 500]" (page)="pageChange($event)"></mat-paginator>
+    <mat-paginator [@blur]="blurState" [ngStyle]="{'opacity': allExoplanetData.data.length < numberOfRows ? '0': '1'}" [length]="allExoplanetData.data.length" [pageSize]="allExoplanetData.data.length < 50 ? allExoplanetData.data.length : 50" [pageSizeOptions]="allExoplanetData.data.length < 50 ? [allExoplanetData.data.length] : [50, 100, 250, 500]" (page)="pageChange($event)"></mat-paginator>
     <!-- Sidebar Buttons -->
     <div class="sidebar-buttons-container" [@blur]="blurState" [ngStyle]="{'right': allExoplanetData.data.length < numberOfRows ? '15px': '15px', 'bottom': allExoplanetData.data.length < numberOfRows ? '35px': '90px', 'border-radius': allExoplanetData.data.length < numberOfRows ? '30px': '0px', 'border-top-left-radius': allExoplanetData.data.length < numberOfRows ? '30px': '25px'}">
         <!-- Previous Search Button -->
