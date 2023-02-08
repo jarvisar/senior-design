@@ -1,0 +1,12 @@
+.twitter-timeline{
+    height: 600px;
+    width: 500px;
+}
+
+/* Set fixed width if on smaller screen */
+@media only screen and (max-width: 450px) {
+    .twitter-timeline{
+        height: 600px;
+        width: 275px;
+    }
+  }

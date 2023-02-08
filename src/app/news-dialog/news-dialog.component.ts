@@ -11,7 +11,7 @@ export class NewsDialogComponent implements OnInit {
 
   constructor(public dialog: MatDialog) { }
 
-  // Opens help box window
+  // Opens news dialog
   public openDialog() {
     const dialogRef = this.dialog.open(NewsDialogComponent);
   }
