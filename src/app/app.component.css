@@ -113,7 +113,7 @@ svg#rocket-smoke {
   transform: scale(1.1);
 }
 
-@media only screen and (min-height: 1350px) {
+@media only screen and (min-height: 1250px) {
   .header-title {
     text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191, 4px 4px 1px #919191;
     transition: transform 0.25s ease, text-shadow 0.25s ease;
@@ -123,7 +123,7 @@ svg#rocket-smoke {
     
   .header-title:hover {
     text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191;
-    transform: translateY(-0.3px);
+    transform: translateY(-0.4px);
   }
     
   .header-title:active {
