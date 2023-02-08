@@ -36,6 +36,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
+import { NewsDialogComponent } from './news-dialog/news-dialog.component';
+import { AngularTwitterTimelineModule } from 'angular-twitter-timeline';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
     SecretComponent,
     MaterialElevationDirective,
     SafePipe,
-    SettingsDialogComponent
+    SettingsDialogComponent,
+    NewsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +76,7 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
     MatPaginatorModule,
     CdkTableModule,
     ScrollingModule,
+    AngularTwitterTimelineModule,
     MatCheckboxModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -83,7 +87,7 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} },
-    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, SettingsDialogComponent ],
+    HelpboxComponent, MatDialog, ExoplanetComponent, InputbarComponent, MatPaginatorModule, SettingsDialogComponent, NewsDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

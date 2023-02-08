@@ -23,6 +23,7 @@
     "@angular/service-worker": "^14.2.12",
     "@ctrl/ngx-github-buttons": "^8.0.0",
     "@swimlane/ngx-datatable": "^20.1.0",
+    "angular-twitter-timeline": "^14.0.0",
     "ngx-page-scroll-core": "^9.0.0",
     "ngx-papaparse": "^4.0.4",
     "rxjs": "~7.5.0",
