@@ -24,4 +24,5 @@ This project also uses my CORS-Proxy, which can be found [here](https://github.c
 7. Self-Assessment Essays for [Adam Jarvis](./essays/JarvisIndividualAssessment.docx)
 8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
 9. [Budget](./essays/budget.md)
-10. [Appendix](./appendix.md)
+10. [User Docs](./User_Docs.md)
+11. [Appendix](./appendix.md)
