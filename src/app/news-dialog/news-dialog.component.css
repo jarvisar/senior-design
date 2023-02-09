@@ -16,10 +16,10 @@ h3{
         height: 600px;
         width: 260px;
     }
-  }
+}
 
 @media only screen and (max-height: 800px) {
-.twitter-timeline{
-    height: 400px;
-}
+    .twitter-timeline{
+        height: 400px;
+    }
 }
