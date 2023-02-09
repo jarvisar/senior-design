@@ -61,8 +61,8 @@ export class TableComponent implements OnInit, AfterViewInit {
     {column: 'discoverymethod', title: 'Discovery Method'},
     {column: 'disc_year', title: 'Discovery Year'},
     {column: 'pl_dens', title: 'Density (g/cm³)'},
-    {column: 'pl_rade', title: 'Radius (R⊕)'},
-    {column: 'pl_bmasse', title: 'Mass (M⊕)'},
+    {column: 'pl_rade', title: 'Radius (Re)'},
+    {column: 'pl_bmasse', title: 'Mass (Me)'},
     {column: 'disc_facility', title: 'Discovery Facility'},
     {column: 'ra', title: 'RA'},
     {column: 'dec', title: 'Declination'},
@@ -86,6 +86,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     {column: 'st_mass', title: 'Stellar Mass'}
   ];
 
+  //⊕
   // Define which columns to display on table
   displayedColumns = this.columnsService.displayedColumns;
 

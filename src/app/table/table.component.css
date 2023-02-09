@@ -214,6 +214,18 @@ td.mat-cell {
 .mat-column-pl_eqt {
     word-wrap: break-word ;
     white-space: unset;
-    max-width: 65px;    
+    width: 70px;    
+}
+
+.mat-column-pl_orbsmax {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 50px;    
+}
+
+.mat-column-pl_orbper {
+    word-wrap: break-word ;
+    white-space: unset;
+    max-width: 60px;    
 }
 
