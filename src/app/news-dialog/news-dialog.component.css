@@ -1,3 +1,10 @@
+h3{
+    text-align: center;
+    margin-top: -0px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16pt;
+}
+
 .twitter-timeline{
     height: 600px;
     width: 500px;
@@ -7,6 +14,12 @@
 @media only screen and (max-width: 450px) {
     .twitter-timeline{
         height: 600px;
-        width: 275px;
+        width: 260px;
     }
   }
+
+@media only screen and (max-height: 800px) {
+.twitter-timeline{
+    height: 400px;
+}
+}
