@@ -81,6 +81,11 @@ mat-paginator .mat-select-value-text {
     background-color: #0c3e92;
     color: white;
     padding-left: 7px;
+    user-select: none;
+}
+
+.mat-header-cell-text {
+    user-select: none;
 }
 
 .mat-cell {
@@ -185,47 +190,5 @@ td.mat-cell {
     word-wrap: break-word ;
     white-space: unset;
     max-width: 30px;
-}
-
-.mat-column-disc_year {
-    word-wrap: break-word ;
-    white-space: unset;
-    max-width: 100px;    
-}
-
-.mat-column-pl_rade {
-    word-wrap: break-word ;
-    white-space: unset;
-    max-width: 55px;    
-}
-
-.mat-column-pl_bmasse {
-    word-wrap: break-word ;
-    white-space: unset;
-    max-width: 55px;    
-}
-
-.mat-column-pl_dens {
-    word-wrap: break-word ;
-    white-space: unset;
-    max-width: 55px;    
-}
-
-.mat-column-pl_eqt {
-    word-wrap: break-word ;
-    white-space: unset;
-    width: 70px;    
-}
-
-.mat-column-pl_orbsmax {
-    word-wrap: break-word ;
-    white-space: unset;
-    max-width: 50px;    
-}
-
-.mat-column-pl_orbper {
-    word-wrap: break-word ;
-    white-space: unset;
-    max-width: 60px;    
 }
 

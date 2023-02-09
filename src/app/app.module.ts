@@ -38,6 +38,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SettingsDialogComponent } from './settings-dialog/settings-dialog.component';
 import { NewsDialogComponent } from './news-dialog/news-dialog.component';
 import { AngularTwitterTimelineModule } from 'angular-twitter-timeline';
+import { ResizableDirective } from './resizable.directive';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { AngularTwitterTimelineModule } from 'angular-twitter-timeline';
     MaterialElevationDirective,
     SafePipe,
     SettingsDialogComponent,
-    NewsDialogComponent
+    NewsDialogComponent,
+    ResizableDirective
   ],
   imports: [
     BrowserModule,
