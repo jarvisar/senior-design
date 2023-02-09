@@ -183,6 +183,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearclick(event: Event) {
+    let eventWithCtrlKey = event as any;
+    if (eventWithCtrlKey.ctrlKey){
+      this.previousQueries = [];
+    }
     this.showTable = false;
     this.clearSelect();
     this.exoplanetData = [];
