@@ -55,7 +55,7 @@ export const fadeInOut = (name = 'fadeInOut', duration = 0.2) =>
 export class TableComponent implements OnInit, AfterViewInit {
   // Define table column titles
   tableDef = [
-    {column: 'index', title: 'Index'},
+    {column: 'index', title: '#'},
     {column: 'pl_name', title: 'Planet Name'},
     {column: 'hostname', title: 'Host Name'},
     {column: 'discoverymethod', title: 'Discovery Method'},
