@@ -98,7 +98,7 @@ Exoplanets, or [extrasolar planets](https://exoplanets.nasa.gov/what-is-an-exopl
 
 The list of planets on [IPAC's website](https://www.ipac.caltech.edu/) is routinely updated bi-weekly, but may be updated more frequently depending on new significant exoplanet discoveries.
   
-Exoplanet data is cached in the background to significantly decrease load times. Cached data is updated every other day. Clear site cache to manually refresh the data.
+Exoplanet data is cached in the background to significantly decrease load times. Cached data is updated every other day. Clear cache to manually refresh the data.
 
 #### Why are there no results after searching?
 
