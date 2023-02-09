@@ -184,7 +184,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
 
   clearclick(event: Event) {
     let eventWithCtrlKey = event as any;
-    if (eventWithCtrlKey.ctrlKey){
+    if (eventWithCtrlKey.ctrlKey){ // Holding ctrl key while clicking clear clears previous searches
       this.previousQueries = [];
     }
     this.showTable = false;
