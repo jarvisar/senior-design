@@ -150,16 +150,21 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   sortData(sort: Sort){
-    setTimeout(() => {
-      if (this.canSort == true){
-        this.sortByColumn(sort.active, sort.direction);
-        let limit = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize) + this.actualPaginator.pageSize;
-        let offset = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize);
-        this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
-      } else {
-        console.log('denied')
-      }
-    }, 100);
+    this.sortByColumn(sort.active, sort.direction);
+    let limit = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize) + this.actualPaginator.pageSize;
+    let offset = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize);
+    this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
+
+    // setTimeout(() => {
+    //   if (this.canSort == true){
+    //     this.sortByColumn(sort.active, sort.direction);
+    //     let limit = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize) + this.actualPaginator.pageSize;
+    //     let offset = (this.actualPaginator.pageIndex * this.actualPaginator.pageSize);
+    //     this.dataSource = new MatTableDataSource<Exoplanet>(this.allExoplanetData.data.slice(offset, limit));
+    //   } else {
+    //     console.log('denied')
+    //   }
+    // }, 100);
   }
 
   /* Sorts allExoplanetData */
@@ -181,16 +186,16 @@ export class TableComponent implements OnInit, AfterViewInit {
     }
   }
 
-  canSort: boolean = false;
-  handleClick(event) {
-    const target = event.target;
-    console.log(target.classList);
-    if (!target.classList.contains('mat-sort-header-content') && !target.classList.contains('mat-sort-header-container')) {
-      this.canSort = true;
-    } else {
-      this.canSort = false;
-    }
-  }
+  // canSort: boolean = false;
+  // handleClick(event) {
+  //   const target = event.target;
+  //   console.log(target.classList);
+  //   if (!target.classList.contains('mat-sort-header-content') && !target.classList.contains('mat-sort-header-container')) {
+  //     this.canSort = true;
+  //   } else {
+  //     this.canSort = false;
+  //   }
+  // }
 
   toggleExoplanet(exoplanet) {
     if (this.expandedExoplanets.includes(exoplanet)) {
