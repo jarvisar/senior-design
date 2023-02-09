@@ -78,7 +78,7 @@ Run the following command to start the proxy server:
 
 ` ng serve `
 
-The development server will start on port 4200 by default. The server is accessed at
+The development server will start on port 4200 by default:
 
 ` http://localhost:4200 `
 
