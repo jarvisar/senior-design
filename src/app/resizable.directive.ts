@@ -13,6 +13,8 @@ export class ResizableDirective {
     this.el = element.nativeElement;
   }
 
+  // Used to resize table columns
+
   @HostListener('mousedown', ['$event'])
   onMouseDown(event: MouseEvent) {
     this.startX = event.clientX;
