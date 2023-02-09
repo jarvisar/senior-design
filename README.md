@@ -59,7 +59,7 @@ The results returned from the search will include columns with information such 
 
 For example, an exoplanet with a radius of 0.5 ER and a mass of 2 EM has half the radius and twice the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>. The Earth's orbital period is 365.25 days, and its distance from the Sun is exactly 1 AU.
 
-## Installation
+## Local Installation
   
 These instructions will help get a copy of the web app up and running on a local machine.
 
