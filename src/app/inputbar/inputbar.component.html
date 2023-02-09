@@ -48,7 +48,7 @@
   <!-- Search & Clear Buttonss -->
   <button mat-raised-button class="search_button" id="search_button" color="primary" style="text-align: center" (click)="searchclick($event)" [disabled]="(loadingService.isLoading$ | async)">Search</button>
 
-  <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)">Clear</button>
+  <button mat-raised-button class="clear_button" id="clear_button" color="primary" (click)="clearclick($event)" matTooltip="Hold CTRL to also clear search history" matTooltipShowDelay="3000" matTooltipPosition="above">Clear</button>
 
   <!-- Additional Inputs Checkbox -->
   <mat-checkbox class="additional-inputs-checkbox" [color]="'primary'" [(ngModel)]="additionalInputs" [matTooltip]="'Show Additional Inputs'"></mat-checkbox>
