@@ -99,6 +99,10 @@ export class DataService {
     });
   }
 
+  isEmpty(value){
+    return (value == null || value.length === 0);
+  }
+
   // Return exoplanet data after search
   getExoPlanetData(query: string, querySet): Promise<any> {
     console.log(this.hostUrl + this.defaultQuery + query + '&format=json');
@@ -122,22 +126,22 @@ export class DataService {
         if (querySet.selectedFacility !== '') {
           filteredData = filteredData.filter(d => d.disc_facility === querySet.selectedFacility);
         }
-        if (querySet.selectedMinMass !== undefined) {
+        if (querySet.selectedMinMass !== undefined && this.isEmpty(querySet.selectedMinMass) == false) {
           filteredData = filteredData.filter(d => d.pl_bmasse >= querySet.selectedMinMass);
         }
-        if (querySet.selectedMaxMass !== undefined) {
+        if (querySet.selectedMaxMass !== undefined && this.isEmpty(querySet.selectedMaxMass) == false) {
           filteredData = filteredData.filter(d => d.pl_bmasse <= querySet.selectedMaxMass);
         }
-        if (querySet.selectedMinRadius !== undefined) {
+        if (querySet.selectedMinRadius !== undefined && this.isEmpty(querySet.selectedMinRadius) == false) {
           filteredData = filteredData.filter(d => d.pl_rade >= querySet.selectedMinRadius);
         }
-        if (querySet.selectedMaxRadius !== undefined) {
+        if (querySet.selectedMaxRadius !== undefined && this.isEmpty(querySet.selectedMaxRadius) == false) {
           filteredData = filteredData.filter(d => d.pl_rade <= querySet.selectedMaxRadius);
         }
-        if (querySet.selectedMinDensity !== undefined) {
+        if (querySet.selectedMinDensity !== undefined && this.isEmpty(querySet.selectedMinDensity) == false) {
           filteredData = filteredData.filter(d => d.pl_dens >= querySet.selectedMinDensity);
         }
-        if (querySet.selectedMaxDensity !== undefined) {
+        if (querySet.selectedMaxDensity !== undefined && this.isEmpty(querySet.selectedMaxDensity) == false) {
           filteredData = filteredData.filter(d => d.pl_dens <= querySet.selectedMaxDensity);
         }
         if (querySet.selectedStarType !== 'Star Type') {
@@ -152,7 +156,7 @@ export class DataService {
         if (querySet.showControversial === true) {
           filteredData = filteredData.filter(d => d.pl_controv_flag === 1);
         }
-        if (querySet.westCornerRa !== undefined && querySet.eastCornerRa !== undefined && querySet.southCornerDec !== undefined && querySet.northCornerDec !== undefined) {
+        if (querySet.westCornerRa !== undefined && querySet.eastCornerRa !== undefined && querySet.southCornerDec !== undefined && querySet.northCornerDec !== undefined && this.isEmpty(querySet.westCornerRa) == false && this.isEmpty(querySet.eastCornerRa) == false && this.isEmpty(querySet.southCornerDec) == false && this.isEmpty(querySet.northCornerDec) == false) {
           filteredData = filteredData.filter(d => {
             return d.ra >= querySet.westCornerRa && d.ra <= querySet.eastCornerRa && d.dec >= querySet.southCornerDec && d.dec <= querySet.northCornerDec;
           });
