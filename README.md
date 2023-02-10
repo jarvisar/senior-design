@@ -109,4 +109,4 @@ Either no exoplanets match the given input or data was not returned properly. Tr
 This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/documents/TAP/)) to request and return data from the Exoplanet Archive. TAP is a protocol developed by IVOA that allows access and querying of table data on remote servers, including astronomical data. This web application also uses my CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
 
 
-###### Hint: entering the Konami code in the web app will show secret exoplanets!
+###### Hint: entering the Konami code will show secret exoplanets!
