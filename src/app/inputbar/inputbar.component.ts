@@ -102,6 +102,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   isEmpty(value){
     return (value == null || value.length === 0);
   }
+  
 
   async searchclick(event?: Event, query?: any) {
     if(this.searchCalled == false){ // Used to prevent duplicate searches when using URL query parameters
