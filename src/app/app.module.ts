@@ -39,6 +39,7 @@ import { SettingsDialogComponent } from './settings-dialog/settings-dialog.compo
 import { NewsDialogComponent } from './news-dialog/news-dialog.component';
 import { AngularTwitterTimelineModule } from 'angular-twitter-timeline';
 import { ResizableDirective } from './resizable.directive';
+import { TriStateCheckboxComponent } from './tri-state-checkbox/tri-state-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ResizableDirective } from './resizable.directive';
     SafePipe,
     SettingsDialogComponent,
     NewsDialogComponent,
-    ResizableDirective
+    ResizableDirective,
+    TriStateCheckboxComponent
   ],
   imports: [
     BrowserModule,
