@@ -92,7 +92,8 @@
       <option [value]="'8'">8</option>
       <label># of Planets Select</label>
     </select>
-    <mat-checkbox class="controversial-checkbox" [color]="'primary'" [(ngModel)]="query.showControversial">Controversial</mat-checkbox>
+    <app-tri-state-checkbox class="controversial-checkbox" color="#0b3d91" [(ngModel)]="query.showControversial">Controversial</app-tri-state-checkbox>
+    <br>
   </div>
 </div>
 

@@ -83,7 +83,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     "selectedStarNum": "# of Stars in System",
     "selectedPlanetNum": "# of Planets in System",
     // Checkbox
-    "showControversial": false,
+    "showControversial": null as boolean | null,
     // Sky Region Coords
     "westCornerRa": undefined as number | undefined,
     "eastCornerRa": undefined as number | undefined,
@@ -102,7 +102,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   isEmpty(value){
     return (value == null || value.length === 0);
   }
-  
+  done;
 
   async searchclick(event?: Event, query?: any) {
     if(this.searchCalled == false){ // Used to prevent duplicate searches when using URL query parameters
@@ -125,6 +125,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.query.selectedPlanetNum != undefined && this.query.selectedPlanetNum != "# of Planets in System" ? { sy_pnum: this.query.selectedPlanetNum } : {},
         this.query.selectedStarNum != undefined && this.query.selectedStarNum != "# of Stars in System" ? { sy_snum: this.query.selectedStarNum } : {},
         this.query.showControversial == true ? { pl_controv_flag: 1 } : {},
+        this.query.showControversial == false ? { pl_controv_flag: 0 } : {},
         this.query.westCornerRa != undefined && this.isEmpty(this.query.westCornerRa) == false ? { westCornerRa: this.query.westCornerRa } : {},
         this.query.eastCornerRa != undefined && this.isEmpty(this.query.eastCornerRa) == false ? { eastCornerRa: this.query.eastCornerRa } : {},
         this.query.southCornerDec != undefined && this.isEmpty(this.query.southCornerDec) == false ? { southCornerDec: this.query.southCornerDec } : {},
@@ -186,7 +187,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.query.selectedStarType = 'Star Type';
     this.query.selectedStarNum = '# of Stars in System';
     this.query.selectedPlanetNum = '# of Planets in System';
-    this.query.showControversial = false;
+    this.query.showControversial = null;
     this.query.westCornerRa = undefined;
     this.query.eastCornerRa = undefined;
     this.query.southCornerDec = undefined;
@@ -194,6 +195,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   clearclick(event: Event) {
+    console.log(this.query.showControversial);
     let eventWithCtrlKey = event as any;
     if (eventWithCtrlKey.ctrlKey){ // Holding ctrl key while clicking clear clears previous searches
       this.previousQueries = [];
@@ -205,6 +207,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     this.showNewSearch = false;
     // Clear query parameters
     this.router.navigate([], {queryParams: {}});
+    
   }
 
   // Only load hostnames if user clicks on select box
@@ -268,7 +271,12 @@ export class InputbarComponent implements OnInit, AfterViewInit {
           this.query.selectedStarType = params['star_type'];
         }  
         if (params['pl_controv_flag'] != undefined){
-          this.query.showControversial = true;
+          if (params['pl_controv_flag'] == 1){
+            this.query.showControversial = true;
+          }
+          if (params['pl_controv_flag'] == 0){
+            this.query.showControversial = false;
+          }
         }
         if (params['sy_pnum'] != undefined){
           this.query.selectedPlanetNum = params['sy_pnum'];
@@ -332,6 +340,7 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     (this.query.selectedMinDensity != undefined && this.isEmpty(this.query.selectedMinDensity) == false ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+>=+\''  + this.query.selectedMinDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+>+\''  + this.query.selectedMinDensity + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedMaxDensity != undefined && this.isEmpty(this.query.selectedMaxDensity) == false ? (firstConditional == true ? (this.apiQuery += '+where+pl_dens+<=+\''  + this.query.selectedMaxDensity + '\'', firstConditional = false): this.apiQuery += '+and+pl_dens+<+\''  + this.query.selectedMaxDensity + '\'') : this.apiQuery = this.apiQuery);
     (this.query.showControversial == true ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+1', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+1') : this.apiQuery = this.apiQuery);
+    (this.query.showControversial == false ? (firstConditional == true ? (this.apiQuery += '+where+pl_controv_flag+=+0', firstConditional = false): this.apiQuery += '+and+pl_controv_flag+=+0') : this.apiQuery = this.apiQuery);
     (this.query.selectedStarType != "Star Type" && this.query.selectedStarType != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'' , firstConditional = false): this.apiQuery += '+and+SUBSTR(st_spectype,+1,+1)+=+\'' + this.query.selectedStarType + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedPlanetNum != "# of Planets in System" && this.query.selectedPlanetNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_pnum+=+\'' + this.query.selectedPlanetNum + '\'') : this.apiQuery = this.apiQuery);
     (this.query.selectedStarNum != "# of Stars in System" && this.query.selectedStarNum != undefined ? (firstConditional == true ? (this.apiQuery += '+WHERE+sy_snum+=+\'' + this.query.selectedStarNum + '\'' , firstConditional = false): this.apiQuery += '+and+sy_snum+=+\'' + this.query.selectedStarNum + '\'') : this.apiQuery = this.apiQuery);

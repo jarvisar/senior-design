@@ -156,6 +156,9 @@ export class DataService {
         if (querySet.showControversial === true) {
           filteredData = filteredData.filter(d => d.pl_controv_flag === 1);
         }
+        if (querySet.showControversial === false) {
+          filteredData = filteredData.filter(d => d.pl_controv_flag === 0);
+        }
         if (querySet.westCornerRa !== undefined && querySet.eastCornerRa !== undefined && querySet.southCornerDec !== undefined && querySet.northCornerDec !== undefined && this.isEmpty(querySet.westCornerRa) == false && this.isEmpty(querySet.eastCornerRa) == false && this.isEmpty(querySet.southCornerDec) == false && this.isEmpty(querySet.northCornerDec) == false) {
           filteredData = filteredData.filter(d => {
             return d.ra >= querySet.westCornerRa && d.ra <= querySet.eastCornerRa && d.dec >= querySet.southCornerDec && d.dec <= querySet.northCornerDec;
