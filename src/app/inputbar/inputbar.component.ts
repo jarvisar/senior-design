@@ -104,11 +104,10 @@ export class InputbarComponent implements OnInit, AfterViewInit {
   }
 
   async searchclick(event?: Event, query?: any) {
-    if(this.searchCalled == false){
+    if(this.searchCalled == false){ // Used to prevent duplicate searches when using URL query parameters
       this.searchCalled = true;
     }
-    // Set query parameters if search button is actually clicked
-    if(event != null){
+    if(event != null){      // Set query parameters if search button is actually clicked
       this.router.navigate([], {queryParams: {}});
       let queryParams = Object.assign({}, // Clear old paramaters
         this.query.selectedHost != "" ? { hostname: this.query.selectedHost } : {},
@@ -130,18 +129,18 @@ export class InputbarComponent implements OnInit, AfterViewInit {
         this.query.southCornerDec != undefined && this.isEmpty(this.query.southCornerDec) == false ? { southCornerDec: this.query.southCornerDec } : {},
         this.query.northCornerDec != undefined && this.isEmpty(this.query.northCornerDec) == false ? { northCornerDec: this.query.northCornerDec } : {}
       );
-      this.router.navigate([], { queryParams }); // Set new paramaters
+      this.router.navigate([], { queryParams }); // Set new URL paramaters
     }
-    if (query != undefined){ // Use previous query set if parameter is defined, else build query using inputs
+    if (query != undefined){ // Check if query is passed from previousSearch()
       this.query = query;
-    } else{ 
+    } else{      // Else build query using inputs
       this.previousQueries.push(JSON.parse(JSON.stringify(this.query)));
       let emptySearch: boolean = this.buildQuery();
     }
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
     try {
-      let response = await this.data.getExoPlanetData(this.apiQuery, this.query);
+      let response = await this.data.getExoPlanetData(this.apiQuery, this.query); // Pass the API query string and query JSON
       newArray = response.map((e: Exoplanet) => {
         return e;
       });
