@@ -31,12 +31,12 @@ export class DataService {
   private YEAR_DATA_CACHE_KEY = 'yearDataCache';
   private EXOPLANET_DATA_CACHE_KEY = 'exoplanetDataCache';
   private EXPIRY_TIME = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-  private EXPIRY_TIME2 = 3 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
+  private EXPIRY_TIME3 = 3 * 24 * 60 * 60 * 1000; // 2 days in milliseconds
 
   constructor(private http: HttpClient) {}
 
   // Return discovery facility options
-  getDiscFacilityData(): Promise<any> {
+  getDiscFacilityData(): Promise<any> {    // Get options for discovery facility input
     let facilityDataCache = localStorage.getItem(this.FACILITY_DATA_CACHE_KEY);
     // Check for cached data
     if (facilityDataCache) {
@@ -57,7 +57,7 @@ export class DataService {
       });
   }
 
-  getDiscYearData(): Promise<any> {
+  getDiscYearData(): Promise<any> {    // Get options for discovery year input
     let yearDataCache = localStorage.getItem(this.YEAR_DATA_CACHE_KEY);
     // Check for cached data
     if (yearDataCache) {
@@ -78,7 +78,7 @@ export class DataService {
       });
   }
 
-  getDiscMethodData(): Promise<any>{
+  getDiscMethodData(): Promise<any>{    // Get options for discovery method input
     let methodDataCache = localStorage.getItem(this.METHOD_DATA_CACHE_KEY);
     // Check for cached data
     if (methodDataCache) {
@@ -103,7 +103,7 @@ export class DataService {
     return (value == null || value.length === 0);
   }
 
-  // Return exoplanet data after search
+  // Fetch exoplanet data to be used in table
   getExoPlanetData(query: string, querySet): Promise<any> {
     console.log(this.hostUrl + this.defaultQuery + query + '&format=json');
     console.log('sending request')
@@ -112,7 +112,7 @@ export class DataService {
     if (exoplanetDataCache) {
       let cacheData = JSON.parse(exoplanetDataCache);
       if (cacheData.expiry > Date.now()) {
-        // Filter cached data using query set from inputbar
+        // If using cached data, use querySet to filter data
         let filteredData = cacheData.data;
         if (querySet.selectedHost !== '') {
           filteredData = filteredData.filter(d => d.hostname === querySet.selectedHost);
@@ -164,29 +164,26 @@ export class DataService {
         return Promise.resolve(filteredData);
       }
     }
-    // If expired use exoplanet database
+    // If no cache found or cache is expired, use query API string to fetch data from Exoplanet Archive
     return this.http
       .get<any[]>(this.hostUrl + this.defaultQuery + query + '&format=json', cacheOptions)
       .toPromise();
   }
 
   // Cache all exoplanet data in background
-  getAllExoplanetData(): Promise<any> {
+  getAllExoplanetData() {
     let exoplanetDataCache = localStorage.getItem(this.EXOPLANET_DATA_CACHE_KEY);
-    // Check for cached data
-    if (exoplanetDataCache) {
+    if (exoplanetDataCache) {     // Check for cached data
       let cacheData = JSON.parse(exoplanetDataCache);
       if (cacheData.expiry > Date.now()) {
-        return Promise.resolve(cacheData.data);
+        return;
       }
     }
-    // If expired call exoplanet database
-    return this.http
+    return this.http      // If expired call exoplanet database
     .get<any[]>(this.hostUrl + "+" + this.defaultQuery + '&format=json', cacheOptions)
     .toPromise()
     .then((data) => {
-      // Store in cache for a max of three days before expiring
-      let expiry = Date.now() + this.EXPIRY_TIME2;
+      let expiry = Date.now() + this.EXPIRY_TIME3;        // Store in cache for a max of three days before expiring
       localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
       return data;
     })
@@ -196,14 +193,14 @@ export class DataService {
       .get<any[]>(this.hostUrl + "+" + this.defaultQuery + '&format=json', cacheOptions)
       .toPromise()
       .then((data) => {
-        // Store in cache for a max of three days before expiring
-        let expiry = Date.now() + this.EXPIRY_TIME2;
+        let expiry = Date.now() + this.EXPIRY_TIME3;          // Store in cache for a max of three days before expiring
         localStorage.setItem(this.EXOPLANET_DATA_CACHE_KEY, JSON.stringify({ expiry, data }));
-        return data;
+        return;
       });
     });
   }
 
+  // Get top 200 exoplanets
   getTopExoplanetData(): Promise<any> {
     return this.http.get<any[]>(this.hostUrl + 'select+top+200+' + this.columns + '+from+pscomppars&format=json', httpOptions).toPromise();
   }
