@@ -108,8 +108,8 @@ export class InputbarComponent implements OnInit, AfterViewInit {
       this.searchCalled = true;
     }
     if(event != null){      // Set query parameters if search button is actually clicked
-      this.router.navigate([], {queryParams: {}});
-      let queryParams = Object.assign({}, // Clear old paramaters
+      this.router.navigate([], {queryParams: {}});  // Clear old paramaters
+      let queryParams = Object.assign({}, 
         this.query.selectedHost != "" ? { hostname: this.query.selectedHost } : {},
         this.query.selectedMethod != "" ? { discoverymethod: this.query.selectedMethod } : {},
         this.query.selectedYear != "" ? { disc_year: this.query.selectedYear } : {},
@@ -133,9 +133,16 @@ export class InputbarComponent implements OnInit, AfterViewInit {
     }
     if (query != undefined){ // Check if query is passed from previousSearch()
       this.query = query;
+      this.route.queryParams.pipe(skip(1)).subscribe(params => {   // Load query parameters
+        if (Object.keys(params).length == 0) {
+          this.router.navigate([], { queryParams: {all: 1}});
+        }});
     } else{      // Else build query using inputs
       this.previousQueries.push(JSON.parse(JSON.stringify(this.query)));
       let emptySearch: boolean = this.buildQuery();
+      if (emptySearch){
+        this.router.navigate([], { queryParams: {all: 1}});
+      }
     }
     this.firstSearch = false;
     let newArray: Array<Exoplanet> = [];
