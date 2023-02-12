@@ -18,4 +18,4 @@ As a **user**, I want **additional details about each exoplanet to be available*
 
 As a **researcher**, I would like to **see the data source** to ensure the **returned data is accurate and up to date**.
 
-As a **user**, I would like a **button to clear cached data** to **manually refresh the data**.
+As a **user**, I would like a **button to clear cache** to **manually refresh the data**.
