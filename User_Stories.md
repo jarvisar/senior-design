@@ -12,7 +12,7 @@ As a **researcher**, I want to **export the returned data** so that I can **use 
 
 As a **user**, I want to be able to **add or remove table columns** so the **table is more readable and accessible**.
 
-As a **developer**, I want to use **reactive and responsive styling and design** so the website is **interactive and easy to use**.
+As a **developer**, I want to use **responsive styling and design** so the website is **interactive and easy to use**.
 
 As a **user**, I want **additional details about each exoplanet to be available** so that I can **learn more about exoplanet data**.
 
