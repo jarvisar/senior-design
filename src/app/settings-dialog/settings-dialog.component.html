@@ -5,8 +5,8 @@
 <br>
 <div class="checkbox-container">
     <div class="checkbox-subcontainer subcontainer1">
+        <mat-checkbox color="primary" [(ngModel)]="pl_name" [disabled]="true" [matTooltip]="'Required'" matTooltipPosition="left" matTooltipPosition="above">Planet Name</mat-checkbox>
         <mat-checkbox color="primary" [(ngModel)]="hostname" [disabled]="true" [matTooltip]="'Required'" matTooltipPosition="left" matTooltipPosition="above">Host Name (Star Name)</mat-checkbox>
-        <mat-checkbox color="primary" [(ngModel)]="pl_name" [disabled]="true" [matTooltip]="'Required'" matTooltipPosition="left" matTooltipPosition="above">Exoplanet Name</mat-checkbox>
         <mat-checkbox color="primary" [(ngModel)]="discoverymethod" matTooltipPosition="left" matTooltip="Method by which the planet was first identified" matTooltipShowDelay="1000">Discovery Method</mat-checkbox>
         <mat-checkbox color="primary" [(ngModel)]="disc_year" matTooltipPosition="left" matTooltip="Year the planet was discovered" matTooltipShowDelay="1000">Discovery Year</mat-checkbox>
         <mat-checkbox color="primary" [(ngModel)]="disc_facility" matTooltipPosition="left" matTooltip="Name of facility of planet discovery observations" matTooltipShowDelay="1000">Discovery Facility</mat-checkbox>

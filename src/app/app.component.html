@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,600,700' rel='stylesheet' type='text/css'>
-  
     <meta charset="UTF-8">
   </head>
   <style>
@@ -14,7 +13,6 @@
       background-image: url("./assets/starfield.jpg");
     }
   </style>
-
 <body>
   <!-- Toolbar -->
   <div class="toolbar" role="banner" >
@@ -22,10 +20,11 @@
     <!-- Toolbar Title -->
     <span class="header-title" (click)="clearclick($event)">NASA Exoplanet Archive Search</span>
       <div class="spacer"></div>
-      <!-- Help Button -->
+      <!-- News/Twitter Button -->
       <button mat-icon-button (click)="newsDialog.openDialog()" appearance="outline" style="margin-right: -7px; color: #eaeaea;">
         <mat-icon>notifications</mat-icon>
       </button>
+      <!-- Help Button -->
       <button mat-icon-button (click)="helpbox.openDialog()" appearance="outline" style="margin-right: 8px; color: #eaeaea;">
         <mat-icon>help</mat-icon>
       </button>
@@ -104,11 +103,10 @@
   <footer class="footer">
     <p class="footer-text">All data is sourced directly from the 
       <a class="footer-link" href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener"> NASA Exoplanet Archive</a>
-      operated by the California Institute of Technology.
-    </p>
+      operated by the California Institute of Technology.</p>
   </footer>
 
 </body>
 </html>
-
+<!-- Router Outlet unused for now -->
 <router-outlet></router-outlet>
