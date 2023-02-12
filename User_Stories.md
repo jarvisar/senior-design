@@ -14,7 +14,7 @@ As a **user**, I want to be able to **add or remove table columns** so the **tab
 
 As a **developer**, I want to use **responsive styling and design** so the website is **interactive and easy to use**.
 
-As a **user**, I want **additional details about each exoplanet to be available** so that I can **learn more about exoplanet data**.
+As a **user**, I want **additional details about each exoplanet to be available** so that I can **learn more about specific exoplanets**.
 
 As a **researcher**, I would like to **see the data source** to ensure the **returned data is accurate and up to date**.
 
