@@ -10,7 +10,7 @@ As a **user**, I want to be able to **filter the data within the table** so I ca
 
 As a **researcher**, I want to **export the returned data** so that I can **use the returned data elsewhere, such as academic projects**.
 
-As a **user**, I want to be able to **add or remove table columns** so the **data is more readable and accessible**.
+As a **user**, I want to be able to **add or remove table columns** so the **table is more readable and accessible**.
 
 As a **developer**, I want to use **reactive and responsive styling and design** so the website is **interactive, interesting, and easy to use**.
 
