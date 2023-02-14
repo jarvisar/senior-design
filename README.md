@@ -1,8 +1,6 @@
 <p align="center">
-	<img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/icon.png" width="200px"/>
+	<img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/reflection_card.png" width="200px"/>
 </p>
-
-# NASA Exoplanet Archive Search
 
 The main objective of this project is to develop and build a web application capable of querying data from [NASA's Exoplanetary Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) using user input. After entering a valid query, the web app builds an API URL using the user's input and calls NASA's archive to return the requested data. 
 
