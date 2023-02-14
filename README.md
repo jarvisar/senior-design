@@ -1,6 +1,7 @@
 <br>
 <p align="center">
-  <img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/reflection_card.png" style="float: right; margin-left: 10px;"/>
+  <img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/reflection_card.png"/>
+</p>
 
 Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
 
