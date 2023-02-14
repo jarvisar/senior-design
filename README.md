@@ -110,3 +110,10 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 
 ###### Hint: entering the Konami code will show secret exoplanets!
+
+<p float="left">
+  <img src="https://angular.io/generated/images/marketing/concept-icons/material.png" width="100" />
+  <img src="https://angular.io/generated/images/marketing/concept-icons/animations.png" width="100" /> 
+  <img src="https://angular.io/generated/images/marketing/concept-icons/pwa.png" width="100" />
+  <img src="https://angular.io/generated/images/marketing/concept-icons/universal.png" width="100" />
+</p>
