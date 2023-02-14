@@ -113,7 +113,7 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 ## Angular 14
 
-This web application was built using Angular 14.2.10
+This web application was built using Angular 14.2.10.
 
 
 Angular Features Used:
