@@ -1,3 +1,4 @@
+<br>
 <p align="center">
   <img src="https://github.com/jarvisar/senior-design/blob/master/src/assets/reflection_card.png" style="float: right; margin-left: 10px;"/>
 
