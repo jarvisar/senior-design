@@ -110,3 +110,20 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 
 ###### Hint: entering the Konami code will show secret exoplanets!
+
+## Angular 14
+
+This web application was built using Angular 14.2.10.
+
+<p float="left">
+  <img src="https://angular.io/generated/images/marketing/concept-icons/material.png" title="Material Design" width="100" />
+  <img src="https://angular.io/generated/images/marketing/concept-icons/animations.png" title="Angular Animations" width="100" /> 
+  <img src="https://angular.io/generated/images/marketing/concept-icons/pwa.png" title="PWA Support" width="100" />
+  <img src="https://angular.io/generated/images/marketing/concept-icons/universal.png" title="Universal Device Support" width="100" /> 
+</p>
+
+<p float="left">
+  <img src="https://angular.io/generated/images/marketing/concept-icons/dependency-injection.png" title="Dependency Injection" width="100" />
+  <img src="https://angular.io/generated/images/marketing/concept-icons/lazy-loading.png" title="Lazy Loading" width="100" /> 
+  <img src="https://angular.io/generated/images/marketing/concept-icons/performance.png" title="Emphasized Performance" width="100" />
+</p>
