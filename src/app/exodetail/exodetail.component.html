@@ -17,9 +17,36 @@
   <mat-card class="mat-card" appMaterialElevation >
     <!-- Planet Info -->
     <div class="section-title" *ngIf="pl_type != null || habitable != null || exoplanet.pl_rade != null">Planet Information</div>
-    <p *ngIf="pl_type != null || exoplanet.pl_rade != null">{{ pl_type != null ? "Potentially " : ""}}<a class="search-anchor" *ngIf="pl_type != null" (click)="searchPlanetType($event)" matTooltip="Search for other exoplanets with same planet type" matTooltipShowDelay="1500">{{pl_type}}</a>{{pl_type != null ? ", " : ""}}{{exoplanet.pl_rade != null ? exoplanet.pl_rade.toFixed(2) + " times the size ": ''}} {{exoplanet.pl_rade != null && exoplanet.pl_bmasse != null ? ' and ' : ''}} {{exoplanet.pl_bmasse != null ? ' ' + exoplanet.pl_bmasse.toFixed(3) + ' times the mass ': ''}} 
-      {{exoplanet.pl_rade != null || exoplanet.pl_bmasse != null ? "of the Earth" : ''}}{{exoplanet.pl_eqt != null ? (exoplanet.pl_rade != null || exoplanet.pl_bmasse != null ? (exoplanet.pl_rade != null && exoplanet.pl_bmasse != null ? ',' : '') + ' with an equilibrium temperature of ' + exoplanet.pl_eqt + ' Kelvin' : ' an equilibrium temperature of ' + exoplanet.pl_eqt + ' Kelvin') : ''}}.</p>
-    <p *ngIf="habitable != null">{{habitable}}</p>
+    <p *ngIf="pl_type != null || exoplanet.pl_rade != null">{{ pl_type != null ? "Potentially " : ""}}
+      <a class="search-anchor" *ngIf="pl_type != null" (click)="searchPlanetType($event)" matTooltip="Search for other exoplanets with same planet type" matTooltipShowDelay="1500">{{pl_type}}</a>
+      {{pl_type != null ? "," : ""}}
+      {{ exoplanet.pl_rade != null ? 
+          (exoplanet.pl_bmasse != null ? 
+              (exoplanet.pl_bmasse >= 50 ? 
+                (exoplanet.pl_radj.toFixed(2) + " times the size") : 
+                (exoplanet.pl_rade.toFixed(2) + " times the size")) : 
+              (exoplanet.pl_rade.toFixed(2) + " times the size")) : 
+          ''}}
+      {{ exoplanet.pl_rade != null && exoplanet.pl_bmasse != null ? 
+          (exoplanet.pl_bmasse >= 50 ? 
+              ' and ' + exoplanet.pl_bmassj.toFixed(3) + ' times the mass' : 
+              ' and ' + exoplanet.pl_bmasse.toFixed(3) + ' times the mass') : 
+          (exoplanet.pl_bmasse != null ? 
+              (exoplanet.pl_bmasse >= 50 ? 
+                  ' ' + exoplanet.pl_bmassj.toFixed(3) + ' times the mass' : 
+                  ' ' + exoplanet.pl_bmasse.toFixed(3) + ' times the mass') : 
+              '')}}
+      {{exoplanet.pl_rade != null || exoplanet.pl_bmasse != null ?
+        exoplanet.pl_bmasse >= 50 ? " of Jupiter" : " of Earth" : 
+      
+      ""}}
+
+      {{ exoplanet.pl_eqt != null ? 
+          ((exoplanet.pl_rade != null || exoplanet.pl_bmasse != null) ? 
+              (exoplanet.pl_rade != null && exoplanet.pl_bmasse != null ? 
+                  '' : '') + ' with an equilibrium temperature of ' + exoplanet.pl_eqt + ' Kelvin' : 
+              ' an equilibrium temperature of ' + exoplanet.pl_eqt + ' Kelvin') : 
+          ''}}.<p *ngIf="habitable != null">{{habitable}}</p>
     <!-- Host Star System Info -->
     <div class="section-title">Host Star System <!--<a class="search-anchor" (click)="searchHost($event)" matTooltip="Search for other exoplanets orbiting {{exoplanet.hostname}}" matTooltipShowDelay="1500">{{exoplanet.hostname}}</a>--></div>
     <p *ngIf="exoplanet.st_teff != null || exoplanet.st_rad != null || exoplanet.st_mass != null"><a class="search-anchor" (click)="searchHost($event)" title="Search for other exoplanets orbiting {{exoplanet.hostname}}">{{exoplanet.hostname}}</a> {{exoplanet.st_rad != null ? ' is ' + exoplanet.st_rad.toFixed(2) + " times the size ": ''}} {{exoplanet.st_rad != null && exoplanet.st_mass != null ? ' and ' : ''}}{{exoplanet.st_rad == null && exoplanet.st_mass != null ? ' has ' : ''}}{{exoplanet.st_mass != null ? ' ' + exoplanet.st_mass + ' times the mass ': ''}} 
