@@ -113,7 +113,7 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 ## Angular 14
 
-This web application was built using Angular 14.2.10.
+This web application was built using Angular v14.2.10.
 
 <p float="left">
   <img src="https://angular.io/generated/images/marketing/concept-icons/material.png" title="Material Design" width="100" />
