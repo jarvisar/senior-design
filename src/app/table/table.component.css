@@ -97,10 +97,6 @@ mat-paginator .mat-select-value-text {
 .mat-row:nth-child(even){
     background-color: white;
 }
-        
-.mat-row:hover {
-    background-color: #eaeaea;
-}
   
 /* Expanded row */
 .exoplanet-detail {
@@ -193,3 +189,14 @@ td.mat-cell {
     max-width: 30px;
 }
 
+.mat-row:hover {
+    background-color: #e5e5e5;
+}
+
+.mat-row:hover .mat-cell:not(.bold-cell) {
+    background-color: #eaeaea;
+}
+
+.bold-cell:hover {
+    background-color: #e5e5e5;
+}
