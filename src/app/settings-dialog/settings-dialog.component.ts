@@ -159,7 +159,39 @@ export class SettingsDialogComponent implements OnInit {
     this.st_teff = false;
     this.st_mass = false;
     this.st_rad = false;
-    this.displayedColumns = this.columnsService.defaultColumns;
+    
+  }
+
+  advancedSettings(){
+    this.pl_name = true;
+    this.hostname = true;
+    this.discoverymethod = true;
+    this.disc_year = true;
+    this.pl_rade = true;
+    this.pl_bmasse = true;
+    this.pl_dens = true;
+    this.disc_facility = true;
+    this.pl_controv_flag = false;
+    this.sy_snum = false;
+    this.sy_pnum = false;
+    this.sy_mnum = false;
+    this.st_spectype = true;
+    this.cb_flag = false;
+    this.rastr = false;
+    this.decstr = false;
+    this.ra = false;
+    this.dec = false;
+    this.pl_orbper = true;
+    this.pl_orbsmax = true;
+    this.pl_orbeccen = false;
+    this.sy_dist = true;
+    this.pl_radj = true;
+    this.pl_bmassj = true;
+    this.pl_eqt = true;
+    this.st_teff = false;
+    this.st_mass = false;
+    this.st_rad = false;
+    
   }
 
   saveSettings(){
@@ -248,7 +280,7 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   private COLUMN_CACHE_KEY = 'columnCache';
-  private EXPIRY_TIME = 128 * 24 * 60 * 60 * 1000; // 128 days in milliseconds
+  private EXPIRY_TIME = 120 * 24 * 60 * 60 * 1000; // 120 days in milliseconds
 
   ngOnInit(): void {
   }

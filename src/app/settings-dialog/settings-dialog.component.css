@@ -25,8 +25,17 @@ h2{
 .button{
     height: 50px;
     width: 100px;
-    margin-right: 16px;
+    margin-right: 0px;
     background-color: #0b3d91;
     color: white;
     font-size: 14pt;
+}
+
+.advanced-button{
+    width: 120px;
+    background-color: #999999;
+}
+
+.default-button{
+    background-color: #999999;;
 }
