@@ -272,8 +272,8 @@ export class SettingsDialogComponent implements OnInit {
     if (this.disc_facility) {
       this.displayedColumns.push('disc_facility');
     }
-    let expiry = Date.now() + this.EXPIRY_TIME; // Save displayedColumns to cache
-    localStorage.setItem(this.COLUMN_CACHE_KEY, JSON.stringify({ expiry, data: this.displayedColumns }));
+    let expiry = Date.now() + this.EXPIRY_TIME; 
+    localStorage.setItem(this.COLUMN_CACHE_KEY, JSON.stringify({ expiry, data: this.displayedColumns })); // Save displayedColumns to cache
     this.dialogRef.close({ data: this.displayedColumns }) // Close the dialog window after clicking save and send displayedColumns back to parent component
   }
 
