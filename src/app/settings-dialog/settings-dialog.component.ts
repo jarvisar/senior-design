@@ -130,7 +130,7 @@ export class SettingsDialogComponent implements OnInit {
 
   displayedColumns;
 
-  defaultSettings(){
+  defaultSettings(){ // Set boolean values for default columns
     this.pl_name = true;
     this.hostname = true;
     this.discoverymethod = true;
@@ -159,10 +159,9 @@ export class SettingsDialogComponent implements OnInit {
     this.st_teff = false;
     this.st_mass = false;
     this.st_rad = false;
-    
   }
 
-  advancedSettings(){
+  advancedSettings(){ // Set boolean values for advanced columns
     this.pl_name = true;
     this.hostname = true;
     this.discoverymethod = true;
@@ -191,13 +190,12 @@ export class SettingsDialogComponent implements OnInit {
     this.st_teff = false;
     this.st_mass = false;
     this.st_rad = false;
-    
   }
 
   saveSettings(){
-    this.displayedColumns = ['index', 'pl_name', 'hostname'];
+    this.displayedColumns = ['index', 'pl_name', 'hostname']; // Required columns
     if (this.discoverymethod) {
-      this.displayedColumns.push('discoverymethod');
+      this.displayedColumns.push('discoverymethod'); // If boolean value is true, add to displayedColumns
     }
     if (this.disc_year) {
       this.displayedColumns.push('disc_year');
@@ -274,9 +272,9 @@ export class SettingsDialogComponent implements OnInit {
     if (this.disc_facility) {
       this.displayedColumns.push('disc_facility');
     }
-    let expiry = Date.now() + this.EXPIRY_TIME;
+    let expiry = Date.now() + this.EXPIRY_TIME; // Save displayedColumns to cache
     localStorage.setItem(this.COLUMN_CACHE_KEY, JSON.stringify({ expiry, data: this.displayedColumns }));
-    this.dialogRef.close({ data: this.displayedColumns })
+    this.dialogRef.close({ data: this.displayedColumns }) // Close the dialog window after clicking save and send displayedColumns back to parent component
   }
 
   private COLUMN_CACHE_KEY = 'columnCache';
