@@ -102,7 +102,6 @@ export class SettingsDialogComponent implements OnInit {
     if(displayedColumns.includes('st_mass')){
       this.st_mass = true;
     }
-    this.onCheckboxChange();
   }
 
   pl_name?: boolean; // Exoplanet name
@@ -201,71 +200,8 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   onCheckboxChange(){
-    if(this.pl_name == true
-      && this.hostname == true
-      && this.discoverymethod == true
-      && this.disc_year == true
-      && this.pl_rade == true
-      && this.pl_bmasse == true
-      && this.pl_dens == true
-      && this.disc_facility == true
-      && this.pl_controv_flag == false
-      && this.sy_snum == false
-      && this.sy_pnum == false
-      && this.sy_mnum == false
-      && this.st_spectype == true
-      && this.cb_flag == false
-      && this.rastr == false
-      && this.decstr == false
-      && this.ra == false
-      && this.dec == false
-      && this.pl_orbper == true
-      && this.pl_orbsmax == true
-      && this.pl_orbeccen == false
-      && this.sy_dist == true
-      && this.pl_radj == true
-      && this.pl_bmassj == true
-      && this.pl_eqt == true
-      && this.st_teff == false
-      && this.st_mass == false
-      && this.st_rad == false){
-        this.advancedDisabled = true;
-        this.defaultDisabled = false;
-    } else if(this.pl_name == true
-      && this.hostname == true
-      && this.discoverymethod == true
-      && this.disc_year == true
-      && this.pl_rade == true
-      && this.pl_bmasse == true
-      && this.pl_dens == true
-      && this.disc_facility == true
-      && this.pl_controv_flag == false
-      && this.sy_snum == false
-      && this.sy_pnum == false
-      && this.sy_mnum == false
-      && this.st_spectype == false
-      && this.cb_flag == false
-      && this.rastr == false
-      && this.decstr == false
-      && this.ra == false
-      && this.dec == false
-      && this.pl_orbper == false
-      && this.pl_orbsmax == false
-      && this.pl_orbeccen == false
-      && this.sy_dist == false
-      && this.pl_radj == false
-      && this.pl_bmassj == false
-      && this.pl_eqt == false
-      && this.st_teff == false
-      && this.st_mass == false
-      && this.st_rad == false){
-        this.advancedDisabled = false;
-        this.defaultDisabled = true;
-    } else {
-      this.defaultDisabled = false
-      this.advancedDisabled = false
-    }
-    
+    this.defaultDisabled = false
+    this.advancedDisabled = false
   }
 
   saveSettings(){
