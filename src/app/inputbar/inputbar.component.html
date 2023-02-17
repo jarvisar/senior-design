@@ -107,7 +107,7 @@
     <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to start a new search</p>
   </div>
   <!-- Error Text -->
-  <div class="no-results-container" *ngIf="showTable && error == true" @inOutAnimation (click)="searchclick($event)">
+  <div class="no-results-container" *ngIf="(showTable && error == true) && !(loadingService.isLoading$ | async)" @inOutAnimation (click)="searchclick($event)">
     <p (mouseenter)="showNewSearch = true" (mouseleave)="showNewSearch = false" class="no-results-text" @inOutAnimation>Error Loading Data</p>
     <p *ngIf="showNewSearch" class="new-search" @inOutAnimation>click to try again</p>
   </div>
