@@ -115,15 +115,5 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 This web application was built using Angular v14.2.10.
 
-<p float="left">
-  <img src="https://angular.io/generated/images/marketing/concept-icons/material.png" title="Material Design" width="100" />
-  <img src="https://angular.io/generated/images/marketing/concept-icons/animations.png" title="Angular Animations" width="100" /> 
-  <img src="https://angular.io/generated/images/marketing/concept-icons/pwa.png" title="PWA Support" width="100" />
-  <img src="https://angular.io/generated/images/marketing/concept-icons/universal.png" title="Universal Device Support" width="100" /> 
-</p>
+<img src="https://angular.io/assets/images/logos/angular/angular.png" title="Material Design" width="100" />
 
-<p float="left">
-  <img src="https://angular.io/generated/images/marketing/concept-icons/dependency-injection.png" title="Dependency Injection" width="100" />
-  <img src="https://angular.io/generated/images/marketing/concept-icons/lazy-loading.png" title="Lazy Loading" width="100" /> 
-  <img src="https://angular.io/generated/images/marketing/concept-icons/performance.png" title="Emphasized Performance" width="100" />
-</p>
