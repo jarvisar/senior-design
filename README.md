@@ -52,12 +52,12 @@ Easily sort the exoplanet data by clicking on a column header, switching between
 The results returned from the search will include columns with information such as the exoplanet's name, host name, discovery method, discovery year, discovery facility, and academic reference.
 
   * The density column is measured in g/cm<sup>3</sup>
-  * The radius column is measured in units of radius of the Earth (ER)
-  * The mass column is measured in units of mass of the Earth (EM)
+  * The radius column is measured in either units of radius of the Earth (Re) or Jupiter (Rj)
+  * The mass column is measured in either units of mass of the Earth (Me) or Jupiter (Mj)
   * Orbital period is measured in days; refers to how long it takes for exoplanet to fully orbit its host star
   * Semi-major axis is measured in astronomical units (AU); refers to distance between planet and host star
 
-For example, an exoplanet with a radius of 0.5 ER and a mass of 2 EM has half the radius and twice the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>. The Earth's orbital period is 365.25 days, and its distance from the Sun is exactly 1 AU.
+For example, an exoplanet with a radius of 0.5 ER and a mass of 2 EM has half the radius and twice the mass of the Earth. For reference, the Earth's radius is 6,371km, its mass is 5.972 x 10<sup>24</sup> kg, and its density is 5.5 g/cm<sup>3</sup>. Jupiter's radius is 71,492km and its mass is 1.899 x 10<sup>27</sup> kg. The Earth's orbital period is 365.25 days, and its distance from the Sun is exactly 1 AU.
 
 ## Local Installation
   
@@ -115,15 +115,5 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 This web application was built using Angular v14.2.10.
 
-<p float="left">
-  <img src="https://angular.io/generated/images/marketing/concept-icons/material.png" title="Material Design" width="100" />
-  <img src="https://angular.io/generated/images/marketing/concept-icons/animations.png" title="Angular Animations" width="100" /> 
-  <img src="https://angular.io/generated/images/marketing/concept-icons/pwa.png" title="PWA Support" width="100" />
-  <img src="https://angular.io/generated/images/marketing/concept-icons/universal.png" title="Universal Device Support" width="100" /> 
-</p>
+<img src="https://angular.io/assets/images/logos/angular/angular.png" title="Material Design" width="100" />
 
-<p float="left">
-  <img src="https://angular.io/generated/images/marketing/concept-icons/dependency-injection.png" title="Dependency Injection" width="100" />
-  <img src="https://angular.io/generated/images/marketing/concept-icons/lazy-loading.png" title="Lazy Loading" width="100" /> 
-  <img src="https://angular.io/generated/images/marketing/concept-icons/performance.png" title="Emphasized Performance" width="100" />
-</p>
