@@ -19,6 +19,10 @@
   }
 }
 
+.mat-tooltip  {
+  white-space: pre-line !important;
+}
+
 /* Main Inputs */
 .hostname_select, .method_select, .year_select, .facility_select  {
   width: 260px;

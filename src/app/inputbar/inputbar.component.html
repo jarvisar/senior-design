@@ -92,7 +92,9 @@
       <option [value]="'8'">8</option>
       <label># of Planets Select</label>
     </select>
-    <app-tri-state-checkbox class="controversial-checkbox" [(ngModel)]="query.showControversial">Controversial</app-tri-state-checkbox>
+    <app-tri-state-checkbox class="controversial-checkbox" [(ngModel)]="query.showControversial" matTooltip="Unchecked: show all, regardless of controversial status
+    Checked: show only controversial exoplanets
+    Disabled: exclude controversial exoplanets">Controversial</app-tri-state-checkbox>
     <br>
   </div>
 </div>
