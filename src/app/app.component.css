@@ -28,22 +28,20 @@ html, body {
   font-family: Roboto, Helvetica Neue, sans-serif;
   margin-left: 10px;
   font-weight: 500;
-  text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
-  transition: transform 0.25s ease, text-shadow 0.25s ease;
-  transform: translateY(-0.5px);
+  text-shadow: 0px 1px 0.5px #919191, 0px 2px 0.5px #919191, 0px 3px 0.5px #919191, 0px 4px 0.5px #919191;
+  transition: transform 0.1s ease, text-shadow 0.1s ease;
+  transform: translateY(0px);
   cursor: pointer;
 }
   
 .header-title:hover {
-  text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
-  transform: translateY(-0.4px);
+  text-shadow: 0px 1px 0px #818181, 0px 2px 0.5px #818181, 0px 3px 0.5px #818181, 0px 3px 0.5px #818181;
+  transform: translateY(1px);
 }
   
 .header-title:active {
-  text-shadow: 1px 1px 1px #919191;
-  transform: translateY(0);
-  transition: all 0.1s ease;
-  transform: translateY(-0.1px);
+  text-shadow: 0px 1px 0px #717171, 0px 2px 0.5px #717171, 0px 2px 0.5px #717171;
+  transform: translateY(2px);
 }
 
 .content {
@@ -115,22 +113,24 @@ svg#rocket-smoke {
 
 @media only screen and (min-height: 1250px) {
   .header-title {
-    text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191, 4px 4px 1px #919191;
-    transition: transform 0.25s ease, text-shadow 0.25s ease;
-    transform: translateY(-0.5px);
+    font-size: 24pt;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    margin-left: 10px;
+    font-weight: 500;
+    text-shadow: 0px 1px 0.5px #919191, 0px 2px 0.5px #919191, 0px 3px 0.5px #919191, 0px 4px 0.5px #919191;
+    transition: transform 0.1s ease, text-shadow 0.1s ease;
+    transform: translateY(0px);
     cursor: pointer;
   }
     
   .header-title:hover {
-    text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191, 3px 3px 1px #919191;
-    transform: translateY(-0.4px);
+    text-shadow: 0px 1px 0px #818181, 0px 2px 0.5px #818181, 0px 3px 0.5px #818181, 0px 3px 0.5px #818181;
+    transform: translateY(1px);
   }
     
   .header-title:active {
-    text-shadow: 1px 1px 1px #919191, 2px 2px 1px #919191;
-    transform: translateY(0);
-    transition: transform 0.1s ease;
-    transform: translateY(-0.1px);
+    text-shadow: 0px 1px 0px #717171, 0px 2px 0.5px #717171, 0px 2px 0.5px #717171;
+    transform: translateY(2px);
   }
 }
 
