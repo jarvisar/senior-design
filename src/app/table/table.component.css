@@ -216,6 +216,12 @@ td.mat-cell {
     cursor: pointer;
 }
 
+.mat-row:active td.planet-name-cell {
+    box-shadow: #bbbbbb -1px 1px 0.5px;
+    transform: translate3d(1px, -1px, 0);
+    cursor: pointer;
+}
+
 
   
 
