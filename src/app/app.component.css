@@ -111,25 +111,25 @@ svg#rocket-smoke {
   transform: scale(1.1);
 }
 
-@media only screen and (min-height: 1250px) {
+@media only screen and (max-height: 1000px) {
   .header-title {
     font-size: 24pt;
     font-family: Roboto, Helvetica Neue, sans-serif;
     margin-left: 10px;
     font-weight: 500;
-    text-shadow: 0px 1px 0.5px #919191, 0px 2px 0.5px #919191, 0px 3px 0.5px #919191, 0px 4px 0.5px #919191;
+    text-shadow: 0px 1px 0.5px #919191, 0px 2px 0.5px #919191, 0px 3px 0.5px #919191;
     transition: transform 0.1s ease, text-shadow 0.1s ease;
     transform: translateY(0px);
     cursor: pointer;
   }
     
   .header-title:hover {
-    text-shadow: 0px 1px 0px #818181, 0px 2px 0.5px #818181, 0px 3px 0.5px #818181, 0px 3px 0.5px #818181;
+    text-shadow: 0px 1px 0px #818181, 0px 2px 0.5px #818181;
     transform: translateY(1px);
   }
     
   .header-title:active {
-    text-shadow: 0px 1px 0px #717171, 0px 2px 0.5px #717171, 0px 2px 0.5px #717171;
+    text-shadow: 0px 1px 0px #717171;
     transform: translateY(2px);
   }
 }
@@ -157,8 +157,25 @@ svg#rocket-smoke {
   .background{
     overflow: hidden;
   }
-  .header-title{
-    font-size:12.0pt; 
+  .header-title {
+    font-size: 16pt;
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    margin-left: 10px;
+    font-weight: 500;
+    text-shadow: 0px 1px 0.5px #919191, 0px 2px 0.5px #919191, 0px 3px 0.5px #919191;
+    transition: transform 0.1s ease, text-shadow 0.1s ease;
+    transform: translateY(0px);
+    cursor: pointer;
+  }
+    
+  .header-title:hover {
+    text-shadow: 0px 1px 0px #818181, 0px 2px 0.5px #818181;
+    transform: translateY(1px);
+  }
+    
+  .header-title:active {
+    text-shadow: 0px 1px 0px #717171;
+    transform: translateY(2px);
   }
   .footer{
     height: 40px;
