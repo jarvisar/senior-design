@@ -189,27 +189,33 @@ td.mat-cell {
     max-width: 30px;
 }
 
-.mat-row:hover {
-    background-color: #e5e5e5;
-}
-
-.mat-row:hover .mat-cell:not(.bold-cell) {
+.mat-row:hover .mat-cell {
     background-color: #eaeaea;
-}
-
-.bold-cell:hover {
-    background-color: #e5e5e5;
 }
 
 .mat-row:hover td.planet-name-cell {
     background-color: #f1f1f1 !important;
     z-index: 100;
-    box-shadow: #bbbbbb -1px 1px, #bbbbbb -2px 2px, #bbbbbb -3px 3px;
+    box-shadow: #bbbbbb -1px 1px 0.5px, #bbbbbb -2px 2px 0.5px, #bbbbbb -3px 3px 0.5px;
     transform: translate3d(3px, -3px, 0);
     transition-delay: 0s;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     transition-property: all;
     transition-timing-function: line;
   }
+
+.mat-row td.planet-name-cell:hover {
+    box-shadow: #bbbbbb -1px 1px 0.5px, #bbbbbb -2px 2px 0.5px;
+    transform: translate3d(2px, -2px, 0);
+    cursor: pointer;
+}
+
+.mat-row td.planet-name-cell:active {
+    box-shadow: #bbbbbb -1px 1px 0.5px;
+    transform: translate3d(1px, -1px, 0);
+    cursor: pointer;
+}
+
+
   
 
