@@ -198,10 +198,7 @@ td.mat-cell {
     z-index: 100;
     box-shadow: #bbbbbb -1px 1px 0.5px, #bbbbbb -2px 2px 0.5px, #bbbbbb -3px 3px 0.5px;
     transform: translate3d(3px, -3px, 0);
-    transition-delay: 0s;
-    transition-duration: 0.1s;
-    transition-property: all;
-    transition-timing-function: line;
+    transition: 0.1s box-shadow, 0.1s transform;
   }
 
 .mat-row td.planet-name-cell:hover {
