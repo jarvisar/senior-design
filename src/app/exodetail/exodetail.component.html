@@ -7,7 +7,7 @@
   <!-- Discovery Facility Card -->
   <mat-card class="mat-card" appMaterialElevation style="min-height: 100px;">
     <div class="section-title" style="margin-bottom: 10px">{{exoplanet.pl_name}}</div>
-    <p>{{exoplanet.disc_facility == "Multiple Observatories" || exoplanet.disc_facility == "Multiple Facilities" ? "O" : "First o"}}bserved by <a class="search-anchor" (click)="searchFacility($event)" matTooltip="Search for other exoplanets first observed by {{exoplanet.disc_facility}}" matTooltipShowDelay="1500">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" matTooltip="Search for other exoplanets discovered in {{exoplanet.disc_year}}" matTooltipShowDelay="1500">{{exoplanet.disc_year}}</a></p>
+    <p>Discovered by <a class="search-anchor" (click)="searchFacility($event)" matTooltip="Search for other exoplanets first observed by {{exoplanet.disc_facility}}" matTooltipShowDelay="1500">{{exoplanet.disc_facility}}</a> in <a class="search-anchor style4" (click)="searchYear($event)" matTooltip="Search for other exoplanets discovered in {{exoplanet.disc_year}}" matTooltipShowDelay="1500">{{exoplanet.disc_year}}</a></p>
     <div style="display: flex; align-items: center; justify-content: center;">
       <img id="facility-image" *ngIf="exoplanet.disc_facility != 'Multiple Observatories' && exoplanet.disc_facility != 'Multiple Facilities'"
       src="https://exoplanets.nasa.gov/assets/eox/observatories/{{this.formattedDiscFacility}}" style="margin-bottom: 10px" (error)="imgError=true" [hidden]="imgError" style="margin: auto;">
