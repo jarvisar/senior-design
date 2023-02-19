@@ -1,5 +1,5 @@
 <head>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,600,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,600,700' rel='stylesheet' type='text/css'>
 </head>
 <div class="table-container" >  
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="test-table custom-table" [@blur]="blurState" style="transition: all 0.5s ease">
@@ -28,7 +28,6 @@
             class="exoplanet-row"
             matTooltip="{{expandedExoplanets.includes(exoplanet) ? 'Click to Close' : 'Click to Expand'}}" matTooltipShowDelay="6000"
             [ngClass]="{'exoplanet-expanded-row': exoplanet.expanded }"
-
             [class.exoplanet-expanded-row]="expandedExoplanets.includes(exoplanet)"
             (click)="toggleExoplanet(exoplanet)">
             </tr>
