@@ -200,3 +200,18 @@ td.mat-cell {
 .bold-cell:hover {
     background-color: #e5e5e5;
 }
+
+.mat-row td:not(.detail-container):hover {
+    
+    background-color: #f1f1f1 !important;
+    
+    z-index: 100;
+    box-shadow: #bbbbbb -1px 1px, #bbbbbb -2px 2px, #bbbbbb -3px 3px;
+    transform: translate3d(3px, -3px, 0);
+    
+    transition-delay: 0s;
+      transition-duration: 0.2s;
+      transition-property: all;
+    transition-timing-function: line;
+  }
+
