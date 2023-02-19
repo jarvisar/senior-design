@@ -194,7 +194,7 @@ td.mat-cell {
 }
 
 .mat-row:hover td.planet-name-cell {
-    background-color: #f1f1f1 !important;
+    background-color: #f3f3f3 !important;
     z-index: 100;
     box-shadow: #bbbbbb -1px 1px 0.5px, #bbbbbb -2px 2px 0.5px, #bbbbbb -3px 3px 0.5px;
     transform: translate3d(3px, -3px, 0);
