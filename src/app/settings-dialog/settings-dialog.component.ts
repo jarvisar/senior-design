@@ -1,4 +1,4 @@
-import { Component, OnInit, Injectable, Input, Inject } from '@angular/core';
+import { Component, OnInit, Injectable, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ColumnsService } from '../columns.service';
 
