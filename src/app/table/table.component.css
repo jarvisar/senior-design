@@ -193,7 +193,7 @@ td.mat-cell {
     background-color: #eaeaea;
 }
 
-.mat-row:hover td.planet-name-cell {
+.mat-row:hover td.index-cell {
     background-color: #f3f3f3 !important;
     z-index: 100;
     box-shadow: #bbbbbb -1px 1px 0.5px, #bbbbbb -2px 2px 0.5px, #bbbbbb -3px 3px 0.5px;
@@ -201,20 +201,20 @@ td.mat-cell {
     transition: 0.1s box-shadow, 0.1s transform;
   }
 
-.mat-row td.planet-name-cell:hover {
-    box-shadow: #bbbbbb -1px 1px 0.5px, #bbbbbb -2px 2px 0.5px;
+.mat-row td.index-cell:hover {
+    box-shadow: #aaaaaa -1px 1px 0.5px, #aaaaaa -2px 2px 0.5px;
     transform: translate3d(2px, -2px, 0);
     cursor: pointer;
 }
 
-.mat-row td.planet-name-cell:active {
-    box-shadow: #bbbbbb -1px 1px 0.5px;
+.mat-row td.index-cell:active {
+    box-shadow: #999999 -1px 1px 0.5px;
     transform: translate3d(1px, -1px, 0);
     cursor: pointer;
 }
 
-.mat-row:active td.planet-name-cell {
-    box-shadow: #bbbbbb -1px 1px 0.5px;
+.mat-row:active td.index-cell {
+    box-shadow: #999999 -1px 1px 0.5px;
     transform: translate3d(1px, -1px, 0);
     cursor: pointer;
 }
