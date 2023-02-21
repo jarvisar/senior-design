@@ -186,7 +186,8 @@ td.mat-cell {
 .mat-column-index {
     word-wrap: break-word ;
     white-space: unset;
-    max-width: 30px;
+    min-width: 35px !important;
+    max-width: 40px !important;
 }
 
 .mat-row:hover .mat-cell {

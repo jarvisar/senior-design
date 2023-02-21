@@ -5,7 +5,7 @@
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="test-table custom-table" [@blur]="blurState" style="transition: all 0.5s ease">
         <ng-container *ngFor="let def of tableDef" [matColumnDef]="def.column">
             <th mat-header-cell *matHeaderCellDef mat-sort-header matSort (matSortChange)="sortData($event)" appResizable> {{def.title}} </th>
-            <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"  [@columnAnimation] [ngStyle]="{'color': exoplanet[def.column] == null ? '#8f0000': 'black'}" [ngClass]="{'index-cell': def.column == 'index'}"> 
+            <td mat-cell *matCellDef="let exoplanet; let i = dataIndex"  [@columnAnimation] [ngStyle]="{'color': exoplanet[def.column] == null && def.column != 'index' ? '#8f0000': 'black'}" [ngClass]="{'index-cell': def.column == 'index'}"> 
                 <!-- Check if null and round decimals -->
                 {{def.column == 'index' ? i + 1 : (exoplanet[def.column] == null ? "n/a" : (def.column == 'pl_dens' ? exoplanet[def.column].toFixed(3) : (def.column == 'pl_rade' ? (exoplanet[def.column]).toFixed(2) : (def.column == 'pl_bmasse' ? (exoplanet[def.column]).toFixed(2) : (exoplanet[def.column]))))) }}
             </td>
