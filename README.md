@@ -12,6 +12,8 @@ This project is built using [Angular 14](https://angular.io/) and is a Progressi
 
 This project also uses my CORS-Proxy, which can be found [here](https://github.com/jarvisar/cors-proxy).
 
+Graphics were created using Adobe Photoshop, Inkscape, and other online tools.
+
 ## Table of Contents
 1. [Team Members](./project-description.md) & [Project Abstract](./project-description.md#abstract)
 2. [Project Description](./project-description.md)
