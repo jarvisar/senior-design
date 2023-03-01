@@ -27,5 +27,5 @@ This project also uses my CORS-Proxy, which can be found [here](https://github.c
 12. [Poster](./Poster.pptx)
 
 <p align="center">
-	<img src="https://github.com/jarvisar/senior-design/blob/main/Poster.png"/>
+	<img src="https://github.com/jarvisar/senior-design/blob/main/poster/Poster.png"/>
 </p>
