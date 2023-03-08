@@ -18,7 +18,7 @@
   <mat-card class="mat-card" appMaterialElevation >
     <!-- Planet Info -->
     <div class="section-title" *ngIf="pl_type != null || habitable != null || exoplanet.pl_rade != null">Planet Information</div>
-    <p *ngIf="pl_type != null || exoplanet.pl_rade != null">{{ pl_type != null ? "Potentially " : ""}}
+    <p *ngIf="pl_type != null || exoplanet.pl_bmasse != null">{{ pl_type != null ? "Potentially " : ""}}
       <a class="search-anchor" *ngIf="pl_type != null" (click)="searchPlanetType($event)" matTooltip="Search for other exoplanets with same planet type" matTooltipShowDelay="1500">{{pl_type}}</a>{{pl_type != null ? "," : ""}}
       {{ exoplanet.pl_rade != null ? 
           (exoplanet.pl_bmasse != null ? 
