@@ -5,7 +5,7 @@
 
 Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
 
-This web app is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on most devices like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in the browser's menu or address bar.
+This web app was built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on most devices like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in the browser's menu or address bar.
   
  All of the required documentation for CS5001/2 can be found on the [main](https://github.com/jarvisar/senior-design/tree/main) branch.
   
