@@ -118,19 +118,12 @@ This web application was built using Angular v14.2.10.
 
 <p float="center">
 [<img src="https://angular.io/assets/images/logos/angular/angular.png" title="Angular" width="100" />](https://angular.io/)
-  
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="100" />](https://www.typescriptlang.org/)
-  
 [<img src="https://www.ipac.caltech.edu/system/activities/logos/24/small/nea_logo.png" title="NASA Exoplanet Archive" width="150" />](https://exoplanetarchive.ipac.caltech.edu/)
-  
 [<img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" title="Postman" width="100" />](https://www.postman.com/)
-  
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/2048px-Inkscape_Logo.svg.png" title="Inkscape" width="100" />](https://inkscape.org/)
-  
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" title="PhotoShop" width="100"/>](https://www.adobe.com/products/photoshop.html)
-  
 [<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/material-design/material-design.png" title="Material Design" width="100"/>](https://m3.material.io/)
-  
 </p>
 
 
