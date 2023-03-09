@@ -111,10 +111,10 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 ###### Hint: entering the Konami code will show secret exoplanets!
 
+If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
+
 ## Tools Used
-
-This web application was built using Angular v14.2.10.
-
+<br>
 
 <p align="center">
   <a href="https://angular.io/"><img src="https://angular.io/assets/images/logos/angular/angular.png" alt="Angular" width="100" /></a>
@@ -128,5 +128,3 @@ This web application was built using Angular v14.2.10.
 
 
 
-
-If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
