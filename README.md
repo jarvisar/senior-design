@@ -7,7 +7,7 @@ Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplan
 
 This web app was built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on most devices like a regular app. To install, visit the [latest deployment](https://jarvisar.github.io/senior-design/) on a device with a modern browser and look for the "install" button in the browser's menu or address bar.
   
- All of the required documentation for CS5001/2 can be found on the [main](https://github.com/jarvisar/senior-design/tree/main) branch.
+ All of the required documentation for CS5001/2 can be found in the [main](https://github.com/jarvisar/senior-design/tree/main) branch.
   
  ## How to Use
  
