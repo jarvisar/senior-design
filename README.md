@@ -113,7 +113,7 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
 
-## Tools Used
+## Tools Used During Development
 <br>
 
 <p align="center">
@@ -123,8 +123,15 @@ If you found this project interesting, also be sure to check out my [Out of this
   <a target="_blank" href="https://www.postman.com/"><img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" alt="Postman" width="100" /></a>
   <a target="_blank" href="https://inkscape.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/2048px-Inkscape_Logo.svg.png" alt="Inkscape" width="100" /></a>
   <a target="_blank" href="https://m3.material.io/"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/material-design/material-design.png" alt="Material Design" width="100" /></a>
-  <a target="_blank" href="https://aladin.cds.unistra.fr/"><img src="https://rcsed2.voxastro.org/logos/aladin.png" alt="Material Design" width="175" /></a>
-    <a target="_blank" href="https://www.adobe.com/products/photoshop.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop" width="100" /></a>
+  <a target="_blank" href="https://aladin.cds.unistra.fr/"><img src="https://rcsed2.voxastro.org/logos/aladin.png" alt="Aladin Sky Atlas" width="175" /></a>
+    <a href="https://www.adobe.com/products/photoshop.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop" width="100" /></a>
+</p>
+
+<p align="center">
+  <a href="https://www.python.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Python" width="100" /></a>
+   <a href="https://expressjs.com/"><img src="https://w7.pngwing.com/pngs/925/447/png-transparent-express-js-node-js-javascript-mongodb-node-js-text-trademark-logo.png" alt="Express.js" width="100" /></a>
+  <a href="https://github.com/jarvisar/cors-proxy"><img src="https://i.imgur.com/ahIOnQp.png" alt="CORS Proxy" width="100" /></a>
+  <a href="https://vercel.com/"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a7/Vercel_favicon.svg/revision/latest/scale-to-width-down/250?cb=20221026155821" alt="Vercel" width="100" /></a>
 </p>
 
 
