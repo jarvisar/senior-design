@@ -123,7 +123,7 @@ If you found this project interesting, also be sure to check out my [Out of this
   <a href="https://www.postman.com/"><img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" alt="Postman" width="100" /></a>
   <a href="https://inkscape.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/2048px-Inkscape_Logo.svg.png" alt="Inkscape" width="100" /></a>
   <a href="https://m3.material.io/"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/material-design/material-design.png" alt="Material Design" width="100" /></a>
-  <a href="https://aladin.cds.unistra.fr/"><img src="https://rcsed2.voxastro.org/logos/aladin.png" alt="Material Design" width="200" /></a>
+  <a href="https://aladin.cds.unistra.fr/"><img src="https://rcsed2.voxastro.org/logos/aladin.png" alt="Material Design" width="175" /></a>
     <a href="https://www.adobe.com/products/photoshop.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop" width="100" /></a>
 </p>
 
