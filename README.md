@@ -43,9 +43,9 @@ Selecting the checkbox next to the help button will display additional inputs:
 
 #### Receiving Results
 
-After submitting a search, the results are displayed in a table format with five additional buttons for enhanced functionality. Easily configure the table columns with the column configuration button, revisit previous searches with the previous search button, quickly copy the search parameters to the clipboard with the copy button, close all currently expanded rows, and even export the data as a CSV file for local storage with the simple click of the download button.
+After submitting a search, the results are displayed in a table format with five additional buttons for enhanced functionality. Configure the table columns with the column configuration button, revisit previous searches with the previous search button, copy the search parameters to the clipboard with the copy button, close all currently expanded rows, and export the data as a CSV file to the local disk.
 
-Sort the exoplanet data by clicking on a column header and switch between descending and ascending order. In-depth information about a specific exoplanet is available by simply clicking on its row, such as planet type, orbit information, and its position in the sky. Searchable terms within the expanded row are highlighted in cyan and can search for similar exoplanets by clicking on them.
+Sort the exoplanet data by clicking on a column header and switch between descending and ascending order. In-depth information about a specific exoplanet is available by clicking on its row, such as planet type, orbit information, and its position in the sky. Searchable terms within the expanded row are highlighted in cyan and can search for similar exoplanets by clicking on them.
         
 #### Understanding the Results
 
