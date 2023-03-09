@@ -117,7 +117,7 @@ This web application was built using Angular v14.2.10.
 
 
 <p float="center">
-<img src="https://angular.io/assets/images/logos/angular/angular.png" title="Angular" width="100" />
+(<img src="https://angular.io/assets/images/logos/angular/angular.png" title="Angular" width="100" />)[www.google.com]
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" width="100" />
 <img src="https://www.ipac.caltech.edu/system/activities/logos/24/small/nea_logo.png" title="NASA Exoplanet Archive" width="150" />
 <img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" title="Postman" width="100" />
