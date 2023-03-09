@@ -130,7 +130,7 @@ If you found this project interesting, also be sure to check out my [Out of this
 <p align="center">
   <a href="https://www.python.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Python" width="100" /></a>
    <a href="https://expressjs.com/"><img src="https://i.imgur.com/u5SJAj4.png" alt="Express.js" width="100" /></a>
-  <a href="https://github.com/jarvisar/cors-proxy"><img src="https://i.imgur.com/ahIOnQp.png" alt="CORS Proxy" width="100" /></a>
+  <a href="https://github.com/jarvisar/cors-proxy"><img src="https://i.imgur.com/ahIOnQp.png" alt="CORS Proxy" width="160" /></a>
   <a href="https://vercel.com/"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a7/Vercel_favicon.svg/revision/latest/scale-to-width-down/250?cb=20221026155821" alt="Vercel" width="100" /></a>
 </p>
 
