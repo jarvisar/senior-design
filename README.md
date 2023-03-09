@@ -115,6 +115,12 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 This web application was built using Angular v14.2.10.
 
+
+<p float="center">
 <img src="https://angular.io/assets/images/logos/angular/angular.png" title="Material Design" width="100" />
+<img src="https://www.ipac.caltech.edu/system/activities/logos/24/small/nea_logo.png" title="Material Design" width="100" />
+</p>
+
+
 
 If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
