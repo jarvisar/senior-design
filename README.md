@@ -117,3 +117,4 @@ This web application was built using Angular v14.2.10.
 
 <img src="https://angular.io/assets/images/logos/angular/angular.png" title="Material Design" width="100" />
 
+If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
