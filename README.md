@@ -70,7 +70,7 @@ Node.js and npm are required for this web app to run. They can downloaded from t
 1. Clone or download the `master` branch of this repository.
 2. Open a terminal and navigate to the /senior-design/ directory.
 3. Run `npm install` to install the required dependencies.
-4. Run `npm install -g @angular/cli` to install Angular CLI.
+4. Run `npm install -g @angular/cli` to install Angular CLI (if necessary).
 
 #### Running the Web Application
 
