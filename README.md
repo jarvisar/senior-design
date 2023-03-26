@@ -44,6 +44,7 @@ Graphics were created using Adobe Photoshop, Inkscape, and other online tools.
   <a target="_blank" href="https://m3.material.io/"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/material-design/material-design.png" alt="Material Design" width="100" /></a>
   <a target="_blank" href="https://aladin.cds.unistra.fr/"><img src="https://rcsed2.voxastro.org/logos/aladin.png" alt="Aladin Sky Atlas" width="175" /></a>
     <a href="https://www.adobe.com/products/photoshop.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop" width="100" /></a>
+    <a target="_blank" href="https://developer.chrome.com/docs/devtools/"><img src="https://static-00.iconduck.com/assets.00/chrome-devtools-icon-512x512-8iaxdppx.png" alt="Chome DevTools" width="85" /></a>
 </p>
 
 <p align="center">
