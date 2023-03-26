@@ -21,6 +21,7 @@
   <a href="https://github.com/jarvisar/cors-proxy"><img src="https://i.imgur.com/ahIOnQp.png" alt="CORS Proxy" width="160" /></a>
   <a href="https://vercel.com/"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a7/Vercel_favicon.svg/revision/latest/scale-to-width-down/250?cb=20221026155821" alt="Vercel" width="100" /></a>
     <a href="https://expressjs.com/"><img src="https://i.imgur.com/jv2R3CP.png" alt="Express.js" width="125" /></a>
+  	    <a target="_blank" href="https://developer.chrome.com/docs/devtools/"><img src="https://static-00.iconduck.com/assets.00/chrome-devtools-icon-512x512-8iaxdppx.png" alt="Chome DevTools" width="100" /></a>
 </p>
 
 ### Fall Semester Work Record
