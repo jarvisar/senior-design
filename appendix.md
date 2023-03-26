@@ -43,5 +43,26 @@
 | Prototype Deployment and Debugging | 5 |
 | Final Report Organization | 3 |
 
+### Spring Semester Work Record
+
+##### Adam Jarvis
+| Work Description | Hours Spent |
+|-|-|
+| CS5001 Course Assignments | 10 |
+| Responsive Styling | 12 |
+| Integrate Aladin Lite | 10 |
+| Streamlining Data Retrieval | 20 |
+| Additional functionality (column config, previous search, etc.) | 5 |
+| Final Report Organization | 3 |
+
+##### Will Leithauser
+| Work Description | Hours Spent |
+|-|-|
+| CS5001 Course Assignments | 10 |
+| Add Graphics to UI | 12 |
+| Streamline Data Retrieval | 20 |
+| Debugging and Testing | 5 |
+| Final Report Organization | 3 |
+
 ### Final [GitHub Pages](http://jarvisar.github.io/senior-design) Site
 
