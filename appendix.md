@@ -51,8 +51,8 @@
 | CS5001 Course Assignments | 10 |
 | Responsive Styling | 12 |
 | Integrate Aladin Lite | 10 |
-| Streamlining Data Retrieval | 20 |
-| Addl. functionality (column config, prev. search, etc.) | 5 |
+| Streamlining Data Retrieval | 10 |
+| Additional Functionality | 5 |
 | Final Report Organization | 3 |
 
 ##### Will Leithauser
