@@ -111,8 +111,6 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 ###### Hint: entering the Konami code will show secret exoplanets!
 
-If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
-
 ## Tools Used During Development
 <br>
 
