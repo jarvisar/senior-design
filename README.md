@@ -5,9 +5,9 @@
 
 Search for exoplanets using data from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars)!
 
-This web app is built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on most devices like a regular app. To install, visit the website on a device with a modern browser and look for the "install" button in the browser's menu or address bar.
+This web app was built using [Angular 14](https://angular.io/) and is a Progressive Web App (PWA) that can be installed on most devices like a regular app. To install, visit the [latest deployment](https://jarvisar.github.io/senior-design/) on a device with a modern browser and look for the "install" button in the browser's menu or address bar.
   
- All of the required documentation for CS5001/2 can be found on the [main](https://github.com/jarvisar/senior-design/tree/main) branch.
+ All of the required documentation for CS5001/2 can be found in the [main](https://github.com/jarvisar/senior-design/tree/main) branch.
   
  ## How to Use
  
@@ -16,7 +16,7 @@ This web app is built using [Angular 14](https://angular.io/) and is a Progressi
  #### Initiating a Search
  
  To search NASA's exoplanet database, enter a valid query using the available inputs. 
-      Each input allows for specific information to be entered, such as the hostname of a star, the discovery 
+      Each input allows for specific information to be entered, such as the name of a host star, the discovery 
       method used, and the discovery year and facility. To learn more about each option, refer to the input help section. 
       
 Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
@@ -43,9 +43,9 @@ Selecting the checkbox next to the help button will display additional inputs:
 
 #### Receiving Results
 
-All data is pulled directly from [NASA's Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PSCompPars) operated by the [California Institute of Technology](https://www.ipac.caltech.edu/). After submitting a search, the results will be displayed in a table format with four additional buttons for enhanced functionality. Easily configure the table columns with the column configuration button, revisit previous searches with the previous search button, quickly copy the search parameters to the clipboard with the copy button, and even export the data as a CSV file for local storage with the simple click of the download button.
+After submitting a search, the results are displayed in a table format with five additional buttons for enhanced functionality. Configure the table columns with the column configuration button, revisit previous searches with the previous search button, copy the search parameters to the clipboard with the copy button, close all currently expanded rows, and export the data as a CSV file to the local disk.
 
-Easily sort the exoplanet data by clicking on a column header, switching between descending and ascending order. In-depth information about a specific exoplanet is available by simply clicking on its row, such as planet type, orbit information, and its position in the sky. Searchable terms within the expanded row are highlighted in cyan and can search for similar exoplanets by clicking on them.
+Sort the exoplanet data by clicking on a column header and switch between descending and ascending order. In-depth information about a specific exoplanet is available by clicking on its row, such as planet type, orbit information, and its position in the sky. Searchable terms within the expanded row are highlighted in cyan and can search for similar exoplanets by clicking on them.
         
 #### Understanding the Results
 
@@ -70,7 +70,7 @@ Node.js and npm are required for this web app to run. They can downloaded from t
 1. Clone or download the `master` branch of this repository.
 2. Open a terminal and navigate to the /senior-design/ directory.
 3. Run `npm install` to install the required dependencies.
-4. Run `npm install -g @angular/cli` to install Angular CLI.
+4. Run `npm install -g @angular/cli` to install Angular CLI (if necessary).
 
 #### Running the Web Application
 
@@ -111,9 +111,29 @@ This web application utilizes Table Access Protocol ([TAP](https://www.ivoa.net/
 
 ###### Hint: entering the Konami code will show secret exoplanets!
 
-## Angular 14
+If you found this project interesting, also be sure to check out my [Out of this World](http://jarvisar.github.io/datavis-project1) project for CS5124 and my PyTorch [Exoplanet Classifier](https://github.com/jarvisar/exoplanet-classifier), both of which use the same exoplanet data. 
 
-This web application was built using Angular v14.2.10.
+## Tools Used During Development
+<br>
 
-<img src="https://angular.io/assets/images/logos/angular/angular.png" title="Material Design" width="100" />
+<p align="center">
+  <a target="_blank" title="Angular" href="https://angular.io/"><img src="https://angular.io/assets/images/logos/angular/angular.png" alt="Angular" width="100" /></a>
+  <a target="_blank" href="https://www.typescriptlang.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="TypeScript" title="TypeScript" width="100" /></a>
+  <a target="_blank" href="https://exoplanetarchive.ipac.caltech.edu/"><img src="https://www.ipac.caltech.edu/system/activities/logos/24/small/nea_logo.png" alt="NASA Exoplanet Archive" width="150" /></a>
+  <a target="_blank" href="https://www.postman.com/"><img src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" alt="Postman" width="100" /></a>
+  <a target="_blank" href="https://inkscape.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Inkscape_Logo.svg/2048px-Inkscape_Logo.svg.png" alt="Inkscape" width="100" /></a>
+  <a target="_blank" href="https://m3.material.io/"><img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/material-design/material-design.png" alt="Material Design" width="100" /></a>
+  <a target="_blank" href="https://aladin.cds.unistra.fr/"><img src="https://rcsed2.voxastro.org/logos/aladin.png" alt="Aladin Sky Atlas" width="175" /></a>
+    <a href="https://www.adobe.com/products/photoshop.html"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/640px-Adobe_Photoshop_CC_icon.svg.png" alt="Photoshop" width="100" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/jarvisar/senior-design/tree/main/tools"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Python" width="100" /></a>
+  <a href="https://github.com/jarvisar/cors-proxy"><img src="https://i.imgur.com/ahIOnQp.png" alt="CORS Proxy" width="160" /></a>
+  <a href="https://vercel.com/"><img src="https://static.wikia.nocookie.net/logopedia/images/a/a7/Vercel_favicon.svg/revision/latest/scale-to-width-down/250?cb=20221026155821" alt="Vercel" width="100" /></a>
+    <a href="https://expressjs.com/"><img src="https://i.imgur.com/jv2R3CP.png" alt="Express.js" width="125" /></a>
+    	    <a target="_blank" href="https://developer.chrome.com/docs/devtools/"><img src="https://static-00.iconduck.com/assets.00/chrome-devtools-icon-512x512-8iaxdppx.png" alt="Chome DevTools" width="100" /></a>
+</p>
+
+
 
