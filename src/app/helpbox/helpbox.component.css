@@ -34,3 +34,20 @@ button {
     width: 100%;
     background-color: #f6f6f6;
   }
+
+  /* Hide the default scrollbar */
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Define the track style */
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5 !important;
+}
+
+/* Define the thumb style */
+::-webkit-scrollbar-thumb {
+    background-color: #c6c6c6 !important;
+    border-radius: 10px;
+    border: 3px solid #f5f5f5 !important;
+}
