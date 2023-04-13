@@ -23,9 +23,6 @@ Graphics were created using Adobe Photoshop, Inkscape, Figma, and other online t
 8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
 9. [Summary of Expenses](./essays/budget.md)
 10. [Appendix](./appendix.md)
-<br>
-
-### Poster
 
 <p align="center">
 	<img src="https://github.com/jarvisar/senior-design/blob/main/poster/Poster.png"/>
