@@ -13,7 +13,7 @@ This project also uses my CORS-Proxy, which can be found [here](https://github.c
 Graphics were created using Adobe Photoshop, Inkscape, Figma, and other online tools.
 
 ## Table of Contents
-1. [Project Description](./project-description.md) & [Project Abstract](./project-description.md#abstract)
+1. [Project Description](./project-description.md) & [Abstract](./project-description.md#abstract)
 2. [User Stories](./User_Stories.md) & [Design Diagrams](./design-diagrams)
 3. [Test Plan](./essays/Test%20Plan.docx)
 4. [User Docs](./User_Docs.md)
