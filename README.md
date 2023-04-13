@@ -50,5 +50,5 @@ Graphics were created using Adobe Photoshop, Inkscape, Figma, and other online t
 	    <a target="_blank" href="https://developer.chrome.com/docs/devtools/"><img src="https://static-00.iconduck.com/assets.00/chrome-devtools-icon-512x512-8iaxdppx.png" alt="Chome DevTools" width="100" /></a>
 </p>
 
-<h6 align="center> Click any of the icons to learn more <h6>
+<h5 align="center> Click any of the icons to learn more </h5>
 
