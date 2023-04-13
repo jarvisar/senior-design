@@ -24,6 +24,8 @@ Graphics were created using Adobe Photoshop, Inkscape, Figma, and other online t
 9. [Summary of Expenses](./essays/budget.md)
 10. [Appendix](./appendix.md)
 
+### Poster
+<br>
 <p align="center">
 	<img src="https://github.com/jarvisar/senior-design/blob/main/poster/Poster.png"/>
 </p>
