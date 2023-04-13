@@ -22,8 +22,11 @@ This web app was built using [Angular 14](https://angular.io/) and is a Progress
 Once a query has been entered, click the search button to retrieve data from NASA's database. Note that large searches
       can take up to 15 seconds to process before exoplanet data has been cached. Some example large searches include exoplanets discovered using transit, exoplanets 
       discovered in 2014 and 2016, and exoplanets first observed by the [Kepler space telescope](https://www.nasa.gov/mission_pages/kepler/overview/index.html).
-      
+ 
  #### Understanding the Input
+  
+<p align="center">
+  <img src="https://i.imgur.com/UoHBuJf.jpg"/>
  
 When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
