@@ -13,13 +13,13 @@ This project also uses my CORS-Proxy, which can be found [here](https://github.c
 Graphics were created using Adobe Photoshop, Inkscape, Figma, and other online tools.
 
 ## Table of Contents
-1. [Team Members](./project-description.md) & [Project Abstract](./project-description.md#abstract)
+1. [Project Description](./project-description.md) & [Project Abstract](./project-description.md#abstract)
 2. [User Stories](./User_Stories.md) & [Design Diagrams](./design-diagrams)
 3. [Test Plan](./essays/Test%20Plan.docx)
 4. [User Docs](./User_Docs.md)
 5. [Final Presentation](./Final%20Project%20Presentation.pptx)
 6. [Poster](./Poster.pptx)
-7. Self-Assessment Essays for [Adam Jarvis](./essays/JarvisIndividualAssessment.docx)
+7. Adam Jarvis Self-Assessment: [Fall](./essays/JarvisIndividualAssessment.docx) & [Spring](./essays/FinalJarvisIndividualAssessment.docx)
 8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
 9. [Summary of Expenses](./essays/budget.md)
 10. [Appendix](./appendix.md)
