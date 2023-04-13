@@ -35,7 +35,7 @@ When searching, the input options allow for specific information to be entered. 
  * Discovery year refers to the year the exoplanet was first found
  * Discovery facility refers to the facility or observatory that first discovered the exoplanet
  
-Selecting the checkbox next to the help button will display additional inputs:
+Selecting the checkbox next to the clear button will display additional inputs:
   
   * Min Mass and Max Mass refer to the minimum and maximum allowed planet mass in units of Earth's mass (EM)
   * Min Radius and Max Radius refer to the minimum and maximum allowed planet radius in units of Earth's Radius (ER)
