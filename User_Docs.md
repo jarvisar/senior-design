@@ -24,6 +24,9 @@ Once a query has been entered, click the search button to retrieve data from NAS
       discovered in 2014 and 2016, and exoplanets first observed by the [Kepler space telescope](https://www.nasa.gov/mission_pages/kepler/overview/index.html).
       
  #### Understanding the Input
+  
+<p align="center">
+  <img src="https://i.imgur.com/UoHBuJf.jpg"/>
  
 When searching, the input options allow for specific information to be entered. Here's what each option represents:
  
