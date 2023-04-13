@@ -24,9 +24,10 @@ Graphics were created using Adobe Photoshop, Inkscape, and other online tools.
 7. Self-Assessment Essays for [Adam Jarvis](./essays/JarvisIndividualAssessment.docx)
 8. Professional Biographies for [Adam Jarvis](./essays/JarvisProfessionalBiography.md)
 9. [Budget](./essays/budget.md)
-10. [User Docs](./User_Docs.md)
-11. [Appendix](./appendix.md)
-12. [Poster](./Poster.pptx)
+10. [Test Plan](./essays/Test%20Plan.docx)
+11. [User Docs](./User_Docs.md)
+12. [Appendix](./appendix.md)
+13. [Poster](./Poster.pptx)
 
 <p align="center">
 	<img src="https://github.com/jarvisar/senior-design/blob/main/poster/Poster.png"/>
