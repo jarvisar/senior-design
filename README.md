@@ -49,5 +49,6 @@ Graphics were created using Adobe Photoshop, Inkscape, Figma, and other online t
     <a href="https://expressjs.com/"><img src="https://i.imgur.com/jv2R3CP.png" alt="Express.js" width="125" /></a>
 	    <a target="_blank" href="https://developer.chrome.com/docs/devtools/"><img src="https://static-00.iconduck.com/assets.00/chrome-devtools-icon-512x512-8iaxdppx.png" alt="Chome DevTools" width="100" /></a>
 </p>
+<p align="center">
+	###### Click any of the icons to learn more </p>
 
-###### Click any of the icons to learn more
